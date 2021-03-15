@@ -9,14 +9,10 @@
           <label class="is-size-1" style="color: white;">Create Account</label>
           <label class="is-size-4 ml-2" style="color: white;">(Nurse only)</label>
         </div>
-        <div class="column-4" >
-          <i @click="kod" ><img src="../assets/cancel.png" 
-              style="width:60px; padding-top: 15px;"/></i>
-        </div>
       </div>
     </div>
   </div>
-  <section style="padding-top: 50px; padding-bottom: 50px; text-align: left">
+  <section style="padding-top: 30px; padding-bottom: 30px; text-align: left">
     <div class="container"  style="padding-left: 100px; padding-right: 100px">
       <div class="columns">
         <div class="column">
@@ -52,6 +48,10 @@
         </b-field>
         <div style="text-align: center;" >
           <b-button type="is-success" size="is-medium" label="Register"/>
+        </div>
+        <div style="text-align: center;" >
+          <a class="has-text-black">already have an account? </a>
+          <a href="/login" class="is-active has-text-success" style="text-decoration: underline;"> Login </a>
         </div>
       </div>
     </section>
