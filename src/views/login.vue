@@ -1,6 +1,6 @@
 <template>
-  <div class="hero is-fullheight bg login ">
-    <section class="section is-medium">
+  <div class="hero is-fullheight bg">
+    <section class="section is-small">
       <div class="login">
         <strong>E-CGA</strong>
         <h3>Electronic Comprehensive Geriatric Assessment</h3>
