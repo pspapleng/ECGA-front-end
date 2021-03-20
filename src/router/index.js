@@ -46,25 +46,25 @@ const routes = [
       import(/* webpackChunkName: "register" */ "../views/register.vue")
   },
   {
-<<<<<<< HEAD
-    path: "/patient",
-    name: "Patient",
-=======
     path: "/historypatient",
     name: "Historypatient",
->>>>>>> master
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-<<<<<<< HEAD
-      import(/* webpackChunkName: "patient" */ "../views/patient.vue")
-=======
       import(
         /* webpackChunkName: "historypatient" */ "../views/historypatient.vue"
       )
->>>>>>> master
-  }
+  },
+  {
+    path: "/patient",
+    name: "Patient",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+    import(/* webpackChunkName: "patient" */ "../views/patient.vue")
+  },
 ];
 
 const router = new VueRouter({
