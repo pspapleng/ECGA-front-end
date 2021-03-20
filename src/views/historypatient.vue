@@ -5,7 +5,7 @@
         <b-button
           class="button column is-half container is-max-desktop"
           @click="isActive = true"
-          >นางสาว ธิดาพร ชาวคูเวียง</b-button
+          >นางสาว เอวาริณ ชาวคูเวียง</b-button
         >
         <b-modal v-model="isActive">
           <form class="card">
