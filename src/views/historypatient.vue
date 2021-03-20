@@ -15,7 +15,7 @@
             <div class="name column is-full has-background-grey-light">
               <strong id="head-name">นางสาว ธิดาพร ชาวคูเวียง</strong>
             </div>
-            <div class="column is-full">
+            <div class="column  is-full">
               <div class="level">
                 <div class="br column is-6">
                   <b-field grouped>
