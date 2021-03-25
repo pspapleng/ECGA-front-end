@@ -22,16 +22,17 @@
         <b-input
           type="text"
           v-model="search"
-          placeholder="Search..."
+          placeholder="ค้นหารายชื่อผู้เข้ารับบริการที่นี่..."
           expanded
         ></b-input>
-        <p class="control ">
-          <b-button class="butt" label="ค้นหา" style="color: white;" />
-        </p>
       </b-field>
     </section>
 
-    <section class="list" v-for="list in list" :key="list.img">
+    <section
+      class="column is-12 list"
+      v-for="list in listFilter"
+      :key="list.img"
+    >
       <b-field grouped>
         <div class="column is-1">
           <b-image class="img" v-bind:src="list.img" ratio="1by1"></b-image>
@@ -43,8 +44,8 @@
         <div v-if="list.ldate == ''" id="red" class="column is-4 nameinfo">
           ไม่มีผลการประเมิน
         </div>
-        <div v-if="list.ldate != ''" class="column is-1 nameinfo"></div>
-        <div v-if="list.ldate == ''" class="column is-1 nameinfo">
+        <div v-if="list.ldate != ''" class="column is-2 nameinfo"></div>
+        <div v-if="list.ldate == ''" class="column is-2 nameinfo">
           <b-button class="button bt_log">
             ทำแบบประเมิน
           </b-button>
@@ -100,9 +101,9 @@
       </b-sidebar>
     </section>
     <section class="cna">
-      <b-button class="button bt_yellow">
+      <v-btn @click="create()" class="button bt_yellow">
         CREATE NEW ACCOUNT
-      </b-button>
+      </v-btn>
     </section>
   </div>
 </template>
@@ -135,6 +136,7 @@ export default {
           ldate: "22/03/64"
         }
       ],
+      search: "",
       open: false,
       user: "Taweewat  Srimek",
       overlay: true,
@@ -144,6 +146,9 @@ export default {
   methods: {
     side() {
       this.open = !this.open;
+    },
+    create() {
+      this.$router.push("/patient");
     }
   },
   computed: {
@@ -155,9 +160,8 @@ export default {
       }
     },
     listFilter() {
-      let text = this.search.trim();
-      return this.list.filter(item => {
-        return item.name.indexOf(text) > -1;
+      return this.list.filter(list => {
+        return list.name.match(this.search);
       });
     }
   }
@@ -189,7 +193,7 @@ export default {
   color: white;
   border: none;
   background-color: #1e3a8a;
-  padding: 0px 100px 0px 100px;
+  padding: 0px 30px 0px 30px;
 }
 .nameinfo {
   margin: auto;
