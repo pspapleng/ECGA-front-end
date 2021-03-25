@@ -31,40 +31,25 @@
       </b-field>
     </section>
 
-    <section class="list">
+    <section class="list" v-for="list in list" :key="list.img">
       <b-field grouped>
         <div class="column is-1">
-          <b-image
-            class="img"
-            src="https://www.tvpoolonline.com/wp-content/uploads/2020/04/2020-04-19_8-40-29.png"
-            ratio="1by1"
-          ></b-image>
+          <b-image class="img" v-bind:src="list.img" ratio="1by1"></b-image>
         </div>
-        <div class="column is-2 nameinfo">{{ name }} {{ lname }}</div>
-        <div id="red" class="column is-3 nameinfo">
-          มีข้อมูลแบบประเมินเมื่อวันที่ {{ ldate }}
+        <div class="column is-3 nameinfo">{{ list.name }} {{ list.lname }}</div>
+        <div v-if="list.ldate != ''" id="red" class="column is-4 nameinfo">
+          มีข้อมูลแบบประเมินเมื่อวันที่ {{ list.ldate }}
         </div>
-        <div class="column is-3 nameinfo"></div>
-      </b-field>
-    </section>
-    <section class="list">
-      <b-field grouped>
-        <div class="column is-1">
-          <b-image
-            class="img"
-            src="https://www.tvpoolonline.com/wp-content/uploads/2020/04/2020-04-19_8-40-29.png"
-            ratio="1by1"
-          ></b-image>
-        </div>
-        <div class="column is-2 nameinfo">{{ name }} {{ lname }}</div>
-        <div id="red" class="column is-3 nameinfo">
+        <div v-if="list.ldate == ''" id="red" class="column is-4 nameinfo">
           ไม่มีผลการประเมิน
         </div>
-        <div class="column is-3 nameinfo">
+        <div v-if="list.ldate != ''" class="column is-1 nameinfo"></div>
+        <div v-if="list.ldate == ''" class="column is-1 nameinfo">
           <b-button class="button bt_log">
             ทำแบบประเมิน
           </b-button>
         </div>
+        <div class="column is-3 nameinfo"></div>
       </b-field>
     </section>
 
@@ -127,11 +112,31 @@ export default {
   name: "Namelist",
   data() {
     return {
+      list: [
+        {
+          img:
+            "https://www.tvpoolonline.com/wp-content/uploads/2020/04/2020-04-19_8-40-29.png",
+          name: "ธิดาพร",
+          lname: "ชาวคูเวียง",
+          ldate: "22/03/64"
+        },
+        {
+          img:
+            "https://www.tvpoolonline.com/wp-content/uploads/2020/04/2020-04-19_8-40-29.png",
+          name: "สุภัคชญา",
+          lname: "ชาวคูเวียง",
+          ldate: ""
+        },
+        {
+          img:
+            "https://www.tvpoolonline.com/wp-content/uploads/2020/04/2020-04-19_8-40-29.png",
+          name: "เอวาริณ",
+          lname: "ชาวคูเวียง",
+          ldate: "22/03/64"
+        }
+      ],
       open: false,
       user: "Taweewat  Srimek",
-      name: "ธิดาพร",
-      lname: "ชาวคูเวียง",
-      ldate: "22/03/64",
       overlay: true,
       fullheight: true
     };
@@ -148,6 +153,12 @@ export default {
       } else {
         return this.weight / ((this.height / 100) * (this.height / 100));
       }
+    },
+    listFilter() {
+      let text = this.search.trim();
+      return this.list.filter(item => {
+        return item.name.indexOf(text) > -1;
+      });
     }
   }
 };
