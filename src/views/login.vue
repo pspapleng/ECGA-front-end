@@ -19,9 +19,9 @@
         <div class="forget level-right">
           <p>ลืมรหัสผ่าน?</p>
         </div>
-        <button class="button bt-blue">
+        <b-button class="button bt-blue">
           เข้าสู่ระบบ
-        </button>
+        </b-button>
       </form>
       <p class="newacc">
         สมัครบัญชีพยาบาลใหม่
@@ -61,7 +61,7 @@ export default {
 }
 .bt-blue {
   margin-top: 20px;
-  padding: 20px 80px 20px 80px;
+  padding: 0px 7vw 0px 7vw;
   color: #fff;
   background-color: #1e3a8a;
 }
