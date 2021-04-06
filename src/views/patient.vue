@@ -19,32 +19,38 @@
     <div class="container"  style="padding-left: 100px; padding-right: 100px">
       <div class="columns is-mobile">
         <div class="column is-4">
-          <b-field custom-class="is-large" label="ชื่อ">
-            <b-input size="is-large" type="text" v-model="name"></b-input>
+          <b-field custom-class="is-medium" label="ชื่อ"
+            :type="{ 'is-danger': fname_err }"
+            :message="{ 'โปรดกรอกชื่อ': fname_err }">
+            <b-input size="is-medium" type="text" v-model="name"></b-input>
           </b-field>
         </div>
         <div class="column is-4">
-          <b-field custom-class="is-large" label="นามสกุล">
-            <b-input size="is-large" type="text" v-model='lname'></b-input>
+          <b-field custom-class="is-medium" label="นามสกุล"
+            :type="{ 'is-danger': lname_err }"
+            :message="{ 'โปรดกรอกนามสกุล': lname_err }">
+            <b-input size="is-medium" type="text" v-model='lname'></b-input>
           </b-field>
         </div>
 
       </div>
       <div class="columns is-mobile">
         <div class="column">
-            <b-field custom-class="is-large" label="เพศ">
+            <b-field custom-class="is-medium" label="เพศ"
+              :type="{ 'is-danger': sex_err }"
+              :message="{ 'โปรดเลือกเพศ': sex_err }">
               <div class="column is-2">
-                <b-radio v-model="radio"
+                <b-radio v-model="sex"
                     name="name"
-                    size="is-large"
+                    size="is-medium"
                     native-value="ชาย">
                     ชาย
                 </b-radio>
               </div>
               <div class="column">
-                <b-radio v-model="radio"
+                <b-radio v-model="sex"
                     name="name"
-                    size="is-large"
+                    size="is-medium"
                     native-value="หญิง">
                     หญิง
                 </b-radio>
@@ -54,55 +60,28 @@
 
       </div>
       <div class="columns is-mobile">
-        <div class="column">
-        <b-field custom-class="is-large" label="วัน เดือน ปีเกิด">
-          <div class="column is-3">
-            <b-select placeholder="เลือกวัน" size="is-large" expanded>
-                <option
-                    v-for="day in days"
-                    :value="day"
-                    :key="day">
-                    {{ day }}
-                </option>
-            </b-select>
-          </div>
-          <div class="column is-3">
-             <b-select placeholder="เลือกเดือน" size="is-large" expanded>
-                <option
-                    v-for="month in months"
-                    :value="month"
-                    :key="month">
-                    {{ month }}
-                </option>
-            </b-select>
-          </div>
-          <div class="column is-3">
-            <b-select placeholder="เลือกปี" size="is-large" expanded>
-                <option
-                    v-for="year in years"
-                    :value="year"
-                    :key="year">
-                    {{ year }}
-                </option>
-              </b-select>
-          </div>
-        </b-field>
-        </div>
-      </div>
-      <div class="columns is-mobile">
-        <div class="column is-2">
-          <b-field custom-class="is-large" label="อายุ">
-            <b-input size="is-large" v-model='password'></b-input>
+        <div class="column is-4">
+          <b-field custom-class="is-medium" label="วัน เดือน ปีเกิด"
+            :type="{ 'is-danger': date_err }"
+            :message="{ 'โปรดเลือกวัน เดือน ปีเกิด': date_err }">
+            <b-datepicker
+                placeholder="Type or select a date..."
+                icon="calendar-today"
+                size="is-medium"
+                editable>
+            </b-datepicker>
           </b-field>
         </div>
       </div>
       <div class="columns is-mobile">
         <div class="column is-4">
-          <b-field custom-class="is-large" label="วันเข้ารับการประเมิน">
+          <b-field custom-class="is-medium" label="วันเข้ารับการประเมิน"
+            :type="{ 'is-danger': from_err }"
+            :message="{ 'โปรดเลือกวันที่เข้ารับการประเมิน': from_err }">
             <b-datepicker
                 placeholder="Type or select a date..."
                 icon="calendar-today"
-                size="is-large"
+                size="is-medium"
                 editable>
             </b-datepicker>
           </b-field>
@@ -110,39 +89,66 @@
       </div>
       <div class="columns is-mobile is-variable is-8">
         <div class="column is-4">
-          <b-field custom-class="is-large" label="น้ำหนัก">
-              <b-input size="is-large" v-model='weight'></b-input>
+          <b-field custom-class="is-medium" label="น้ำหนัก"
+            :type="{ 'is-danger': hei_err }"
+            :message="{ 'โปรดกรอกน้ำหนัก': hei_err }">
+              <b-input size="is-medium" v-model='weight'></b-input>
           </b-field>
         </div>
         <div class="column is-4">
-          <b-field custom-class="is-large" label="ส่วนสูง">
-              <b-input size="is-large" v-model='height'></b-input>
+          <b-field custom-class="is-medium" label="ส่วนสูง"
+            :type="{ 'is-danger': wei_err }"
+            :message="{ 'โปรดกรอกส่วนสูง': wei_err }">
+              <b-input size="is-medium" v-model='height'></b-input>
           </b-field>
         </div>
         <div class="column is-3">
-          <b-field custom-class="is-large" label="ค่า BMI">
-              <b-input size="is-large" v-model='cal' disabled></b-input>
+          <b-field custom-class="is-medium" label="ค่า BMI">
+              <b-input size="is-medium" v-model='cal' disabled></b-input>
           </b-field>
         </div>
       </div>
       <div class="columns is-mobile">
         <div class="column is-3">
-          <b-field custom-class="is-large" label="รอบเอว">
-            <b-input size="is-large" v-model='password'></b-input>
+          <b-field custom-class="is-medium" label="รอบเอว"
+            :type="{ 'is-danger': waist_err }"
+            :message="{ 'โปรดกรอกขนาดรอบเอว': waist_err }">
+            <b-input size="is-medium" v-model='waistline'></b-input>
           </b-field>
         </div>
       </div>
       <div class="columns is-mobile">
         <div class="column is-3">
-          <b-field custom-class="is-large" label="ประวัติการล้มใน 1 ปี">
-            <b-input size="is-large" v-model='password'></b-input>
+          <b-field custom-class="is-medium" label="ประวัติการล้มใน 1 ปี"
+            :type="{ 'is-danger': down_err }"
+            :message="{ 'โปรดกรอกจำนวนครั้งการล้ม': down_err }">
+            <b-input size="is-medium" v-model='down1Y'></b-input>
           </b-field>
         </div>
       </div>
-      <div style="text-align: center;" >
-        <b-button type="is-success" size="is-medium" label="Register"/>
+      <div class="columns is-mobile">
+        <div class="column is-4" >
+        </div>
+        <div class="column is-2" >
+          <b-button tag="router-link"
+                to="/register"
+                type="is-success" 
+                size="is-medium" 
+                label="Register"/>
+        </div>
+        <div class="column is-2" >
+          <b-button tag="router-link"
+                to="/register" 
+                type="is-warning" 
+                size="is-medium" 
+                label="Cancel"/>
+        </div>
+        <div class="column is-4" >
+        </div>
       </div>
       </div>
+      
+
       <b-sidebar
       type="is-light"
       :fullheight="fullheight"
@@ -192,25 +198,44 @@ export default {
       user: "Taweewat  Srimek",
       name: "",
       lname: "",
+      sex: "",
       overlay: true,
       fullheight: true,
       height: 0,
       weight: 0,
-      bmi: 0,
-      days: [
-        1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31
-      ],
-      months: [
-        1,2,3,4,5,6,7,8,9,10,11,12
-      ],
-      years: [
-        2480,2481,2482,2483,2484,2485,2486,2487,2488,2489,2490,2491,2492,2493,2494,2495,2496,2497,2498,2499,2500
-      ]
+      waistline: 0,
+      down1Y: 0,
+      fname_err: true,
+      lname_err: true,
+      sex_err: true,
+      date_err: true,
+      from_err: true,
+      hei_err: true,
+      wei_err: true,
+      waist_err: true,
+      down_err: true,
       }
   },
   methods: {
     side() {
       this.open = !this.open;
+    },
+    regis() {
+      if(this.fname == ""){
+        this.fname_err = !this.fname_err
+      }if(this.lname == ""){
+        this.lname_err = !this.lname_err
+      }if(this.sex == ""){
+        this.sex_err = !this.sex_err
+      }if(this.date == ""){
+        this.date_err = !this.date_err
+      }if(this.from == ""){
+        this.from_err = !this.from_err
+      }if(this.hei == ""){
+        this.hei_err = !this.hei_err
+      }if(this.wei == ""){
+        this.wei_err = !this.wei_err
+      }
     }
   },
   computed: {
@@ -221,9 +246,6 @@ export default {
         return this.weight/((this.height/100)*(this.height/100))
       }
     },
-    // user(){
-    //   return this.name+" "+this.lname
-    // }
-  },
+  }
 }
 </script>
