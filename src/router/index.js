@@ -84,6 +84,24 @@ const routes = [
       import(
         /* webpackChunkName: "CreateAccNurse" */ "../views/CreateAccNurse.vue"
       )
+  },
+  {
+    path: "/patientlist",
+    name: "Patientlist",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+    import(/* webpackChunkName: "patientlist" */ "../views/patientlist.vue")
+  },
+  {
+    path: "/sidebar",
+    name: "Sidebar",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+    import(/* webpackChunkName: "sidebar" */ "../components/sidebar.vue")
   }
 ];
 
