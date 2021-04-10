@@ -136,7 +136,7 @@
                     >
                       หญิง
                     </b-radio>
-                    <label class="level-left" for="">วันที่เข้ารับบริการ</label>
+                    <label class="level-left" for="">วัน เดือน ปีเกิด</label>
                     <b-field>
                       <b-datepicker
                         v-model="selected"
