@@ -2,18 +2,18 @@
   <div class="hero is-fullheight is-light">
     <section class="section is-medium">
       <div class="login">
-        <h1 id="head">เข้าสู่ระบบ <mark>E-CGA</mark></h1>
+        <h1 id="head">เข้าสู่ระบบ <mark type="is-warning">E-CGA</mark></h1>
       </div>
       <form class="boxlogin column is-4">
         <div class="field">
           <div class="control">
-            <input class="input" type="email" placeholder="รหัสบัญชีผู้ใช้" />
+            <b-input type="email" placeholder="รหัสบัญชีผู้ใช้" />
           </div>
         </div>
 
         <div class="field">
           <div class="control">
-            <input class="input" type="password" placeholder="รหัสผ่าน" />
+            <b-input type="password" placeholder="รหัสผ่าน" password-reveal />
           </div>
         </div>
         <div class="forget level-right">
@@ -76,7 +76,7 @@ export default {
   cursor: pointer;
 }
 mark {
-  background-color: yellow;
+  background-color: gold;
   color: black;
 }
 </style>
