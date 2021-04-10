@@ -1,0 +1,229 @@
+<template>
+  <div>
+    <section>
+      <div class="columns">
+        <!-- side bar -->
+        <div class="column is-1">
+          <div>
+            <Sidebar />
+          </div>
+        </div>
+        <!---->
+        <!-- questions -->
+        <div class="column is-8">
+          <h1>แบบประเมินภาวะโภชนาการ (MNA)</h1>
+          <div class="questions">
+            <div id="quesOne">
+              <h1 id="ques_title">
+                1. ในช่วง 3
+                เดือนที่ผ่านมามีการรับประทานอาหารได้น้อยลงเนื่องจากความอยากอาหารลดลง
+                <br />
+                มีปัญหาการย่อย การเคี้ยว หรือการกลืน หรือไม่?
+              </h1>
+              <!-- <div class="choices"> -->
+              <input id="radio" type="radio" value="0" />
+              <label id="radio" for="">ความอยากอาหารลดลงอย่างมาก</label><br />
+              <input id="radio" type="radio" value="1" />
+              <label id="radio" for="">ความอยากอาหารลดลงปานกลาง</label><br />
+              <input id="radio" type="radio" value="2" />
+              <label id="radio" for="">ความอยากอาหารไม่ลดลง</label><br />
+              <!-- </div> -->
+              <h1 id="ques_title">
+                2. ในช่วง 3 เดือนที่ผ่านมา น้ำหนักลดลงหรือไม่?
+                (โดยไม่ได้ตั้งใจลดน้ำหนัก)
+              </h1>
+              <!-- <div class="choices"> -->
+              <input id="radio" type="radio" value="0" />
+              <label id="radio" for="">น้ำหนักลดมากกว่า 3 กิโลกรัม</label><br />
+              <input id="radio" type="radio" value="1" />
+              <label id="radio" for="">น้ำหนักลดระหว่าง 1 - 3 กิโลกรัม</label
+              ><br />
+              <input id="radio" type="radio" value="2" />
+              <label id="radio" for="">น้ำหนักไม่ลดลง</label>
+              <input id="radio" type="radio" value="3 " />
+              <label id="radio" for="">ไม่ทราบ</label>
+              <!-- </div> -->
+              <h1 id="ques_title">3. สามารถเคลื่อนไหวได้เองหรือไม่?</h1>
+              <input id="radio" type="radio" value="0" />
+              <label for="">นอนบนเตียง</label><br />
+              <input id="radio" type="radio" value="1" />
+              <label for=""
+                >ลุกจากเตียงหรือรถเข็นได้บ้าง
+                แต่ไม่สามมารถไปข้างนอกได้เอง</label
+              ><br />
+              <input id="radio" type="radio" value="2" />
+              <label for="">เดินและเคลื่อนไหวได้ตามปกติ</label><br />
+
+              <h1 id="ques_title">
+                4. ใน 3 เดือนที่ผ่านมา มีความเครียดรุนแรงหรือป่วยเฉียบพลัน
+                หรือไม่
+              </h1>
+              <input id="radio" type="radio" value="0" />
+              <label for="">มี</label><br />
+              <input id="radio" type="radio" value="1" />
+              <label for="">ไม่มี</label><br />
+
+              <h1 id="ques_title">5. มีปัญหาทางจิตประสาท หรือไม่</h1>
+              <input id="radio" type="radio" value="0" />
+              <label for="">ความจำเสื่อม หรือ ซึมเศร้ารุนแรง</label><br />
+              <input id="radio" type="radio" value="1" />
+              <label for="">ความจำเสื่อมเล็กน้อย</label><br />
+              <input id="radio" type="radio" value="2" />
+              <label for="">ไม่มีปัญหาทางประสาท</label><br />
+
+              <h1 id="ques_title">
+                <p>
+                  6. ดัชนีมวลกาย [BMI = น้ำหนัก (กก.) / ส่วนสูง
+                  (ม.)<sup>2</sup>]
+                </p>
+              </h1>
+              <label for="">BMI </label>
+              <input id="bmiBox" type="box" disabled />
+            </div>
+          </div>
+        </div>
+        <!---->
+        <!-- choose bar maybe fixed side nav-->
+        <div class="column is-3" id="choosebar">
+          <div class="box has-background-light">
+            <div>
+              <header id="choosebarHeader">หัวข้อแบบประเมินทั้งหมด</header>
+            </div>
+            <div class="assChoice">
+              <i class="fas fa-check-circle" id="checkIcon"></i>
+              <label for="">แบบประเมินภาวะโภชนาการ (MNA)</label>
+            </div>
+            <div class="assChoice">
+              <i class="fas fa-check-circle" id="checkIcon"></i>
+              <label for="">แบบประเมินช่องปากในผู้สูงอายุ</label>
+            </div>
+            <div class="assChoice">
+              <i class="fas fa-check-circle" id="checkIcon"></i>
+              <label for=""
+                >แบบประเมินภาวะหกล้ม <br />(Fall Risk Assessment Tool)</label
+              >
+            </div>
+            <div class="assChoice">
+              <i class="fas fa-check-circle" id="checkIcon"></i>
+              <label for="">แบบประเมินความเศร้าในผู้สูงอายุไทย 15 ข้อ</label>
+            </div>
+            <div class="assChoice">
+              <i class="fas fa-check-circle" id="checkIcon"></i>
+              <label for=""
+                >แบบประเมินคัดกรองความจำเสื่อม <br />
+                สำหรับผู้สูงอายุไทย</label
+              >
+            </div>
+            <div class="assChoice">
+              <i class="fas fa-check-circle" id="checkIcon"></i>
+              <label for="">แบบประเมินภาวะกลั้นปัสสาวะไม่อยู่</label>
+            </div>
+            <div class="assChoice">
+              <i class="fas fa-check-circle" id="checkIcon"></i>
+              <label for="">แบบประเมินปัญหาการนอน</label>
+            </div>
+            <div class="assChoice">
+              <i class="fas fa-check-circle" id="checkIcon"></i>
+              <label for="">แบบประเมินความเสี่ยงต่อโรคกระดูกพรุน</label>
+            </div>
+            <div class="assChoice">
+              <i class="fas fa-check-circle" id="checkIcon"></i>
+              <label for=""
+                >แบประเมินผู้สูงอายุที่ต้องได้รับ <br />
+                การดูแลระยะยาว</label
+              >
+            </div>
+            <div class="assChoice">
+              <i class="fas fa-check-circle" id="checkIcon"></i>
+              <label for=""
+                >แบบประเมินภาวะหกล้ม <br />
+                (TIME UP AND GO TEST)</label
+              >
+            </div>
+            <div class="assChoice">
+              <i class="fas fa-check-circle" id="checkIcon"></i>
+              <label for="">แบบประเมิน MMSE - Thai 2002</label>
+            </div>
+            <div class="assChoice">
+              <i class="fas fa-check-circle" id="checkIcon"></i>
+              <label for="">แบบประเมินสุขภาวะทางตา</label>
+            </div>
+            <div class="assChoice">
+              <i class="fas fa-check-circle" id="checkIcon"></i>
+              <label for="">แบบประเมินโรคข้อเข่าเสื่อมทางคลินิก</label>
+            </div>
+            <div class="buttons" id="startButton">
+              <b-button type="is-success" to="">เริ่มทำแบบประเมิน</b-button>
+            </div>
+          </div>
+        </div>
+        <!---->
+      </div>
+    </section>
+  </div>
+</template>
+<script>
+import Sidebar from "@/components/sidebar.vue";
+export default {
+  components: {
+    Sidebar
+  },
+  name: "form1list",
+  data() {
+    return {};
+  }
+};
+</script>
+<style>
+h1 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 5vh;
+  margin-left: 3vw;
+  text-align: left;
+}
+.questions {
+  margin-top: 3vh;
+}
+#choosebarHeader {
+  text-align: left;
+  margin-top: 5vh;
+  margin-bottom: 2vh;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+#choosebar {
+  text-align: left;
+}
+#startButton {
+  width: 200px;
+  bottom: 1px;
+}
+.assChoice {
+  margin-top: 1vh;
+}
+#checkIcon {
+  margin-right: 0.5vw;
+}
+#startButton {
+  position: fixed;
+  bottom: 6vh;
+  right: 4vw;
+}
+#ques_title {
+  font-weight: 600;
+  font-size: 1.15rem;
+}
+.choices {
+  display: inline-block;
+  text-align: left;
+  margin-left: 3vw;
+  margin-top: 1vh;
+}
+#radio {
+  margin-top: 2vh;
+}
+#bmiBox {
+  margin-bottom: 5vh;
+}
+</style>

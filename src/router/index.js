@@ -123,10 +123,26 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(
-        /* webpackChunkName: "startpage" */ "../views/startpage.vue"
-      )
+      import(/* webpackChunkName: "startpage" */ "../views/startpage.vue")
   },
+  {
+    path: "/form1",
+    name: "form1",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "form1" */ "../views/form1.vue")
+  },
+  {
+    path: "/form2",
+    name: "form2",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "form2" */ "../views/form2.vue")
+  }
 ];
 
 const router = new VueRouter({
