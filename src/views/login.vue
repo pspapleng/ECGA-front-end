@@ -1,35 +1,31 @@
 <template>
   <div class="hero is-fullheight is-light">
-    <section class="section is-medium">
-      <div class="login">
-        <h1 id="head">เข้าสู่ระบบ <mark type="is-warning">E-CGA</mark></h1>
-      </div>
-      <form class="boxlogin column is-4">
-        <div class="field">
-          <div class="control">
-            <b-input type="email" placeholder="รหัสบัญชีผู้ใช้" />
-          </div>
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <p class="title">เข้าสู่ระบบ <mark type="is-warning">E-CGA</mark></p>
+        <div class="column is-4 is-offset-4">
+          <b-field>
+            <b-input v-model="name" placeholder="ชื่อบัญชีผู้ใช้"></b-input>
+          </b-field>
+          <b-field>
+            <b-input
+              v-model="pass"
+              type="password"
+              placeholder="รหัสผ่าน"
+              password-reveal
+            />
+          </b-field>
         </div>
-
-        <div class="field">
-          <div class="control">
-            <b-input type="password" placeholder="รหัสผ่าน" password-reveal />
-          </div>
-        </div>
-        <div class="forget level-right">
-          <p>ลืมรหัสผ่าน?</p>
-        </div>
-        <b-button class="button bt-blue">
+        <b-button class="login">
           เข้าสู่ระบบ
         </b-button>
-      </form>
-      <p class="newacc">
-        สมัครบัญชีพยาบาลใหม่
-      </p>
-    </section>
+        <p class="newacc pt-1">
+          สมัครบัญชีพยาบาลใหม่
+        </p>
+      </div>
+    </div>
   </div>
 </template>
-
 <script>
 export default {
   name: "Login",
@@ -41,42 +37,27 @@ export default {
 };
 </script>
 <style>
-.login {
+.title {
   font-size: 1.5rem;
-  color: white;
-  margin-bottom: 50px;
-}
-.boxlogin {
-  margin: auto;
-}
-.field {
-  padding: 10px 20px 10px 20px;
-}
-.labellog {
-  justify-content: left;
-  text-align: left;
-}
-#head {
+  font-weight: 500;
   color: black;
 }
-.bt-blue {
-  margin-top: 20px;
-  padding: 0px 7vw 0px 7vw;
-  color: #fff;
-  background-color: #1e3a8a;
+mark {
+  background-color: #fcd34d;
+  color: #494949;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
 }
-.forget {
-  padding-right: 20px;
-  font-size: 0.75rem;
-  cursor: pointer;
+.login {
+  color: #ffffff;
+  background-color: #1e3a8a;
+  width: 31%;
 }
 .newacc {
   color: #047857;
+  font-size: 0.75rem;
+  font-style: italic;
   text-decoration: underline;
   cursor: pointer;
-}
-mark {
-  background-color: gold;
-  color: black;
 }
 </style>
