@@ -12,140 +12,37 @@
         <!-- questions -->
         <div class="column is-8">
           <h1>แบบประเมินภาวะหกล้ม (Fall Risk Assessment Tool)</h1>
-          <div class="question">
-            <span><u>คำชี้แจง</u></span>
-            <span>
-              โปรดกดเลือกคำตอบหน้าข้อความตามความเป็นจริงที่เกี่ยวกับตัวผู้สูงอายุ</span
-            >
-            <h1>1. อายุ</h1>
-            <div class="ans">
-              <input type="radio" value="0" />
-              <label for="">0 - 19 ปี</label><br />
-              <input type="radio" value="1" />
-              <label for="">20 - 59 ปี</label><br />
-              <input type="radio" value="2" />
-              <label for="">60 - 70 ปี</label><br />
-              <input type="radio" value="3" />
-              <label for="">มากกว่า 70 ปี</label><br />
-            </div>
-            <h1>2. ประวัติหกล้ม</h1>
-            <div class="ans">
-              <input type="radio" value="0" />
-              <label for="">ไม่หกล้มในปีก่อน</label><br />
-              <input type="radio" value="1" />
-              <label for="">หกล้มใน 6 เดือนก่อน</label><br />
-              <input type="radio" value="2" />
-              <label for="">หกล้มใน 3 เดือนก่อน</label><br />
-              <input type="radio" value="3" />
-              <label for="">หกล้มในเดือนก่อน</label><br />
-            </div>
-            <h1>3. การทรงตัว</h1>
-            <div class="ans">
-              <input type="radio" value="0" />
-              <label for="">ยืนและหมุนตัวได้ด้วยการช่วยเหลือจากผู้อื่น</label
+          <p>
+            <u>คำชี้แจง</u>
+            โปรดกดเลือกคำตอบหน้าข้อความตามความเป็นจริงเกี่ยวกับตัวผู้สูงอายุ
+          </p>
+          <div
+            class="questions"
+            v-for="ques in form.slice(18, 28)"
+            :key="ques.ques_id"
+          >
+            <h1 id="ques_title">
+              {{ ques.ques }}
+            </h1>
+            <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+              <input
+                id="ques.ques_id"
+                type="radio"
+                :value="ch.ans_value"
+                v-model="ques.ans"
+                @change="
+                  e => setAns({ id: ques.ques_id, value: e.target.value })
+                "
+              />
+              <label id="ques.ques_id" for="">{{ ch.ans_title }}</label
               ><br />
-              <input type="radio" value="1" />
-              <label for="">เดินโดยใช้อุปกรณ์หรือคนช่วย 2 คน</label><br />
-              <input type="radio" value="2" />
-              <label for="">เดินโดยใช้อุปกรณ์หรือคนช่วย 1 คน</label><br />
-              <input type="radio" value="3" />
-              <label for="">เดินได้โดยไม่ใช้อุปกรณ์หรือไม่ต้องการคนช่วย</label
-              ><br />
-            </div>
-            <h1>4. การรับรู้</h1>
-            <div class="ans">
-              <input type="radio" value="0" />
-              <label for="">รู้เวลา สถานที่ บุคคล</label><br />
-              <input type="radio" value="1" />
-              <label for="">รู้สถานที่ บุคคล</label><br />
-              <input type="radio" value="2" />
-              <label for="">รู้บุคคล</label><br />
-              <input type="radio" value="3" />
-              <label for="">ไม่รับรู้ การตัดสินใจบกพร่อง</label><br />
-            </div>
-            <h1>5. สภาพร่างกายทั่วไป</h1>
-            <div class="ans">
-              <input type="radio" value="0" />
-              <label for="">อาหารเพียงพอ การนอนหลับผิดปกติ</label><br />
-              <input type="radio" value="1" />
-              <label for="">ไม่เจริญอาหาร การนอนหลับผิดปกติ</label><br />
-              <input type="radio" value="2" />
-              <label for="">การนอนหลับผิดปกติมาก</label><br />
-              <input type="radio" value="3" />
-              <label for="">ขาดอาหาร น้ำหนักลด</label><br />
-            </div>
-            <h1>6. การมองเห็น</h1>
-            <div class="ans">
-              <input type="radio" value="0" />
-              <label for="">ปกติ</label><br />
-              <input type="radio" value="1" />
-              <label for="">ใช้แว่นตา</label><br />
-              <input type="radio" value="2" />
-              <label for="">มองไม่ชัดเจน ตาต้อ</label><br />
-              <input type="radio" value="3" />
-              <label for="">มองเห็นผิดปกติมาก ถึงขั้นตาบอด</label><br />
-            </div>
-            <h1>7. การพูด</h1>
-            <div class="ans">
-              <input type="radio" value="0" />
-              <label for="">ปกติ</label><br />
-              <input type="radio" value="1" />
-              <label for="">มีปัญหาการพูดแต่เข้าใจภาษาดี</label><br />
-              <input type="radio" value="2" />
-              <label for="">พูดไม่ชัด มีปัญหาการสื่อสาร</label><br />
-              <input type="radio" value="3" />
-              <label for="">การสื่อสารบกพร่องขั้นรุนแรง</label><br />
-            </div>
-            <h1>8. การใช้ยา</h1>
-            <div class="ans">
-              <input type="radio" value="0" />
-              <label for="">ไม่มียาที่มีผล</label><br />
-              <input type="radio" value="1" />
-              <label for=""
-                >มียาระบบหัวใจและหลอดเลือดที่มีผล เช่น &beta; - blocker
-                ยาขับปัสสาวะ ยาลดความดันเลือด</label
-              ><br />
-              <input type="radio" value="2" />
-              <label for=""
-                >มียาระบบประสาทที่มีผล เช่น ยากล่อมประสาท ยานอนหลับ ยากลุ่ม
-                psychoaactive</label
-              ><br />
-              <input type="radio" value="3" />
-              <label for=""
-                >มีทั้งยาระบบหัวใจ หลอดเลือดและระบบประสาทที่มีผล</label
-              ><br />
-            </div>
-            <h1>9. ภาวะโรคเรื้อรัง</h1>
-            <div class="ans">
-              <input type="radio" value="0" />
-              <label for="">ไม่มีปัญหา</label><br />
-              <input type="radio" value="1" />
-              <label for="">มีโรคเรื้อรัง 1 โรค</label><br />
-              <input type="radio" value="2" />
-              <label for="">มีโรคเรื้อรัง 2 โรค</label><br />
-              <input type="radio" value="3" />
-              <label for="">มีโรคเรื้อรังมากกว่าหรือเท่ากับ 3 โรค</label><br />
-            </div>
-            <h1>10. ไม่สามารถควบคุมการขับถ่าย</h1>
-            <div class="ans">
-              <input type="radio" value="0" />
-              <label for="">ไม่มีปัญหา</label><br />
-              <input type="radio" value="1" />
-              <label for="">ปัสสาวะบ่อย</label><br />
-              <input type="radio" value="2" />
-              <label for=""
-                >ปัสสาวะกลางคืน ปัสสาวะราด (stress incontinence)
-                คาสายปัสสาวะ</label
-              ><br />
-              <input type="radio" value="3" />
-              <label for="">ปัสสาวะราด (Urge incontinence)</label><br />
             </div>
           </div>
         </div>
         <!---->
         <!-- choose bar maybe fixed side nav-->
         <div class="column is-3" id="choosebar">
-          <chooseBar />
+          <assChooseBar />
         </div>
         <!---->
       </div>
@@ -154,15 +51,43 @@
 </template>
 <script>
 import Sidebar from "@/components/sidebar.vue";
-import chooseBar from "@/components/chooseBar.vue";
+import assChooseBar from "@/components/assChooseBar.vue";
+import { mapState, mapMutations } from "vuex";
+import question from "../assets/test.json";
 export default {
   components: {
     Sidebar,
-    chooseBar
+    assChooseBar
   },
   name: "Patientlist",
   data() {
-    return {};
+    return {
+      question
+      // age: '',
+      // fallHistory: '',
+      // selfBalance: '',
+      // knowing: '',
+      // physical: '',
+      // sight: '',
+      // speaking: '',
+      // medicine: '',
+      // chronicDis: '',
+      // toiletContr: ''
+    };
+  },
+  computed: {
+    ...mapState({
+      count: state => state.count,
+      form: "json"
+      // {
+      //   get () {
+      //   console.log(this.$store.state.json)
+      //   return this.$store.state.json
+      // }}
+    })
+  },
+  methods: {
+    ...mapMutations(["setAns"])
   }
 };
 </script>

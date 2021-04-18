@@ -13,8 +13,8 @@
         <div class="column is-8">
           <h1>แบบคัดกรองภาวะหกล้ม (TIME UP AND GO TEST : TUGT)</h1>
           <div class="card" id="description">
-            <header class="card-header" style="background-color: #1e3a8a;">
-              <p class="card-header-title is-centered" style="color: white;">
+            <header class="card-header" style="background-color: #1e3a8a">
+              <p class="card-header-title is-centered" style="color: white">
                 ข้อมูลแนะนำ
               </p>
             </header>
@@ -25,8 +25,8 @@
             </div>
           </div>
           <div class="card" id="howTo">
-            <header class="card-header" style="background-color: #1e3a8a;">
-              <p class="card-header-title is-centered" style="color: white;">
+            <header class="card-header" style="background-color: #1e3a8a">
+              <p class="card-header-title is-centered" style="color: white">
                 วิธีการประเมิน
               </p>
             </header>
@@ -42,103 +42,46 @@
             </div>
           </div>
           <p id="caution">
-            <u style="color: red;">ข้อควรระวัง</u> :
+            <u style="color: red">ข้อควรระวัง</u> :
             ผู้สูงอายุมีโอกาสที่จะหกล้มมากกว่าวัยอื่น ดังนั้น
             ผู้ทดสอบจึงควรระมัดระวังขณะทำการทดสอบ
           </p>
-          <h1><u>ผลการทดสอบ</u></h1>
-          <div class="ans">
-            <input type="radio" />
-            <span>
-              <label for=""> เดินได้ เป็นเวลา </label>
-              <input type="text" />
-              <label for=""> นาที </label>
-              <input type="text" />
-              <label for=""> วินาที</label><br />
-            </span>
-            <input type="radio" />
-            <label for=""> เดินไม่ได้</label>
+          <div
+            class="questions"
+            v-for="ques in form.slice(28, 36)"
+            :key="ques.ques_id"
+          >
+            <h1 id="ques_title">
+              {{ ques.ques }}
+            </h1>
+            <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+              <input
+                id="ques.ques_id"
+                type="radio"
+                :value="ch.ans_value"
+                v-model="ques.ans"
+                @change="
+                  e => setAns({ id: ques.ques_id, value: e.target.value })
+                "
+              />
+              <label id="ques.ques_id" for="">{{ ch.ans_title }}</label
+              ><br />
+            </div>
           </div>
-          <h1>ลักษณะการเดิน / การทรงตัว</h1>
-          <div class="ans">
-            <input type="radio" />
-            <label for=""> มั่นคง</label><br />
-            <input type="radio" />
-            <label for=""> ไม่มั่นคง</label>
-          </div>
-          <h1>ความยาวของการก้าว</h1>
-          <div class="ans">
-            <input type="radio" />
-            <label for=""> ปกติ</label>
-            <input type="radio" />
-            <label for=""> สั้น</label>
-            <input type="radio" />
-            <label for=""> ยาว</label><br />
-            <input type="radio" />
-            <label for=""> อื่น ๆ ระบุ </label>
-            <input type="text" />
-          </div>
-          <h1>ความมั่นใจขณะเดิน</h1>
-          <div class="ans">
-            <input type="radio" />
-            <label for=""> มั่นใจ</label><br />
-            <input type="radio" />
-            <label for=""> ไม่มั่นใจ</label><br />
-            <input type="radio" />
-            <label for=""> อื่น ๆ ระบุ </label>
-            <input type="text" />
-          </div>
-          <h1>อุปกรณ์ช่วยขณะเดิน</h1>
-          <div class="ans">
-            <input type="radio" />
-            <label for=""> ไม้เท้า</label>
-            <input type="radio" />
-            <label for=""> single cane</label>
-            <br />
-            <input type="radio" />
-            <label for=""> tripod cane</label>
-            <input type="radio" />
-            <label for=""> walker</label>
-            <br />
-            <input type="radio" />
-            <label for=""> อื่น ๆ ระบุ </label>
-            <input type="text" />
-          </div>
-          <h1>ลักษณะรองเท้า</h1>
-          <div class="ans">
-            <input type="radio" />
-            <label for=""> เหมาะสม</label>
-            <input type="radio" />
-            <label for=""> ไม่เหมาะสม</label>
-            <br />
-            <input type="radio" />
-            <label for=""> ใช้ประจำ</label>
-            <input type="radio" />
-            <label for=""> บางครั้ง</label>
-          </div>
-          <h1>ลักษณะรองเท้า</h1>
-          <div class="ans">
-            <input type="radio" />
-            <label for=""> เหมาะสม</label>
-            <br />
-            <input type="radio" />
-            <label for=""> ไม่เหมาะสม</label>
-            <br />
-          </div>
-          <div class="card" id="fullTandem">
-            <header class="card-header" style="background-color: #1e3a8a;">
-              <p class="card-header-title is-centered" style="color: white;">
-                การประเมิน Full Tandem stand
+          <div class="card" id="description">
+            <header class="card-header" style="background-color: #1e3a8a">
+              <p class="card-header-title is-centered" style="color: white">
+                การประเมิน Full tandem stand
               </p>
             </header>
             <div class="card-content">
-              <div class="content" style="text-align: left;">
-                <h3><u>วิธีการประเมิน</u></h3>
+              <div class="content">
+                <p><u>วิธีการประเมิน</u></p>
                 <p>
                   1. ยืนให้สันเท้าข้างใดข้างหนึ่งแตะปลายเท้าของเท้าอีกข้างหนึ่ง
                 </p>
-                <p>2. ผู้ถูกทดสอบสามมารถลงน้ำหนักขาข้างใดก็ได้ตามที่ถนัด</p>
-                <h3><u>การบันทึกผลการทดสอบ</u></h3>
+                <p>2. ผู้ถูกทดสอบสามารถลงน้ำหนักขาข้างใดก็ได้ตามถนัด</p>
+                <p><u>การบันทึกผลการประเมิน</u></p>
                 <p>
                   1. บันทึกว่าผู้ถูกทดสอบสามารถยืนทรงตัวตามรูป "ได้" หรือ
                   "ไม่ได้"
@@ -147,36 +90,33 @@
               </div>
             </div>
           </div>
-          <p id="caution1">
-            <u style="color: red;">หมายเหตุ</u> :
-            ผู้ถูกทดสอบต้องยืนทรงตัวอย่างน้อยที่สุด 1 วินาทีจึงจะบันทึกได้ว่า
-            "สามารถยืนทรงตัวได้"
-          </p>
-          <h1><u>ผลการทดสอบ</u></h1>
-          <div class="ans">
-            <input type="radio" />
-            <span>
-              <label for=""> เดินได้ เป็นเวลา </label>
-              <input type="text" />
-              <label for=""> นาที </label>
-              <input type="text" />
-              <label for=""> วินาที</label><br />
-            </span>
-            <input type="radio" />
-            <label for=""> เดินไม่ได้</label>
-          </div>
-          <h1>ลักษณะการทรงตัว</h1>
-          <div class="ans">
-            <input type="radio" />
-            <label for=""> มั่นคง</label><br />
-            <input type="radio" />
-            <label for=""> ไม่มั่นคง</label>
+          <div
+            class="questions"
+            v-for="ques in form.slice(36, 38)"
+            :key="ques.ques_id"
+          >
+            <h1 id="ques_title">
+              {{ ques.ques }}
+            </h1>
+            <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+              <input
+                id="ques.ques_id"
+                type="radio"
+                :value="ch.ans_value"
+                v-model="ques.ans"
+                @change="
+                  e => setAns({ id: ques.ques_id, value: e.target.value })
+                "
+              />
+              <label id="ques.ques_id" for="">{{ ch.ans_title }}</label
+              ><br />
+            </div>
           </div>
         </div>
         <!---->
         <!-- choose bar maybe fixed side nav-->
         <div class="column is-3" id="choosebar">
-          <chooseBar />
+          <assChooseBar />
         </div>
         <!---->
       </div>
@@ -185,15 +125,49 @@
 </template>
 <script>
 import Sidebar from "@/components/sidebar.vue";
-import chooseBar from "@/components/chooseBar.vue";
+import assChooseBar from "@/components/assChooseBar.vue";
+import { mapState, mapMutations } from "vuex";
+import question from "../assets/test.json";
 export default {
   components: {
     Sidebar,
-    chooseBar
+    assChooseBar
   },
   name: "Patientlist",
   data() {
-    return {};
+    return {
+      question
+      // canWalk: '',
+      // cantWalk: '',
+      // howWalk: '',
+      // walkMin: '',
+      // walkSec: '',
+      // walkStep: '',
+      // walkConfidence: '',
+      // walkEquip: '',
+      // shoeSuite: '',
+      // shoeFreq: '',
+      // pantSuite: '',
+      // fullTanCanWalk: '',
+      // fullTanWalkMin: '',
+      // fullTanWalkSec: '',
+      // fullTanCantWalk: '',
+      // fullTanHowWalk: ''
+    };
+  },
+  computed: {
+    ...mapState({
+      count: state => state.count,
+      form: "json"
+      // {
+      //   get () {
+      //   console.log(this.$store.state.json)
+      //   return this.$store.state.json
+      // }}
+    })
+  },
+  methods: {
+    ...mapMutations(["setAns"])
   }
 };
 </script>

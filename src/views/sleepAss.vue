@@ -12,81 +12,133 @@
         <!-- questions -->
         <div class="column is-8">
           <h1>แบบประเมินปัญหาการนอน</h1>
-          <div class="question">
-            <h1>1. ผู้สูงอายุมีปัญหานอนหลับหรือไม่ ?</h1>
-            <div class="ans">
-              <b-field>
-                <b-radio-button
-                  v-model="radioButton"
-                  native-value="0"
-                  type="is-success is-light is-outlined"
-                >
-                  <b-icon icon="check"></b-icon>
-                  <span>มี</span>
-                </b-radio-button>
-                <b-radio-button
-                  v-model="radioButton"
-                  native-value="1"
-                  type="is-danger is-light is-outlined"
-                >
-                  <b-icon icon="close"></b-icon>
-                  <span>ไม่มี</span>
-                </b-radio-button>
-              </b-field>
-            </div>
-            <div class="ans">
-              <input type="checkbox" />
-              <label for=""> นอนไม่หลับ</label>
-              <input type="checkbox" />
-              <label for=""> นอนละเมอ</label><br />
-              <input type="checkbox" />
-              <label for=""> นอนหลับมากไป</label>
-              <input type="checkbox" />
-              <label for=""> นอนกรน</label><br />
-              <input type="checkbox" />
-              <label for=""> อื่น ๆ ระบุ </label>
-              <input type="text" />
-              <h1>1.6 ระยะเวลาที่มีปัญหาการนอนหลับ</h1>
-              <b-field>
-                <b-numberinput controls-position="compact"></b-numberinput>
-              </b-field>
-              <b-field>
-                <b-numberinput controls-position="compact"></b-numberinput>
-              </b-field>
-            </div>
-            <div class="ans">
-              <h1>โดยเฉลี่ยผู้สูงอายุหลับได้คืนละ</h1>
-              <b-field>
-                <b-numberinput controls-position="compact"></b-numberinput>
-              </b-field>
+          <div
+            class="questions"
+            v-for="ques in form.slice(148, 149)"
+            :key="ques.ques_id"
+          >
+            <h1 id="ques_title">
+              {{ ques.ques }}
+            </h1>
+            <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+              <input
+                id="ques.ques_id"
+                type="radio"
+                :value="ch.ans_value"
+                v-model="ques.ans"
+                @change="
+                  e => setAns({ id: ques.ques_id, value: e.target.value })
+                "
+              />
+              <label id="ques.ques_id" for="">{{ ch.ans_title }}</label
+              ><br />
             </div>
           </div>
-          <h1>2. ผู้สูงอายุมีอาการง่วง อ่อนเพลีย ตอนกลางวันหรือไม่ ?</h1>
-          <div class="ans">
-            <b-field>
-              <b-radio-button
-                v-model="radioButton"
-                native-value="0"
-                type="is-success is-light is-outlined"
-              >
-                <b-icon icon="check"></b-icon>
-                <span>มี</span>
-              </b-radio-button>
-              <b-radio-button
-                v-model="radioButton"
-                native-value="1"
-                type="is-danger is-light is-outlined"
-              >
-                <b-icon icon="close"></b-icon>
-                <span>ไม่มี</span>
-              </b-radio-button>
+          <div
+            class="questions"
+            v-for="ques in form.slice(149, 153)"
+            :key="ques.ques_id"
+          >
+            <h1 id="ques_title">
+              {{ ques.ques }}
+            </h1>
+            <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+              <input
+                id="ques.ques_id"
+                type="radio"
+                :value="ch.ans_value"
+                v-model="ques.ans"
+                @change="
+                  e => setAns({ id: ques.ques_id, value: e.target.value })
+                "
+              />
+              <label id="ques.ques_id" for="">{{ ch.ans_title }}</label
+              ><br />
+            </div>
+          </div>
+          <div
+            class="questions"
+            v-for="ques in form.slice(153, 154)"
+            :key="ques.ques_id"
+          >
+            <h1 id="ques_title">
+              {{ ques.ques }}
+            </h1>
+            <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+              <input
+                id="ques.ques_id"
+                type="radio"
+                :value="ch.ans_value"
+                v-model="ques.ans"
+                @change="
+                  e => setAns({ id: ques.ques_id, value: e.target.value })
+                "
+              />
+              <label id="ques.ques_id" for="">{{ ch.ans_title }}</label
+              ><br />
+            </div>
+          </div>
+          <div
+            class="questions"
+            v-for="ques in form.slice(154, 155)"
+            :key="ques.ques_id"
+          >
+            <b-field label="ระยะเวลาที่มีปัญหาการนอนหลับ">
+              <b-numberinput
+                placeholder="ปี"
+                :min="0"
+                v-model="ques.ans_input"
+                @change="e => setAns({ id: ques.ques_id })"
+              ></b-numberinput>
+              <b-numberinput
+                placeholder="เดือน"
+                :min="0"
+                v-model="ques.ans_input"
+                @change="e => setAns({ id: ques.ques_id })"
+              ></b-numberinput>
             </b-field>
+          </div>
+          <div
+            class="questions"
+            v-for="ques in form.slice(155, 156)"
+            :key="ques.ques_id"
+          >
+            <b-field label="โดยเฉลี่ยผู้สูงอายุหลับได้คืนละ">
+              <b-numberinput
+                placeholder="ชั่วโมง"
+                :min="0"
+                v-model="ques.ans_input"
+                @change="e => setAns({ id: ques.ques_id })"
+              ></b-numberinput>
+            </b-field>
+          </div>
+          <div
+            class="questions"
+            v-for="ques in form.slice(156, 157)"
+            :key="ques.ques_id"
+          >
+            <h1 id="ques_title">
+              {{ ques.ques }}
+            </h1>
+            <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+              <input
+                id="ques.ques_id"
+                type="radio"
+                :value="ch.ans_value"
+                v-model="ques.ans"
+                @change="
+                  e => setAns({ id: ques.ques_id, value: e.target.value })
+                "
+              />
+              <label id="ques.ques_id" for="">{{ ch.ans_title }}</label
+              ><br />
+            </div>
           </div>
         </div>
         <!---->
         <!-- choose bar maybe fixed side nav-->
         <div class="column is-3" id="choosebar">
-          <chooseBar />
+          <assChooseBar />
         </div>
         <!---->
       </div>
@@ -95,15 +147,43 @@
 </template>
 <script>
 import Sidebar from "@/components/sidebar.vue";
-import chooseBar from "@/components/chooseBar.vue";
+import assChooseBar from "@/components/assChooseBar.vue";
+import { mapState, mapMutations } from "vuex";
+import question from "../assets/test.json";
 export default {
   components: {
     Sidebar,
-    chooseBar
+    assChooseBar
   },
   name: "Patientlist",
   data() {
-    return {};
+    return {
+      question
+      // sleepProb: '',
+      // cantSleep: '',
+      // murmurSleep: '',
+      // sleepToMuch: '',
+      // snoreSleep: '',
+      // sleepElse: '',
+      // sleepYrs: '',
+      // sleepMth: '',
+      // sleepHrs: '',
+      // dayTimeRunDown: ''
+    };
+  },
+  computed: {
+    ...mapState({
+      count: state => state.count,
+      form: "json"
+      // {
+      //   get () {
+      //   console.log(this.$store.state.json)
+      //   return this.$store.state.json
+      // }}
+    })
+  },
+  methods: {
+    ...mapMutations(["setAns"])
   }
 };
 </script>

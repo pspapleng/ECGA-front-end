@@ -25,187 +25,102 @@
               </div>
             </div>
           </div>
-          <h1>1. นับนิ้วในระยะ 3 เมตรได้ถูกต้อง น้อยกว่า 3 ใน 4 ครั้ง?</h1>
-          <div class="ans">
-            <b-field>
-              <b-radio-button
-                v-model="radioButton"
-                native-value="0"
-                type="is-success is-light is-outlined"
-              >
-                <b-icon icon="check"></b-icon>
-                <span>ใช่</span>
-              </b-radio-button>
-              <b-radio-button
-                v-model="radioButton"
-                native-value="1"
-                type="is-danger is-light is-outlined"
-              >
-                <b-icon icon="close"></b-icon>
-                <span>ไม่ใช่</span>
-              </b-radio-button>
-            </b-field>
+          <div
+            class="questions"
+            v-for="ques in form.slice(38, 40)"
+            :key="ques.ques_id"
+          >
+            <h1 id="ques_title">
+              {{ ques.ques }}
+            </h1>
+            <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+              <input
+                id="ques.ques_id"
+                type="radio"
+                :value="ch.ans_value"
+                v-model="ques.ans"
+                @change="
+                  e => setAns({ id: ques.ques_id, value: e.target.value })
+                "
+              />
+              <label id="ques.ques_id" for="">{{ ch.ans_title }}</label
+              ><br />
+            </div>
           </div>
-          <h1>2. อ่านหนังสือพิมพ์หน้าหนึ่งในระยะ 1 ฟุต ไม่ได้?</h1>
-          <div class="ans">
-            <b-field>
-              <b-radio-button
-                v-model="radioButton"
-                native-value="0"
-                type="is-success is-light is-outlined"
-              >
-                <b-icon icon="check"></b-icon>
-                <span>ใช่</span>
-              </b-radio-button>
-              <b-radio-button
-                v-model="radioButton"
-                native-value="1"
-                type="is-danger is-light is-outlined"
-              >
-                <b-icon icon="close"></b-icon>
-                <span>ไม่ใช่</span>
-              </b-radio-button>
-            </b-field>
+          <h1>3. ปิดตาดูทีละข้าง</h1>
+          <div
+            class="questions"
+            v-for="ques in form.slice(40, 42)"
+            :key="ques.ques_id"
+          >
+            <h1 id="ques_title">
+              {{ ques.ques }}
+            </h1>
+            <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+              <input
+                id="ques.ques_id"
+                type="radio"
+                :value="ch.ans_value"
+                v-model="ques.ans"
+                @change="
+                  e => setAns({ id: ques.ques_id, value: e.target.value })
+                "
+              />
+              <label id="ques.ques_id" for="">{{ ch.ans_title }}</label
+              ><br />
+            </div>
           </div>
-          <h1>3. ปิดตาดูทีละข้างพบว่าตามัวคล้ายหมอกบัง?</h1>
-          <h1>3.1 ตาซ้าย</h1>
-          <div class="ans">
-            <b-field>
-              <b-radio-button
-                v-model="radioButton"
-                native-value="0"
-                type="is-success is-light is-outlined"
-              >
-                <b-icon icon="check"></b-icon>
-                <span>ใช่</span>
-              </b-radio-button>
-              <b-radio-button
-                v-model="radioButton"
-                native-value="1"
-                type="is-danger is-light is-outlined"
-              >
-                <b-icon icon="close"></b-icon>
-                <span>ไม่ใช่</span>
-              </b-radio-button>
-            </b-field>
+          <h1>4. ปิดตาดูทีละข้าง</h1>
+          <div
+            class="questions"
+            v-for="ques in form.slice(42, 44)"
+            :key="ques.ques_id"
+          >
+            <h1 id="ques_title">
+              {{ ques.ques }}
+            </h1>
+            <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+              <input
+                id="ques.ques_id"
+                type="radio"
+                :value="ch.ans_value"
+                v-model="ques.ans"
+                @change="
+                  e => setAns({ id: ques.ques_id, value: e.target.value })
+                "
+              />
+              <label id="ques.ques_id" for="">{{ ch.ans_title }}</label
+              ><br />
+            </div>
           </div>
-          <h1>3.2 ตาขวา</h1>
-          <div class="ans">
-            <b-field>
-              <b-radio-button
-                v-model="radioButton"
-                native-value="0"
-                type="is-success is-light is-outlined"
-              >
-                <b-icon icon="check"></b-icon>
-                <span>ใช่</span>
-              </b-radio-button>
-              <b-radio-button
-                v-model="radioButton"
-                native-value="1"
-                type="is-danger is-light is-outlined"
-              >
-                <b-icon icon="close"></b-icon>
-                <span>ไม่ใช่</span>
-              </b-radio-button>
-            </b-field>
-          </div>
-          <h1>
-            4. ปิดตาดูทีละข้างพบว่ามองเห็นชัดแต่ตรงกลาง
-            ไม่เห็นรอบข้างหรือมักเดินชนประตู สิ่งของ บ่อย ๆ?
-          </h1>
-          <h1>4.1 ตาซ้าย</h1>
-          <div class="ans">
-            <b-field>
-              <b-radio-button
-                v-model="radioButton"
-                native-value="0"
-                type="is-success is-light is-outlined"
-              >
-                <b-icon icon="check"></b-icon>
-                <span>ใช่</span>
-              </b-radio-button>
-              <b-radio-button
-                v-model="radioButton"
-                native-value="1"
-                type="is-danger is-light is-outlined"
-              >
-                <b-icon icon="close"></b-icon>
-                <span>ไม่ใช่</span>
-              </b-radio-button>
-            </b-field>
-          </div>
-          <h1>4.2 ตาขวา</h1>
-          <div class="ans">
-            <b-field>
-              <b-radio-button
-                v-model="radioButton"
-                native-value="0"
-                type="is-success is-light is-outlined"
-              >
-                <b-icon icon="check"></b-icon>
-                <span>ใช่</span>
-              </b-radio-button>
-              <b-radio-button
-                v-model="radioButton"
-                native-value="1"
-                type="is-danger is-light is-outlined"
-              >
-                <b-icon icon="close"></b-icon>
-                <span>ไม่ใช่</span>
-              </b-radio-button>
-            </b-field>
-          </div>
-          <h1>
-            5. ปิดตาดูทีละข้างพบว่ามองเห็นจุดดำกลางภาพหรือเห็นภาพบิดเบี้ยว?
-          </h1>
-          <h1>5.1 ตาซ้าย</h1>
-          <div class="ans">
-            <b-field>
-              <b-radio-button
-                v-model="radioButton"
-                native-value="0"
-                type="is-success is-light is-outlined"
-              >
-                <b-icon icon="check"></b-icon>
-                <span>ใช่</span>
-              </b-radio-button>
-              <b-radio-button
-                v-model="radioButton"
-                native-value="1"
-                type="is-danger is-light is-outlined"
-              >
-                <b-icon icon="close"></b-icon>
-                <span>ไม่ใช่</span>
-              </b-radio-button>
-            </b-field>
-          </div>
-          <h1>5.2 ตาขวา</h1>
-          <div class="ans">
-            <b-field>
-              <b-radio-button
-                v-model="radioButton"
-                native-value="0"
-                type="is-success is-light is-outlined"
-              >
-                <b-icon icon="check"></b-icon>
-                <span>ใช่</span>
-              </b-radio-button>
-              <b-radio-button
-                v-model="radioButton"
-                native-value="1"
-                type="is-danger is-light is-outlined"
-              >
-                <b-icon icon="close"></b-icon>
-                <span>ไม่ใช่</span>
-              </b-radio-button>
-            </b-field>
+          <h1>5. ปิดตาดูทีละข้าง</h1>
+          <div
+            class="questions"
+            v-for="ques in form.sliไe(44, 46)"
+            :key="ques.ques_id"
+          >
+            <h1 id="ques_title">
+              {{ ques.ques }}
+            </h1>
+            <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+              <input
+                id="ques.ques_id"
+                type="radio"
+                :value="ch.ans_value"
+                v-model="ques.ans"
+                @change="
+                  e => setAns({ id: ques.ques_id, value: e.target.value })
+                "
+              />
+              <label id="ques.ques_id" for="">{{ ch.ans_title }}</label
+              ><br />
+            </div>
           </div>
         </div>
         <!---->
         <!-- choose bar maybe fixed side nav-->
         <div class="column is-3" id="choosebar">
-          <chooseBar />
+          <assChooseBar />
         </div>
         <!---->
       </div>
@@ -214,15 +129,41 @@
 </template>
 <script>
 import Sidebar from "@/components/sidebar.vue";
-import chooseBar from "@/components/chooseBar.vue";
+import assChooseBar from "@/components/assChooseBar.vue";
+import { mapState, mapMutations } from "vuex";
+import question from "../assets/test.json";
 export default {
   components: {
     Sidebar,
-    chooseBar
+    assChooseBar
   },
   name: "Patientlist",
   data() {
-    return {};
+    return {
+      question
+      // threeInchesCount: '',
+      // newsPaperRead: '',
+      // leftEyeFog: '',
+      // rightEyeFog: '',
+      // leftCenter: '',
+      // rightCenter: '',
+      // leftBlackCen: '',
+      // rightBlackCen: ''
+    };
+  },
+  computed: {
+    ...mapState({
+      count: state => state.count,
+      form: "json"
+      // {
+      //   get () {
+      //   console.log(this.$store.state.json)
+      //   return this.$store.state.json
+      // }}
+    })
+  },
+  methods: {
+    ...mapMutations(["setAns"])
   }
 };
 </script>

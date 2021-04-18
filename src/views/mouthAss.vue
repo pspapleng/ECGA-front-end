@@ -11,246 +11,124 @@
         <!---->
         <!-- questions -->
         <div class="column is-8">
-          <h1>แบบประเมินช่องปากผู้สูงอายุ</h1>
-          <div class="card">
-            <header class="card-header">
-              <p class="card-header-title">
-                ข้อมูลแนะนำ
-              </p>
-            </header>
-            <div class="card-content">
-              <div class="content">
-                การประเมินสุขภาพช่องปากผู้สูงอายุเป็นการประเมินพฤติกรรมการดูแลสุขภาพช่องปาก
-                <br />
-                สภาวะเสี่ยงของสุขภาพช่องปาก
-                และการส่งต่อเพื่อรับการรักษาทางทันตะกรรม
-                ตามปัญหาและความต้องการของผู้สูงอายุ
+          <div class="questions">
+            <h1>แบบประเมินช่องปากผู้สูงอายุ</h1>
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title">ข้อมูลแนะนำ</p>
+              </header>
+              <div class="card-content">
+                <div class="content">
+                  การประเมินสุขภาพช่องปากผู้สูงอายุเป็นการประเมินพฤติกรรมการดูแลสุขภาพช่องปาก
+                  <br />
+                  สภาวะเสี่ยงของสุขภาพช่องปาก
+                  และการส่งต่อเพื่อรับการรักษาทางทันตะกรรม
+                  ตามปัญหาและความต้องการของผู้สูงอายุ
+                </div>
               </div>
             </div>
-          </div>
-          <div class="part1">
-            <p class="description">
-              <u>ส่วนที่ 1 ประเมินพฤติกรรมเสี่ยงต่อสุขภาพช่องปาก</u>
-            </p>
-            <p class="subdes">
-              เพื่อให้ผู้สูงอายุทราบถึงพฤติกรรมการดูแลสุขภาพช่องปากของตนเองว่ามีความเสี่ยงต่อการเกิดปัญหาสุขภาพปากหรือไม่
-              และปรับพฤติกรรมเพื่อดูแลช่องปากที่เหมาะสม
-            </p>
-          </div>
-          <div class="question">
+            <div class="part1">
+              <p class="description">
+                <u>ส่วนที่ 1 ประเมินพฤติกรรมเสี่ยงต่อสุขภาพช่องปาก</u>
+              </p>
+              <p class="subdes">
+                เพื่อให้ผู้สูงอายุทราบถึงพฤติกรรมการดูแลสุขภาพช่องปากของตนเองว่ามีความเสี่ยงต่อการเกิดปัญหาสุขภาพปากหรือไม่
+                และปรับพฤติกรรมเพื่อดูแลช่องปากที่เหมาะสม
+              </p>
+            </div>
             <h1>1. ประเมินพฤติกรรมการทำความสะอาดช่องปาก</h1>
-            <h1>1.1 การแปรงฟัน</h1>
-            <div class="ans">
-              <input type="radio" value="" />
-              <label for="">ไม่ได้ใช้แปรงสีฟัน</label><br />
-              <input type="radio" value="" />
-              <label for="">แปรงฟันวันละ 1 ครั้ง ก่อนนอน</label><br />
-              <input type="radio" value="" />
-              <label for="">แปรงฟันวันละ 2 ครั้ง เช้าและก่อนนอน</label><br />
-              <input type="radio" value="" />
-              <label for="">แปรงฟันมากกว่าวันละ 2 ครั้ง ระบุ </label
-              ><input type="box" /><br />
-            </div>
-            <h1>1.2 การใช้ยาสีฟันผสมฟลูออไรด์ทุกวัน</h1>
-            <div class="ans">
-              <input type="radio" value="" />
-              <label for="">ใช้</label><br />
-              <input type="radio" value="" />
-              <label for="">ไม่ใช้</label><br />
-            </div>
-            <h1>1.3 การทำความสะอาดซอกฟันทุกวัน / เกือบทุกวัน</h1>
-            <div class="ans">
-              <input type="radio" value="" />
-              <label for="">ใช้</label><br />
-              <input type="radio" value="" />
-              <label for="">ไม่ใช้</label><br />
+            <div
+              class="question"
+              v-for="ques in form.slice(6, 9)"
+              :key="ques.ques_id"
+            >
+              <h1>{{ ques.ques }}</h1>
+              <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+                <input
+                  id="ques.ques_id"
+                  type="radio"
+                  :value="ch.ans_value"
+                  v-model="ques.ans"
+                  @change="
+                    e => setAns({ id: ques.ques_id, value: e.target.value })
+                  "
+                />
+                <label id="ques.ques_id" for="">{{ ch.ans_title }}</label
+                ><br />
+              </div>
             </div>
             <h1>2. ประเมินสภาวะเสี่ยงต่อการเกิดโรคในช่องปาก</h1>
-            <div class="ans">
-              <input type="checkbox" value="" />
-              <label for="">สูบบุหรี่มากกว่า 10 มวน / วัน</label><br />
-              <input type="checkbox" value="" />
-              <label for="">เคี้ยวหมาเป็นประจำ</label><br />
+            <div
+              class="question"
+              v-for="ques in form.slice(9, 11)"
+              :key="ques.ques_id"
+            >
+              <h1>{{ ques.ques }}</h1>
+              <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+                <input
+                  id="ques.ques_id"
+                  type="radio"
+                  :value="ch.ans_value"
+                  v-model="ques.ans"
+                  @change="
+                    e => setAns({ id: ques.ques_id, value: e.target.value })
+                  "
+                />
+                <label id="ques.ques_id" for="">{{ ch.ans_title }}</label
+                ><br />
+              </div>
             </div>
-          </div>
-          <div class="part2">
-            <p class="description">
-              <u>ส่วนที่ 2 ประเมินสุขภาพช่องปากผู้สูงอายุ</u>
-            </p>
-          </div>
-          <div class="question">
-            <h1>
-              1. เนื้อเยื่อในช่องปาก : บริเวณริมฝีปาก แก้ม ลิ้น
-              มีปุ่ม/ก้อนเนื้อ/มีแผลเรื้อรัง หรือไม่ ?
-            </h1>
-            <div class="ans">
-              <b-field>
-                <b-radio-button
-                  v-model="radioButton"
-                  native-value="0"
-                  type="is-success is-light is-outlined"
-                >
-                  <b-icon icon="check"></b-icon>
-                  <span>ปกติ</span>
-                </b-radio-button>
-                <b-radio-button
-                  v-model="radioButton"
-                  native-value="1"
-                  type="is-danger is-light is-outlined"
-                >
-                  <b-icon icon="close"></b-icon>
-                  <span>ผิดปกติ</span>
-                </b-radio-button>
-              </b-field>
+            <div class="part2">
+              <p class="description">
+                <u>ส่วนที่ 2 ประเมินสุขภาพช่องปากผู้สูงอายุ</u>
+              </p>
             </div>
-            <h1>
-              2. เหงือกและอวัยวะปริทนต์ : บริเวณเหงือกมีเลือดออก/มีฝีหนอง/ฟันโยก
-              หรือไม่ ?
-            </h1>
-            <div class="ans">
-              <b-field>
-                <b-radio-button
-                  v-model="radioButton"
-                  native-value="0"
-                  type="is-success is-light is-outlined"
-                >
-                  <b-icon icon="check"></b-icon>
-                  <span>ปกติ</span>
-                </b-radio-button>
-                <b-radio-button
-                  v-model="radioButton"
-                  native-value="1"
-                  type="is-danger is-light is-outlined"
-                >
-                  <b-icon icon="close"></b-icon>
-                  <span>ผิดปกติ</span>
-                </b-radio-button>
-              </b-field>
-            </div>
-            <h1>
-              3. ฟันผุ : ฟันเป็นรู เสียวฟัน ฟันหัก ฟันแตกเหลือแต่ตอฟัน หรือไม่ ?
-            </h1>
-            <div class="ans">
-              <b-field>
-                <b-radio-button
-                  v-model="radioButton"
-                  native-value="0"
-                  type="is-success is-light is-outlined"
-                >
-                  <b-icon icon="check"></b-icon>
-                  <span>ปกติ</span>
-                </b-radio-button>
-                <b-radio-button
-                  v-model="radioButton"
-                  native-value="1"
-                  type="is-danger is-light is-outlined"
-                >
-                  <b-icon icon="close"></b-icon>
-                  <span>ผิดปกติ</span>
-                </b-radio-button>
-              </b-field>
-            </div>
-            <h1>
-              4. ปัญหาการเคี้ยวอาหาร / การกลืน : มีปัญหาการเคี้ยวอาหาร/การกลืน
-              หรือไม่ ?
-            </h1>
-            <div class="ans">
-              <b-field>
-                <b-radio-button
-                  v-model="radioButton"
-                  native-value="0"
-                  type="is-success is-light is-outlined"
-                >
-                  <b-icon icon="check"></b-icon>
-                  <span>ปกติ</span>
-                </b-radio-button>
-                <b-radio-button
-                  v-model="radioButton"
-                  native-value="1"
-                  type="is-danger is-light is-outlined"
-                >
-                  <b-icon icon="close"></b-icon>
-                  <span>ผิดปกติ</span>
-                </b-radio-button>
-              </b-field>
-            </div>
-            <h1>
-              5. ฟันเทียม : จำเป็นต้องใส่ฟันเทียม หรือทำฟันเทียมใหม่ หรือไม่ ?
-            </h1>
-            <div class="ans">
-              <b-field>
-                <b-radio-button
-                  v-model="radioButton"
-                  native-value="0"
-                  type="is-success is-light is-outlined"
-                >
-                  <b-icon icon="check"></b-icon>
-                  <span>ปกติ</span>
-                </b-radio-button>
-                <b-radio-button
-                  v-model="radioButton"
-                  native-value="1"
-                  type="is-danger is-light is-outlined"
-                >
-                  <b-icon icon="close"></b-icon>
-                  <span>ผิดปกติ</span>
-                </b-radio-button>
-              </b-field>
-            </div>
-            <h1>
-              6. การได้รับการตรวจหรือรักษาจากทันตบุคลากร :
-              ท่านเคยได้รับการตรวจหรือการรักษาจากทันตบุคลากร หรือไม่ ?
-            </h1>
-            <div class="ans">
-              <b-field>
-                <b-radio-button
-                  v-model="radioButton"
-                  native-value="0"
-                  type="is-success is-light is-outlined"
-                >
-                  <b-icon icon="check"></b-icon>
-                  <span>ปกติ</span>
-                </b-radio-button>
-                <b-radio-button
-                  v-model="radioButton"
-                  native-value="1"
-                  type="is-danger is-light is-outlined"
-                >
-                  <b-icon icon="close"></b-icon>
-                  <span>ผิดปกติ</span>
-                </b-radio-button>
-              </b-field>
-            </div>
-            <h1>
-              7.ความต้องการการรักษาทางทันตกรรม :
-              ปัจจุบันท่านต้องการการรักษาทางทันตกรรม
-            </h1>
-            <div class="ans">
-              <b-field>
-                <b-radio-button
-                  v-model="radioButton"
-                  native-value="0"
-                  type="is-success is-light is-outlined"
-                >
-                  <b-icon icon="check"></b-icon>
-                  <span>ปกติ</span>
-                </b-radio-button>
-                <b-radio-button
-                  v-model="radioButton"
-                  native-value="1"
-                  type="is-danger is-light is-outlined"
-                >
-                  <b-icon icon="close"></b-icon>
-                  <span>ผิดปกติ</span>
-                </b-radio-button>
-              </b-field>
+            <div class="question">
+              <div
+                class="question"
+                v-for="ques in form.slice(11, 18)"
+                :key="ques.ques_id"
+              >
+                <h1>{{ ques.ques }}</h1>
+                <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+                  <!-- <template :v-show="ch.ans_value"> -->
+                  <b-field>
+                    <b-radio-button
+                      :value="ch.ans_value"
+                      v-model="ques.ans"
+                      @change="
+                        e => setAns({ id: ques.ques_id, value: e.target.value })
+                      "
+                      type="is-success is-light is-outlined"
+                    >
+                      <b-icon icon="check"></b-icon>
+                      <span>{{ ch.ans_title }} yey</span>
+                    </b-radio-button>
+
+                    <!-- </template> -->
+                    <!-- <template :v-show="ch.ans_value"> -->
+                    <b-radio-button
+                      :value="ch.ans_value"
+                      v-model="ques.ans"
+                      @change="
+                        e => setAns({ id: ques.ques_id, value: e.target.value })
+                      "
+                      type="is-danger is-light is-outlined"
+                    >
+                      <b-icon icon="close"></b-icon>
+                      <span>{{ ch.ans_title }}</span>
+                    </b-radio-button>
+                  </b-field>
+                  <!-- </template> -->
+                </div>
+              </div>
             </div>
           </div>
         </div>
         <!---->
         <!-- choose bar maybe fixed side nav-->
         <div class="column is-3" id="choosebar">
-          <chooseBar />
+          <assChooseBar />
         </div>
         <!---->
       </div>
@@ -259,15 +137,44 @@
 </template>
 <script>
 import Sidebar from "@/components/sidebar.vue";
-import chooseBar from "@/components/chooseBar.vue";
+import assChooseBar from "@/components/assChooseBar.vue";
+import { mapState, mapMutations } from "vuex";
+import question from "../assets/test.json";
 export default {
   components: {
     Sidebar,
-    chooseBar
+    assChooseBar
   },
   name: "Patientlist",
   data() {
-    return {};
+    return {
+      question
+      // oralCleaning: '',
+      // fluorToothPaste: '',
+      // everydayClean: '',
+      // oralRisk: '',
+      // oralInjury: '',
+      // gumInjury: '',
+      // teethInjury: '',
+      // chewingProb: '',
+      // falsetooth: '',
+      // everDiag: '',
+      // dentistNeed: ''
+    };
+  },
+  computed: {
+    ...mapState({
+      count: state => state.count,
+      form: "json"
+      // {
+      //   get () {
+      //   console.log(this.$store.state.json)
+      //   return this.$store.state.json
+      // }}
+    })
+  },
+  methods: {
+    ...mapMutations(["setAns"])
   }
 };
 </script>

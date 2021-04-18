@@ -37,152 +37,33 @@
               </div>
             </div>
           </div>
-          <div class="question">
-            <div class="ans">
-              <input type="radio" />
-              <label for="">ผู้ดูแลประจำ</label>
-              <input type="radio" />
-              <label for="">ผู้ดูแลบางครั้ง</label>
-              <input type="radio" />
-              <label for="">มาคนเดียว ไม่ต้องทำแบบคัดกรอง</label>
-            </div>
-            <h1>
-              1. ความจำในรายละเอียดของคนในครอบครัวหรือญาติ เกี่ยวกับอาชีพ
-              ที่อยู่ <br />(ถ้าเมื่อ 10 ปีที่แล้วยังจำได้ดีแต่ตอนนี้จำไม่ได้เลย
-              ให้ถือว่าแย่ลงมาก แต่ถ้า 10 ปีที่แล้วจำไม่ได้เลย
-              ตอนนี้จำได้บ้างให้ถือว่าดีขึ้นเล็กน้อย)
+          <div
+            class="questions"
+            v-for="ques in form.slice(61, 69)"
+            :key="ques.ques_id"
+          >
+            <h1 id="ques_title">
+              {{ ques.ques }}
             </h1>
-            <div class="ans">
-              <input type="radio" />
-              <label for=""> ดีขึ้นมาก</label><br />
-              <input type="radio" />
-              <label for=""> ดีขึ้นเล็กน้อย</label><br />
-              <input type="radio" />
-              <label for=""> ไม่เปลี่ยนแปลง</label><br />
-              <input type="radio" />
-              <label for=""> แย่ลงเล็กน้อย</label><br />
-              <input type="radio" />
-              <label for=""> แย่ลงมาก</label><br />
-            </div>
-            <h1>
-              2. จำได้ว่าตอนนี้พักอาศัยอยู่ที่ไหน<span style="color: red;">
-                **10 ปีที่ผ่านมา**</span
-              >
-            </h1>
-            <div class="ans">
-              <input type="radio" />
-              <label for=""> ดีขึ้นมาก</label><br />
-              <input type="radio" />
-              <label for=""> ดีขึ้นเล็กน้อย</label><br />
-              <input type="radio" />
-              <label for=""> ไม่เปลี่ยนแปลง</label><br />
-              <input type="radio" />
-              <label for=""> แย่ลงเล็กน้อย</label><br />
-              <input type="radio" />
-              <label for=""> แย่ลงมาก</label><br />
-            </div>
-            <h1>
-              3. ทราบเหตุการณ์ที่สำคัญในอดีต
-              <span style="color: red;"> **10 ปีที่ผ่านมา**</span>
-            </h1>
-            <div class="ans">
-              <input type="radio" />
-              <label for=""> ดีขึ้นมาก</label><br />
-              <input type="radio" />
-              <label for=""> ดีขึ้นเล็กน้อย</label><br />
-              <input type="radio" />
-              <label for=""> ไม่เปลี่ยนแปลง</label><br />
-              <input type="radio" />
-              <label for=""> แย่ลงเล็กน้อย</label><br />
-              <input type="radio" />
-              <label for=""> แย่ลงมาก</label><br />
-            </div>
-            <h1>
-              4. ความสามารถในการปรับตัวเข้ากับการดปลี่ยนแปลงในชีวิตประจำวัน
-              <span style="color: red;"> **10 ปีที่ผ่านมา**</span>
-            </h1>
-            <div class="ans">
-              <input type="radio" />
-              <label for=""> ดีขึ้นมาก</label><br />
-              <input type="radio" />
-              <label for=""> ดีขึ้นเล็กน้อย</label><br />
-              <input type="radio" />
-              <label for=""> ไม่เปลี่ยนแปลง</label><br />
-              <input type="radio" />
-              <label for=""> แย่ลงเล็กน้อย</label><br />
-              <input type="radio" />
-              <label for=""> แย่ลงมาก</label><br />
-            </div>
-            <h1>
-              5. สามารถเรียนรู้สิ่งใหม่ ๆ ทั่วไป
-              <span style="color: red;"> **10 ปีที่ผ่านมา**</span>
-            </h1>
-            <div class="ans">
-              <input type="radio" />
-              <label for=""> ดีขึ้นมาก</label><br />
-              <input type="radio" />
-              <label for=""> ดีขึ้นเล็กน้อย</label><br />
-              <input type="radio" />
-              <label for=""> ไม่เปลี่ยนแปลง</label><br />
-              <input type="radio" />
-              <label for=""> แย่ลงเล็กน้อย</label><br />
-              <input type="radio" />
-              <label for=""> แย่ลงมาก</label><br />
-            </div>
-            <h1>
-              6. สามารถที่จะเข้าใจสิ่งที่เกิดขึ้นพร้อมกับให้เหตุผลในสิ่งนั้นได้
-              <span style="color: red;"> **10 ปีที่ผ่านมา**</span>
-            </h1>
-            <div class="ans">
-              <input type="radio" />
-              <label for=""> ดีขึ้นมาก</label><br />
-              <input type="radio" />
-              <label for=""> ดีขึ้นเล็กน้อย</label><br />
-              <input type="radio" />
-              <label for=""> ไม่เปลี่ยนแปลง</label><br />
-              <input type="radio" />
-              <label for=""> แย่ลงเล็กน้อย</label><br />
-              <input type="radio" />
-              <label for=""> แย่ลงมาก</label><br />
-            </div>
-            <h1>
-              7. สามมารถเดินทางไป - กลับสถานที่คุ้นเคยได้โดยลำพัง
-              <span style="color: red;"> **10 ปีที่ผ่านมา**</span>
-            </h1>
-            <div class="ans">
-              <input type="radio" />
-              <label for=""> ดีขึ้นมาก</label><br />
-              <input type="radio" />
-              <label for=""> ดีขึ้นเล็กน้อย</label><br />
-              <input type="radio" />
-              <label for=""> ไม่เปลี่ยนแปลง</label><br />
-              <input type="radio" />
-              <label for=""> แย่ลงเล็กน้อย</label><br />
-              <input type="radio" />
-              <label for=""> แย่ลงมาก</label><br />
-            </div>
-            <h1>
-              8. สามารถทำงานที่เคยทำได้
-              <span style="color: red;"> **10 ปีที่ผ่านมา**</span>
-            </h1>
-            <div class="ans">
-              <input type="radio" />
-              <label for=""> ดีขึ้นมาก</label><br />
-              <input type="radio" />
-              <label for=""> ดีขึ้นเล็กน้อย</label><br />
-              <input type="radio" />
-              <label for=""> ไม่เปลี่ยนแปลง</label><br />
-              <input type="radio" />
-              <label for=""> แย่ลงเล็กน้อย</label><br />
-              <input type="radio" />
-              <label for=""> แย่ลงมาก</label><br />
+            <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+              <input
+                id="ques.ques_id"
+                type="radio"
+                :value="ch.ans_value"
+                v-model="ques.ans"
+                @change="
+                  e => setAns({ id: ques.ques_id, value: e.target.value })
+                "
+              />
+              <label id="ques.ques_id" for="">{{ ch.ans_title }}</label
+              ><br />
             </div>
           </div>
         </div>
         <!---->
         <!-- choose bar maybe fixed side nav-->
         <div class="column is-3" id="choosebar">
-          <chooseBar />
+          <assChooseBar />
         </div>
         <!---->
       </div>
@@ -191,15 +72,41 @@
 </template>
 <script>
 import Sidebar from "@/components/sidebar.vue";
-import chooseBar from "@/components/chooseBar.vue";
+import assChooseBar from "@/components/assChooseBar.vue";
+import { mapState, mapMutations } from "vuex";
+import question from "../assets/test.json";
 export default {
   components: {
     Sidebar,
-    chooseBar
+    assChooseBar
   },
   name: "Patientlist",
   data() {
-    return {};
+    return {
+      question
+      // nurse: '',
+      // famMemmory: '',
+      // pastEvent: '',
+      // selfAdjust: '',
+      // learnNew: '',
+      // understandSitu: '',
+      // canTravel: '',
+      // canWork: ''
+    };
+  },
+  computed: {
+    ...mapState({
+      count: state => state.count,
+      form: "json"
+      // {
+      //   get () {
+      //   console.log(this.$store.state.json)
+      //   return this.$store.state.json
+      // }}
+    })
+  },
+  methods: {
+    ...mapMutations(["setAns"])
   }
 };
 </script>

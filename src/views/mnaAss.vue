@@ -12,80 +12,61 @@
         <!-- questions -->
         <div class="column is-8">
           <h1>แบบประเมินภาวะโภชนาการ (MNA)</h1>
-          <div class="questions">
-            <div id="quesOne">
-              <h1 id="ques_title">
-                1. ในช่วง 3
-                เดือนที่ผ่านมามีการรับประทานอาหารได้น้อยลงเนื่องจากความอยากอาหารลดลง
-                <br />
-                มีปัญหาการย่อย การเคี้ยว หรือการกลืน หรือไม่?
-              </h1>
-              <!-- <div class="choices"> -->
-              <input id="radio" type="radio" value="0" />
-              <label id="radio" for="">ความอยากอาหารลดลงอย่างมาก</label><br />
-              <input id="radio" type="radio" value="1" />
-              <label id="radio" for="">ความอยากอาหารลดลงปานกลาง</label><br />
-              <input id="radio" type="radio" value="2" />
-              <label id="radio" for="">ความอยากอาหารไม่ลดลง</label><br />
-              <!-- </div> -->
-              <h1 id="ques_title">
-                2. ในช่วง 3 เดือนที่ผ่านมา น้ำหนักลดลงหรือไม่?
-                (โดยไม่ได้ตั้งใจลดน้ำหนัก)
-              </h1>
-              <!-- <div class="choices"> -->
-              <input id="radio" type="radio" value="0" />
-              <label id="radio" for="">น้ำหนักลดมากกว่า 3 กิโลกรัม</label><br />
-              <input id="radio" type="radio" value="1" />
-              <label id="radio" for="">น้ำหนักลดระหว่าง 1 - 3 กิโลกรัม</label
+          <div
+            class="questions"
+            v-for="ques in form.slice(0, 6)"
+            :key="ques.ques_id"
+          >
+            <h1 id="ques_title">
+              {{ ques.ques }}
+            </h1>
+            <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+              <input
+                id="ques.ques_id"
+                type="radio"
+                :value="ch.ans_value"
+                v-model="ques.ans"
+                @change="
+                  e => setAns({ id: ques.ques_id, value: e.target.value })
+                "
+              />
+              <label id="ques.ques_id" for="">{{ ch.ans_title }}</label
               ><br />
-              <input id="radio" type="radio" value="2" />
-              <label id="radio" for="">น้ำหนักไม่ลดลง</label>
-              <input id="radio" type="radio" value="3 " />
-              <label id="radio" for="">ไม่ทราบ</label>
-              <!-- </div> -->
-              <h1 id="ques_title">3. สามารถเคลื่อนไหวได้เองหรือไม่?</h1>
-              <input id="radio" type="radio" value="0" />
-              <label for="">นอนบนเตียง</label><br />
-              <input id="radio" type="radio" value="1" />
-              <label for=""
-                >ลุกจากเตียงหรือรถเข็นได้บ้าง
-                แต่ไม่สามมารถไปข้างนอกได้เอง</label
-              ><br />
-              <input id="radio" type="radio" value="2" />
-              <label for="">เดินและเคลื่อนไหวได้ตามปกติ</label><br />
-
-              <h1 id="ques_title">
-                4. ใน 3 เดือนที่ผ่านมา มีความเครียดรุนแรงหรือป่วยเฉียบพลัน
-                หรือไม่
-              </h1>
-              <input id="radio" type="radio" value="0" />
-              <label for="">มี</label><br />
-              <input id="radio" type="radio" value="1" />
-              <label for="">ไม่มี</label><br />
-
-              <h1 id="ques_title">5. มีปัญหาทางจิตประสาท หรือไม่</h1>
-              <input id="radio" type="radio" value="0" />
-              <label for="">ความจำเสื่อม หรือ ซึมเศร้ารุนแรง</label><br />
-              <input id="radio" type="radio" value="1" />
-              <label for="">ความจำเสื่อมเล็กน้อย</label><br />
-              <input id="radio" type="radio" value="2" />
-              <label for="">ไม่มีปัญหาทางประสาท</label><br />
-
-              <h1 id="ques_title">
-                <p>
-                  6. ดัชนีมวลกาย [BMI = น้ำหนัก (กก.) / ส่วนสูง
-                  (ม.)<sup>2</sup>]
-                </p>
-              </h1>
-              <label for="">BMI </label>
-              <input id="bmiBox" type="box" disabled />
             </div>
+            <!-- <div>
+                selected : {{ques.ans}}
+              </div> -->
+          </div>
+          <div class="component">
+            <b-pagination
+              :order="order"
+              :size="size"
+              :icon-prev="prevIcon"
+              :icon-next="nextIcon"
+            >
+            </b-pagination>
+            <span>
+              <b-button
+                class="checkButt"
+                label="ประเมินผล"
+                type="is-light"
+                size=""
+                @click="checkButton"
+              />
+              <b-button
+                class="checkButt"
+                label="กลับสู่หน้าหลัก"
+                type="is-light"
+                size=""
+                @click="backHome"
+              />
+            </span>
           </div>
         </div>
         <!---->
         <!-- choose bar maybe fixed side nav-->
         <div class="column is-3" id="choosebar">
-          <chooseBar />
+          <assChooseBar />
         </div>
         <!---->
       </div>
@@ -94,15 +75,53 @@
 </template>
 <script>
 import Sidebar from "@/components/sidebar.vue";
-import chooseBar from "@/components/chooseBar.vue";
+import assChooseBar from "@/components/assChooseBar.vue";
+import { mapState, mapMutations } from "vuex";
+import question from "../assets/test.json";
+
 export default {
   components: {
     Sidebar,
-    chooseBar
+    assChooseBar
   },
   name: "Patientlist",
   data() {
-    return {};
+    return {
+      question,
+      // ans: '',
+      order: "is-right",
+      size: "default",
+      prevIcon: "chevron-left",
+      nextIcon: "chevron-right"
+      // lessEating: '',
+      // loseWeight: '',
+      // canMove: '',
+      // stressSick: '',
+      // mentalProb: '',
+      // bmi: ''
+    };
+  },
+  computed: {
+    ...mapState({
+      count: state => state.count,
+      form: "json"
+      // {
+      //   get () {
+      //   console.log(this.$store.state.json)
+      //   return this.$store.state.json
+      // }}
+    })
+  },
+  methods: {
+    backHome() {
+      // console.log("tid laeww")
+      // alert("Sure mai ka???")
+      // window.location.href = "startpage";
+      if (confirm("sure mai ka??") == true) {
+        window.location.href = "startpage";
+      }
+    },
+    ...mapMutations(["setAns"])
   }
 };
 </script>
@@ -156,5 +175,11 @@ h1 {
 }
 #bmiBox {
   margin-bottom: 5vh;
+}
+.component {
+  display: flex;
+}
+.checkButt {
+  float: right;
 }
 </style>
