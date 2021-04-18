@@ -15,20 +15,20 @@
                 <p class="control">
                   <span class="button is-static"> ว. </span>
                 </p>
-                <b-input v-model="id" expanded></b-input>
+                <b-input v-model="form.id" expanded></b-input>
               </b-field>
               <b-field class="mb-2" label="ชื่อ">
-                <b-input v-model="f_name" expanded></b-input>
+                <b-input v-model="form.f_name" expanded></b-input>
               </b-field>
               <b-field class="mb-2" label="นามสกุล">
-                <b-input v-model="l_name" expanded></b-input>
+                <b-input v-model="form.l_name" expanded></b-input>
               </b-field>
               <b-field class="mb-2" label="ชื่อผู้ใช้">
-                <b-input v-model="username" expanded></b-input>
+                <b-input v-model="form.username" expanded></b-input>
               </b-field>
               <b-field class="mb-2" label="รหัสผ่าน">
                 <b-input
-                  v-model="password"
+                  v-model="form.password"
                   type="password"
                   password-reveal
                   expanded
@@ -36,7 +36,7 @@
               </b-field>
               <b-field class="mb-4" label="ยืนยันรหัสผ่าน">
                 <b-input
-                  v-model="confirm_pass"
+                  v-model="form.confirm_pass"
                   type="password"
                   password-reveal
                   expanded
@@ -62,6 +62,7 @@
 
 <script>
 import forNurse from "@/components/forNurse.vue";
+import { debounce } from "debounce";
 export default {
   components: {
     forNurse
@@ -69,13 +70,32 @@ export default {
   name: "CreateAccNurse",
   data() {
     return {
-      id: "",
-      f_name: "",
-      l_name: "",
-      username: "",
-      password: "",
-      confirm_pass: ""
+      form: {
+        id: "",
+        f_name: "",
+        l_name: "",
+        username: "",
+        password: "",
+        confirm_pass: ""
+      }
     };
+  },
+  methods: {
+    debounceInput: debounce(function(e) {
+      this.$store.dispatch("updateInput", e.target.value);
+    }, 300)
+  },
+  watch: {
+    form: {
+      // This will let Vue know to look inside the array
+      deep: true,
+
+      // We have to move our method to a handler field
+      handler(val) {
+        this.debounceInput(val);
+        console.log("The form has changed!");
+      }
+    }
   }
 };
 </script>
