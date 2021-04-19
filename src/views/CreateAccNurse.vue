@@ -1,13 +1,13 @@
 <template>
   <div class="hero is-fullheight is-light">
     <div class="hero-body py-3">
-      <div class="container mt-0">
+      <div class="container">
         <div class="columns">
-          <div class="column is-7">
-            <h1 class="title pl-6 py-6">
+          <div class="column is-7 pl-3">
+            <h1 class="title ml-6 pl-6 py-6">
               <nobr id="underline">สร้าง</nobr>บัญชีพยาบาล
             </h1>
-            <forNurse />
+            <forNurse class="pt-3" />
           </div>
           <div class="column is-5">
             <div class="column is-10 is-offset-1">
@@ -42,13 +42,17 @@
                   expanded
                 ></b-input>
               </b-field>
-              <b-button class="login" expanded>
-                เข้าสู่ระบบ
+              <b-button
+                class="login"
+                style="font-family: 'Kanit', sans-serif; font-weight: 400;"
+                expanded
+              >
+                ลงทะเบียน
               </b-button>
               <p class="haveacc pt-1">
                 มีบัญชีแล้ว?
                 <nobr
-                  style="font-style: italic;text-decoration: underline;color: #047857;"
+                  style="font-style: italic;text-decoration: underline;color: #047857; cursor: pointer;"
                   >เข้าสู่ระบบ</nobr
                 >
               </p>
@@ -62,7 +66,7 @@
 
 <script>
 import forNurse from "@/components/forNurse.vue";
-import { debounce } from "debounce";
+// import { debounce } from "debounce";
 export default {
   components: {
     forNurse
@@ -81,9 +85,9 @@ export default {
     };
   },
   methods: {
-    debounceInput: debounce(function(e) {
-      this.$store.dispatch("updateInput", e.target.value);
-    }, 300)
+    // debounceInput: debounce(function(e) {
+    //   this.$store.dispatch("updateInput", e.target.value);
+    // }, 300),
   },
   watch: {
     form: {
@@ -91,8 +95,8 @@ export default {
       deep: true,
 
       // We have to move our method to a handler field
-      handler(val) {
-        this.debounceInput(val);
+      handler() {
+        // this.debounceInput(val);
         console.log("The form has changed!");
       }
     }
@@ -127,6 +131,5 @@ input {
 .haveacc {
   color: #494949;
   font-size: 0.75rem;
-  cursor: pointer;
 }
 </style>
