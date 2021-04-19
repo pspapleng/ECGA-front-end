@@ -817,7 +817,7 @@
         <!---->
         <!-- choose bar maybe fixed side nav-->
         <div class="column is-3" id="choosebar">
-          <assChooseBar />
+          <!-- <assChooseBar /> -->
         </div>
       </div>
       <!---->
@@ -826,11 +826,11 @@
 </template>
 <script>
 import Sidebar from "@/components/sidebar.vue";
-import assChooseBar from "@/components/assChooseBar.vue";
+// import assChooseBar from "@/components/assChooseBar.vue";
 export default {
   components: {
-    Sidebar,
-    assChooseBar
+    Sidebar
+    // assChooseBar,
   },
   name: "Patientlist",
   data() {
