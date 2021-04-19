@@ -41,7 +41,7 @@
           </div>
         </div>
         <div class="column is-3" id="choosebar">
-          <chooseBar />
+          <startChooseBar />
         </div>
       </div>
     </section>
@@ -50,11 +50,11 @@
 
 <script>
 import Sidebar from "@/components/sidebar.vue";
-import chooseBar from "@/components/chooseBar.vue";
+import startChooseBar from "@/components/startChooseBar.vue";
 export default {
   components: {
     Sidebar,
-    chooseBar
+    startChooseBar
   },
   name: "Patientlist",
   data() {

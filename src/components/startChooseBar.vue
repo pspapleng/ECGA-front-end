@@ -1,5 +1,5 @@
 <template>
-  <div class="box has-background-light">
+  <div id="bigBox" class="box has-background-light">
     <div>
       <header id="choosebarHeader">หัวข้อแบบประเมินทั้งหมด</header>
     </div>
@@ -67,17 +67,26 @@
       <label for="">แบบประเมินความเสี่ยงต่อโรคกระดูกพรุน</label>
     </div>
     <div class="buttons" id="startButton">
-      <b-button type="is-success" to="">เริ่มทำแบบประเมิน</b-button>
+      <b-button type="is-success" tag="a" href="/mnaAss" target=""
+        >เริ่มทำแบบประเมิน</b-button
+      >
     </div>
   </div>
 </template>
 <script>
 export default {
-  data() {},
-  name: "chooseBar"
+  data() {
+    return {};
+  },
+  name: "startChooseBar"
 };
 </script>
 <style>
+#bigBox {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
 #choosebarHeader {
   text-align: left;
   margin-top: 5vh;
