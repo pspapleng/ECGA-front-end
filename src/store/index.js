@@ -1,14 +1,50 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import axios from "axios";
 import question from "../assets/test.json";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    json: question
+    json: question,
+    createNurse: {
+      id: "",
+      n_fname: "",
+      n_lname: "",
+      username: "",
+      password: "",
+      confirm_pass: ""
+    },
+    createUsers: {
+      id: "",
+      u_fname: "",
+      u_lname: "",
+      gender: "",
+      date_of_birth: null,
+      weight: "",
+      height: "",
+      waistline: "",
+      fall_history: ""
+    }
   },
   mutations: {
+    setCreateNurse(state, payload) {
+      state.createNurse = payload;
+    },
+    resetCreateNurse(state) {
+      state.createNurse = {
+        id: "",
+        n_fname: "",
+        n_lname: "",
+        username: "",
+        password: "",
+        confirm_pass: ""
+      };
+    },
+    setCreateUsers(state, payload) {
+      state.createUsers = payload;
+    },
     // set value for var ans
     setAns(state, payload) {
       let idd = payload.id;
@@ -25,6 +61,20 @@ export default new Vuex.Store({
       console.log(state.json);
     }
   },
-  actions: {},
+  actions: {
+    createNurse({ state, commit }) {
+      console.log(state.createNurse);
+      axios
+        .post(`http://localhost:3000/api/nurse`, state.createNurse)
+        .then(response => {
+          console.log(response);
+          commit("resetCreateNurse");
+          return Promise.resolve();
+        })
+        .catch(error => {
+          this.error = error.response.data.message;
+        });
+    }
+  },
   modules: {}
 });

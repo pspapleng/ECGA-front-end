@@ -18,28 +18,30 @@
         <div class="columns">
           <div class="column is-4 is-offset-1 pl-5">
             <b-field class="mb-2" label="ชื่อ">
-              <b-input v-model="form.f_name" expanded></b-input>
+              <b-input v-model="form.f_name" required expanded></b-input>
             </b-field>
             <b-field class="mb-2" label="นามสกุล">
-              <b-input v-model="form.l_name" expanded></b-input>
+              <b-input v-model="form.l_name" required expanded></b-input>
             </b-field>
             <b-field label="วัน เดือน ปีเกิด">
               <b-datepicker
                 v-model="form.date_of_birth"
                 placeholder="Type or select a date..."
                 icon="calendar-today"
+                required
                 editable
               >
               </b-datepicker>
             </b-field>
           </div>
           <div class="column is-4 is-offset-1">
-            <b-field class="my-1" label="เพศ">
+            <b-field class="my-1" required label="เพศ">
               <b-radio
                 class="my-1 mr-6 ml-1"
                 v-model="form.gender"
                 name="หญิง"
                 native-value="1"
+                required
               >
                 หญิง
               </b-radio>
@@ -48,30 +50,35 @@
                 v-model="form.gender"
                 name="ชาย"
                 native-value="2"
+                required
               >
                 ชาย
               </b-radio>
             </b-field>
             <b-field grouped class="mt-4">
               <b-field label="น้ำหนัก (กิโลกรัม)">
-                <b-input v-model="form.weight" expanded></b-input>
+                <b-input v-model="form.weight" required expanded></b-input>
               </b-field>
               <b-field label="ส่วนสูง (เซนติเมตร)">
-                <b-input v-model="form.height" expanded></b-input>
+                <b-input v-model="form.height" required expanded></b-input>
               </b-field>
             </b-field>
             <b-field grouped>
               <b-field label="รอบเอว (นิ้ว)">
-                <b-input v-model="form.waistline" expanded></b-input>
+                <b-input v-model="form.waistline" required expanded></b-input>
               </b-field>
               <b-field label="ประวัติการล้มใน 1 ปี (ครั้ง)">
-                <b-input v-model="form.fall_history" expanded></b-input>
+                <b-input
+                  v-model="form.fall_history"
+                  required
+                  expanded
+                ></b-input>
               </b-field>
             </b-field>
           </div>
         </div>
         <b-button
-          class="login mt-4"
+          class="login mt-3"
           style="font-family: 'Kanit', sans-serif; font-weight: 400;"
         >
           สร้างบัญชี
@@ -86,13 +93,15 @@
 <script>
 import Sidebar from "@/components/sidebar.vue";
 import forUsers from "@/components/forUsers.vue";
-// import { debounce } from "debounce";
+// import axios from "axios";
+import { debounce } from "debounce";
+import { mapMutations } from "vuex";
 export default {
   components: {
     Sidebar,
     forUsers
   },
-  name: "CreateAccNurse",
+  name: "CreateAccUsers",
   data() {
     return {
       form: {
@@ -109,9 +118,11 @@ export default {
     };
   },
   methods: {
-    // debounceInput: debounce(function(e) {
-    //   // this.$store.dispatch("updateInput", e.target.value);
-    // }, 300),
+    ...mapMutations(["setCreateUsers"]),
+    debounceInput: debounce(function(e) {
+      console.log(e);
+      this.setCreateUsers(e);
+    }, 300)
   },
   watch: {
     form: {
@@ -119,8 +130,8 @@ export default {
       deep: true,
 
       // We have to move our method to a handler field
-      handler() {
-        // this.debounceInput(val);
+      handler(val) {
+        this.debounceInput(val);
         console.log("The form has changed!");
       }
     }

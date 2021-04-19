@@ -18,10 +18,10 @@
                 <b-input v-model="form.id" expanded></b-input>
               </b-field>
               <b-field class="mb-2" label="ชื่อ">
-                <b-input v-model="form.f_name" expanded></b-input>
+                <b-input v-model="form.n_fname" expanded></b-input>
               </b-field>
               <b-field class="mb-2" label="นามสกุล">
-                <b-input v-model="form.l_name" expanded></b-input>
+                <b-input v-model="form.n_lname" expanded></b-input>
               </b-field>
               <b-field class="mb-2" label="ชื่อผู้ใช้">
                 <b-input v-model="form.username" expanded></b-input>
@@ -45,6 +45,7 @@
               <b-button
                 class="login"
                 style="font-family: 'Kanit', sans-serif; font-weight: 400;"
+                @click="onclick"
                 expanded
               >
                 ลงทะเบียน
@@ -66,7 +67,8 @@
 
 <script>
 import forNurse from "@/components/forNurse.vue";
-// import { debounce } from "debounce";
+import { debounce } from "debounce";
+import { mapMutations, mapActions } from "vuex";
 export default {
   components: {
     forNurse
@@ -76,8 +78,8 @@ export default {
     return {
       form: {
         id: "",
-        f_name: "",
-        l_name: "",
+        n_fname: "",
+        n_lname: "",
         username: "",
         password: "",
         confirm_pass: ""
@@ -85,18 +87,36 @@ export default {
     };
   },
   methods: {
-    // debounceInput: debounce(function(e) {
-    //   this.$store.dispatch("updateInput", e.target.value);
-    // }, 300),
+    ...mapMutations(["setCreateNurse"]),
+    ...mapActions(["createNurse"]),
+    debounceInput: debounce(function(e) {
+      console.log(e);
+      this.setCreateNurse(e);
+    }, 300),
+    onclick() {
+      this.createNurse().then(() => {
+        //reset
+        console.log("in page doen");
+        this.form = {
+          id: "",
+          n_fname: "",
+          n_lname: "",
+          username: "",
+          password: "",
+          confirm_pass: ""
+        };
+      });
+    }
   },
+  computed: {},
   watch: {
     form: {
       // This will let Vue know to look inside the array
       deep: true,
 
       // We have to move our method to a handler field
-      handler() {
-        // this.debounceInput(val);
+      handler(val) {
+        this.debounceInput(val);
         console.log("The form has changed!");
       }
     }
