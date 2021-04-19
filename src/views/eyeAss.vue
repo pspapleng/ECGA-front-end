@@ -96,7 +96,7 @@
           <h1>5. ปิดตาดูทีละข้าง</h1>
           <div
             class="questions"
-            v-for="ques in form.sliไe(44, 46)"
+            v-for="ques in form.slice(44, 46)"
             :key="ques.ques_id"
           >
             <h1 id="ques_title">
