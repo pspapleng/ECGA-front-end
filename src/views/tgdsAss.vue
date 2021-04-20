@@ -34,6 +34,31 @@
               ><br />
             </div>
           </div>
+          <div class="component">
+            <b-pagination
+              :order="order"
+              :size="size"
+              :icon-prev="prevIcon"
+              :icon-next="nextIcon"
+            >
+            </b-pagination>
+            <span>
+              <b-button
+                class="checkButt"
+                label="กลับสู่หน้าหลัก"
+                type="is-light"
+                size=""
+                @click="backHome"
+              />
+              <b-button
+                class="checkButt"
+                label="ประเมินผล"
+                type="is-light"
+                size=""
+                @click="isEditResult = true"
+              />
+            </span>
+          </div>
         </div>
         <!---->
         <!-- choose bar maybe fixed side nav-->
@@ -41,6 +66,36 @@
           <assChooseBar />
         </div>
         <!---->
+        <b-modal v-model="isEditResult">
+          <div class="card">
+            <header class="card-header">
+              <p class="card-header-title">
+                ผลการประเมินแบบวัดความเศร้าในผู้สูงอายุไทย
+              </p>
+            </header>
+            <div class="card-content">
+              <div class="content">
+                การพิจารณา
+                <br />
+                6 คะแนนขึ้นไป = บ่งบอกว่ามีภาวะซึมเศร้า
+                ควรติดตามหรือส่งพบแพทย์ประเมินอาหารทางคลินิก
+                <br />
+                11 คะแนนขึ้นไป = มีภาวะซึมเศร้าแน่นอน ควรพบจิตแพทย์
+                <div class="innerCard">
+                  <div class="innerContent">มีปัญหา ...</div>
+                </div>
+              </div>
+              <b-button
+                id="nextAss"
+                type="is-success"
+                tag="a"
+                href="/iqCode"
+                target=""
+                >ทำแบบประเมินถัดไป</b-button
+              >
+            </div>
+          </div>
+        </b-modal>
       </div>
     </section>
   </div>
@@ -58,7 +113,12 @@ export default {
   name: "Patientlist",
   data() {
     return {
-      question
+      question,
+      order: "is-right",
+      size: "default",
+      prevIcon: "chevron-left",
+      nextIcon: "chevron-right",
+      isEditResult: false
       // lifeSatisfied: '',
       // loseInterest: '',
       // lifeIsEmpty: '',
@@ -88,6 +148,14 @@ export default {
     })
   },
   methods: {
+    backHome() {
+      // console.log("tid laeww")
+      // alert("Sure mai ka???")
+      // window.location.href = "startpage";
+      if (confirm("sure mai ka??") == true) {
+        window.location.href = "startpage";
+      }
+    },
     ...mapMutations(["setAns"])
   }
 };
@@ -123,5 +191,25 @@ h1 {
   position: fixed;
   bottom: 6vh;
   right: 4vw;
+}
+.component {
+  display: flex;
+}
+.innerCard {
+  border-radius: 10px;
+  display: block;
+  text-align: center;
+  height: 7vh;
+  margin-bottom: 0.5vh;
+  margin-left: 12vw;
+  position: relative;
+  width: 25vw;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+.innerContent {
+  margin-top: 2.2vh;
+}
+#nextAss {
+  margin-bottom: 3vh;
 }
 </style>

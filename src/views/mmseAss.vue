@@ -813,14 +813,71 @@
             </p>
             <img src="@/assets/visuo.png" alt="" />
           </div>
+          <div class="component">
+            <b-pagination
+              :order="order"
+              :size="size"
+              :icon-prev="prevIcon"
+              :icon-next="nextIcon"
+            >
+            </b-pagination>
+            <span>
+              <b-button
+                class="checkButt"
+                label="กลับสู่หน้าหลัก"
+                type="is-light"
+                size=""
+                @click="backHome"
+              />
+              <b-button
+                class="checkButt"
+                label="ประเมินผล"
+                type="is-light"
+                size=""
+                @click="isEditResult = true"
+              />
+            </span>
+          </div>
         </div>
         <!---->
         <!-- choose bar maybe fixed side nav-->
         <div class="column is-3" id="choosebar">
           <assChooseBar />
         </div>
+        <b-modal v-model="isEditResult">
+          <div class="card">
+            <header class="card-header">
+              <p class="card-header-title">ผลการประเมินแบบทดสอบ MMSE</p>
+            </header>
+            <div class="card-content">
+              <div class="content">
+                การแปลผล
+                <br />
+                ถ้าคะแนนน้อยกว่าจุดตัด แสดงว่า เป็นผู้สงสัยว่ามีภาสะสมองเสื่อม
+                (Cognitive Impairment)
+                ให้ส่งต่อแพทย์เพื่อตรวจวินิจฉัยยืนยันและทำการรักษาในรายการที่สงสัยว่าภาวะสมองเสื่อม
+                <br />
+                <div class="innerCard">
+                  <div class="innerContent">
+                    คะแนนที่ได้ทั้งหมด 99 คะแนน
+                    <br />
+                    ไม่มีภาวะสมองเสื่อม
+                  </div>
+                </div>
+              </div>
+              <b-button
+                id="nextAss"
+                type="is-success"
+                tag="a"
+                href="/longtermAss"
+                target=""
+                >ทำแบบประเมินถัดไป</b-button
+              >
+            </div>
+          </div>
+        </b-modal>
+        <!---->
       </div>
-      <!---->
     </section>
   </div>
 </template>
@@ -834,7 +891,23 @@ export default {
   },
   name: "Patientlist",
   data() {
-    return {};
+    return {
+      order: "is-right",
+      size: "default",
+      prevIcon: "chevron-left",
+      nextIcon: "chevron-right",
+      isEditResult: false
+    };
+  },
+  methods: {
+    backHome() {
+      // console.log("tid laeww")
+      // alert("Sure mai ka???")
+      // window.location.href = "startpage";
+      if (confirm("sure mai ka??") == true) {
+        window.location.href = "startpage";
+      }
+    }
   }
 };
 </script>

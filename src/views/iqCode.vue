@@ -13,12 +13,12 @@
         <div class="column is-8">
           <h1>แบบประเมินคัดกรองความจำเสื่อมสำหรับผู้สูงอายุไทย (IQCODE)</h1>
           <div class="card">
-            <header class="card-header" style="background-color: #1e3a8a;">
-              <p class="card-header-title" style="color: white;">คำชี้แจง</p>
+            <header class="card-header" style="background-color: #1e3a8a">
+              <p class="card-header-title" style="color: white">คำชี้แจง</p>
             </header>
             <div class="card-content">
               <div class="content">
-                <p style="text-align: left;">
+                <p style="text-align: left">
                   ขอความกรุณาให้ผู้ดูแลผู้สูงอายุเปรียบเทียบความจำ สติปัญญา
                   และความสามารถในการปฏิบัติกิจวัตรประจำวันในแต่ละสถานการณ์ในระยะเวลา
                   10 ปีที่ผ่านมากับปัจจุบันของผู้สูงอายุ โดยทำเครื่องหมาย /
@@ -26,8 +26,8 @@
                   ดีขึ้นเล็กน้อย, เท่าเดิม, แย่ลงเล็กน้อย, หรือแย่ลงมาก
                 </p>
                 <br />
-                <p style="text-align: left;">
-                  <u style="color: red;">ตัวอย่างเช่น</u> ถ้าเมื่อ 10
+                <p style="text-align: left">
+                  <u style="color: red">ตัวอย่างเช่น</u> ถ้าเมื่อ 10
                   ปีก่อนผู้สูงอายุมักจำชื่อคนอื่นไม่ค่อยได้
                   และปัจจุบันยังคงจำไม่ได้เหมือนเดิมนั้น ให้ถือว่า
                   "ไม่เปลี่ยนแปลง" แต่ถ้าเมื่อ 10 ปีที่แล้วจำได้ดี
@@ -59,6 +59,31 @@
               ><br />
             </div>
           </div>
+          <div class="component">
+            <b-pagination
+              :order="order"
+              :size="size"
+              :icon-prev="prevIcon"
+              :icon-next="nextIcon"
+            >
+            </b-pagination>
+            <span>
+              <b-button
+                class="checkButt"
+                label="กลับสู่หน้าหลัก"
+                type="is-light"
+                size=""
+                @click="backHome"
+              />
+              <b-button
+                class="checkButt"
+                label="ประเมินผล"
+                type="is-light"
+                size=""
+                @click="isEditResult = true"
+              />
+            </span>
+          </div>
         </div>
         <!---->
         <!-- choose bar maybe fixed side nav-->
@@ -66,6 +91,38 @@
           <assChooseBar />
         </div>
         <!---->
+        <b-modal v-model="isEditResult">
+          <div class="card">
+            <header class="card-header">
+              <p class="card-header-title">
+                ผลการประเมินคัดกรองความจำเสื่อมสำหรับผู้สูงอายุไทย
+              </p>
+            </header>
+            <div class="card-content">
+              <div class="content">
+                การคิดคะแนน
+                <br />
+                ทั้งหมด / จำนวนข้อ
+                <br />
+                ถ้าผู้สูงอายุมีคะแนนเท่ากับหรือมากกว่า 3.44 =
+                ผู้สูงอายุน่าจะมีภาวะสมองเสื่อม
+                <div class="innerCard">
+                  <div class="innerContent">
+                    ผู้สูงอายุน่าจะมีภาวะสมองเสื่อม
+                  </div>
+                </div>
+              </div>
+              <b-button
+                id="nextAss"
+                type="is-success"
+                tag="a"
+                href="/mmseAss"
+                target=""
+                >ทำแบบประเมินถัดไป</b-button
+              >
+            </div>
+          </div>
+        </b-modal>
       </div>
     </section>
   </div>
@@ -83,7 +140,12 @@ export default {
   name: "Patientlist",
   data() {
     return {
-      question
+      question,
+      order: "is-right",
+      size: "default",
+      prevIcon: "chevron-left",
+      nextIcon: "chevron-right",
+      isEditResult: false
       // nurse: '',
       // famMemmory: '',
       // pastEvent: '',
@@ -106,6 +168,14 @@ export default {
     })
   },
   methods: {
+    backHome() {
+      // console.log("tid laeww")
+      // alert("Sure mai ka???")
+      // window.location.href = "startpage";
+      if (confirm("sure mai ka??") == true) {
+        window.location.href = "startpage";
+      }
+    },
     ...mapMutations(["setAns"])
   }
 };
@@ -141,5 +211,25 @@ h1 {
   position: fixed;
   bottom: 6vh;
   right: 4vw;
+}
+.component {
+  display: flex;
+}
+.innerCard {
+  border-radius: 10px;
+  display: block;
+  text-align: center;
+  height: 7vh;
+  margin-bottom: 0.5vh;
+  margin-left: 12vw;
+  position: relative;
+  width: 25vw;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+.innerContent {
+  margin-top: 2.2vh;
+}
+#nextAss {
+  margin-bottom: 3vh;
 }
 </style>

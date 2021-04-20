@@ -140,6 +140,31 @@
               ><br />
             </div>
           </div>
+          <div class="component">
+            <b-pagination
+              :order="order"
+              :size="size"
+              :icon-prev="prevIcon"
+              :icon-next="nextIcon"
+            >
+            </b-pagination>
+            <span>
+              <b-button
+                class="checkButt"
+                label="กลับสู่หน้าหลัก"
+                type="is-light"
+                size=""
+                @click="backHome"
+              />
+              <b-button
+                class="checkButt"
+                label="ประเมินผล"
+                type="is-light"
+                size=""
+                @click="isEditResult = true"
+              />
+            </span>
+          </div>
         </div>
         <!---->
         <!-- choose bar maybe fixed side nav-->
@@ -147,6 +172,50 @@
           <assChooseBar />
         </div>
         <!---->
+        <b-modal v-model="isEditResult">
+          <div class="card">
+            <header class="card-header">
+              <p class="card-header-title">
+                ผลการประเมินคัดกรองผู้สูงอายุที่ต้องได้รับการดูแลระยะยาว
+              </p>
+            </header>
+            <div class="card-content">
+              <div class="content">
+                การแปลผล
+                <br />
+                คะแนน 0 - 16 คะแนน = ไม่ต้องได้รับการดูแลระยะยาว
+                สนับสนุนการส่งเสริมสุขภาพ
+                <br />
+                คะแนน 17 - 19 คะแนน = ต้องเฝ้าระวัง ประเมินซ้ำทุก 6 เดือน หรือ 1
+                ปี
+                <br />
+                คะแนน 20 คะแนนขึ้นไป = ต้องได้รับการดูแลระยะยาว
+                ประเมินซ้ำทุกเดือนก่อนพบแพทย์
+                <ol>
+                  <li>โรคประจำตัว</li>
+                  <li>ด้านสังคม</li>
+                  <li>ภาวะซึมเศร้า</li>
+                  <li>สมรรถภาพสมอง หรือ ภาวะสมองเสื่อม</li>
+                </ol>
+                <div class="innerCard">
+                  <div class="innerContent">
+                    คะแนนที่ได้ทั้งหมด 99 คะแนน
+                    <br />
+                    ต้องได้รับการดูแลระยะยาวและประเมินซ้ำทุกเดือนก่อนพบแพทย์
+                  </div>
+                </div>
+              </div>
+              <b-button
+                id="nextAss"
+                type="is-success"
+                tag="a"
+                href="/toiletAss"
+                target=""
+                >ทำแบบประเมินถัดไป</b-button
+              >
+            </div>
+          </div>
+        </b-modal>
       </div>
     </section>
   </div>
@@ -164,7 +233,12 @@ export default {
   name: "Patientlist",
   data() {
     return {
-      question
+      question,
+      order: "is-right",
+      size: "default",
+      prevIcon: "chevron-left",
+      nextIcon: "chevron-right",
+      isEditResult: false
       // pplTakeCare: '',
       // habitatType: '',
       // inCome: '',
@@ -207,6 +281,14 @@ export default {
     })
   },
   methods: {
+    backHome() {
+      // console.log("tid laeww")
+      // alert("Sure mai ka???")
+      // window.location.href = "startpage";
+      if (confirm("sure mai ka??") == true) {
+        window.location.href = "startpage";
+      }
+    },
     ...mapMutations(["setAns"])
   }
 };
@@ -242,5 +324,25 @@ h1 {
   position: fixed;
   bottom: 6vh;
   right: 4vw;
+}
+.component {
+  display: flex;
+}
+.innerCard {
+  border-radius: 10px;
+  display: block;
+  text-align: center;
+  height: 7vh;
+  margin-bottom: 0.5vh;
+  margin-left: 12vw;
+  position: relative;
+  width: 25vw;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+.innerContent {
+  margin-top: 2.2vh;
+}
+#nextAss {
+  margin-bottom: 3vh;
 }
 </style>

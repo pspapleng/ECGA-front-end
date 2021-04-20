@@ -83,45 +83,68 @@
                 <u>ส่วนที่ 2 ประเมินสุขภาพช่องปากผู้สูงอายุ</u>
               </p>
             </div>
-            <div class="question">
-              <div
-                class="question"
-                v-for="ques in form.slice(11, 18)"
-                :key="ques.ques_id"
-              >
-                <h1>{{ ques.ques }}</h1>
-                <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-                  <!-- <template :v-show="ch.ans_value"> -->
-                  <b-field>
-                    <b-radio-button
-                      :value="ch.ans_value"
-                      v-model="ques.ans"
-                      @change="
-                        e => setAns({ id: ques.ques_id, value: e.target.value })
-                      "
-                      type="is-success is-light is-outlined"
-                    >
-                      <b-icon icon="check"></b-icon>
-                      <span>{{ ch.ans_title }} yey</span>
-                    </b-radio-button>
+            <div
+              class="question"
+              v-for="ques in form.slice(11, 18)"
+              :key="ques.ques_id"
+            >
+              <h1>{{ ques.ques }}</h1>
+              <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+                <!-- <template :v-show="ch.ans_value"> -->
+                <b-field>
+                  <b-radio-button
+                    :value="ch.ans_value"
+                    v-model="ques.ans"
+                    @change="
+                      e => setAns({ id: ques.ques_id, value: e.target.value })
+                    "
+                    type="is-success is-light is-outlined"
+                  >
+                    <b-icon icon="check"></b-icon>
+                    <span>{{ ch.ans_title }} yey</span>
+                  </b-radio-button>
 
-                    <!-- </template> -->
-                    <!-- <template :v-show="ch.ans_value"> -->
-                    <b-radio-button
-                      :value="ch.ans_value"
-                      v-model="ques.ans"
-                      @change="
-                        e => setAns({ id: ques.ques_id, value: e.target.value })
-                      "
-                      type="is-danger is-light is-outlined"
-                    >
-                      <b-icon icon="close"></b-icon>
-                      <span>{{ ch.ans_title }}</span>
-                    </b-radio-button>
-                  </b-field>
                   <!-- </template> -->
-                </div>
+                  <!-- <template :v-show="ch.ans_value"> -->
+                  <b-radio-button
+                    :value="ch.ans_value"
+                    v-model="ques.ans"
+                    @change="
+                      e => setAns({ id: ques.ques_id, value: e.target.value })
+                    "
+                    type="is-danger is-light is-outlined"
+                  >
+                    <b-icon icon="close"></b-icon>
+                    <span>{{ ch.ans_title }}</span>
+                  </b-radio-button>
+                </b-field>
+                <!-- </template> -->
               </div>
+            </div>
+            <div class="component">
+              <b-pagination
+                :order="order"
+                :size="size"
+                :icon-prev="prevIcon"
+                :icon-next="nextIcon"
+              >
+              </b-pagination>
+              <span>
+                <b-button
+                  class="checkButt"
+                  label="ประเมินผล"
+                  type="is-light"
+                  size=""
+                  @click="isEditResult = true"
+                />
+                <b-button
+                  class="checkButt"
+                  label="กลับสู่หน้าหลัก"
+                  type="is-light"
+                  size=""
+                  @click="backHome"
+                />
+              </span>
             </div>
           </div>
         </div>
@@ -130,6 +153,39 @@
         <div class="column is-3" id="choosebar">
           <assChooseBar />
         </div>
+        <b-modal v-model="isEditResult">
+          <div class="card">
+            <header class="card-header">
+              <p class="card-header-title">ผลการประเมินช่องปากผู้สูงอายุ</p>
+            </header>
+            <div class="card-content">
+              <div class="content">
+                การแปรผล
+                <br />
+                หากมีความผิดปกติหรือมีความจำเป็นที่จะต้องได้รับการรักษาในข้อ 1 -
+                5 แบบประเมินส่วนที่ 2
+                ให้ทำการส่งต่อเพื่อเข้ารับบริการทางทันตกรรมจากทันตบุคลากร
+              </div>
+              <div class="innerCard">
+                <div class="innerContent">
+                  เนื้อเยื่อในช่องปากผิดปกติ
+                  <br />
+                  ปัญหาการเคี้ยว
+                  <br />
+                  โปรดส่งต่อเพื่อเข้ารับบริการทางทันตกรรมกับบุคลากร
+                </div>
+              </div>
+            </div>
+            <b-button
+              id="nextAss"
+              type="is-success"
+              tag="a"
+              href="/fallRisk"
+              target=""
+              >ทำแบบประเมินถัดไป</b-button
+            >
+          </div>
+        </b-modal>
         <!---->
       </div>
     </section>
@@ -148,7 +204,13 @@ export default {
   name: "Patientlist",
   data() {
     return {
-      question
+      question,
+      // ans: '',
+      order: "is-right",
+      size: "default",
+      prevIcon: "chevron-left",
+      nextIcon: "chevron-right",
+      isEditResult: false
       // oralCleaning: '',
       // fluorToothPaste: '',
       // everydayClean: '',
@@ -174,6 +236,14 @@ export default {
     })
   },
   methods: {
+    backHome() {
+      // console.log("tid laeww")
+      // alert("Sure mai ka???")
+      // window.location.href = "startpage";
+      if (confirm("sure mai ka??") == true) {
+        window.location.href = "startpage";
+      }
+    },
     ...mapMutations(["setAns"])
   }
 };
@@ -222,12 +292,27 @@ h1 {
 .part1 {
   width: 40vw;
 }
-.description {
-  margin-top: 3vh;
-  text-align: left;
-  font-weight: 800;
+.component {
+  display: flex;
 }
-.subdes {
-  text-align: left;
+.checkButt {
+  float: right;
+}
+.innerCard {
+  border-radius: 10px;
+  display: block;
+  text-align: center;
+  height: auto;
+  margin-bottom: 0.5vh;
+  margin-left: 12vw;
+  position: relative;
+  width: 25vw;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+.innerContent {
+  margin-top: 2.2vh;
+}
+#nextAss {
+  margin-bottom: 3vh;
 }
 </style>

@@ -112,6 +112,31 @@
               ><br />
             </div>
           </div>
+          <div class="component">
+            <b-pagination
+              :order="order"
+              :size="size"
+              :icon-prev="prevIcon"
+              :icon-next="nextIcon"
+            >
+            </b-pagination>
+            <span>
+              <b-button
+                class="checkButt"
+                label="กลับสู่หน้าหลัก"
+                type="is-light"
+                size=""
+                @click="backHome"
+              />
+              <b-button
+                class="checkButt"
+                label="ประเมินผล"
+                type="is-light"
+                size=""
+                @click="isEditResult = true"
+              />
+            </span>
+          </div>
         </div>
         <!---->
         <!-- choose bar maybe fixed side nav-->
@@ -119,6 +144,37 @@
           <assChooseBar />
         </div>
         <!---->
+        <b-modal v-model="isEditResult">
+          <div class="card">
+            <header class="card-header">
+              <p class="card-header-title">ผลการประเมินภาวะหกล้ม</p>
+            </header>
+            <div class="card-content">
+              <div class="content">
+                การพิจารณา (คะแนนเต็ม 30 คะแนน)
+                <br />
+                เนื้อเยื่อในช่องปากผิดปกติ
+                <br />
+                18 - 30 คะแนน = มีความเสี่ยงที่จะหกล้มสูง
+                <br />
+                8 - 17 คะแนน = มีความเสี่ยงที่จะหกล้มปานกลาง
+                <br />
+                0 - 7 คะแนน = มีความเสี่ยงที่จะหกล้ม ให้ทำการทดสอบ stand test
+              </div>
+              <div class="innerCard">
+                <div class="innerContent">มีปัญหา ...</div>
+              </div>
+              <b-button
+                id="nextAss"
+                type="is-success"
+                tag="a"
+                href="/eyeAss"
+                target=""
+                >ทำแบบประเมินถัดไป</b-button
+              >
+            </div>
+          </div>
+        </b-modal>
       </div>
     </section>
   </div>
@@ -136,7 +192,12 @@ export default {
   name: "Patientlist",
   data() {
     return {
-      question
+      question,
+      order: "is-right",
+      size: "default",
+      prevIcon: "chevron-left",
+      nextIcon: "chevron-right",
+      isEditResult: false
       // canWalk: '',
       // cantWalk: '',
       // howWalk: '',
@@ -167,6 +228,14 @@ export default {
     })
   },
   methods: {
+    backHome() {
+      // console.log("tid laeww")
+      // alert("Sure mai ka???")
+      // window.location.href = "startpage";
+      if (confirm("sure mai ka??") == true) {
+        window.location.href = "startpage";
+      }
+    },
     ...mapMutations(["setAns"])
   }
 };
@@ -208,5 +277,25 @@ h1 {
 }
 #howTo {
   margin-top: 3vh;
+}
+.component {
+  display: flex;
+}
+.innerCard {
+  border-radius: 10px;
+  display: block;
+  text-align: center;
+  height: 7vh;
+  margin-bottom: 0.5vh;
+  margin-left: 12vw;
+  position: relative;
+  width: 25vw;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+.innerContent {
+  margin-top: 2.2vh;
+}
+#nextAss {
+  margin-bottom: 3vh;
 }
 </style>

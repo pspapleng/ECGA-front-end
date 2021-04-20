@@ -33,9 +33,6 @@
               <label id="ques.ques_id" for="">{{ ch.ans_title }}</label
               ><br />
             </div>
-            <!-- <div>
-                selected : {{ques.ans}}
-              </div> -->
           </div>
           <div class="component">
             <b-pagination
@@ -51,7 +48,7 @@
                 label="ประเมินผล"
                 type="is-light"
                 size=""
-                @click="checkButton"
+                @click="isEditResult = true"
               />
               <b-button
                 class="checkButt"
@@ -64,11 +61,41 @@
           </div>
         </div>
         <!---->
-        <!-- choose bar maybe fixed side nav-->
         <div class="column is-3" id="choosebar">
           <assChooseBar />
         </div>
-        <!---->
+        <!-- ผลประเมิน -->
+        <b-modal v-model="isEditResult">
+          <div class="card">
+            <header class="card-header">
+              <p class="card-header-title">ผลการประเมินภาวะโภชนาการ</p>
+            </header>
+            <div class="card-content">
+              <div class="content">
+                การพิจารณา (คะแนนเต็ม 14 คะแนน)
+                <br />
+                12 - 14 คะแนน = ภาวะโภชนาการปกติ
+                <br />
+                8 - 11 คะแนน = มีความเสี่ยงต่อการเกิดภาวะขาดสารอาหาร
+                <br />
+                0 - 7 คะแนน = มีภาวะขาดสารอาหาร
+              </div>
+              <div class="innerCard">
+                <div class="innerContent">
+                  ได้คะแนน 12 คะแนน ภาวะโภชนาการปกติ
+                </div>
+              </div>
+            </div>
+            <b-button
+              id="nextAss"
+              type="is-success"
+              tag="a"
+              href="/mouthAss"
+              target=""
+              >ทำแบบประเมินถัดไป</b-button
+            >
+          </div>
+        </b-modal>
       </div>
     </section>
   </div>
@@ -92,7 +119,8 @@ export default {
       order: "is-right",
       size: "default",
       prevIcon: "chevron-left",
-      nextIcon: "chevron-right"
+      nextIcon: "chevron-right",
+      isEditResult: false
       // lessEating: '',
       // loseWeight: '',
       // canMove: '',
@@ -160,10 +188,6 @@ h1 {
   bottom: 6vh;
   right: 4vw;
 }
-/* #ques_title {
-        font-weight: 600;
-        font-size: 1.15rem;
-    } */
 .choices {
   display: inline-block;
   text-align: left;
@@ -181,5 +205,22 @@ h1 {
 }
 .checkButt {
   float: right;
+}
+.innerCard {
+  border-radius: 10px;
+  display: block;
+  text-align: center;
+  height: 7vh;
+  margin-bottom: 0.5vh;
+  margin-left: 12vw;
+  position: relative;
+  width: 25vw;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+.innerContent {
+  margin-top: 2.2vh;
+}
+#nextAss {
+  margin-bottom: 3vh;
 }
 </style>
