@@ -1,6 +1,5 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import axios from "axios";
 import question from "../assets/test.json";
 
 Vue.use(Vuex);
@@ -64,15 +63,16 @@ export default new Vuex.Store({
   actions: {
     createNurse({ state, commit }) {
       console.log(state.createNurse);
-      axios
+      return Vue.axios
         .post(`http://localhost:3000/api/nurse`, state.createNurse)
-        .then(response => {
-          console.log(response);
+        .then(res => {
+          console.log(res);
           commit("resetCreateNurse");
           return Promise.resolve();
         })
-        .catch(error => {
-          this.error = error.response.data.message;
+        .catch(e => {
+          this.error = e.response.data.message;
+          return Promise.reject(e.response.data);
         });
     }
   },

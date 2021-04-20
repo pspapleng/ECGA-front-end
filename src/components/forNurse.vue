@@ -577,3 +577,10 @@ export default {
   name: "forNurse"
 };
 </script>
+<style>
+/* .nurse {
+  position: absolute;
+  bottom:10%;
+  left: 7%;
+} */
+</style>

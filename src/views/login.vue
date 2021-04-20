@@ -2,7 +2,9 @@
   <div class="hero is-fullheight is-light">
     <div class="hero-body">
       <div class="container has-text-centered">
-        <p class="title">เข้าสู่ระบบ <mark type="is-warning">E-CGA</mark></p>
+        <p class="title has-text-centered">
+          เข้าสู่ระบบ <mark type="is-warning">E-CGA</mark>
+        </p>
         <div class="column is-4 is-offset-4">
           <b-field>
             <b-input v-model="name" placeholder="ชื่อบัญชีผู้ใช้"></b-input>
@@ -16,12 +18,17 @@
             />
           </b-field>
         </div>
-        <b-button class="login">
+        <b-button
+          class="login"
+          style="font-family: 'Kanit', sans-serif; font-weight: 400;"
+        >
           เข้าสู่ระบบ
         </b-button>
-        <p class="newacc pt-1">
-          สมัครบัญชีพยาบาลใหม่
-        </p>
+        <router-link to="/CreateAccNurse">
+          <p class="newacc pt-1">
+            สมัครบัญชีพยาบาลใหม่
+          </p>
+        </router-link>
       </div>
     </div>
   </div>
@@ -30,9 +37,7 @@
 export default {
   name: "Login",
   data() {
-    return {
-      msg: "Login"
-    };
+    return {};
   }
 };
 </script>
