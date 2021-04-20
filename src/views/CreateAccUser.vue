@@ -2,7 +2,7 @@
   <div class="hero is-fullheight">
     <div class="hero-body py-1">
       <div class="container">
-        <div class="columns py-0 my-0">
+        <div class="columns">
           <div class="column is-1 ">
             <Sidebar />
           </div>
@@ -15,64 +15,127 @@
             <forUsers class="pr-6" />
           </div>
         </div>
-        <div class="columns">
-          <div class="column is-4 is-offset-1 pl-5">
-            <b-field class="mb-2" label="ชื่อ">
-              <b-input v-model="form.f_name" required expanded></b-input>
+        <div class="columns has-text-left">
+          <div class="column is-3 is-offset-1 pl-5">
+            <b-field
+              class="mb-2"
+              label="ชื่อ"
+              :type="{ 'is-danger': fillFname }"
+              :message="{
+                '* กรุณากรอกชื่อ และ ชื่อต้องเป็นตัวอักษรเท่านั้น': fillFname
+              }"
+            >
+              <b-input v-model="form.u_fname" expanded></b-input>
             </b-field>
-            <b-field class="mb-2" label="นามสกุล">
-              <b-input v-model="form.l_name" required expanded></b-input>
+            <b-field
+              class="mb-2"
+              label="นามสกุล"
+              :type="{ 'is-danger': fillFname }"
+              :message="{
+                '* กรุณากรอกชื่อ และ ชื่อต้องเป็นตัวอักษรเท่านั้น': fillFname
+              }"
+            >
+              <b-input v-model="form.u_lname" expanded></b-input>
             </b-field>
-            <b-field label="วัน เดือน ปีเกิด">
+            <b-field
+              label="วัน เดือน ปีเกิด"
+              :type="{ 'is-danger': fillDate }"
+              :message="{
+                '* กรุณาเลือกวัน เดือน ปี': fillDate
+              }"
+            >
               <b-datepicker
                 v-model="form.date_of_birth"
                 placeholder="Type or select a date..."
                 icon="calendar-today"
-                required
                 editable
               >
               </b-datepicker>
             </b-field>
           </div>
-          <div class="column is-4 is-offset-1">
-            <b-field class="my-1" required label="เพศ">
-              <b-radio
-                class="my-1 mr-6 ml-1"
-                v-model="form.gender"
-                name="หญิง"
-                native-value="1"
-                required
-              >
-                หญิง
-              </b-radio>
-              <b-radio
-                class="my-1"
-                v-model="form.gender"
-                name="ชาย"
-                native-value="2"
-                required
-              >
-                ชาย
-              </b-radio>
-            </b-field>
-            <b-field grouped class="mt-4">
-              <b-field label="น้ำหนัก (กิโลกรัม)">
-                <b-input v-model="form.weight" required expanded></b-input>
-              </b-field>
-              <b-field label="ส่วนสูง (เซนติเมตร)">
-                <b-input v-model="form.height" required expanded></b-input>
+          <div class="column is-3 is-offset-1">
+            <b-field grouped>
+              <div class="block">
+                <b-field
+                  class="mr-6"
+                  label="เพศ"
+                  :type="{ 'is-danger': fillGender }"
+                  :message="{
+                    '* กรุณาเลือกหนึ่งตัวเลือก': fillGender
+                  }"
+                >
+                  <b-radio
+                    class="mr-5 ml-1 mt-2"
+                    v-model="form.gender"
+                    name="ชาย"
+                    native-value="2"
+                  >
+                    ชาย
+                  </b-radio>
+                  <b-radio
+                    class="ml-3 mt-2"
+                    v-model="form.gender"
+                    name="หญิง"
+                    native-value="1"
+                  >
+                    หญิง
+                  </b-radio>
+                </b-field>
+              </div>
+              <b-field label="BMI">
+                <b-input v-model="calBMI" disabled expanded> </b-input>
               </b-field>
             </b-field>
             <b-field grouped>
-              <b-field label="รอบเอว (นิ้ว)">
-                <b-input v-model="form.waistline" required expanded></b-input>
+              <b-field
+                label="น้ำหนัก (กิโลกรัม)"
+                :type="{ 'is-danger': isWeight }"
+                :message="[
+                  {
+                    '* กรุณากรอกน้ำหนัก': fillWeight
+                  },
+                  { น้ำหนักต้องเป็นตัวเลขเท่านั้น: isWeight }
+                ]"
+              >
+                <b-input v-model="form.weight" expanded></b-input>
               </b-field>
-              <b-field label="ประวัติการล้มใน 1 ปี (ครั้ง)">
-                <b-input
-                  v-model="form.fall_history"
-                  required
-                  expanded
-                ></b-input>
+              <b-field
+                label="ส่วนสูง (เซนติเมตร)"
+                :type="{ 'is-danger': isHeight }"
+                :message="[
+                  {
+                    '* กรุณากรอกส่วนสูง': fillHeight
+                  },
+                  { ส่วนสูงต้องเป็นตัวเลขเท่านั้น: isHeight }
+                ]"
+              >
+                <b-input v-model="form.height" expanded></b-input>
+              </b-field>
+            </b-field>
+            <b-field grouped>
+              <b-field
+                label="รอบเอว (นิ้ว)"
+                :type="{ 'is-danger': isWaistline }"
+                :message="[
+                  {
+                    '* กรุณากรอกรอบเอว': fillWaistline
+                  },
+                  { รอบเอวต้องเป็นตัวเลขเท่านั้น: isWaistline }
+                ]"
+              >
+                <b-input v-model="form.waistline" expanded></b-input>
+              </b-field>
+              <b-field
+                label="ประวัติการล้มใน 1 ปี (ครั้ง)"
+                :type="{ 'is-danger': isFall }"
+                :message="[
+                  {
+                    '* กรุณากรอกจำนวนครั้ง': fillFall
+                  },
+                  { จำนวนครั้งต้องเป็นตัวเลขจำนวนเต็มเท่านั้น: isFall }
+                ]"
+              >
+                <b-input v-model="form.fall_history" expanded></b-input>
               </b-field>
             </b-field>
           </div>
@@ -83,9 +146,11 @@
         >
           สร้างบัญชี
         </b-button>
-        <p class="cancel pt-1">
-          ยกเลิก
-        </p>
+        <router-link to="/patientlist">
+          <p class="cancel pt-1">
+            ยกเลิก
+          </p>
+        </router-link>
       </div>
     </div>
   </div>
@@ -93,7 +158,6 @@
 <script>
 import Sidebar from "@/components/sidebar.vue";
 import forUsers from "@/components/forUsers.vue";
-// import axios from "axios";
 import { debounce } from "debounce";
 import { mapMutations } from "vuex";
 export default {
@@ -106,8 +170,8 @@ export default {
     return {
       form: {
         id: "",
-        f_name: "",
-        l_name: "",
+        u_fname: "",
+        u_lname: "",
         gender: "",
         date_of_birth: null,
         weight: "",
@@ -116,6 +180,60 @@ export default {
         fall_history: ""
       }
     };
+  },
+  computed: {
+    calBMI() {
+      let bmi = parseFloat(
+        this.form.weight / Math.pow(this.form.height / 100, 2)
+      ).toFixed(2);
+      if (isFinite(bmi)) {
+        return bmi;
+      } else {
+        return "0";
+      }
+    },
+    fillFname() {
+      return (
+        this.form.u_fname.length < 2 ||
+        !this.form.u_fname.match(/^[ก-์a-zA-Z]*$/gm)
+      );
+    },
+    fillLname() {
+      return (
+        this.form.u_lname.length < 2 ||
+        !this.form.u_lname.match(/^[ก-์a-zA-Z]*$/gm)
+      );
+    },
+    fillDate() {
+      return this.form.date_of_birth == null;
+    },
+    fillGender() {
+      return this.form.gender == "";
+    },
+    fillWeight() {
+      return this.form.weight.length < 2;
+    },
+    isWeight() {
+      return !this.form.weight.match(/^(?!(0))[.-9]*$/gm);
+    },
+    fillHeight() {
+      return this.form.height.length < 3;
+    },
+    isHeight() {
+      return !this.form.height.match(/^(?!(0))[.-9]*$/gm);
+    },
+    fillWaistline() {
+      return this.form.waistline.length < 2;
+    },
+    isWaistline() {
+      return !this.form.waistline.match(/^(?!(0))[.-9]*$/gm);
+    },
+    fillFall() {
+      return this.form.fall_history.length < 1;
+    },
+    isFall() {
+      return !this.form.fall_history.match(/^(?!(0))[0-9]*$/gm);
+    }
   },
   methods: {
     ...mapMutations(["setCreateUsers"]),
