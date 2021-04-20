@@ -16,7 +16,6 @@ export default new Vuex.Store({
       confirm_pass: ""
     },
     createUsers: {
-      id: "",
       u_fname: "",
       u_lname: "",
       gender: "",

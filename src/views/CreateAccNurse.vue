@@ -94,12 +94,13 @@
               </b-button>
               <p class="haveacc pt-1 has-text-centered">
                 มีบัญชีแล้ว?
-                <router-link to="/login"
-                  ><nobr
+                <router-link to="/login">
+                  <nobr
                     style="font-style: italic;text-decoration: underline;color: #047857; cursor: pointer;"
-                    >เข้าสู่ระบบ</nobr
-                  ></router-link
-                >
+                  >
+                    เข้าสู่ระบบ
+                  </nobr>
+                </router-link>
               </p>
             </div>
           </div>
@@ -157,15 +158,6 @@ export default {
           this.createNurse()
             .then(() => {
               this.$router.push({ name: "Login" });
-              // alert("complete");
-              // this.form = {
-              //   id: "",
-              //   n_fname: "",
-              //   n_lname: "",
-              //   username: "",
-              //   password: "",
-              //   confirm_pass: "",
-              // };
             })
             .catch(e => {
               console.log(e);
