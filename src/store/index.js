@@ -18,12 +18,14 @@ export default new Vuex.Store({
     createUsers: {
       u_fname: "",
       u_lname: "",
-      gender: "",
+      gender: 0,
       date_of_birth: null,
-      weight: "",
-      height: "",
-      waistline: "",
-      fall_history: ""
+      weight: 0,
+      height: 0,
+      bmi: 0,
+      waistline: 0,
+      fall_history: 0,
+      n_id: null
     }
   },
   mutations: {
@@ -42,6 +44,20 @@ export default new Vuex.Store({
     },
     setCreateUsers(state, payload) {
       state.createUsers = payload;
+    },
+    resetCreateUsers(state) {
+      state.createUsers = {
+        u_fname: "",
+        u_lname: "",
+        gender: 0,
+        date_of_birth: null,
+        weight: 0,
+        height: 0,
+        bmi: 0,
+        waistline: 0,
+        fall_history: 0,
+        n_id: null
+      };
     },
     // set value for var ans
     setAns(state, payload) {
@@ -67,6 +83,28 @@ export default new Vuex.Store({
         .then(res => {
           console.log(res);
           commit("resetCreateNurse");
+          return Promise.resolve();
+        })
+        .catch(e => {
+          this.error = e.response.data.message;
+          return Promise.reject(e.response.data);
+        });
+    },
+    createUsers({ state, commit }) {
+      let year = new Date(state.createUsers.date_of_birth).getFullYear();
+      let month = new Date(state.createUsers.date_of_birth).getMonth() + 1;
+      let date = new Date(state.createUsers.date_of_birth).getDate();
+      let formatDate = year + "-" + month + "-" + date;
+      state.createUsers.date_of_birth = formatDate;
+      state.createUsers.bmi = parseFloat(
+        state.createUsers.weight / Math.pow(state.createUsers.height / 100, 2)
+      ).toFixed(2);
+      console.log(state.createUsers);
+      return Vue.axios
+        .post(`http://localhost:3000/api/users`, state.createUsers)
+        .then(res => {
+          console.log(res);
+          commit("resetCreateUsers");
           return Promise.resolve();
         })
         .catch(e => {

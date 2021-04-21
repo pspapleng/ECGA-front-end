@@ -87,10 +87,10 @@
               <b-button
                 class="login"
                 style="font-family: 'Kanit', sans-serif; font-weight: 400;"
-                @click="create"
+                @click="createN"
                 expanded
               >
-                ลงทะเบียน
+                สร้างบัญชี
               </b-button>
               <p class="haveacc pt-1 has-text-centered">
                 มีบัญชีแล้ว?
@@ -138,7 +138,7 @@ export default {
       console.log(e);
       this.setCreateNurse(e);
     }, 300),
-    create() {
+    createN() {
       if (
         this.fillId ||
         this.fillFname ||

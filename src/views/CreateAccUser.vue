@@ -94,7 +94,7 @@
                   {
                     '* กรุณากรอกน้ำหนัก': fillWeight
                   },
-                  { น้ำหนักต้องเป็นตัวเลขเท่านั้น: isWeight }
+                  { 'น้ำหนักต้องเป็นตัวเลข >= 1 เท่านั้น': isWeight }
                 ]"
               >
                 <b-input v-model="form.weight" expanded></b-input>
@@ -106,7 +106,7 @@
                   {
                     '* กรุณากรอกส่วนสูง': fillHeight
                   },
-                  { ส่วนสูงต้องเป็นตัวเลขเท่านั้น: isHeight }
+                  { 'ส่วนสูงต้องเป็นตัวเลข >= 1 เท่านั้น': isHeight }
                 ]"
               >
                 <b-input v-model="form.height" expanded></b-input>
@@ -120,7 +120,7 @@
                   {
                     '* กรุณากรอกรอบเอว': fillWaistline
                   },
-                  { รอบเอวต้องเป็นตัวเลขเท่านั้น: isWaistline }
+                  { 'รอบเอวต้องเป็นตัวเลข >= 1 เท่านั้น': isWaistline }
                 ]"
               >
                 <b-input v-model="form.waistline" expanded></b-input>
@@ -143,6 +143,7 @@
         <b-button
           class="login mt-3"
           style="font-family: 'Kanit', sans-serif; font-weight: 400;"
+          @click="createU"
         >
           สร้างบัญชี
         </b-button>
@@ -159,7 +160,7 @@
 import Sidebar from "@/components/sidebar.vue";
 import forUsers from "@/components/forUsers.vue";
 import { debounce } from "debounce";
-import { mapMutations } from "vuex";
+import { mapMutations, mapActions } from "vuex";
 export default {
   components: {
     Sidebar,
@@ -169,16 +170,16 @@ export default {
   data() {
     return {
       form: {
-        id: "",
-        u_fname: "",
-        u_lname: "",
-        gender: "",
-        date_of_birth: null,
-        weight: "",
-        height: "",
-        waistline: "",
-        fall_history: ""
+        u_fname: "asdas",
+        u_lname: "dasfd",
+        gender: 1,
+        date_of_birth: null, //null
+        weight: 65.5,
+        height: 167.25,
+        waistline: 32,
+        fall_history: 5
       }
+      // locale: "en-CA",
     };
   },
   computed: {
@@ -214,33 +215,63 @@ export default {
       return this.form.weight.length < 2;
     },
     isWeight() {
-      return !this.form.weight.match(/^(?!(0))[.-9]*$/gm);
+      return !("" + this.form.weight).match(/^(?![.,0])[.-9]*$/gm);
     },
     fillHeight() {
       return this.form.height.length < 3;
     },
     isHeight() {
-      return !this.form.height.match(/^(?!(0))[.-9]*$/gm);
+      return !("" + this.form.height).match(/^(?![.,0])[.-9]*$/gm);
     },
     fillWaistline() {
       return this.form.waistline.length < 2;
     },
     isWaistline() {
-      return !this.form.waistline.match(/^(?!(0))[.-9]*$/gm);
+      return !("" + this.form.waistline).match(/^(?![.,0])[.-9]*$/gm);
     },
     fillFall() {
       return this.form.fall_history.length < 1;
     },
     isFall() {
-      return !this.form.fall_history.match(/^(?!(0))[0-9]*$/gm);
+      return !("" + this.form.fall_history).match(/^[0-9]*$/gm);
     }
   },
   methods: {
     ...mapMutations(["setCreateUsers"]),
+    ...mapActions(["createUsers"]),
     debounceInput: debounce(function(e) {
       console.log(e);
       this.setCreateUsers(e);
-    }, 300)
+    }, 300),
+    createU() {
+      if (
+        this.fillFname ||
+        this.fillLname ||
+        this.fillDate ||
+        this.fillGender ||
+        this.fillWeight ||
+        this.isWeight ||
+        this.fillHeight ||
+        this.isHeight ||
+        this.fillWaistline ||
+        this.isWaistline ||
+        this.fillFall ||
+        this.isFall
+      ) {
+        alert("โปรดกรอกข้อมูลให้ครบทุกช่อง");
+        return;
+      } else {
+        // alert("complete");
+        this.createUsers()
+          .then(() => {
+            this.$router.push({ name: "PatientList" });
+          })
+          .catch(e => {
+            console.log(e);
+            alert(e.message);
+          });
+      }
+    }
   },
   watch: {
     form: {
