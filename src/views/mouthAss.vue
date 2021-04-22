@@ -42,7 +42,7 @@
               v-for="ques in form.slice(6, 9)"
               :key="ques.ques_id"
             >
-              <h1>{{ ques.ques }}</h1>
+              <p>{{ ques.ques }}</p>
               <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
                 <input
                   id="ques.ques_id"
@@ -63,7 +63,7 @@
               v-for="ques in form.slice(9, 11)"
               :key="ques.ques_id"
             >
-              <h1>{{ ques.ques }}</h1>
+              <p>{{ ques.ques }}</p>
               <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
                 <input
                   id="ques.ques_id"
@@ -88,37 +88,19 @@
               v-for="ques in form.slice(11, 18)"
               :key="ques.ques_id"
             >
-              <h1>{{ ques.ques }}</h1>
+              <p>{{ ques.ques }}</p>
               <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-                <!-- <template :v-show="ch.ans_value"> -->
-                <b-field>
-                  <b-radio-button
-                    :value="ch.ans_value"
-                    v-model="ques.ans"
-                    @change="
-                      e => setAns({ id: ques.ques_id, value: e.target.value })
-                    "
-                    type="is-success is-light is-outlined"
-                  >
-                    <b-icon icon="check"></b-icon>
-                    <span>{{ ch.ans_title }} yey</span>
-                  </b-radio-button>
-
-                  <!-- </template> -->
-                  <!-- <template :v-show="ch.ans_value"> -->
-                  <b-radio-button
-                    :value="ch.ans_value"
-                    v-model="ques.ans"
-                    @change="
-                      e => setAns({ id: ques.ques_id, value: e.target.value })
-                    "
-                    type="is-danger is-light is-outlined"
-                  >
-                    <b-icon icon="close"></b-icon>
-                    <span>{{ ch.ans_title }}</span>
-                  </b-radio-button>
-                </b-field>
-                <!-- </template> -->
+                <input
+                  id="ques.ques_id"
+                  type="radio"
+                  :value="ch.ans_value"
+                  v-model="ques.ans"
+                  @change="
+                    e => setAns({ id: ques.ques_id, value: e.target.value })
+                  "
+                />
+                <label id="ques.ques_id" for="">{{ ch.ans_title }}</label
+                ><br />
               </div>
             </div>
             <div class="component">
@@ -289,8 +271,28 @@ h1 {
 .card {
   margin-top: 3vh;
 }
-.part1 {
+.description {
+  text-align: left;
+  margin-top: 2vh;
+  font-weight: 700;
+}
+.subdes {
+  text-align: left;
+  margin-top: 1vh;
+}
+/* .part1 {
   width: 40vw;
+} */
+p {
+  text-align: left;
+}
+.ans {
+  text-align: left;
+  margin-left: 2vw;
+  /* display: flex; */
+}
+#ques.ques_id {
+  margin: 10px 10px;
 }
 .component {
   display: flex;
