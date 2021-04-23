@@ -173,7 +173,7 @@ export default {
         u_fname: "asdas",
         u_lname: "dasfd",
         gender: 1,
-        date_of_birth: null, //null
+        date_of_birth: new Date(), //null
         weight: 65.5,
         height: 167.25,
         waistline: 32,

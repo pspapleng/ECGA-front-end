@@ -7,6 +7,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     json: question,
+    result: null,
     createNurse: {
       id: "",
       n_fname: "",
@@ -29,6 +30,9 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    setResult(state, payload) {
+      state.result = payload;
+    },
     setCreateNurse(state, payload) {
       state.createNurse = payload;
     },
@@ -111,6 +115,13 @@ export default new Vuex.Store({
           this.error = e.response.data.message;
           return Promise.reject(e.response.data);
         });
+    },
+    getResult({ commit }) {
+      console.log("in action");
+      Vue.axios.get(`http://localhost:3000/api/result/user/3`).then(result => {
+        console.log(result.data);
+        commit("setResult", result.data);
+      });
     }
   },
   modules: {}
