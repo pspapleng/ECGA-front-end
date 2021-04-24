@@ -221,7 +221,7 @@ export default {
       return this.form.height.length < 3;
     },
     isHeight() {
-      return !("" + this.form.height).match(/^(?![.,0])[.-9]*$/gm);
+      return !("" + this.form.height).match(/^(?![-,.,0])\d+[.,0-9]\d{0,2}$/);
     },
     fillWaistline() {
       return this.form.waistline.length < 2;

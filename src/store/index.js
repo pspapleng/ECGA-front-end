@@ -27,7 +27,8 @@ export default new Vuex.Store({
       waistline: 0,
       fall_history: 0,
       n_id: null
-    }
+    },
+    result_id: 1
   },
   mutations: {
     setResult(state, payload) {
@@ -118,7 +119,7 @@ export default new Vuex.Store({
     },
     getResult({ commit }) {
       console.log("in action");
-      Vue.axios.get(`http://localhost:3000/api/result/user/3`).then(result => {
+      Vue.axios.get(`http://localhost:3000/api/result/user/1`).then(result => {
         console.log(result.data);
         commit("setResult", result.data);
       });
