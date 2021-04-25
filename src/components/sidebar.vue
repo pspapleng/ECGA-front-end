@@ -58,7 +58,7 @@
       </b-button>
     </div>
     <div style="position: absolute; bottom: 20px; left: 10px;">
-      <b-button
+      <!-- <b-button
         style="
                 background-color: #1e3a8a;
                 color: white;
@@ -67,7 +67,31 @@
         size="is-large"
       >
         <b-icon icon="account-circle" size="is-large"> </b-icon>
-      </b-button>
+      </b-button> -->
+      <b-tooltip
+        type="is-light"
+        position="is-right"
+        :triggers="['click']"
+        :auto-close="['outside', 'escape']"
+      >
+        <template v-slot:content>
+          <p>8;pppppppp</p>
+          <b-button
+                type="is-danger"
+                icon-left="sign-out-alt"
+                icon-pack="fas"
+                size="is-small"
+                @click="getData()"
+              >Log out
+              </b-button>
+        </template>
+        <b-button
+          style="background-color: #1e3a8a; color: white; border-color: #1e3a8a"
+          size="is-large"
+        >
+          <b-icon icon="account-circle" size="is-large"> </b-icon>
+        </b-button>
+      </b-tooltip>
     </div>
     <!-- </b-menu> -->
   </div>
@@ -94,7 +118,7 @@ export default {
   top: 0;
   left: 0;
   background-color: #1e3a8a;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 /* .b-sidebar .sidebar-content {
   background-color: #1e3a8a;
