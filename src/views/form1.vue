@@ -10,31 +10,79 @@
         </div>
         <!---->
         <!-- questions -->
-        <div class="column is-8">
-          <h1>แบบประเมินภาวะโภชนาการ (MNA)</h1>
+        <div class="column is-11">
+          <div class="assName card mt-6 ml-1 mr-6">
+            <p
+              class="card-header-title"
+              style="color: white; background-color: #1E3A8A"
+            >
+              แบบประเมินภาวะโภชนาการ (MNA)
+            </p>
+          </div>
           <div
             class="questions"
-            v-for="ques in form.slice(0, 6)"
+            v-for="ques in form.slice(0, 5)"
             :key="ques.ques_id"
           >
-            <h1 id="ques_title">
-              {{ ques.ques }}
-            </h1>
-            <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-              <input
-                id="ques.ques_id"
-                type="radio"
-                :value="ch.ans_value"
-                v-model="ques.ans"
-                @change="
-                  e => setAns({ id: ques.ques_id, value: e.target.value })
-                "
-              />
-              <label id="ques.ques_id" for="">{{ ch.ans_title }}</label
-              ><br />
+            <div class="card mr-6">
+              <div class="card-content">
+                <div class="content">
+                  <p>{{ ques.ques }}</p>
+                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+                    <input
+                      id="ques.ques_id"
+                      type="radio"
+                      :value="ch.ans_value"
+                      v-model="ques.ans"
+                      @change="
+                        e => setAns({ id: ques.ques_id, value: e.target.value })
+                      "
+                    />
+                    <label id="ques.ques_id" for="">{{ ch.ans_title }}</label
+                    ><br />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="component">
+
+          <div
+            class="questions"
+            v-for="ques in form.slice(5, 6)"
+            :key="ques.ques_id"
+          >
+            <div class="card mr-6">
+              <div class="card-content">
+                <div class="content">
+                  <p>{{ ques.ques }}</p>
+                  <label for="" style="float: left; margin-left: 2vw;"
+                    >BMI
+                  </label>
+                  <input
+                    id="ques.ques_id"
+                    style="float: left; margin-left: 5px;"
+                    type="text"
+                    v-model="ques.ans_input"
+                    disabled
+                  /><br />
+                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+                    <input
+                      id="ques.ques_id"
+                      type="radio"
+                      :value="ch.ans_value"
+                      v-model="ques.ans"
+                      @change="
+                        e => setAns({ id: ques.ques_id, value: e.target.value })
+                      "
+                    />
+                    <label id="ques.ques_id" for="">{{ ch.ans_title }}</label
+                    ><br />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="component mt-6">
             <b-pagination
               :order="order"
               :size="size"
@@ -61,9 +109,9 @@
           </div>
         </div>
         <!---->
-        <div class="column is-3" id="choosebar">
+        <!-- <div class="column is-3" id="choosebar">
           <assChooseBar />
-        </div>
+        </div> -->
         <!-- ผลประเมิน -->
         <b-modal v-model="isEditResult">
           <div class="card">
@@ -90,7 +138,7 @@
               id="nextAss"
               type="is-success"
               tag="a"
-              href="/mouthAss"
+              href="/form2"
               target=""
               >ทำแบบประเมินถัดไป</b-button
             >
@@ -102,14 +150,14 @@
 </template>
 <script>
 import Sidebar from "@/components/sidebar.vue";
-import assChooseBar from "@/components/assChooseBar.vue";
+// import assChooseBar from "@/components/assChooseBar.vue";
 import { mapState, mapMutations } from "vuex";
 import question from "../assets/test.json";
 
 export default {
   components: {
-    Sidebar,
-    assChooseBar
+    Sidebar
+    // assChooseBar,
   },
   name: "Patientlist",
   data() {
@@ -121,12 +169,6 @@ export default {
       prevIcon: "chevron-left",
       nextIcon: "chevron-right",
       isEditResult: false
-      // lessEating: '',
-      // loseWeight: '',
-      // canMove: '',
-      // stressSick: '',
-      // mentalProb: '',
-      // bmi: ''
     };
   },
   computed: {
@@ -160,45 +202,23 @@ h1 {
   margin-left: 0vw;
   text-align: left;
 }
-.questions {
+.card-header-title {
+  /* color: white; */
+  font-size: 18px;
+  font-weight: 500;
+}
+.content {
+  font-size: 1rem;
+}
+.card {
   margin-top: 3vh;
 }
-#choosebarHeader {
-  text-align: left;
-  margin-top: 5vh;
-  margin-bottom: 2vh;
-  font-size: 1.125rem;
-  font-weight: 600;
-}
-#choosebar {
+p {
   text-align: left;
 }
-#startButton {
-  width: 200px;
-  bottom: 1px;
-}
-.assChoice {
-  margin-top: 1vh;
-}
-#checkIcon {
-  margin-right: 0.5vw;
-}
-#startButton {
-  position: fixed;
-  bottom: 6vh;
-  right: 4vw;
-}
-.choices {
-  display: inline-block;
+.ans {
   text-align: left;
-  margin-left: 3vw;
-  margin-top: 1vh;
-}
-#radio {
-  margin-top: 2vh;
-}
-#bmiBox {
-  margin-bottom: 5vh;
+  margin-left: 2vw;
 }
 .component {
   display: flex;
@@ -210,7 +230,7 @@ h1 {
   border-radius: 10px;
   display: block;
   text-align: center;
-  height: 7vh;
+  height: auto;
   margin-bottom: 0.5vh;
   margin-left: 12vw;
   position: relative;

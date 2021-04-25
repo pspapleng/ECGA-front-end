@@ -108,49 +108,49 @@ const routes = [
       import(/* webpackChunkName: "startpage" */ "../views/startpage.vue")
   },
   {
-    path: "/mnaAss",
-    name: "mnaAss",
+    path: "/form1",
+    name: "form1",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "mnaAss" */ "../views/mnaAss.vue")
+      import(/* webpackChunkName: "form1" */ "../views/form1.vue")
   },
   {
-    path: "/mouthAss",
-    name: "mouthAss",
+    path: "/form2",
+    name: "form2",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "mouthAss" */ "../views/mouthAss.vue")
+      import(/* webpackChunkName: "form2" */ "../views/form2.vue")
   },
   {
-    path: "/fallRisk",
-    name: "fallRisk",
+    path: "/form3",
+    name: "form3",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "fallRisk" */ "../views/fallRisk.vue")
+      import(/* webpackChunkName: "form3" */ "../views/form3.vue")
   },
   {
-    path: "/tugtAss",
-    name: "tugtAss",
+    path: "/form4",
+    name: "form4",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "tugtAss" */ "../views/tugtAss.vue")
+      import(/* webpackChunkName: "form4" */ "../views/form4.vue")
   },
   {
-    path: "/eyeAss",
-    name: "eyeAss",
+    path: "/form5",
+    name: "form5",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "eyeAss" */ "../views/eyeAss.vue")
+      import(/* webpackChunkName: "form5" */ "../views/form5.vue")
   },
   {
     path: "/tgdsAss",

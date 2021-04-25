@@ -10,35 +10,42 @@
         </div>
         <!---->
         <!-- questions -->
-        <div class="column is-8">
-          <h1>แบบประเมินภาวะหกล้ม (Fall Risk Assessment Tool)</h1>
-          <p>
-            <u>คำชี้แจง</u>
-            โปรดกดเลือกคำตอบหน้าข้อความตามความเป็นจริงเกี่ยวกับตัวผู้สูงอายุ
-          </p>
+        <div class="column is-11">
+          <div class="assName card mt-6 ml-1 mr-6">
+            <p
+              class="card-header-title"
+              style="color: white; background-color: #1E3A8A"
+            >
+              แบบประเมินภาวะหกล้ม (Fall Risk Assessment Tool)
+            </p>
+          </div>
           <div
             class="questions"
             v-for="ques in form.slice(18, 28)"
             :key="ques.ques_id"
           >
-            <h1 id="ques_title">
-              {{ ques.ques }}
-            </h1>
-            <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-              <input
-                id="ques.ques_id"
-                type="radio"
-                :value="ch.ans_value"
-                v-model="ques.ans"
-                @change="
-                  e => setAns({ id: ques.ques_id, value: e.target.value })
-                "
-              />
-              <label id="ques.ques_id" for="">{{ ch.ans_title }}</label
-              ><br />
+            <div class="card mr-6">
+              <div class="card-content">
+                <div class="content">
+                  <p>{{ ques.ques }}</p>
+                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+                    <input
+                      id="ques.ques_id"
+                      type="radio"
+                      :value="ch.ans_value"
+                      v-model="ques.ans"
+                      @change="
+                        e => setAns({ id: ques.ques_id, value: e.target.value })
+                      "
+                    />
+                    <label id="ques.ques_id" for="">{{ ch.ans_title }}</label
+                    ><br />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="component">
+          <div class="component mt-6">
             <b-pagination
               :order="order"
               :size="size"
@@ -66,9 +73,9 @@
         </div>
         <!---->
         <!-- choose bar maybe fixed side nav-->
-        <div class="column is-3" id="choosebar">
+        <!-- <div class="column is-3" id="choosebar">
           <assChooseBar />
-        </div>
+        </div>  -->
         <!---->
         <b-modal v-model="isEditResult">
           <div class="card">
@@ -94,7 +101,7 @@
                 id="nextAss"
                 type="is-success"
                 tag="a"
-                href="/tugtAss"
+                href="/form4"
                 target=""
                 >ทำแบบประเมินถัดไป</b-button
               >
@@ -107,13 +114,13 @@
 </template>
 <script>
 import Sidebar from "@/components/sidebar.vue";
-import assChooseBar from "@/components/assChooseBar.vue";
+// import assChooseBar from "@/components/assChooseBar.vue";
 import { mapState, mapMutations } from "vuex";
 import question from "../assets/test.json";
 export default {
   components: {
-    Sidebar,
-    assChooseBar
+    Sidebar
+    // assChooseBar,
   },
   name: "Patientlist",
   data() {
@@ -167,42 +174,38 @@ h1 {
   margin-left: 0vw;
   text-align: left;
 }
-#choosebarHeader {
+.card-header-title {
+  /* color: white; */
+  font-size: 18px;
+  font-weight: 500;
+}
+.content {
+  font-size: 1rem;
+}
+.quesContent {
+  margin-left: 60px;
+}
+.card {
+  margin-top: 3vh;
+}
+p {
   text-align: left;
-  margin-top: 5vh;
-  margin-bottom: 2vh;
-  font-size: 1.125rem;
-  font-weight: 600;
 }
-#choosebar {
+.ans {
   text-align: left;
-}
-#startButton {
-  width: 200px;
-  bottom: 1px;
-}
-.assChoice {
-  margin-top: 1vh;
-}
-#checkIcon {
-  margin-right: 0.5vw;
-}
-#startButton {
-  position: fixed;
-  bottom: 6vh;
-  right: 4vw;
-}
-.checkButt {
-  float: right;
+  margin-left: 2vw;
 }
 .component {
   display: flex;
+}
+.checkButt {
+  float: right;
 }
 .innerCard {
   border-radius: 10px;
   display: block;
   text-align: center;
-  height: 7vh;
+  height: auto;
   margin-bottom: 0.5vh;
   margin-left: 12vw;
   position: relative;
