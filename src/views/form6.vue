@@ -10,31 +10,44 @@
         </div>
         <!---->
         <!-- questions -->
-        <div class="column is-8">
-          <h1>แบบวัดความเศร้าในผู้สูงอายุไทย (TGDS)</h1>
+        <div class="column is-11">
+          <div class="assName card mt-6 ml-6 mr-6">
+            <p
+              class="card-header-title"
+              style="color: white; background-color: #1E3A8A"
+            >
+              แบบวัดความเศร้าในผู้สูงอายุไทย (TGDS)
+            </p>
+          </div>
+
           <div
             class="questions"
             v-for="ques in form.slice(46, 61)"
             :key="ques.ques_id"
           >
-            <h1 id="ques_title">
-              {{ ques.ques }}
-            </h1>
-            <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-              <input
-                id="ques.ques_id"
-                type="radio"
-                :value="ch.ans_value"
-                v-model="ques.ans"
-                @change="
-                  e => setAns({ id: ques.ques_id, value: e.target.value })
-                "
-              />
-              <label id="ques.ques_id" for="">{{ ch.ans_title }}</label
-              ><br />
+            <div class="card mr-6 ml-6">
+              <div class="card-content">
+                <div class="content">
+                  <p id="ques_title">
+                    {{ ques.ques }}
+                  </p>
+                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+                    <input
+                      id="ques.ques_id"
+                      type="radio"
+                      :value="ch.ans_value"
+                      v-model="ques.ans"
+                      @change="
+                        e => setAns({ id: ques.ques_id, value: e.target.value })
+                      "
+                    />
+                    <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="component">
+          <div class="component mt-6 ml-6">
             <b-pagination
               :order="order"
               :size="size"
@@ -45,32 +58,27 @@
             <span>
               <b-button
                 class="checkButt"
-                label="กลับสู่หน้าหลัก"
-                type="is-light"
-                size=""
-                @click="backHome"
-              />
-              <b-button
-                class="checkButt"
                 label="ประเมินผล"
                 type="is-light"
                 size=""
                 @click="isEditResult = true"
               />
+              <b-button
+                class="checkButt"
+                label="กลับสู่หน้าหลัก"
+                type="is-light"
+                size=""
+                @click="backHome"
+              />
             </span>
           </div>
         </div>
-        <!---->
-        <!-- choose bar maybe fixed side nav-->
-        <div class="column is-3" id="choosebar">
-          <assChooseBar />
-        </div>
-        <!---->
+
         <b-modal v-model="isEditResult">
           <div class="card">
             <header class="card-header">
               <p class="card-header-title">
-                ผลการประเมินแบบวัดความเศร้าในผู้สูงอายุไทย
+                ผลการประเมินแบบวัดความเศร้าในผู้สูงอายุไทย (TGDS)
               </p>
             </header>
             <div class="card-content">
@@ -89,7 +97,7 @@
                 id="nextAss"
                 type="is-success"
                 tag="a"
-                href="/iqCode"
+                href="/form7"
                 target=""
                 >ทำแบบประเมินถัดไป</b-button
               >
@@ -102,13 +110,13 @@
 </template>
 <script>
 import Sidebar from "@/components/sidebar.vue";
-import assChooseBar from "@/components/assChooseBar.vue";
+// import assChooseBar from "@/components/assChooseBar.vue";
 import { mapState, mapMutations } from "vuex";
 import question from "../assets/test.json";
 export default {
   components: {
-    Sidebar,
-    assChooseBar
+    Sidebar
+    // assChooseBar,
   },
   name: "Patientlist",
   data() {
@@ -167,39 +175,35 @@ h1 {
   margin-left: 0vw;
   text-align: left;
 }
-#choosebarHeader {
+.card-header-title {
+  /* color: white; */
+  font-size: 18px;
+  font-weight: 500;
+}
+.content {
+  font-size: 1rem;
+}
+.card {
+  margin-top: 3vh;
+}
+p {
   text-align: left;
-  margin-top: 5vh;
-  margin-bottom: 2vh;
-  font-size: 1.125rem;
-  font-weight: 600;
 }
-#choosebar {
+.ans {
   text-align: left;
-}
-#startButton {
-  width: 200px;
-  bottom: 1px;
-}
-.assChoice {
-  margin-top: 1vh;
-}
-#checkIcon {
-  margin-right: 0.5vw;
-}
-#startButton {
-  position: fixed;
-  bottom: 6vh;
-  right: 4vw;
+  margin-left: 2vw;
 }
 .component {
   display: flex;
+}
+.checkButt {
+  float: right;
 }
 .innerCard {
   border-radius: 10px;
   display: block;
   text-align: center;
-  height: 7vh;
+  height: auto;
   margin-bottom: 0.5vh;
   margin-left: 12vw;
   position: relative;
