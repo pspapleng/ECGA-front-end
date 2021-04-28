@@ -78,7 +78,7 @@
                 :message="{ '* กรุณายืนยันรหัส': fillConfirm }"
               >
                 <b-input
-                  v-model="form.confirm_pass"
+                  v-model="form.confirm_password"
                   type="password"
                   password-reveal
                   expanded
@@ -127,7 +127,7 @@ export default {
         n_lname: "asd",
         username: "admin",
         password: "123456",
-        confirm_pass: "123456"
+        confirm_password: "123456"
       }
     };
   },
@@ -152,7 +152,7 @@ export default {
         alert("โปรดกรอกข้อมูลให้ครบทุกช่อง");
         return;
       } else {
-        if (this.form.password !== this.form.confirm_pass) {
+        if (this.form.password !== this.form.confirm_password) {
           alert("การยืนยันรหัสผ่านผิดพลาดกรุณากรอกรหัสผ่านใหม่");
         } else {
           this.createNurse()
@@ -160,8 +160,18 @@ export default {
               this.$router.push({ name: "Login" });
             })
             .catch(e => {
-              console.log(e);
-              alert(e.message);
+              console.log(e.details);
+              if (Array.isArray(e.details)) {
+                console.log("yes");
+                let err = "";
+                e.details.forEach(e => {
+                  err += " " + e.message;
+                });
+                alert(err);
+              } else {
+                console.log("no");
+                alert(e.details.message);
+              }
             });
         }
       }
@@ -171,28 +181,18 @@ export default {
     fillId() {
       return this.form.id.length !== 11 || !this.form.id.match(/^[0-9]*$/gm);
     },
-    // isNumber() {
-    //   console.log(this.form.id.match(/^[0-9]*$/gm));
-    //   return !this.form.id.match(/^[0-9]*$/gm);
-    // },
     fillFname() {
       return (
         this.form.n_fname.length < 2 ||
         !this.form.n_fname.match(/^[ก-์a-zA-Z]*$/gm)
       );
     },
-    // isSringFname() {
-    //   return !this.form.n_fname.match(/^[ก-์a-zA-Z]*$/gm);
-    // },
     fillLname() {
       return (
         this.form.n_lname.length < 2 ||
         !this.form.n_lname.match(/^[ก-์a-zA-Z]*$/gm)
       );
     },
-    // isSringLname() {
-    //   return !this.form.n_lname.match(/^[ก-์a-zA-Z]*$/gm);
-    // },
     fillUsername() {
       return this.form.username.length < 1;
     },
@@ -206,7 +206,7 @@ export default {
       return this.form.password.length < 5;
     },
     fillConfirm() {
-      return this.form.confirm_pass.length < 1;
+      return this.form.confirm_password.length < 1;
     },
     fillAll() {
       return "complete";

@@ -14,7 +14,7 @@ export default new Vuex.Store({
       n_lname: "",
       username: "",
       password: "",
-      confirm_pass: ""
+      confirm_password: ""
     },
     createUsers: {
       u_fname: "",
@@ -44,7 +44,7 @@ export default new Vuex.Store({
         n_lname: "",
         username: "",
         password: "",
-        confirm_pass: ""
+        confirm_password: ""
       };
     },
     setCreateUsers(state, payload) {
@@ -82,6 +82,7 @@ export default new Vuex.Store({
   },
   actions: {
     createNurse({ state, commit }) {
+      console.log("hi");
       console.log(state.createNurse);
       return Vue.axios
         .post(`http://localhost:3000/api/nurse`, state.createNurse)
@@ -91,7 +92,7 @@ export default new Vuex.Store({
           return Promise.resolve();
         })
         .catch(e => {
-          this.error = e.response.data.message;
+          console.log(e.response.data);
           return Promise.reject(e.response.data);
         });
     },
