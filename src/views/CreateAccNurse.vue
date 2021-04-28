@@ -11,6 +11,19 @@
           </div>
           <div class="column right is-5 mt-3 is-offset-7">
             <div class="column is-10 is-offset-1 has-text-left">
+              <!-- <b-field
+                class="mb-2"
+                label="รหัสประจำตัวพยาบาล "
+                :type="{ 'is-danger': fillId }"
+                :message="{
+                  '* กรุณากรอกรหัสประจำตัว 11 หลัก และ รหัสต้องเป็นตัวเลขเท่านั้น': fillId,
+                }"
+              >
+                <p class="control">
+                  <span class="button is-static"> ว. </span>
+                </p>
+                <b-input v-model="form.id" expanded></b-input>
+              </b-field> -->
               <b-field
                 class="mb-2"
                 label="รหัสประจำตัวพยาบาล "
@@ -27,23 +40,39 @@
               <b-field
                 class="mb-2"
                 label="ชื่อ"
-                :type="{ 'is-danger': fillFname }"
-                :message="{
-                  '* กรุณากรอกชื่อ และ ชื่อต้องเป็นตัวอักษรเท่านั้น': fillFname
-                }"
+                :type="{ 'is-danger': $v.form.n_fname.$error }"
               >
-                <b-input v-model="form.n_fname" expanded></b-input>
+                <b-input v-model="$v.form.n_fname.$model" expanded></b-input>
               </b-field>
+              <template v-if="$v.form.n_fname.$error">
+                <p class="help is-danger" v-if="!$v.form.n_fname.required">
+                  * กรุณากรอกชื่อ
+                </p>
+                <p class="help is-danger" v-if="!$v.form.n_fname.isString">
+                  ชื่อต้องเป็นตัวอักษรเท่านั้น
+                </p>
+                <p class="help is-danger" v-if="!$v.form.n_fname.minLength">
+                  ชื่อต้องมีความยาวขั้นต่ำ 2 ตัวอักษร
+                </p>
+              </template>
               <b-field
                 class="mb-2"
                 label="นามสกุล"
-                :type="{ 'is-danger': fillLname }"
-                :message="{
-                  '* กรุณากรอกนามสกุล และ นามสกุลต้องเป็นตัวอักษรเท่านั้น': fillLname
-                }"
+                :type="{ 'is-danger': $v.form.n_lname.$error }"
               >
-                <b-input v-model="form.n_lname" expanded></b-input>
+                <b-input v-model="$v.form.n_lname.$model" expanded></b-input>
               </b-field>
+              <template v-if="$v.form.n_lname.$error">
+                <p class="help is-danger" v-if="!$v.form.n_lname.required">
+                  * กรุณากรอกนามสกุล
+                </p>
+                <p class="help is-danger" v-if="!$v.form.n_lname.isString">
+                  นามสกุลต้องเป็นตัวอักษรเท่านั้น
+                </p>
+                <p class="help is-danger" v-if="!$v.form.n_lname.minLength">
+                  นามสกุลต้องมีความยาวขั้นต่ำ 2 ตัวอักษร
+                </p>
+              </template>
               <b-field
                 class="mb-2"
                 label="ชื่อผู้ใช้"
@@ -58,10 +87,11 @@
               <b-field
                 class="mb-2"
                 label="รหัสผ่าน"
-                :type="{ 'is-danger': shortPass }"
+                :type="{ 'is-danger': strongPass }"
                 :message="[
                   { '* กรุณากรอกรหัสผ่าน': fillPass },
-                  { รหัสผ่านสั้นเกินไป: shortPass }
+                  { รหัสผ่านสั้นเกินไป: shortPass },
+                  { รหัสผ่านง่ายเกินไป: strongPass }
                 ]"
               >
                 <b-input
@@ -114,6 +144,12 @@
 import forNurse from "@/components/forNurse.vue";
 import { debounce } from "debounce";
 import { mapMutations, mapActions } from "vuex";
+import { required, minLength } from "vuelidate/lib/validators";
+
+function isString(value) {
+  return value.match(/^[ก-์a-zA-Z]*$/gm);
+}
+
 export default {
   components: {
     forNurse
@@ -126,10 +162,24 @@ export default {
         n_fname: "asd",
         n_lname: "asd",
         username: "admin",
-        password: "123456",
-        confirm_password: "123456"
+        password: "123456a",
+        confirm_password: "123456a"
       }
     };
+  },
+  validations: {
+    form: {
+      id: { required, minLength: minLength(2), isString },
+      n_fname: {
+        required,
+        isString,
+        minLength: minLength(2)
+      },
+      n_lname: { required, isString, minLength: minLength(2) },
+      username: { required },
+      password: { required },
+      confirm_password: { required }
+    }
   },
   methods: {
     ...mapMutations(["setCreateNurse"]),
@@ -203,7 +253,12 @@ export default {
       return this.form.password.length < 1;
     },
     shortPass() {
-      return this.form.password.length < 5;
+      return this.form.password.length < 6;
+    },
+    strongPass() {
+      return !(
+        this.form.password.match(/[a-z]/) && this.form.password.match(/[0-9]/)
+      );
     },
     fillConfirm() {
       return this.form.confirm_password.length < 1;
