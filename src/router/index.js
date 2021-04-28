@@ -153,22 +153,22 @@ const routes = [
       import(/* webpackChunkName: "form5" */ "../views/form5.vue")
   },
   {
-    path: "/tgdsAss",
-    name: "tgdsAss",
+    path: "/form6",
+    name: "form6",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "tgdsAss" */ "../views/tgdsAss.vue")
+      import(/* webpackChunkName: "form6" */ "../views/form6.vue")
   },
   {
-    path: "/iqCode",
-    name: "iqCode",
+    path: "/form7",
+    name: "form7",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "iqCode" */ "../views/iqCode.vue")
+      import(/* webpackChunkName: "form7" */ "../views/form7.vue")
   },
   {
     path: "/mmseAss",
@@ -180,13 +180,13 @@ const routes = [
       import(/* webpackChunkName: "mmseAss" */ "../views/mmseAss.vue")
   },
   {
-    path: "/longtermAss",
-    name: "longtermAss",
+    path: "/form9",
+    name: "form9",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "longtermAss" */ "../views/longtermAss.vue")
+      import(/* webpackChunkName: "form9" */ "../views/form9.vue")
   },
   {
     path: "/toiletAss",

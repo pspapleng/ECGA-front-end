@@ -2,32 +2,33 @@
   <div>
     <section>
       <div class="columns">
-        <!-- side bar -->
         <div class="column is-1">
           <div>
             <Sidebar />
           </div>
         </div>
-        <!---->
-        <!-- questions -->
-        <div class="column is-8">
-          <h1>แบบประเมินคัดกรองความจำเสื่อมสำหรับผู้สูงอายุไทย (IQCODE)</h1>
-          <div class="card">
-            <header class="card-header" style="background-color: #1e3a8a">
-              <p class="card-header-title" style="color: white">คำชี้แจง</p>
+        <div class="column is-11">
+          <div class="assName card mr-6">
+            <header class="card-header">
+              <p
+                class="card-header-title"
+                style="color: white; background-color: #1E3A8A"
+              >
+                แบบประเมินคัดกรองความจำเสื่อมสำหรับผู้สูงอายุไทย (IQCODE)
+              </p>
             </header>
             <div class="card-content">
               <div class="content">
-                <p style="text-align: left">
+                <p>
+                  <u>คำชี้แจง</u>
                   ขอความกรุณาให้ผู้ดูแลผู้สูงอายุเปรียบเทียบความจำ สติปัญญา
                   และความสามารถในการปฏิบัติกิจวัตรประจำวันในแต่ละสถานการณ์ในระยะเวลา
                   10 ปีที่ผ่านมากับปัจจุบันของผู้สูงอายุ โดยทำเครื่องหมาย /
                   ลงในช่องที่แสดงถึงระดับการเปลี่ยนแปลงว่า ดีขึ้นมาก,
                   ดีขึ้นเล็กน้อย, เท่าเดิม, แย่ลงเล็กน้อย, หรือแย่ลงมาก
                 </p>
-                <br />
-                <p style="text-align: left">
-                  <u style="color: red">ตัวอย่างเช่น</u> ถ้าเมื่อ 10
+                <p>
+                  <u style="color : red;">ตัวอย่างเช่น</u> ถ้าเมื่อ 10
                   ปีก่อนผู้สูงอายุมักจำชื่อคนอื่นไม่ค่อยได้
                   และปัจจุบันยังคงจำไม่ได้เหมือนเดิมนั้น ให้ถือว่า
                   "ไม่เปลี่ยนแปลง" แต่ถ้าเมื่อ 10 ปีที่แล้วจำได้ดี
@@ -37,29 +38,35 @@
               </div>
             </div>
           </div>
+
           <div
             class="questions"
-            v-for="ques in form.slice(61, 69)"
+            v-for="ques in form.slice(61, 70)"
             :key="ques.ques_id"
           >
-            <h1 id="ques_title">
-              {{ ques.ques }}
-            </h1>
-            <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-              <input
-                id="ques.ques_id"
-                type="radio"
-                :value="ch.ans_value"
-                v-model="ques.ans"
-                @change="
-                  e => setAns({ id: ques.ques_id, value: e.target.value })
-                "
-              />
-              <label id="ques.ques_id" for="">{{ ch.ans_title }}</label
-              ><br />
+            <div class="card mr-6">
+              <div class="card-content">
+                <div class="content">
+                  <p id="ques_title">
+                    {{ ques.ques }}
+                  </p>
+                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+                    <input
+                      id="ques.ques_id"
+                      type="radio"
+                      :value="ch.ans_value"
+                      v-model="ques.ans"
+                      @change="
+                        e => setAns({ id: ques.ques_id, value: e.target.value })
+                      "
+                    />
+                    <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="component">
+          <div class="component mt-6">
             <b-pagination
               :order="order"
               :size="size"
@@ -84,58 +91,53 @@
               />
             </span>
           </div>
-        </div>
-        <!---->
-        <!-- choose bar maybe fixed side nav-->
-        <div class="column is-3" id="choosebar">
-          <assChooseBar />
-        </div>
-        <!---->
-        <b-modal v-model="isEditResult">
-          <div class="card">
-            <header class="card-header">
-              <p class="card-header-title">
-                ผลการประเมินคัดกรองความจำเสื่อมสำหรับผู้สูงอายุไทย
-              </p>
-            </header>
-            <div class="card-content">
-              <div class="content">
-                การคิดคะแนน
-                <br />
-                ทั้งหมด / จำนวนข้อ
-                <br />
-                ถ้าผู้สูงอายุมีคะแนนเท่ากับหรือมากกว่า 3.44 =
-                ผู้สูงอายุน่าจะมีภาวะสมองเสื่อม
-                <div class="innerCard">
-                  <div class="innerContent">
-                    ผู้สูงอายุน่าจะมีภาวะสมองเสื่อม
+
+          <b-modal v-model="isEditResult">
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title">
+                  ผลการประเมินคัดกรองความจำเสื่อมสำหรับผู้สูงอายุไทย
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="content">
+                  การคิดคะแนน
+                  <br />
+                  ทั้งหมด / จำนวนข้อ
+                  <br />
+                  ถ้าผู้สูงอายุมีคะแนนเท่ากับหรือมากกว่า 3.44 =
+                  ผู้สูงอายุน่าจะมีภาวะสมองเสื่อม
+                  <div class="innerCard">
+                    <div class="innerContent">
+                      ผู้สูงอายุน่าจะมีภาวะสมองเสื่อม
+                    </div>
                   </div>
                 </div>
+                <b-button
+                  id="nextAss"
+                  type="is-success"
+                  tag="a"
+                  href="/form7"
+                  target=""
+                  >ทำแบบประเมินถัดไป</b-button
+                >
               </div>
-              <b-button
-                id="nextAss"
-                type="is-success"
-                tag="a"
-                href="/mmseAss"
-                target=""
-                >ทำแบบประเมินถัดไป</b-button
-              >
             </div>
-          </div>
-        </b-modal>
+          </b-modal>
+        </div>
       </div>
     </section>
   </div>
 </template>
 <script>
 import Sidebar from "@/components/sidebar.vue";
-import assChooseBar from "@/components/assChooseBar.vue";
+// import assChooseBar from "@/components/assChooseBar.vue";
 import { mapState, mapMutations } from "vuex";
 import question from "../assets/test.json";
 export default {
   components: {
-    Sidebar,
-    assChooseBar
+    Sidebar
+    // assChooseBar,
   },
   name: "Patientlist",
   data() {
@@ -187,39 +189,38 @@ h1 {
   margin-left: 0vw;
   text-align: left;
 }
-#choosebarHeader {
-  text-align: left;
-  margin-top: 5vh;
-  margin-bottom: 2vh;
-  font-size: 1.125rem;
-  font-weight: 600;
+.card-header-title {
+  font-size: 18px;
+  font-weight: 500;
 }
-#choosebar {
+.content {
+  font-size: 1rem;
   text-align: left;
 }
-#startButton {
-  width: 200px;
-  bottom: 1px;
+.quesContent {
+  margin-left: 60px;
 }
-.assChoice {
-  margin-top: 1vh;
+.card {
+  margin-top: 3vh;
 }
-#checkIcon {
-  margin-right: 0.5vw;
+p {
+  text-align: left;
 }
-#startButton {
-  position: fixed;
-  bottom: 6vh;
-  right: 4vw;
+.ans {
+  text-align: left;
+  margin-left: 2vw;
 }
 .component {
   display: flex;
+}
+.checkButt {
+  float: right;
 }
 .innerCard {
   border-radius: 10px;
   display: block;
   text-align: center;
-  height: 7vh;
+  height: auto;
   margin-bottom: 0.5vh;
   margin-left: 12vw;
   position: relative;
