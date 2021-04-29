@@ -9,7 +9,7 @@
           </div>
         </div>
         <div class="column is-11">
-          <div class="assName card mt-6 ml-6 mr-6">
+          <div class="assName card mt-6 mr-6">
             <p
               class="card-header-title"
               style="color: white; background-color: #1E3A8A"

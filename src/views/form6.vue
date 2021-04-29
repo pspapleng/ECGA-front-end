@@ -11,7 +11,7 @@
         <!---->
         <!-- questions -->
         <div class="column is-11">
-          <div class="assName card mt-6 ml-6 mr-6">
+          <div class="assName card mt-6 mr-6">
             <p
               class="card-header-title"
               style="color: white; background-color: #1E3A8A"
@@ -25,7 +25,7 @@
             v-for="ques in form.slice(46, 61)"
             :key="ques.ques_id"
           >
-            <div class="card mr-6 ml-6">
+            <div class="card mr-6">
               <div class="card-content">
                 <div class="content">
                   <p id="ques_title">
@@ -47,7 +47,7 @@
               </div>
             </div>
           </div>
-          <div class="component mt-6 ml-6">
+          <div class="component mt-6">
             <b-pagination
               :order="order"
               :size="size"
