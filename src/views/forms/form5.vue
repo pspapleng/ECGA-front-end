@@ -8,14 +8,55 @@
             <Sidebar />
           </div>
         </div>
+        <!---->
+        <!-- questions -->
         <div class="column is-11">
-          <div class="assName card mt-6 mr-6">
+          <div class="assName card mt-6  mr-6">
             <p
               class="card-header-title"
               style="color: white; background-color: #1E3A8A"
             >
               แบบประเมินช่องปากผู้สูงอายุ
             </p>
+            <div class="card-content">
+              <div class="content">
+                <p>
+                  <u>ข้อแนะนำ</u>
+                  การประเมินสุขภาพช่องปากผู้สูงอายุเป็นการประเมินพฤติกรรมการดูแลสุขภาพช่องปาก
+                  สภาวะเสี่ยงของสุขภาพช่องปาก
+                  และการส่งต่อเพื่อรับการรักษาทางทันตะกรรม
+                  ตามปัญหาและความต้องการของผู้สูงอายุ
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card mr-6 ">
+            <div class="card-content">
+              <div class="content">
+                <div
+                  class="questions"
+                  v-for="ques in form.slice(38, 40)"
+                  :key="ques.ques_id"
+                >
+                  <p id="ques_title">
+                    {{ ques.ques }}
+                  </p>
+                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+                    <input
+                      id="ques.ques_id"
+                      type="radio"
+                      :value="ch.ans_value"
+                      v-model="ques.ans"
+                      @change="
+                        e => setAns({ id: ques.ques_id, value: e.target.value })
+                      "
+                    />
+                    <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="card mr-6">
@@ -23,7 +64,7 @@
               <div class="content">
                 <div
                   class="questions"
-                  v-for="ques in form.slice(127, 128)"
+                  v-for="ques in form.slice(40, 42)"
                   :key="ques.ques_id"
                 >
                   <p id="ques_title">
@@ -46,86 +87,12 @@
             </div>
           </div>
 
-          <div class="card mr-6">
+          <div class="card mr-6 ">
             <div class="card-content">
-              <p>2. ท่านมีอาการกลั้นปัสสาวะไม่อยู่ดังต่อไปนี้หรือไม่</p>
-              <p>2.1 ปัสสาวะเล็ด</p>
               <div class="content">
                 <div
                   class="questions"
-                  v-for="ques in form.slice(128, 131)"
-                  :key="ques.ques_id"
-                >
-                  <p id="ques_title">
-                    {{ ques.ques }}
-                  </p>
-                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-                    <input
-                      id="ques.ques_id"
-                      type="radio"
-                      :value="ch.ans_value"
-                      v-model="ques.ans"
-                      @change="
-                        e => setAns({ id: ques.ques_id, value: e.target.value })
-                      "
-                    />
-                    <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
-                  </div>
-                </div>
-              </div>
-              <p>2.2 ปัสสาวะราด/กลั้นปัสสาวะไม่ทัน</p>
-              <div class="content">
-                <div
-                  class="questions"
-                  v-for="ques in form.slice(131, 134)"
-                  :key="ques.ques_id"
-                >
-                  <p id="ques_title">
-                    {{ ques.ques }}
-                  </p>
-                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-                    <input
-                      id="ques.ques_id"
-                      type="radio"
-                      :value="ch.ans_value"
-                      v-model="ques.ans"
-                      @change="
-                        e => setAns({ id: ques.ques_id, value: e.target.value })
-                      "
-                    />
-                    <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
-                  </div>
-                </div>
-              </div>
-              <p>2.3 กลั้นปัสสาวะไม่อยู่เพราะปัสสาวะล้น</p>
-              <div class="content">
-                <div
-                  class="questions"
-                  v-for="ques in form.slice(134, 140)"
-                  :key="ques.ques_id"
-                >
-                  <p id="ques_title">
-                    {{ ques.ques }}
-                  </p>
-                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-                    <input
-                      id="ques.ques_id"
-                      type="radio"
-                      :value="ch.ans_value"
-                      v-model="ques.ans"
-                      @change="
-                        e => setAns({ id: ques.ques_id, value: e.target.value })
-                      "
-                    />
-                    <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
-                  </div>
-                </div>
-              </div>
-              <p>2.4 ปัสสาวะรดเครื่องนุ่งห่มเพราะมีขีดจำกัดทางร่างกาย</p>
-              <div class="content">
-                <div
-                  class="questions"
-                  v-for="ques in form.slice(140, 145)"
+                  v-for="ques in form.slice(42, 44)"
                   :key="ques.ques_id"
                 >
                   <p id="ques_title">
@@ -148,14 +115,14 @@
             </div>
           </div>
 
-          <div
-            class="questions"
-            v-for="ques in form.slice(145, 147)"
-            :key="ques.ques_id"
-          >
-            <div class="card mr-6">
-              <div class="card-content">
-                <div class="content">
+          <div class="card mr-6 ">
+            <div class="card-content">
+              <div class="content">
+                <div
+                  class="questions"
+                  v-for="ques in form.slice(44, 46)"
+                  :key="ques.ques_id"
+                >
                   <p id="ques_title">
                     {{ ques.ques }}
                   </p>
@@ -176,7 +143,7 @@
             </div>
           </div>
 
-          <div class="component">
+          <div class="component mt-6 ">
             <b-pagination
               :order="order"
               :size="size"
@@ -202,37 +169,26 @@
             </span>
           </div>
         </div>
+
         <b-modal v-model="isEditResult">
           <div class="card">
             <header class="card-header">
-              <p class="card-header-title">
-                ผลการประเมินภาวะกลั้นปัสสาวะไม่อยู่
-              </p>
+              <p class="card-header-title">ผลการประเมินภาวะหกล้ม</p>
             </header>
             <div class="card-content">
               <div class="content">
-                การพิจารณา (พิจารณาจากข้อ 3 และ 4)
+                การพิจารณา
                 <br />
-                รุนแรงมาก =
-                ปริมาณปัสสาวะที่กลั้นไม่อยู่มากถึงระดับเปียกถึงผ้านุ่งชั้นนอก
-                และ/หรือ เกิดอาการบ่อยมาก
-                <br />
-                รุนแรงปานกลาง = ปริมาณปัสสาวะมากระดับชุ่มกางเกง และ/หรือ
-                เกิดอาการบ่อยปานกลาง
-                <br />
-                รุนแรงน้อย =
-                ปริมาณปัสสาวะที่กลั้นไม่อยู่ไม่กี่หยดและเกิดอาการบ่อยเล็กน้อย
+                ถ้าตอบ ใช่ ข้อใดข้อหนึ่ง แสดงว่ามีปัญหาการมองเห็น
                 <div class="innerCard">
-                  <div class="innerContent">
-                    มีภาวะกลั้นปัสสาวะไม่อยู่ในระดับรุนแรงเล็กน้อย
-                  </div>
+                  <div class="innerContent">มีปัญหา ...</div>
                 </div>
               </div>
               <b-button
                 id="nextAss"
                 type="is-success"
                 tag="a"
-                href="/sleepAss"
+                href="/form6"
                 target=""
                 >ทำแบบประเมินถัดไป</b-button
               >
@@ -247,21 +203,29 @@
 import Sidebar from "@/components/sidebar.vue";
 // import assChooseBar from "@/components/assChooseBar.vue";
 import { mapState, mapMutations } from "vuex";
-import question from "../assets/test.json";
+// import question from "../assets/test.json";
 export default {
   components: {
     Sidebar
-    // assChooseBar
+    // assChooseBar,
   },
   name: "Patientlist",
   data() {
     return {
-      question,
+      // question,
       order: "is-right",
       size: "default",
       prevIcon: "chevron-left",
       nextIcon: "chevron-right",
       isEditResult: false
+      // threeInchesCount: '',
+      // newsPaperRead: '',
+      // leftEyeFog: '',
+      // rightEyeFog: '',
+      // leftCenter: '',
+      // rightCenter: '',
+      // leftBlackCen: '',
+      // rightBlackCen: ''
     };
   },
   computed: {
@@ -301,7 +265,6 @@ h1 {
 }
 .content {
   font-size: 1rem;
-  text-align: left;
 }
 .quesContent {
   margin-left: 60px;

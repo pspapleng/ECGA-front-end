@@ -11,37 +11,24 @@
         <!---->
         <!-- questions -->
         <div class="column is-11">
-          <div class="assName card mt-6  mr-6">
+          <div class="assName card mt-6 mr-6">
             <p
               class="card-header-title"
               style="color: white; background-color: #1E3A8A"
             >
-              แบบประเมินช่องปากผู้สูงอายุ
+              แบบประเมินปัญหาการนอน
             </p>
-            <div class="card-content">
-              <div class="content">
-                <p>
-                  <u>ข้อแนะนำ</u>
-                  การประเมินสุขภาพช่องปากผู้สูงอายุเป็นการประเมินพฤติกรรมการดูแลสุขภาพช่องปาก
-                  สภาวะเสี่ยงของสุขภาพช่องปาก
-                  และการส่งต่อเพื่อรับการรักษาทางทันตะกรรม
-                  ตามปัญหาและความต้องการของผู้สูงอายุ
-                </p>
-              </div>
-            </div>
           </div>
 
-          <div class="card mr-6 ">
-            <div class="card-content">
-              <div class="content">
-                <div
-                  class="questions"
-                  v-for="ques in form.slice(38, 40)"
-                  :key="ques.ques_id"
-                >
-                  <p id="ques_title">
-                    {{ ques.ques }}
-                  </p>
+          <div class="questions">
+            <div class="card mr-6">
+              <div
+                class="card-content"
+                v-for="ques in form.slice(148, 149)"
+                :key="ques.ques_id"
+              >
+                <div class="quesContent content">
+                  <p>{{ ques.ques }}</p>
                   <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
                     <input
                       id="ques.ques_id"
@@ -56,20 +43,13 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-
-          <div class="card mr-6">
-            <div class="card-content">
-              <div class="content">
-                <div
-                  class="questions"
-                  v-for="ques in form.slice(40, 42)"
-                  :key="ques.ques_id"
-                >
-                  <p id="ques_title">
-                    {{ ques.ques }}
-                  </p>
+              <div
+                class="card-content"
+                v-for="ques in form.slice(149, 155)"
+                :key="ques.ques_id"
+              >
+                <div class="quesContent content">
+                  <p>{{ ques.ques }}</p>
                   <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
                     <input
                       id="ques.ques_id"
@@ -84,17 +64,50 @@
                   </div>
                 </div>
               </div>
+              <div style="float: left;">
+                <input type="text" /> ปี <input type="text" /> เดือน
+              </div>
             </div>
           </div>
 
-          <div class="card mr-6 ">
-            <div class="card-content">
-              <div class="content">
-                <div
-                  class="questions"
-                  v-for="ques in form.slice(42, 44)"
-                  :key="ques.ques_id"
-                >
+          <div
+            class="questions"
+            v-for="ques in form.slice(155, 156)"
+            :key="ques.ques_id"
+          >
+            <div class="card mr-6">
+              <div class="card-content">
+                <div class="content">
+                  <p id="ques_title">
+                    {{ ques.ques }}
+                  </p>
+                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+                    <input
+                      id="ques.ques_id"
+                      type="text"
+                      v-model="ques.ans_input"
+                      @change="
+                        e =>
+                          setAns({
+                            id: ques.ques_id,
+                            value: e.target.v - model
+                          })
+                      "
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="questions"
+            v-for="ques in form.slice(156, 157)"
+            :key="ques.ques_id"
+          >
+            <div class="card mr-6">
+              <div class="card-content">
+                <div class="content">
                   <p id="ques_title">
                     {{ ques.ques }}
                   </p>
@@ -102,8 +115,7 @@
                     <input
                       id="ques.ques_id"
                       type="radio"
-                      :value="ch.ans_value"
-                      v-model="ques.ans"
+                      v-model="ques.anst"
                       @change="
                         e => setAns({ id: ques.ques_id, value: e.target.value })
                       "
@@ -115,35 +127,7 @@
             </div>
           </div>
 
-          <div class="card mr-6 ">
-            <div class="card-content">
-              <div class="content">
-                <div
-                  class="questions"
-                  v-for="ques in form.slice(44, 46)"
-                  :key="ques.ques_id"
-                >
-                  <p id="ques_title">
-                    {{ ques.ques }}
-                  </p>
-                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-                    <input
-                      id="ques.ques_id"
-                      type="radio"
-                      :value="ch.ans_value"
-                      v-model="ques.ans"
-                      @change="
-                        e => setAns({ id: ques.ques_id, value: e.target.value })
-                      "
-                    />
-                    <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="component mt-6 ">
+          <div class="component">
             <b-pagination
               :order="order"
               :size="size"
@@ -154,41 +138,53 @@
             <span>
               <b-button
                 class="checkButt"
-                label="ประเมินผล"
-                type="is-light"
-                size=""
-                @click="isEditResult = true"
-              />
-              <b-button
-                class="checkButt"
                 label="กลับสู่หน้าหลัก"
                 type="is-light"
                 size=""
                 @click="backHome"
               />
+              <b-button
+                class="checkButt"
+                label="ประเมินผล"
+                type="is-light"
+                size=""
+                @click="isEditResult = true"
+              />
             </span>
           </div>
         </div>
-
+        <!---->
+        <!-- choose bar maybe fixed side nav-->
+        <div class="column is-3" id="choosebar">
+          <assChooseBar />
+        </div>
+        <!---->
         <b-modal v-model="isEditResult">
           <div class="card">
             <header class="card-header">
-              <p class="card-header-title">ผลการประเมินภาวะหกล้ม</p>
+              <p class="card-header-title">
+                ผลการประเมินปัญหาการนอน
+              </p>
             </header>
             <div class="card-content">
               <div class="content">
                 การพิจารณา
                 <br />
-                ถ้าตอบ ใช่ ข้อใดข้อหนึ่ง แสดงว่ามีปัญหาการมองเห็น
+                หากตอบ "มีปัญหา" ข้อใดข้อหนึ่ง
+                ควรส่งต่อแพทย์ตรวจวินิจฉัยเพื่อยืนยันผลและทำการรักษา
                 <div class="innerCard">
-                  <div class="innerContent">มีปัญหา ...</div>
+                  <div class="innerContent">
+                    มีปัญหาการนอนหลับ
+                    <br />
+                    มีอาการง่วงเพลีย
+                  </div>
                 </div>
               </div>
               <b-button
                 id="nextAss"
                 type="is-success"
                 tag="a"
-                href="/form6"
+                href="/brokenAss"
                 target=""
                 >ทำแบบประเมินถัดไป</b-button
               >
@@ -203,29 +199,31 @@
 import Sidebar from "@/components/sidebar.vue";
 // import assChooseBar from "@/components/assChooseBar.vue";
 import { mapState, mapMutations } from "vuex";
-import question from "../assets/test.json";
+// import question from "../assets/test.json";
 export default {
   components: {
     Sidebar
-    // assChooseBar,
+    // assChooseBar
   },
   name: "Patientlist",
   data() {
     return {
-      question,
+      // question,
       order: "is-right",
       size: "default",
       prevIcon: "chevron-left",
       nextIcon: "chevron-right",
       isEditResult: false
-      // threeInchesCount: '',
-      // newsPaperRead: '',
-      // leftEyeFog: '',
-      // rightEyeFog: '',
-      // leftCenter: '',
-      // rightCenter: '',
-      // leftBlackCen: '',
-      // rightBlackCen: ''
+      // sleepProb: '',
+      // cantSleep: '',
+      // murmurSleep: '',
+      // sleepToMuch: '',
+      // snoreSleep: '',
+      // sleepElse: '',
+      // sleepYrs: '',
+      // sleepMth: '',
+      // sleepHrs: '',
+      // dayTimeRunDown: ''
     };
   },
   computed: {
@@ -260,14 +258,12 @@ h1 {
   text-align: left;
 }
 .card-header-title {
+  /* color: white; */
   font-size: 18px;
   font-weight: 500;
 }
 .content {
   font-size: 1rem;
-}
-.quesContent {
-  margin-left: 60px;
 }
 .card {
   margin-top: 3vh;

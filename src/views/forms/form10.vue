@@ -8,27 +8,27 @@
             <Sidebar />
           </div>
         </div>
-        <!---->
-        <!-- questions -->
         <div class="column is-11">
           <div class="assName card mt-6 mr-6">
             <p
               class="card-header-title"
               style="color: white; background-color: #1E3A8A"
             >
-              แบบประเมินปัญหาการนอน
+              แบบประเมินช่องปากผู้สูงอายุ
             </p>
           </div>
 
-          <div class="questions">
-            <div class="card mr-6">
-              <div
-                class="card-content"
-                v-for="ques in form.slice(148, 149)"
-                :key="ques.ques_id"
-              >
-                <div class="quesContent content">
-                  <p>{{ ques.ques }}</p>
+          <div class="card mr-6">
+            <div class="card-content">
+              <div class="content">
+                <div
+                  class="questions"
+                  v-for="ques in form.slice(127, 128)"
+                  :key="ques.ques_id"
+                >
+                  <p id="ques_title">
+                    {{ ques.ques }}
+                  </p>
                   <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
                     <input
                       id="ques.ques_id"
@@ -43,13 +43,22 @@
                   </div>
                 </div>
               </div>
-              <div
-                class="card-content"
-                v-for="ques in form.slice(149, 155)"
-                :key="ques.ques_id"
-              >
-                <div class="quesContent content">
-                  <p>{{ ques.ques }}</p>
+            </div>
+          </div>
+
+          <div class="card mr-6">
+            <div class="card-content">
+              <p>2. ท่านมีอาการกลั้นปัสสาวะไม่อยู่ดังต่อไปนี้หรือไม่</p>
+              <p>2.1 ปัสสาวะเล็ด</p>
+              <div class="content">
+                <div
+                  class="questions"
+                  v-for="ques in form.slice(128, 131)"
+                  :key="ques.ques_id"
+                >
+                  <p id="ques_title">
+                    {{ ques.ques }}
+                  </p>
                   <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
                     <input
                       id="ques.ques_id"
@@ -64,36 +73,75 @@
                   </div>
                 </div>
               </div>
-              <div style="float: left;">
-                <input type="text" /> ปี <input type="text" /> เดือน
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="questions"
-            v-for="ques in form.slice(155, 156)"
-            :key="ques.ques_id"
-          >
-            <div class="card mr-6">
-              <div class="card-content">
-                <div class="content">
+              <p>2.2 ปัสสาวะราด/กลั้นปัสสาวะไม่ทัน</p>
+              <div class="content">
+                <div
+                  class="questions"
+                  v-for="ques in form.slice(131, 134)"
+                  :key="ques.ques_id"
+                >
                   <p id="ques_title">
                     {{ ques.ques }}
                   </p>
                   <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
                     <input
                       id="ques.ques_id"
-                      type="text"
-                      v-model="ques.ans_input"
+                      type="radio"
+                      :value="ch.ans_value"
+                      v-model="ques.ans"
                       @change="
-                        e =>
-                          setAns({
-                            id: ques.ques_id,
-                            value: e.target.v - model
-                          })
+                        e => setAns({ id: ques.ques_id, value: e.target.value })
                       "
                     />
+                    <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                  </div>
+                </div>
+              </div>
+              <p>2.3 กลั้นปัสสาวะไม่อยู่เพราะปัสสาวะล้น</p>
+              <div class="content">
+                <div
+                  class="questions"
+                  v-for="ques in form.slice(134, 140)"
+                  :key="ques.ques_id"
+                >
+                  <p id="ques_title">
+                    {{ ques.ques }}
+                  </p>
+                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+                    <input
+                      id="ques.ques_id"
+                      type="radio"
+                      :value="ch.ans_value"
+                      v-model="ques.ans"
+                      @change="
+                        e => setAns({ id: ques.ques_id, value: e.target.value })
+                      "
+                    />
+                    <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                  </div>
+                </div>
+              </div>
+              <p>2.4 ปัสสาวะรดเครื่องนุ่งห่มเพราะมีขีดจำกัดทางร่างกาย</p>
+              <div class="content">
+                <div
+                  class="questions"
+                  v-for="ques in form.slice(140, 145)"
+                  :key="ques.ques_id"
+                >
+                  <p id="ques_title">
+                    {{ ques.ques }}
+                  </p>
+                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+                    <input
+                      id="ques.ques_id"
+                      type="radio"
+                      :value="ch.ans_value"
+                      v-model="ques.ans"
+                      @change="
+                        e => setAns({ id: ques.ques_id, value: e.target.value })
+                      "
+                    />
+                    <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
                   </div>
                 </div>
               </div>
@@ -102,7 +150,7 @@
 
           <div
             class="questions"
-            v-for="ques in form.slice(156, 157)"
+            v-for="ques in form.slice(145, 147)"
             :key="ques.ques_id"
           >
             <div class="card mr-6">
@@ -115,7 +163,8 @@
                     <input
                       id="ques.ques_id"
                       type="radio"
-                      v-model="ques.anst"
+                      :value="ch.ans_value"
+                      v-model="ques.ans"
                       @change="
                         e => setAns({ id: ques.ques_id, value: e.target.value })
                       "
@@ -138,45 +187,44 @@
             <span>
               <b-button
                 class="checkButt"
-                label="กลับสู่หน้าหลัก"
-                type="is-light"
-                size=""
-                @click="backHome"
-              />
-              <b-button
-                class="checkButt"
                 label="ประเมินผล"
                 type="is-light"
                 size=""
                 @click="isEditResult = true"
               />
+              <b-button
+                class="checkButt"
+                label="กลับสู่หน้าหลัก"
+                type="is-light"
+                size=""
+                @click="backHome"
+              />
             </span>
           </div>
         </div>
-        <!---->
-        <!-- choose bar maybe fixed side nav-->
-        <div class="column is-3" id="choosebar">
-          <assChooseBar />
-        </div>
-        <!---->
         <b-modal v-model="isEditResult">
           <div class="card">
             <header class="card-header">
               <p class="card-header-title">
-                ผลการประเมินปัญหาการนอน
+                ผลการประเมินภาวะกลั้นปัสสาวะไม่อยู่
               </p>
             </header>
             <div class="card-content">
               <div class="content">
-                การพิจารณา
+                การพิจารณา (พิจารณาจากข้อ 3 และ 4)
                 <br />
-                หากตอบ "มีปัญหา" ข้อใดข้อหนึ่ง
-                ควรส่งต่อแพทย์ตรวจวินิจฉัยเพื่อยืนยันผลและทำการรักษา
+                รุนแรงมาก =
+                ปริมาณปัสสาวะที่กลั้นไม่อยู่มากถึงระดับเปียกถึงผ้านุ่งชั้นนอก
+                และ/หรือ เกิดอาการบ่อยมาก
+                <br />
+                รุนแรงปานกลาง = ปริมาณปัสสาวะมากระดับชุ่มกางเกง และ/หรือ
+                เกิดอาการบ่อยปานกลาง
+                <br />
+                รุนแรงน้อย =
+                ปริมาณปัสสาวะที่กลั้นไม่อยู่ไม่กี่หยดและเกิดอาการบ่อยเล็กน้อย
                 <div class="innerCard">
                   <div class="innerContent">
-                    มีปัญหาการนอนหลับ
-                    <br />
-                    มีอาการง่วงเพลีย
+                    มีภาวะกลั้นปัสสาวะไม่อยู่ในระดับรุนแรงเล็กน้อย
                   </div>
                 </div>
               </div>
@@ -184,7 +232,7 @@
                 id="nextAss"
                 type="is-success"
                 tag="a"
-                href="/brokenAss"
+                href="/sleepAss"
                 target=""
                 >ทำแบบประเมินถัดไป</b-button
               >
@@ -199,7 +247,7 @@
 import Sidebar from "@/components/sidebar.vue";
 // import assChooseBar from "@/components/assChooseBar.vue";
 import { mapState, mapMutations } from "vuex";
-import question from "../assets/test.json";
+// import question from "../assets/test.json";
 export default {
   components: {
     Sidebar
@@ -208,22 +256,12 @@ export default {
   name: "Patientlist",
   data() {
     return {
-      question,
+      // question,
       order: "is-right",
       size: "default",
       prevIcon: "chevron-left",
       nextIcon: "chevron-right",
       isEditResult: false
-      // sleepProb: '',
-      // cantSleep: '',
-      // murmurSleep: '',
-      // sleepToMuch: '',
-      // snoreSleep: '',
-      // sleepElse: '',
-      // sleepYrs: '',
-      // sleepMth: '',
-      // sleepHrs: '',
-      // dayTimeRunDown: ''
     };
   },
   computed: {
@@ -258,12 +296,15 @@ h1 {
   text-align: left;
 }
 .card-header-title {
-  /* color: white; */
   font-size: 18px;
   font-weight: 500;
 }
 .content {
   font-size: 1rem;
+  text-align: left;
+}
+.quesContent {
+  margin-left: 60px;
 }
 .card {
   margin-top: 3vh;
