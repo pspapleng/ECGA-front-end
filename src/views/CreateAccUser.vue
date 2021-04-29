@@ -20,38 +20,56 @@
             <b-field
               class="mb-2"
               label="ชื่อ"
-              :type="{ 'is-danger': fillFname }"
-              :message="{
-                '* กรุณากรอกชื่อ และ ชื่อต้องเป็นตัวอักษรเท่านั้น': fillFname
-              }"
+              :type="{ 'is-danger': $v.form.u_fname.$error }"
             >
-              <b-input v-model="form.u_fname" expanded></b-input>
+              <b-input v-model="$v.form.u_fname.$model" expanded></b-input>
             </b-field>
+            <template v-if="$v.form.u_fname.$error">
+              <p class="help is-danger" v-if="!$v.form.u_fname.required">
+                * กรุณากรอกชื่อ
+              </p>
+              <p class="help is-danger" v-if="!$v.form.u_fname.onlyString">
+                ชื่อต้องเป็นตัวอักษรเท่านั้น
+              </p>
+              <p class="help is-danger" v-if="!$v.form.u_fname.minLength">
+                ชื่อต้องมีความยาวขั้นต่ำ 2 ตัวอักษร
+              </p>
+            </template>
             <b-field
               class="mb-2"
               label="นามสกุล"
-              :type="{ 'is-danger': fillFname }"
-              :message="{
-                '* กรุณากรอกชื่อ และ ชื่อต้องเป็นตัวอักษรเท่านั้น': fillFname
-              }"
+              :type="{ 'is-danger': $v.form.u_lname.$error }"
             >
-              <b-input v-model="form.u_lname" expanded></b-input>
+              <b-input v-model="$v.form.u_lname.$model" expanded></b-input>
             </b-field>
+            <template v-if="$v.form.u_lname.$error">
+              <p class="help is-danger" v-if="!$v.form.u_lname.required">
+                * กรุณากรอกนามสกุล
+              </p>
+              <p class="help is-danger" v-if="!$v.form.u_lname.onlyString">
+                นามสกุลต้องเป็นตัวอักษรเท่านั้น
+              </p>
+              <p class="help is-danger" v-if="!$v.form.u_lname.minLength">
+                นามสกุลต้องมีความยาวขั้นต่ำ 2 ตัวอักษร
+              </p>
+            </template>
             <b-field
               label="วัน เดือน ปีเกิด"
-              :type="{ 'is-danger': fillDate }"
-              :message="{
-                '* กรุณาเลือกวัน เดือน ปี': fillDate
-              }"
+              :type="{ 'is-danger': $v.form.date_of_birth.$error }"
             >
               <b-datepicker
-                v-model="form.date_of_birth"
+                v-model="$v.form.date_of_birth.$model"
                 placeholder="Type or select a date..."
                 icon="calendar-today"
                 editable
               >
               </b-datepicker>
             </b-field>
+            <template v-if="$v.form.date_of_birth.$error">
+              <p class="help is-danger" v-if="!$v.form.date_of_birth.required">
+                * กรุณากรอกวันเดือนปีเกิด
+              </p>
+            </template>
           </div>
           <div class="column is-3 is-offset-1">
             <b-field grouped>
@@ -59,14 +77,11 @@
                 <b-field
                   class="mr-6"
                   label="เพศ"
-                  :type="{ 'is-danger': fillGender }"
-                  :message="{
-                    '* กรุณาเลือกหนึ่งตัวเลือก': fillGender
-                  }"
+                  :type="{ 'is-danger': $v.form.gender.$error }"
                 >
                   <b-radio
                     class="mr-5 ml-1 mt-2"
-                    v-model="form.gender"
+                    v-model="$v.form.gender.$model"
                     name="ชาย"
                     native-value="2"
                   >
@@ -74,13 +89,18 @@
                   </b-radio>
                   <b-radio
                     class="ml-3 mt-2"
-                    v-model="form.gender"
+                    v-model="$v.form.gender.$model"
                     name="หญิง"
                     native-value="1"
                   >
                     หญิง
                   </b-radio>
                 </b-field>
+                <template v-if="$v.form.gender.$error">
+                  <p class="help is-danger" v-if="!$v.form.gender.required">
+                    * กรุณาเลือกตัวเลือกใดตัวเลือกหนึ่ง
+                  </p>
+                </template>
               </div>
               <b-field label="BMI">
                 <b-input v-model="calBMI" disabled expanded> </b-input>
@@ -89,53 +109,86 @@
             <b-field grouped>
               <b-field
                 label="น้ำหนัก (กิโลกรัม)"
-                :type="{ 'is-danger': isWeight }"
-                :message="[
-                  {
-                    '* กรุณากรอกน้ำหนัก': fillWeight
-                  },
-                  { 'น้ำหนักต้องเป็นตัวเลข >= 1 เท่านั้น': isWeight }
-                ]"
+                :type="{ 'is-danger': $v.form.weight.$error }"
               >
-                <b-input v-model="form.weight" expanded></b-input>
+                <b-input v-model="$v.form.weight.$model" expanded></b-input>
+                <template v-if="$v.form.weight.$error">
+                  <p class="help is-danger" v-if="!$v.form.weight.required">
+                    * กรุณากรอกน้ำหนัก
+                  </p>
+                  <p
+                    class="help is-danger"
+                    v-if="!($v.form.weight.decimal && $v.form.weight.minValue)"
+                  >
+                    น้ำหนักต้องเป็นตัวเลขมากกว่าหรือเท่ากับ 0
+                  </p>
+                </template>
               </b-field>
               <b-field
                 label="ส่วนสูง (เซนติเมตร)"
-                :type="{ 'is-danger': isHeight }"
-                :message="[
-                  {
-                    '* กรุณากรอกส่วนสูง': fillHeight
-                  },
-                  { 'ส่วนสูงต้องเป็นตัวเลข >= 1 เท่านั้น': isHeight }
-                ]"
+                :type="{ 'is-danger': $v.form.height.$error }"
               >
-                <b-input v-model="form.height" expanded></b-input>
+                <b-input v-model="$v.form.height.$model" expanded></b-input>
+                <template v-if="$v.form.height.$error">
+                  <p class="help is-danger" v-if="!$v.form.height.required">
+                    * กรุณากรอกส่วนสูง
+                  </p>
+                  <p
+                    class="help is-danger"
+                    v-if="!($v.form.height.decimal && $v.form.height.minValue)"
+                  >
+                    ส่วนสูงต้องเป็นตัวเลขมากกว่าหรือเท่ากับ 0
+                  </p>
+                </template>
               </b-field>
             </b-field>
             <b-field grouped>
               <b-field
                 label="รอบเอว (นิ้ว)"
-                :type="{ 'is-danger': isWaistline }"
-                :message="[
-                  {
-                    '* กรุณากรอกรอบเอว': fillWaistline
-                  },
-                  { 'รอบเอวต้องเป็นตัวเลข >= 1 เท่านั้น': isWaistline }
-                ]"
+                :type="{ 'is-danger': $v.form.waistline.$error }"
               >
-                <b-input v-model="form.waistline" expanded></b-input>
+                <b-input v-model="$v.form.waistline.$model" expanded></b-input>
+                <template v-if="$v.form.waistline.$error">
+                  <p class="help is-danger" v-if="!$v.form.waistline.required">
+                    * กรุณากรอกรอบเอว
+                  </p>
+                  <p
+                    class="help is-danger"
+                    v-if="
+                      !($v.form.waistline.decimal && $v.form.waistline.minValue)
+                    "
+                  >
+                    รอบเอวต้องเป็นตัวเลขมากกว่าหรือเท่ากับ 0
+                  </p>
+                </template>
               </b-field>
               <b-field
                 label="ประวัติการล้มใน 1 ปี (ครั้ง)"
-                :type="{ 'is-danger': isFall }"
-                :message="[
-                  {
-                    '* กรุณากรอกจำนวนครั้ง': fillFall
-                  },
-                  { จำนวนครั้งต้องเป็นตัวเลขจำนวนเต็มเท่านั้น: isFall }
-                ]"
+                :type="{ 'is-danger': $v.form.fall_history.$error }"
               >
-                <b-input v-model="form.fall_history" expanded></b-input>
+                <b-input
+                  v-model="$v.form.fall_history.$model"
+                  expanded
+                ></b-input>
+                <template v-if="$v.form.fall_history.$error">
+                  <p
+                    class="help is-danger"
+                    v-if="!$v.form.fall_history.required"
+                  >
+                    * กรุณากรอกจำนวนครั้ง
+                  </p>
+                  <p
+                    class="help is-danger"
+                    v-if="
+                      !(
+                        $v.form.fall_history.integer &&
+                        $v.form.fall_history.minValue
+                      )
+                    "
+                  >
+                    จำนวนครั้งต้องเป็นจำนวนเต็มมากกว่าหรือเท่ากับ 0
+                  </p>
+                </template>
               </b-field>
             </b-field>
           </div>
@@ -161,6 +214,21 @@ import Sidebar from "@/components/sidebar.vue";
 import forUsers from "@/components/forUsers.vue";
 import { debounce } from "debounce";
 import { mapMutations, mapActions } from "vuex";
+import {
+  required,
+  minLength,
+  integer,
+  minValue,
+  decimal
+} from "vuelidate/lib/validators";
+
+function onlyString(value) {
+  if (!value.match(/^[ก-์a-zA-Z]*$/gm)) {
+    return false;
+  }
+  return true;
+}
+
 export default {
   components: {
     Sidebar,
@@ -170,70 +238,47 @@ export default {
   data() {
     return {
       form: {
-        u_fname: "asdas",
-        u_lname: "dasfd",
+        u_fname: "asad",
+        u_lname: "asdad",
         gender: 1,
-        date_of_birth: new Date(), //null
-        weight: 65.5,
-        height: 167.25,
-        waistline: 32,
+        date_of_birth: new Date(), //null new Date()
+        weight: 55.25,
+        height: 165.5,
+        waistline: 32.4,
         fall_history: 5
       }
-      // locale: "en-CA",
     };
+  },
+  validations: {
+    form: {
+      u_fname: {
+        required,
+        onlyString,
+        minLength: minLength(2)
+      },
+      u_lname: {
+        required,
+        onlyString,
+        minLength: minLength(2)
+      },
+      date_of_birth: { required },
+      gender: { required },
+      weight: { required, decimal, minValue: minValue(0) },
+      height: { required, decimal, minValue: minValue(0) },
+      waistline: { required, decimal, minValue: minValue(0) },
+      fall_history: { required, integer, minValue: minValue(0) }
+    }
   },
   computed: {
     calBMI() {
       let bmi = parseFloat(
         this.form.weight / Math.pow(this.form.height / 100, 2)
       ).toFixed(2);
-      if (isFinite(bmi)) {
+      if (isFinite(bmi) && bmi > 0) {
         return bmi;
       } else {
         return "0";
       }
-    },
-    fillFname() {
-      return (
-        this.form.u_fname.length < 2 ||
-        !this.form.u_fname.match(/^[ก-์a-zA-Z]*$/gm)
-      );
-    },
-    fillLname() {
-      return (
-        this.form.u_lname.length < 2 ||
-        !this.form.u_lname.match(/^[ก-์a-zA-Z]*$/gm)
-      );
-    },
-    fillDate() {
-      return this.form.date_of_birth == null;
-    },
-    fillGender() {
-      return this.form.gender == "";
-    },
-    fillWeight() {
-      return this.form.weight.length < 2;
-    },
-    isWeight() {
-      return !("" + this.form.weight).match(/^(?![.,0])[.-9]*$/gm);
-    },
-    fillHeight() {
-      return this.form.height.length < 3;
-    },
-    isHeight() {
-      return !("" + this.form.height).match(/^(?![-,.,0])\d+[.,0-9]\d{0,2}$/);
-    },
-    fillWaistline() {
-      return this.form.waistline.length < 2;
-    },
-    isWaistline() {
-      return !("" + this.form.waistline).match(/^(?![.,0])[.-9]*$/gm);
-    },
-    fillFall() {
-      return this.form.fall_history.length < 1;
-    },
-    isFall() {
-      return !("" + this.form.fall_history).match(/^[0-9]*$/gm);
     }
   },
   methods: {
@@ -244,23 +289,11 @@ export default {
       this.setCreateUsers(e);
     }, 300),
     createU() {
-      if (
-        this.fillFname ||
-        this.fillLname ||
-        this.fillDate ||
-        this.fillGender ||
-        this.fillWeight ||
-        this.isWeight ||
-        this.fillHeight ||
-        this.isHeight ||
-        this.fillWaistline ||
-        this.isWaistline ||
-        this.fillFall ||
-        this.isFall
-      ) {
-        alert("โปรดกรอกข้อมูลให้ครบทุกช่อง");
-        return;
-      } else {
+      // Validate all fields
+      this.$v.$touch();
+
+      // เช็คว่าในฟอร์มไม่มี error
+      if (!this.$v.$invalid) {
         // alert("complete");
         this.createUsers()
           .then(() => {
@@ -268,8 +301,20 @@ export default {
           })
           .catch(e => {
             console.log(e);
-            alert(e.message);
+            if (Array.isArray(e.details)) {
+              console.log("yes");
+              let err = "";
+              e.details.forEach(e => {
+                err += " " + e.message;
+              });
+              alert(err);
+            } else {
+              console.log("no");
+              alert(e.details.message);
+            }
           });
+      } else {
+        alert("โปรดกรอกข้อมูลให้ถูกต้องทุกช่อง");
       }
     }
   },

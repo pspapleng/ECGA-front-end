@@ -114,7 +114,6 @@ export default new Vuex.Store({
           return Promise.resolve();
         })
         .catch(e => {
-          this.error = e.response.data.message;
           return Promise.reject(e.response.data);
         });
     },
