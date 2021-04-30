@@ -34,15 +34,17 @@
                 @click="getData()"
                 >ค้นหา
               </b-button>
-              <b-button
-                type="is-success"
-                icon-left="user-plus"
-                icon-pack="fas"
-                style="position: absolute; right: 50px"
-                @click="doc()"
-              >
-                เพิ่ม
-              </b-button>
+              <router-link to="/CreateAccUser">
+                <b-button
+                  type="is-success"
+                  icon-left="user-plus"
+                  icon-pack="fas"
+                  style="position: absolute; right: 50px"
+                  @click="doc()"
+                >
+                  เพิ่ม
+                </b-button>
+              </router-link>
             </b-field>
           </div>
           <!-- ตาราง -->
@@ -113,31 +115,35 @@
                 width="100"
                 v-slot="props"
               >
-                <span
-                  class="tag is-success is-light"
-                  v-if="
-                    props.row.result != null &&
-                    selected.getFullYear() -
-                      new Date(props.row.result_date).getFullYear() <
-                      1
-                  "
-                >
-                  ประเมินเมื่อ
-                  {{ new Date(props.row.result_date).toLocaleDateString() }}
-                </span>
+                <router-link to="/result">
+                  <span
+                    class="tag is-success is-light"
+                    v-if="
+                      props.row.result != null &&
+                      selected.getFullYear() -
+                        new Date(props.row.result_date).getFullYear() <
+                        1
+                    "
+                  >
+                    ประเมินเมื่อ
+                    {{ new Date(props.row.result_date).toLocaleDateString() }}
+                  </span>
+                </router-link>
 
-                <span
-                  class="tag is-warning is-light"
-                  v-if="
-                    props.row.result != null &&
-                    selected.getFullYear() -
-                      new Date(props.row.result_date).getFullYear() >
-                      1
-                  "
-                >
-                  ประเมินเมื่อ
-                  {{ new Date(props.row.result_date).toLocaleDateString() }}
-                </span>
+                <router-link to="/result">
+                  <span
+                    class="tag is-warning is-light"
+                    v-if="
+                      props.row.result != null &&
+                      selected.getFullYear() -
+                        new Date(props.row.result_date).getFullYear() >
+                        1
+                    "
+                  >
+                    ประเมินเมื่อ
+                    {{ new Date(props.row.result_date).toLocaleDateString() }}
+                  </span>
+                </router-link>
 
                 <span class="tag" v-if="props.row.result == null" disabled>
                   ไม่มีข้อมูลผลประเมิน
@@ -183,16 +189,21 @@
                   icon-right="pen"
                   icon-pack="fas"
                   size="is-small"
-                  @click="open(props.row.HN), (isEditResult = true)"
+                  @click="
+                    open(props.row.HN),
+                      (isEditResult = true),
+                      editHistory(props.row)
+                  "
                 />
               </b-table-column>
 
-              <b-table-column width="40">
+              <b-table-column width="40" v-slot="props">
                 <b-button
                   type="is-light"
                   icon-right="trash"
                   icon-pack="fas"
                   size="is-small"
+                  @click="deleteUser(props.row, props.row.HN)"
                 />
               </b-table-column>
 
@@ -474,17 +485,17 @@
                 >
                   <div class="level" style="margin-bottom: 0px">
                     <p class="level-left">ชื่อ</p>
-                    <b-input v-model="result.u_fname" />
+                    <b-input v-model="editFname" />
                   </div>
                   <hr style="margin-top: 0px; margin-bottom: 20px" />
                   <div class="level" style="margin-bottom: 0px">
                     <p class="level-left">นามสกุล</p>
-                    <b-input v-model="result.u_lname" />
+                    <b-input v-model="editLname" />
                   </div>
                   <hr style="margin-top: 0px; margin-bottom: 20px" />
                   <div class="level" style="margin-bottom: 0px">
                     <p class="level-left">เพศ</p>
-                    <b-input v-model="result.gender" />
+                    <b-input v-model="editGender" />
                   </div>
                   <hr style="margin-top: 0px; margin-bottom: 30px" />
                   <div class="level" style="margin-bottom: 0px">
@@ -511,13 +522,13 @@
                 <div class="bl column is-6" style="padding: 20px 30px 3px">
                   <div class="level" style="margin-bottom: 0px">
                     <p class="level-left">น้ำหนัก</p>
-                    <b-input v-model="result.height" />
+                    <b-input v-model="editWeight" />
                     <p class="level-right">กิโลกรัม</p>
                   </div>
                   <hr style="margin-top: 0px; margin-bottom: 20px" />
                   <div class="level" style="margin-bottom: 0px">
                     <p class="level-left">ส่วนสูง</p>
-                    <b-input v-model="result.weight" />
+                    <b-input v-model="editHeight" />
                     <p class="level-right">เซนติเมตร</p>
                   </div>
                   <hr style="margin-top: 0px; margin-bottom: 30px" />
@@ -531,13 +542,13 @@
                   <hr style="margin-top: 5px; margin-bottom: 20px" />
                   <div class="level" style="margin-bottom: 0px">
                     <p class="level-left">รอบเอว</p>
-                    <b-input v-model="result.waistline" />
+                    <b-input v-model="editWaistline" />
                     <p class="level-right">นิ้ว</p>
                   </div>
                   <hr style="margin-top: 0px; margin-bottom: 20px" />
                   <div class="level" style="margin-bottom: 0px">
                     <p class="level-left">ประวัติการล้มใน 1 ปี</p>
-                    <b-input v-model="result.fall_history" />
+                    <b-input v-model="editFall" />
                     <p class="level-right">ครั้ง</p>
                   </div>
                   <hr style="margin-top: 0px; margin-bottom: 20px" />
@@ -555,7 +566,7 @@
                       color: white;
                       border-color: #017836;
                     "
-                    @click="isEditResult = !isEditResult"
+                    @click="(isEditResult = !isEditResult), saveHistory(result)"
                     expanded
                     >บันทึก
                   </b-button>
@@ -563,9 +574,9 @@
                 <div class="column is-2">
                   <b-button
                     style="
-                      background-color: #D12424;
+                      background-color: #d12424;
                       color: white;
-                      border-color: #D12424;
+                      border-color: #d12424;
                     "
                     @click="isEditResult = !isEditResult"
                     expanded
@@ -585,6 +596,7 @@
 <script>
 import Sidebar from "@/components/sidebar.vue";
 import axios from "axios";
+import { required } from "vuelidate/lib/validators";
 export default {
   components: {
     Sidebar,
@@ -601,7 +613,20 @@ export default {
       expire: true,
       result: {},
       selected: new Date(),
+      editFname: "",
+      editLname: "",
+      editGender: "",
+      editBirth: "",
+      editWeight: "",
+      editHeight: "",
+      editWaistline: "",
+      editFall: "",
     };
+  },
+  validations: {
+    editFname: {
+      required,
+    },
   },
   mounted() {
     this.getData();
@@ -611,14 +636,12 @@ export default {
       console.log(this.data1);
     },
     open(id) {
-      var num = this.data1.length
-      for (var i = 0 ; i < num ; i++) {
-        console.log(parseInt(this.data1[i].HN));
-        if (parseInt(id) === parseInt(this.data1[i].HN)){
+      var num = this.data1.length;
+      for (var i = 0; i < num; i++) {
+        if (parseInt(id) === parseInt(this.data1[i].HN)) {
           this.result = this.data1[i];
         }
       }
-      console.log(this.result);
     },
     getData() {
       axios
@@ -633,6 +656,7 @@ export default {
         })
         .catch((err) => {
           console.log(err);
+          alert(err.response.data.message);
         });
     },
     getAge(date) {
@@ -645,6 +669,80 @@ export default {
       }
       return age;
     },
+    deleteUser(user, index) {
+      let confirmResult = confirm("are you sure!?");
+      if (confirmResult) {
+        axios
+          .delete(`http://localhost:4000/api/users/${user.u_id}`)
+          .then((res) => {
+            console.log(res);
+            var num = this.data1.length;
+            for (var i = 0; i < num; i++) {
+              if (parseInt(index) === parseInt(this.data1[i].HN)) {
+                this.data1.splice(i, 1);
+              }
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+            alert(err.response.data.message);
+          });
+      }
+    },
+    editHistory(histy) {
+      this.editFname = histy.u_fname;
+      this.editLname = histy.u_lname;
+      this.editGender = histy.gender;
+      this.editBirth = histy.date_of_birth;
+      this.editWeight = histy.weight;
+      this.editHeight = histy.height;
+      this.editWaistline = histy.waistline;
+      this.editFall = histy.fall_history;
+    },
+    saveHistory(histy) {
+      const payload = {
+        u_fname: this.editFname,
+        u_lname: this.editLname,
+        gender: this.editGender,
+        date_of_birth: this.editBirth.substring(10, -2),
+        weight: this.editWeight,
+        height: this.editHeight,
+        bmi: parseFloat(
+          this.editWeight / Math.pow(this.editHeight / 100, 2)
+        ).toFixed(2),
+        waistline: this.editWaistline,
+        fall_history: this.editFall,
+      };
+      console.log(payload.bmi);
+      axios
+        .put(`http://localhost:4000/api/users/${histy.u_id}`, payload)
+        .then((res) => {
+          console.log(res);
+          histy.u_fname = this.editFname;
+          histy.u_lname = this.editLname;
+          histy.gender = this.editGender;
+          histy.date_of_birth = this.editBirth;
+          histy.weight = this.editWeight;
+          histy.height = this.editHeight;
+          histy.bmi = payload.bmi;
+          histy.waistline = this.editWaistline;
+          histy.fall_history = this.editFall;
+        })
+        .catch((err) => {
+          console.log(err);
+          alert(err.response.data.message);
+        });
+    },
+    // cancelEdit() {
+    // history.u_fname = this.editFname;
+    // history.u_fname = this.editFname;
+    // history.gender = this.editGender;
+    // history.date_of_birth = this.editBirth;
+    // history.weight = this.editWeight;
+    // history.height = this.editHeight;
+    // history.waistline = this.editWaistline;
+    // history.fall_history = this.editFall;
+    // },
   },
   computed: {
     dateResult() {

@@ -7,67 +7,52 @@
   > -->
   <div class="sidebar">
     <!-- <b-menu> -->
-    <!-- ปุ่มรายชื่อ -->
-    <div
-      style="padding: 20px 25px 10px"
-      v-if="checklist == false"
-      @click="(checklist = !checklist), (checkfrom = !checkfrom)"
-    >
-      <b-button
-        style="
-              background-color: #1e3a8a;
-              color: white;
-              border-color: #1e3a8a;
-            "
-        size="is-large"
+    <div class="top">
+      <!-- ปุ่มรายชื่อ -->
+      <div
+        style="padding: 20px 25px 10px"
+        v-if="checklist == false"
+        @click="(checklist = !checklist), (checkfrom = !checkfrom)"
       >
-        <b-icon icon="menu" size="is-medium"> </b-icon>
-      </b-button>
+        <b-button
+          style="background-color: #1e3a8a; color: white; border-color: #1e3a8a"
+          size="is-large"
+        >
+          <b-icon icon="menu" size="is-medium"> </b-icon>
+        </b-button>
+      </div>
+      <div style="padding: 20px 25px 10px" v-if="checklist == true">
+        <b-button
+          style="background-color: white; color: #1e3a8a; border-color: white"
+          size="is-large"
+        >
+          <b-icon icon="menu-open" size="is-medium"> </b-icon>
+        </b-button>
+      </div>
+      <!-- ปุ่มแบบประเมิน -->
+      <div
+        style="padding: 0px 25px 0px"
+        v-if="checkfrom == false"
+        @click="(checklist = !checklist), (checkfrom = !checkfrom)"
+      >
+        <b-button
+          style="background-color: #1e3a8a; color: white; border-color: #1e3a8a"
+          size="is-large"
+        >
+          <b-icon icon="text-box-outline" size="is-medium"> </b-icon>
+        </b-button>
+      </div>
+      <div style="padding: 0px 25px 0px" v-if="checkfrom == true">
+        <b-button
+          style="background-color: white; color: #1e3a8a; border-color: white"
+          size="is-large"
+        >
+          <b-icon icon="text-box-outline" size="is-medium"> </b-icon>
+        </b-button>
+      </div>
     </div>
-    <div style="padding: 20px 25px 10px" v-if="checklist == true">
-      <b-button
-        style="background-color: white; color: #1e3a8a; border-color: white"
-        size="is-large"
-      >
-        <b-icon icon="menu-open" size="is-medium"> </b-icon>
-      </b-button>
-    </div>
-    <!-- ปุ่มแบบประเมิน -->
-    <div
-      style="padding: 0px 25px 0px"
-      v-if="checkfrom == false"
-      @click="(checklist = !checklist), (checkfrom = !checkfrom)"
-    >
-      <b-button
-        style="
-              background-color: #1e3a8a;
-              color: white;
-              border-color: #1e3a8a;
-            "
-        size="is-large"
-      >
-        <b-icon icon="text-box-outline" size="is-medium"> </b-icon>
-      </b-button>
-    </div>
-    <div style="padding: 0px 25px 0px" v-if="checkfrom == true">
-      <b-button
-        style="background-color: white; color: #1e3a8a; border-color: white"
-        size="is-large"
-      >
-        <b-icon icon="text-box-outline" size="is-medium"> </b-icon>
-      </b-button>
-    </div>
-    <div style="position: absolute; bottom: 20px; left: 10px;">
-      <!-- <b-button
-        style="
-                background-color: #1e3a8a;
-                color: white;
-                border-color: #1e3a8a;
-              "
-        size="is-large"
-      >
-        <b-icon icon="account-circle" size="is-large"> </b-icon>
-      </b-button> -->
+    <!-- ปุ่มแอคเคาท์ -->
+    <div style="position: absolute; bottom: 20px; left: 10px">
       <b-tooltip
         type="is-light"
         position="is-right"
@@ -76,14 +61,16 @@
       >
         <template v-slot:content>
           <p>8;pppppppp</p>
-          <b-button
-                type="is-danger"
-                icon-left="sign-out-alt"
-                icon-pack="fas"
-                size="is-small"
-                @click="getData()"
+          <router-link to="/login">
+            <b-button
+              type="is-danger"
+              icon-left="sign-out-alt"
+              icon-pack="fas"
+              size="is-small"
+              @click="getData()"
               >Log out
-              </b-button>
+            </b-button>
+          </router-link>
         </template>
         <b-button
           style="background-color: #1e3a8a; color: white; border-color: #1e3a8a"
@@ -103,10 +90,10 @@ export default {
   data() {
     return {
       checklist: true,
-      checkfrom: false
+      checkfrom: false,
     };
   },
-  name: "Sidebar"
+  name: "Sidebar",
 };
 </script>
 
@@ -119,6 +106,9 @@ export default {
   left: 0;
   background-color: #1e3a8a;
   /* overflow-x: hidden; */
+}
+.top {
+  overflow: hidden;
 }
 /* .b-sidebar .sidebar-content {
   background-color: #1e3a8a;
