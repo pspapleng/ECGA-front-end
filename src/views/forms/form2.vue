@@ -9,7 +9,7 @@
         </div>
 
         <div class="column is-11">
-          <div class="assName card mt-6 ml-6 mr-6">
+          <div class="assName card mt-6 mr-6">
             <p
               class="card-header-title"
               style="color: white; background-color: #1E3A8A"
@@ -28,7 +28,7 @@
               </div>
             </div>
           </div>
-          <div class="card mt-5 ml-6 mr-6">
+          <div class="card mt-5 mr-6">
             <div class="card-content">
               <div class="content">
                 <h5 style="text-align: left;">
@@ -43,7 +43,7 @@
           </div>
 
           <div class="questions">
-            <div class="card ml-6 mr-6">
+            <div class="card mr-6">
               <header class="quesHeader">
                 <u>1. ประเมินพฤติกรรมเสี่ยงต่อสุขภาพช่องปาก</u>
               </header>
@@ -91,7 +91,7 @@
           </div>
 
           <div class="questions">
-            <div class="card ml-6 mr-6">
+            <div class="card mr-6">
               <header class="quesHeader">
                 <u>2. ประเมินสภาวะเสี่ยงต่อการเกิดโรคในช่องปาก</u>
               </header>
@@ -119,7 +119,7 @@
             </div>
           </div>
 
-          <div class="card ml-6 mr-6">
+          <div class="card mr-6">
             <div class="card-content">
               <p><u>ส่วนที่ 2 ประเมินสุขภาพช่องปากผู้สูงอายุ</u></p>
             </div>
@@ -130,7 +130,7 @@
             v-for="ques in form.slice(11, 18)"
             :key="ques.ques_id"
           >
-            <div class="card ml-6 mr-6">
+            <div class="card mr-6">
               <div class="card-content">
                 <div class="partTwoQues content">
                   <p>{{ ques.ques }}</p>
@@ -150,7 +150,7 @@
               </div>
             </div>
           </div>
-          <div class="component mt-6 ml-6">
+          <div class="component mt-6">
             <b-pagination
               :order="order"
               :size="size"
@@ -217,7 +217,7 @@
 import Sidebar from "@/components/sidebar.vue";
 // import assChooseBar from "@/components/assChooseBar.vue";
 import { mapState, mapMutations } from "vuex";
-import question from "../assets/test.json";
+// import question from "../assets/test.json";
 export default {
   components: {
     Sidebar
@@ -226,7 +226,7 @@ export default {
   name: "Patientlist",
   data() {
     return {
-      question,
+      // question,
       // ans: '',
       order: "is-right",
       size: "default",

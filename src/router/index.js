@@ -108,121 +108,121 @@ const routes = [
       import(/* webpackChunkName: "startpage" */ "../views/startpage.vue")
   },
   {
-    path: "/form1",
-    name: "form1",
+    path: "/forms/form1",
+    name: "forms/form1",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "form1" */ "../views/form1.vue")
+      import(/* webpackChunkName: "forms/form1" */ "../views/forms/form1.vue")
   },
   {
-    path: "/form2",
-    name: "form2",
+    path: "/forms/form2",
+    name: "forms/form2",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "form2" */ "../views/form2.vue")
+      import(/* webpackChunkName: "forms/form2" */ "../views/forms/form2.vue")
   },
   {
-    path: "/form3",
-    name: "form3",
+    path: "/forms/form3",
+    name: "forms/form3",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "form3" */ "../views/form3.vue")
+      import(/* webpackChunkName: "forms/form3" */ "../views/forms/form3.vue")
   },
   {
-    path: "/form4",
-    name: "form4",
+    path: "/forms/form4",
+    name: "forms/form4",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "form4" */ "../views/form4.vue")
+      import(/* webpackChunkName: "forms/form4" */ "../views/forms/form4.vue")
   },
   {
-    path: "/form5",
-    name: "form5",
+    path: "/forms/form5",
+    name: "forms/form5",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "form5" */ "../views/form5.vue")
+      import(/* webpackChunkName: "forms/form5" */ "../views/forms/form5.vue")
   },
   {
-    path: "/form6",
-    name: "form6",
+    path: "/forms/form6",
+    name: "forms/form6",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "form6" */ "../views/form6.vue")
+      import(/* webpackChunkName: "forms/form6" */ "../views/forms/form6.vue")
   },
   {
-    path: "/form7",
-    name: "form7",
+    path: "/forms/form7",
+    name: "forms/form7",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "form7" */ "../views/form7.vue")
+      import(/* webpackChunkName: "forms/form7" */ "../views/forms/form7.vue")
   },
   {
-    path: "/mmseAss",
-    name: "mmseAss",
+    path: "/forms/form8",
+    name: "forms/form8",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "mmseAss" */ "../views/mmseAss.vue")
+      import(/* webpackChunkName: "forms/form8" */ "../views/forms/form8.vue")
   },
   {
-    path: "/form9",
-    name: "form9",
+    path: "/forms/form9",
+    name: "forms/form9",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "form9" */ "../views/form9.vue")
+      import(/* webpackChunkName: "forms/form9" */ "../views/forms/form9.vue")
   },
   {
-    path: "/toiletAss",
-    name: "toiletAss",
+    path: "/forms/form10",
+    name: "forms/form10",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "toiletAss" */ "../views/toiletAss.vue")
+      import(/* webpackChunkName: "forms/form10" */ "../views/forms/form10.vue")
   },
   {
-    path: "/sleepAss",
-    name: "sleepAss",
+    path: "/forms/form11",
+    name: "forms/form11",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "sleepAss" */ "../views/sleepAss.vue")
+      import(/* webpackChunkName: "forms/form11" */ "../views/forms/form11.vue")
   },
   {
-    path: "/brokenAss",
-    name: "brokenAss",
+    path: "/forms/form12",
+    name: "forms/form12",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "brokenAss" */ "../views/brokenAss.vue")
+      import(/* webpackChunkName: "forms/form12" */ "../views/forms/form12.vue")
   },
   {
-    path: "/bonyAss",
-    name: "bonyAss",
+    path: "/forms/form13",
+    name: "forms/form13",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "bonyAss" */ "../views/bonyAss.vue")
+      import(/* webpackChunkName: "forms/form13" */ "../views/forms/form13.vue")
   },
   {
     path: "/Result",

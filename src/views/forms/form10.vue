@@ -8,39 +8,22 @@
             <Sidebar />
           </div>
         </div>
-        <!---->
-        <!-- questions -->
         <div class="column is-11">
-          <div class="assName card mr-6">
-            <header class="card-header">
-              <p
-                class="card-header-title"
-                style="color: white; background-color: #1E3A8A"
-              >
-                การคัดกรองผู้สูงอายุที่ต้องได้รับการดูแลระยะยาว
-              </p>
-            </header>
-            <div class="card-content">
-              <div class="content">
-                <p>
-                  การคัดกรองผู้สูงอายุที่ต้องได้รับการดูแลระยะยาวมีทั้งหมด 5
-                  ด้าน คือ ด้านสังคม ความสามารถในการมองเห็นและการได้ยิน
-                  ภาวะหลงลืมและภาวะซึมเศร้า ภาวะเปราะบาง
-                  และความสามารถในการทำกิจวัตรประจำวัน
-                </p>
-              </div>
-            </div>
+          <div class="assName card mt-6 mr-6">
+            <p
+              class="card-header-title"
+              style="color: white; background-color: #1E3A8A"
+            >
+              แบบประเมินช่องปากผู้สูงอายุ
+            </p>
           </div>
 
           <div class="card mr-6">
             <div class="card-content">
-              <p>
-                <u>ส่วนที่ 1 ด้านสังคม (การอยู่อาศัย ที่อยู่อาศัย รายได้)</u>
-              </p>
               <div class="content">
                 <div
                   class="questions"
-                  v-for="ques in form.slice(98, 101)"
+                  v-for="ques in form.slice(127, 128)"
                   :key="ques.ques_id"
                 >
                   <p id="ques_title">
@@ -65,11 +48,84 @@
 
           <div class="card mr-6">
             <div class="card-content">
-              <p><u>ส่วนที่ 2 ความสามารถในการมองเห็นและการได้ยิน</u></p>
+              <p>2. ท่านมีอาการกลั้นปัสสาวะไม่อยู่ดังต่อไปนี้หรือไม่</p>
+              <p>2.1 ปัสสาวะเล็ด</p>
               <div class="content">
                 <div
                   class="questions"
-                  v-for="ques in form.slice(101, 103)"
+                  v-for="ques in form.slice(128, 131)"
+                  :key="ques.ques_id"
+                >
+                  <p id="ques_title">
+                    {{ ques.ques }}
+                  </p>
+                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+                    <input
+                      id="ques.ques_id"
+                      type="radio"
+                      :value="ch.ans_value"
+                      v-model="ques.ans"
+                      @change="
+                        e => setAns({ id: ques.ques_id, value: e.target.value })
+                      "
+                    />
+                    <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                  </div>
+                </div>
+              </div>
+              <p>2.2 ปัสสาวะราด/กลั้นปัสสาวะไม่ทัน</p>
+              <div class="content">
+                <div
+                  class="questions"
+                  v-for="ques in form.slice(131, 134)"
+                  :key="ques.ques_id"
+                >
+                  <p id="ques_title">
+                    {{ ques.ques }}
+                  </p>
+                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+                    <input
+                      id="ques.ques_id"
+                      type="radio"
+                      :value="ch.ans_value"
+                      v-model="ques.ans"
+                      @change="
+                        e => setAns({ id: ques.ques_id, value: e.target.value })
+                      "
+                    />
+                    <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                  </div>
+                </div>
+              </div>
+              <p>2.3 กลั้นปัสสาวะไม่อยู่เพราะปัสสาวะล้น</p>
+              <div class="content">
+                <div
+                  class="questions"
+                  v-for="ques in form.slice(134, 140)"
+                  :key="ques.ques_id"
+                >
+                  <p id="ques_title">
+                    {{ ques.ques }}
+                  </p>
+                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+                    <input
+                      id="ques.ques_id"
+                      type="radio"
+                      :value="ch.ans_value"
+                      v-model="ques.ans"
+                      @change="
+                        e => setAns({ id: ques.ques_id, value: e.target.value })
+                      "
+                    />
+                    <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                  </div>
+                </div>
+              </div>
+              <p>2.4 ปัสสาวะรดเครื่องนุ่งห่มเพราะมีขีดจำกัดทางร่างกาย</p>
+              <div class="content">
+                <div
+                  class="questions"
+                  v-for="ques in form.slice(140, 145)"
                   :key="ques.ques_id"
                 >
                   <p id="ques_title">
@@ -92,39 +148,14 @@
             </div>
           </div>
 
-          <div class="card mr-6">
-            <div class="card-content">
-              <p><u>ส่วนที่ 3 ภาวะหลงลืมและภาวะซึมเศร้า</u></p>
-              <div class="content">
-                <div
-                  class="questions"
-                  v-for="ques in form.slice(103, 104)"
-                  :key="ques.ques_id"
-                >
-                  <p id="ques_title">
-                    {{ ques.ques }}
-                  </p>
-                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-                    <input
-                      id="ques.ques_id"
-                      type="radio"
-                      :value="ch.ans_value"
-                      v-model="ques.ans"
-                      @change="
-                        e => setAns({ id: ques.ques_id, value: e.target.value })
-                      "
-                    />
-                    <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
-                  </div>
-                </div>
-              </div>
-              <div class="content">
-                <p>ใน 2 สัปดาห์ที่ผ่านมา รวมวันนี้ ท่านมีความรู้สึก</p>
-                <div
-                  class="questions"
-                  v-for="ques in form.slice(104, 106)"
-                  :key="ques.ques_id"
-                >
+          <div
+            class="questions"
+            v-for="ques in form.slice(145, 147)"
+            :key="ques.ques_id"
+          >
+            <div class="card mr-6">
+              <div class="card-content">
+                <div class="content">
                   <p id="ques_title">
                     {{ ques.ques }}
                   </p>
@@ -145,88 +176,7 @@
             </div>
           </div>
 
-          <div class="card mr-6">
-            <div class="card-content">
-              <p><u>ส่วนที่ 4 ภาวะเปราะบาง</u></p>
-              <div class="content">
-                <div
-                  class="questions"
-                  v-for="ques in form.slice(106, 111)"
-                  :key="ques.ques_id"
-                >
-                  <p id="ques_title">
-                    {{ ques.ques }}
-                  </p>
-                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-                    <input
-                      id="ques.ques_id"
-                      type="radio"
-                      :value="ch.ans_value"
-                      v-model="ques.ans"
-                      @change="
-                        e => setAns({ id: ques.ques_id, value: e.target.value })
-                      "
-                    />
-                    <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card mr-6">
-            <div class="card-content">
-              <p><u>ส่วนที่ 5 ความสามารถในการทำกิจวัตรประจำวัน</u></p>
-              <div class="content">
-                <p><u>กิจกรรมพื้นฐาน</u></p>
-                <div
-                  class="questions"
-                  v-for="ques in form.slice(111, 121)"
-                  :key="ques.ques_id"
-                >
-                  <p id="ques_title">
-                    {{ ques.ques }}
-                  </p>
-                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-                    <input
-                      id="ques.ques_id"
-                      type="radio"
-                      :value="ch.ans_value"
-                      v-model="ques.ans"
-                      @change="
-                        e => setAns({ id: ques.ques_id, value: e.target.value })
-                      "
-                    />
-                    <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
-                  </div>
-                </div>
-                <p><u>กิจกรรมพื้นฐาน</u></p>
-                <div
-                  class="questions"
-                  v-for="ques in form.slice(121, 127)"
-                  :key="ques.ques_id"
-                >
-                  <p id="ques_title">
-                    {{ ques.ques }}
-                  </p>
-                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-                    <input
-                      id="ques.ques_id"
-                      type="radio"
-                      :value="ch.ans_value"
-                      v-model="ques.ans"
-                      @change="
-                        e => setAns({ id: ques.ques_id, value: e.target.value })
-                      "
-                    />
-                    <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="component mt-6">
+          <div class="component">
             <b-pagination
               :order="order"
               :size="size"
@@ -256,32 +206,25 @@
           <div class="card">
             <header class="card-header">
               <p class="card-header-title">
-                ผลการประเมินคัดกรองผู้สูงอายุที่ต้องได้รับการดูแลระยะยาว
+                ผลการประเมินภาวะกลั้นปัสสาวะไม่อยู่
               </p>
             </header>
             <div class="card-content">
               <div class="content">
-                การแปลผล
+                การพิจารณา (พิจารณาจากข้อ 3 และ 4)
                 <br />
-                คะแนน 0 - 16 คะแนน = ไม่ต้องได้รับการดูแลระยะยาว
-                สนับสนุนการส่งเสริมสุขภาพ
+                รุนแรงมาก =
+                ปริมาณปัสสาวะที่กลั้นไม่อยู่มากถึงระดับเปียกถึงผ้านุ่งชั้นนอก
+                และ/หรือ เกิดอาการบ่อยมาก
                 <br />
-                คะแนน 17 - 19 คะแนน = ต้องเฝ้าระวัง ประเมินซ้ำทุก 6 เดือน หรือ 1
-                ปี
+                รุนแรงปานกลาง = ปริมาณปัสสาวะมากระดับชุ่มกางเกง และ/หรือ
+                เกิดอาการบ่อยปานกลาง
                 <br />
-                คะแนน 20 คะแนนขึ้นไป = ต้องได้รับการดูแลระยะยาว
-                ประเมินซ้ำทุกเดือนก่อนพบแพทย์
-                <ol>
-                  <li>โรคประจำตัว</li>
-                  <li>ด้านสังคม</li>
-                  <li>ภาวะซึมเศร้า</li>
-                  <li>สมรรถภาพสมอง หรือ ภาวะสมองเสื่อม</li>
-                </ol>
+                รุนแรงน้อย =
+                ปริมาณปัสสาวะที่กลั้นไม่อยู่ไม่กี่หยดและเกิดอาการบ่อยเล็กน้อย
                 <div class="innerCard">
                   <div class="innerContent">
-                    คะแนนที่ได้ทั้งหมด 99 คะแนน
-                    <br />
-                    ต้องได้รับการดูแลระยะยาวและประเมินซ้ำทุกเดือนก่อนพบแพทย์
+                    มีภาวะกลั้นปัสสาวะไม่อยู่ในระดับรุนแรงเล็กน้อย
                   </div>
                 </div>
               </div>
@@ -289,7 +232,7 @@
                 id="nextAss"
                 type="is-success"
                 tag="a"
-                href="/toiletAss"
+                href="/sleepAss"
                 target=""
                 >ทำแบบประเมินถัดไป</b-button
               >
@@ -304,49 +247,21 @@
 import Sidebar from "@/components/sidebar.vue";
 // import assChooseBar from "@/components/assChooseBar.vue";
 import { mapState, mapMutations } from "vuex";
-import question from "../assets/test.json";
+// import question from "../assets/test.json";
 export default {
   components: {
     Sidebar
-    // assChooseBar,
+    // assChooseBar
   },
   name: "Patientlist",
   data() {
     return {
-      question,
+      // question,
       order: "is-right",
       size: "default",
       prevIcon: "chevron-left",
       nextIcon: "chevron-right",
       isEditResult: false
-      // pplTakeCare: '',
-      // habitatType: '',
-      // inCome: '',
-      // sightLevel: '',
-      // forgetThing: '',
-      // twoWeeksDep: '',
-      // twoWeeksBored: '',
-      // yearLoseWeight: '',
-      // alwaysTried: '',
-      // cantWalkAlone: '',
-      // thirtySecTUGT: '',
-      // cleanHouse: '',
-      // handsWeakness: '',
-      // getUpBed: '',
-      // tidyTheirSelves: '',
-      // takeBath: '',
-      // getDress: '',
-      // eatAlone: '',
-      // afterToilet: '',
-      // walkAtHome: '',
-      // stepStair: '',
-      // holdToilet: '',
-      // holdHugeToilet: '',
-      // walkOutHome: '',
-      // cookFood: '',
-      // goShopping: '',
-      // publicTransport: '',
-      // takeMed: ''
     };
   },
   computed: {

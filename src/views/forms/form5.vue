@@ -11,7 +11,7 @@
         <!---->
         <!-- questions -->
         <div class="column is-11">
-          <div class="assName card mt-6 ml-6 mr-6">
+          <div class="assName card mt-6  mr-6">
             <p
               class="card-header-title"
               style="color: white; background-color: #1E3A8A"
@@ -31,7 +31,7 @@
             </div>
           </div>
 
-          <div class="card mr-6 ml-6">
+          <div class="card mr-6 ">
             <div class="card-content">
               <div class="content">
                 <div
@@ -59,7 +59,7 @@
             </div>
           </div>
 
-          <div class="card mr-6 ml-6">
+          <div class="card mr-6">
             <div class="card-content">
               <div class="content">
                 <div
@@ -87,7 +87,7 @@
             </div>
           </div>
 
-          <div class="card mr-6 ml-6">
+          <div class="card mr-6 ">
             <div class="card-content">
               <div class="content">
                 <div
@@ -115,7 +115,7 @@
             </div>
           </div>
 
-          <div class="card mr-6 ml-6">
+          <div class="card mr-6 ">
             <div class="card-content">
               <div class="content">
                 <div
@@ -143,7 +143,7 @@
             </div>
           </div>
 
-          <div class="component mt-6 ml-6">
+          <div class="component mt-6 ">
             <b-pagination
               :order="order"
               :size="size"
@@ -203,7 +203,7 @@
 import Sidebar from "@/components/sidebar.vue";
 // import assChooseBar from "@/components/assChooseBar.vue";
 import { mapState, mapMutations } from "vuex";
-import question from "../assets/test.json";
+// import question from "../assets/test.json";
 export default {
   components: {
     Sidebar
@@ -212,7 +212,7 @@ export default {
   name: "Patientlist",
   data() {
     return {
-      question,
+      // question,
       order: "is-right",
       size: "default",
       prevIcon: "chevron-left",

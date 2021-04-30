@@ -38,7 +38,11 @@
                 <u>วิธีการประเมิน</u> :
                 ให้ผู้สูงอายุลุกขึ้นจากเก้าอี้ที่มีที่ท้าวแขน เดินเป็นเส้นตรง
                 ระยะทาง 3 เมตร หมุนตัวและเดินกลับมานั่งที่เดิม
-                <img class="mt-4 ml-6" src="@/assets/tugt.png" />
+                <img
+                  class="mt-4 ml-6"
+                  style="width: 45%; display: block;"
+                  src="@/assets/tugt1.png"
+                />
               </div>
             </div>
           </div>
@@ -237,7 +241,7 @@
 import Sidebar from "@/components/sidebar.vue";
 // import assChooseBar from "@/components/assChooseBar.vue";
 import { mapState, mapMutations } from "vuex";
-import question from "../assets/test.json";
+// import question from "../assets/test.json";
 export default {
   components: {
     Sidebar
@@ -246,7 +250,7 @@ export default {
   name: "Patientlist",
   data() {
     return {
-      question,
+      // question,
       order: "is-right",
       size: "default",
       prevIcon: "chevron-left",

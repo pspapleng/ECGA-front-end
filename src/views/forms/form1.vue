@@ -152,7 +152,7 @@
 import Sidebar from "@/components/sidebar.vue";
 // import assChooseBar from "@/components/assChooseBar.vue";
 import { mapState, mapMutations } from "vuex";
-import question from "../assets/test.json";
+// import question from "../assets/test.json";
 
 export default {
   components: {
@@ -162,7 +162,7 @@ export default {
   name: "Patientlist",
   data() {
     return {
-      question,
+      // question,
       // ans: '',
       order: "is-right",
       size: "default",
