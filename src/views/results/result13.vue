@@ -1,169 +1,136 @@
 <template>
-  <div>
-    <section>
-      <div class="columns">
-        <!-- side bar -->
-        <div class="column is-1">
-          <div>
-            <Sidebar />
-          </div>
+  <div class="hero is-fullheight">
+    <div class="hero-body py-3">
+      <div class="container">
+        <div class="column is-1 ">
+          <Sidebar />
         </div>
-        <!---->
-        <!-- questions -->
-        <div class="column is-11">
-          <div class="assName card mr-6">
+        <div class="column is-11 is-offset-1">
+          <div class="card">
             <header class="card-header">
               <p
                 class="card-header-title"
                 style="color: white; background-color: #1E3A8A"
               >
-                แบบประเมินความเสี่ยงต่อโรคกระดูกพรุน
+                แบบประเมินภาวะโภชนาการ (MNA)
               </p>
             </header>
+          </div>
+          <div class="card" v-for="ques in form[6]" :key="ques.ques_id">
             <div class="card-content">
-              <div class="content">
-                <p>
-                  การพิจารณา
-                  <br />
-                  ค่า OSTA น้อยกว่า -4 = ความเสี่ยงสูง
-                  <br />
-                  ค่า OSTA ระหว่าง -4 ถึง -1 = ความเสี่ยงปานกลาง
-                  <br />
-                  ค่า OSTA ระหว่างมากกว่า -1 = ความเสี่ยงต่ำ
+              <div class="content has-text-left">
+                <p class="title">
+                  {{ ques.ques }}
                 </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-content">
-              <div class="content">
-                <div style="overflow: hidden;">
-                  <p class="mr-6" style="float: left;">
-                    ข้อมูลผู้เข้ารับบริการ
-                  </p>
-                  <p class="ml-6">
-                    น้ำหนักตัว <input type="text" disabled /> กิโลกรัม
-                  </p>
-                  <p style="margin-left: 217px;">
-                    อายุ <input type="text" disabled /> ปี
-                  </p>
+                <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+                  <input
+                    id="ques.ques_id"
+                    type="radio"
+                    :value="ch.ans_value"
+                    v-model="ans_arr[ques.ques_id - 1].ans_value"
+                  />
+                  <label for="" id="ques.ques_id">
+                    {{ ch.ans_title }}
+                  </label>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div class="card">
             <div class="card-content">
-              <div class="content">
-                <div style="overflow: hidden;">
-                  <p class="mr-6" style="float: left;">การคำนวณค่า OSTA</p>
-                  <p class="ml-6">สูตร 0.2 x (น้ำหนักตัว - อายุ)</p>
-                  <p style="margin-left: 180px;">
-                    แทนค่า 0.2 x (<input type="text" disabled /> -
-                    <input type="text" disabled />)
-                  </p>
+              <div class="content has-text-left">
+                <p class="title">
+                  {{ ques.ques }}
+                </p>
+                <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+                  <input
+                    id="ques.ques_id"
+                    type="radio"
+                    :value="ch.ans_value"
+                    v-model="ans_arr[ques.ques_id - 1].ans_value"
+                  />
+                  <label for="" id="ques.ques_id">
+                    {{ ch.ans_title }}
+                  </label>
                 </div>
               </div>
             </div>
-          </div>
-
-          <!-- <div class="content">
-                        <div class="questions" v-for="ques in form.slice(162, 163)" :key="ques.ques_id">
-                            <p id="ques_title">
-                                {{ ques.ques }}
-                            </p>
-                            <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-                                <input id="ques.ques_id" type="radio" :value="ch.ans_value" v-model="ques.ans" @change="(e) => setAns({ id: ques.ques_id, value: e.target.value })"/>
-                                <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
-                            </div>
-                        </div>
-                    </div> -->
-          <h1>ตารางประเมินความเสี่ยง</h1>
-          <img style="width: 45%; height: 45%;" src="@/assets/ass_table1.png" />
-          <div class="component">
-            <b-pagination
-              :order="order"
-              :size="size"
-              :icon-prev="prevIcon"
-              :icon-next="nextIcon"
-            >
-            </b-pagination>
-            <span>
-              <b-button
-                class="checkButt"
-                label="ประเมินผล"
-                type="is-light"
-                size=""
-                @click="isEditResult = true"
-              />
-              <b-button
-                class="checkButt"
-                label="กลับสู่หน้าหลัก"
-                type="is-light"
-                size=""
-                @click="backHome"
-              />
-            </span>
           </div>
         </div>
-        <!---->
-        <!-- choose bar maybe fixed side nav-->
-        <div class="column is-3" id="choosebar">
-          <assChooseBar />
-        </div>
-        <!---->
-        <b-modal v-model="isEditResult">
-          <div class="card">
-            <header class="card-header">
-              <p class="card-header-title">
-                ผลการประเมินความเสี่ยงต่อโรคกระดูกพรุน
-              </p>
-            </header>
-            <div class="card-content">
-              <div class="content">
-                <div class="card">
-                  <header class="card-header">
-                    <p class="card-header-title">
-                      ค่าที่คำนวณได้เท่ากับ -5 มีความเสี่ยงสูงต่อโรคกระดูกพรุน
-                    </p>
-                  </header>
-                  <div class="card-content">
-                    คำแนะนำ
-                    <br />
-                    ถ้าเอกซเรย์ TL - spine พบ Osteopenia
-                    ไม่สามารถส่งตรวจความหนาแน่นของกระดูกด้วยเครื่อง DXA ได้
-                    อาจพิจารณาให้การรักษา
-                  </div>
-                </div>
-              </div>
-              <b-button
-                id="nextAss"
-                type="is-success"
-                tag="a"
-                href="/startpage"
-                target="_blank"
-                >เสร็จสิ้นการทำแบบประเมิน</b-button
-              >
-            </div>
-          </div>
-        </b-modal>
       </div>
-    </section>
+    </div>
   </div>
 </template>
 <script>
 import Sidebar from "@/components/sidebar.vue";
-import { mapState, mapMutations } from "vuex";
 // import assChooseBar from "@/components/assChooseBar.vue";
+import { mapState, mapMutations } from "vuex";
+// import question from "../assets/test.json";
+
 export default {
   components: {
     Sidebar
-    // assChooseBar
+    // assChooseBar,
   },
-  name: "Patientlist",
+  name: "result1",
   data() {
     return {
+      ans_arr: [
+        {
+          ans_id: 1,
+          ans_title: "ความอยากอาหารไม่ลดลง",
+          ans_value: 2,
+          ans_time: "2021-04-24T16:28:37.000Z",
+          ques_id: 1,
+          u_id: 1,
+          result_id: 1
+        },
+        {
+          ans_id: 2,
+          ans_title: "น้ำหนักไม่ลดลง",
+          ans_value: 2,
+          ans_time: "2021-04-24T16:28:37.000Z",
+          ques_id: 2,
+          u_id: 1,
+          result_id: 1
+        },
+        {
+          ans_id: 3,
+          ans_title: "เดินและเคลื่อนไหวได้ตามปกติ",
+          ans_value: 2,
+          ans_time: "2021-04-24T16:28:37.000Z",
+          ques_id: 3,
+          u_id: 1,
+          result_id: 1
+        },
+        {
+          ans_id: 4,
+          ans_title: "ไม่มี",
+          ans_value: 2,
+          ans_time: "2021-04-24T16:28:37.000Z",
+          ques_id: 4,
+          u_id: 1,
+          result_id: 1
+        },
+        {
+          ans_id: 5,
+          ans_title: "ไม่มีปัญหาทางประสาท",
+          ans_value: 2,
+          ans_time: "2021-04-24T16:28:37.000Z",
+          ques_id: 5,
+          u_id: 1,
+          result_id: 1
+        },
+        {
+          ans_id: 6,
+          ans_title: "BMIตั้งแต่ 23 ขึ้นไป",
+          ans_value: 3,
+          ans_time: "2021-04-24T16:28:37.000Z",
+          ques_id: 6,
+          u_id: 1,
+          result_id: 1
+        }
+      ],
+      // question,
+      // ans: '',
       order: "is-right",
       size: "default",
       prevIcon: "chevron-left",
@@ -175,75 +142,25 @@ export default {
     ...mapState({
       count: state => state.count,
       form: "json"
-      // {
-      //   get () {
-      //   console.log(this.$store.state.json)
-      //   return this.$store.state.json
-      // }}
     })
   },
   methods: {
-    backHome() {
-      // console.log("tid laeww")
-      // alert("Sure mai ka???")
-      // window.location.href = "startpage";
-      if (confirm("sure mai ka??") == true) {
-        window.location.href = "startpage";
-      }
-    },
     ...mapMutations(["setAns"])
   }
 };
 </script>
 <style>
-h1 {
-  font-weight: 600;
-  margin-top: 2vh;
-  margin-left: 0vw;
-  text-align: left;
-}
 .card-header-title {
-  font-size: 18px;
+  /* color: white; */
+  font-size: 1.5rem;
   font-weight: 500;
 }
-.content {
+.title {
   font-size: 1rem;
-  text-align: left;
-}
-.quesContent {
-  margin-left: 60px;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
 }
 .card {
   margin-top: 3vh;
-}
-p {
-  text-align: left;
-}
-.ans {
-  text-align: left;
-  margin-left: 2vw;
-}
-.component {
-  display: flex;
-}
-.checkButt {
-  float: right;
-}
-.innerCard {
-  border-radius: 10px;
-  display: block;
-  text-align: center;
-  height: auto;
-  margin-bottom: 0.5vh;
-  margin-left: 12vw;
-  position: relative;
-  width: 25vw;
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-}
-.innerContent {
-  margin-top: 2.2vh;
-}
-#nextAss {
-  margin-bottom: 3vh;
 }
 </style>

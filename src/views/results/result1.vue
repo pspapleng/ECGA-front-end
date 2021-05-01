@@ -70,7 +70,7 @@ export default {
     Sidebar
     // assChooseBar,
   },
-  name: "Patientlist",
+  name: "result1",
   data() {
     return {
       ans_arr: [
