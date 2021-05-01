@@ -28,7 +28,11 @@ export default new Vuex.Store({
       fall_history: 0,
       n_id: null
     },
-    result_id: 1
+    result_id: 1,
+    checklist: true,
+    checkfrom: false,
+    n_fname: "Taweewat",
+    n_lname: "Srimek"
   },
   mutations: {
     setResult(state, payload) {

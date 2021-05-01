@@ -214,7 +214,8 @@
           </div>
         </div>
         <!-- ดูประวัติ -->
-        <b-modal v-model="isResult">
+        <b-modal v-model="isResult" :can-cancel="false"
+          >>
           <form class="card">
             <div class="column is-full" style="background-color: #1e3a8a">
               <div class="columns">
@@ -230,7 +231,7 @@
                 <div class="column is-10">
                   <div class="columns">
                     <div
-                      class="column is-5"
+                      class="column is-6"
                       style="
                         padding: 20px 0px 0px;
                         text-align: left;
@@ -242,7 +243,7 @@
                       </p>
                     </div>
                     <div
-                      class="column is-3"
+                      class="column is-2"
                       style="padding: 20px 20px 10px; color: white"
                     ></div>
                     <div
@@ -399,7 +400,8 @@
           </form>
         </b-modal>
         <!-- แก้ไขประว้ติ -->
-        <b-modal v-model="isEditResult">
+        <b-modal v-model="isEditResult" :can-cancel="false"
+          >>
           <form class="card">
             <div class="column is-full" style="background-color: #1e3a8a">
               <div class="columns">
@@ -455,13 +457,6 @@
                       style="padding: 0px 20px 20px; text-align: center"
                     >
                       <b-field>
-                        <!-- <b-datepicker
-                          v-model="editDateResult"
-                          icon="calendar-alt"
-                          icon-pack="fas"
-                          trap-focus
-                        >
-                        </b-datepicker> -->
                         <b-input
                           icon="calendar-alt"
                           icon-pack="fas"
@@ -485,50 +480,162 @@
                 >
                   <div class="level" style="margin-bottom: 0px">
                     <p class="level-left">ชื่อ</p>
-                    <b-input v-model="editFname" />
+                    <b-field :type="{ 'is-danger': $v.editFname.$error } ">
+                      <b-input v-model="$v.editFname.$model" />
+                      <template v-if="$v.editFname.$error">
+                        <p class="help is-danger" v-if="!$v.editFname.required">
+                          * กรุณากรอกชื่อ
+                        </p>
+                        <p
+                          class="help is-danger"
+                          v-if="!$v.editFname.onlyString"
+                        >
+                          ชื่อต้องเป็นตัวอักษรเท่านั้น
+                        </p>
+                        <p
+                          class="help is-danger"
+                          v-if="!$v.editFname.minLength"
+                        >
+                          ชื่อต้องมีความยาวขั้นต่ำ 2 ตัวอักษร
+                        </p>
+                      </template>
+                    </b-field>
                   </div>
                   <hr style="margin-top: 0px; margin-bottom: 20px" />
                   <div class="level" style="margin-bottom: 0px">
                     <p class="level-left">นามสกุล</p>
-                    <b-input v-model="editLname" />
+                    <b-field :type="{ 'is-danger': $v.editLname.$error }">
+                      <b-input v-model="$v.editLname.$model" />
+                      <template v-if="$v.editLname.$error">
+                        <p class="help is-danger" v-if="!$v.editLname.required">
+                          * กรุณากรอกนามสกุล
+                        </p>
+                        <p
+                          class="help is-danger"
+                          v-if="!$v.editLname.onlyString"
+                        >
+                          นามสกุลต้องเป็นตัวอักษรเท่านั้น
+                        </p>
+                        <p
+                          class="help is-danger"
+                          v-if="!$v.editLname.minLength"
+                        >
+                          นามสกุลต้องมีความยาวขั้นต่ำ 2 ตัวอักษร
+                        </p>
+                      </template>
+                    </b-field>
                   </div>
                   <hr style="margin-top: 0px; margin-bottom: 20px" />
                   <div class="level" style="margin-bottom: 0px">
                     <p class="level-left">เพศ</p>
-                    <b-input v-model="editGender" />
+                    <b-field :type="{ 'is-danger': $v.editGender.$error }">
+                      <b-input v-model="$v.editGender.$model" />
+                      <template v-if="$v.editGender.$error">
+                        <p
+                          class="help is-danger"
+                          v-if="!$v.editGender.required"
+                        >
+                          * กรุณากรอกเพศ
+                        </p>
+                      </template>
+                    </b-field>
                   </div>
                   <hr style="margin-top: 0px; margin-bottom: 30px" />
                   <div class="level" style="margin-bottom: 0px">
                     <p class="level-left">อายุ</p>
                     <p class="level-right">
-                      <strong> {{ result.u_lname }} </strong>
+                      <strong> {{ getAge(result.date_of_birth) }} </strong>
                     </p>
                     <p class="level-right">ปี</p>
                   </div>
-                  <hr style="margin-top: 6px; margin-bottom: 30px" />
-                  <div class="level" style="margin-bottom: 0px">
-                    <p class="level-left">วัน เดือน ปีเกิด</p>
-                    <p class="level-right">
-                      <strong>
-                        {{
-                          new Date(result.date_of_birth).toLocaleDateString()
-                        }}
-                      </strong>
-                    </p>
-                  </div>
                   <hr style="margin-top: 6px; margin-bottom: 20px" />
+                  <div class="level" style="margin-bottom: 0px">
+                    <p>ประวัติการล้มใน 1 ปี</p>
+                    <b-field :type="{ 'is-danger': $v.editFall.$error }" style="margin-bottom: 0px">
+                      <b-input v-model="$v.editFall.$model" />
+                      <template v-if="$v.editFall.$error">
+                        <p class="help is-danger" v-if="!$v.editFall.required">
+                          * กรุณากรอกจำนวนครั้ง
+                        </p>
+                        <p
+                          class="help is-danger"
+                          v-if="!($v.editFall.integer && $v.editFall.minValue)"
+                        >
+                          จำนวนครั้งต้องเป็นจำนวนเต็มมากกว่าหรือเท่ากับ 0
+                        </p>
+                      </template>
+                    </b-field>
+                    <p>ครั้ง</p>
+                  </div>
+                  <hr style="margin-top: 0px; margin-bottom: 20px" />
                 </div>
 
                 <div class="bl column is-6" style="padding: 20px 30px 3px">
                   <div class="level" style="margin-bottom: 0px">
+                    <p class="level-left">วัน เดือน ปีเกิด</p>
+                    <p class="level-right">
+                      <b-field :type="{ 'is-danger': $v.editBirth.$error }">
+                        <b-datepicker
+                          v-model="$v.editBirth.$model"
+                          position="is-right"
+                          icon="calendar-today"
+                          trap-focus
+                        >
+                        </b-datepicker>
+                      </b-field>
+                      <template v-if="$v.editBirth.$error">
+                        <p class="help is-danger" v-if="!$v.editBirth.required">
+                          * กรุณากรอกวันเดือนปีเกิด
+                        </p>
+                      </template>
+                    </p>
+                  </div>
+                  <hr style="margin-top: 0px; margin-bottom: 20px" />
+                  <div class="level" style="margin-bottom: 0px">
                     <p class="level-left">น้ำหนัก</p>
-                    <b-input v-model="editWeight" />
+                    <b-field :type="{ 'is-danger': $v.editWeight.$error }" style="margin-bottom: 0px">
+                      <b-input v-model="$v.editWeight.$model" />
+                      <template v-if="$v.editWeight.$error">
+                        <p
+                          class="help is-danger"
+                          v-if="!$v.editWeight.required"
+                        >
+                          * กรุณากรอกน้ำหนัก
+                        </p>
+                        <p
+                          class="help is-danger"
+                          v-if="
+                            !($v.editWeight.decimal && $v.editWeight.minValue)
+                          "
+                        >
+                          น้ำหนักต้องเป็นตัวเลขมากกว่าหรือเท่ากับ 0
+                        </p>
+                      </template>
+                    </b-field>
                     <p class="level-right">กิโลกรัม</p>
                   </div>
                   <hr style="margin-top: 0px; margin-bottom: 20px" />
                   <div class="level" style="margin-bottom: 0px">
                     <p class="level-left">ส่วนสูง</p>
-                    <b-input v-model="editHeight" />
+                    <b-field :type="{ 'is-danger': $v.editHeight.$error }" style="margin-bottom: 0px">
+                      <b-input v-model="$v.editHeight.$model" />
+                      <template v-if="$v.editHeight.$error">
+                        <p
+                          class="help is-danger"
+                          v-if="!$v.editHeight.required"
+                        >
+                          * กรุณากรอกส่วนสูง
+                        </p>
+                        <p
+                          class="help is-danger"
+                          v-if="
+                            !($v.editHeight.decimal && $v.editHeight.minValue)
+                          "
+                        >
+                          ส่วนสูงต้องเป็นตัวเลขมากกว่าหรือเท่ากับ 0
+                        </p>
+                      </template>
+                    </b-field>
                     <p class="level-right">เซนติเมตร</p>
                   </div>
                   <hr style="margin-top: 0px; margin-bottom: 30px" />
@@ -539,17 +646,32 @@
                     </p>
                     <p class="level-right"></p>
                   </div>
-                  <hr style="margin-top: 5px; margin-bottom: 20px" />
+                  <hr style="margin-top: 6px; margin-bottom: 20px" />
                   <div class="level" style="margin-bottom: 0px">
                     <p class="level-left">รอบเอว</p>
-                    <b-input v-model="editWaistline" />
+                    <b-field :type="{ 'is-danger': $v.editWaistline.$error }" style="margin-bottom: 0px">
+                      <b-input v-model="$v.editWaistline.$model" />
+                      <template v-if="$v.editWaistline.$error">
+                        <p
+                          class="help is-danger"
+                          v-if="!$v.editWaistline.required"
+                        >
+                          * กรุณากรอกรอบเอว
+                        </p>
+                        <p
+                          class="help is-danger"
+                          v-if="
+                            !(
+                              $v.editWaistline.decimal &&
+                              $v.editWaistline.minValue
+                            )
+                          "
+                        >
+                          รอบเอวต้องเป็นตัวเลขมากกว่าหรือเท่ากับ 0
+                        </p>
+                      </template>
+                    </b-field>
                     <p class="level-right">นิ้ว</p>
-                  </div>
-                  <hr style="margin-top: 0px; margin-bottom: 20px" />
-                  <div class="level" style="margin-bottom: 0px">
-                    <p class="level-left">ประวัติการล้มใน 1 ปี</p>
-                    <b-input v-model="editFall" />
-                    <p class="level-right">ครั้ง</p>
                   </div>
                   <hr style="margin-top: 0px; margin-bottom: 20px" />
                 </div>
@@ -566,7 +688,7 @@
                       color: white;
                       border-color: #017836;
                     "
-                    @click="(isEditResult = !isEditResult), saveHistory(result)"
+                    @click="saveHistory(result)"
                     expanded
                     >บันทึก
                   </b-button>
@@ -596,7 +718,21 @@
 <script>
 import Sidebar from "@/components/sidebar.vue";
 import axios from "axios";
-import { required } from "vuelidate/lib/validators";
+import {
+  required,
+  integer,
+  minValue,
+  decimal,
+  minLength,
+} from "vuelidate/lib/validators";
+
+function onlyString(value) {
+  if (!value.match(/^[ก-์a-zA-Z]*$/gm)) {
+    return false;
+  }
+  return true;
+}
+
 export default {
   components: {
     Sidebar,
@@ -626,6 +762,39 @@ export default {
   validations: {
     editFname: {
       required,
+      onlyString,
+      minLength: minLength(2),
+    },
+    editLname: {
+      required,
+      onlyString,
+      minLength: minLength(2),
+    },
+    editGender: {
+      required,
+    },
+    editBirth: {
+      required,
+    },
+    editWeight: {
+      required,
+      decimal,
+      minValue: minValue(0),
+    },
+    editHeight: {
+      required,
+      decimal,
+      minValue: minValue(0),
+    },
+    editWaistline: {
+      required,
+      decimal,
+      minValue: minValue(0),
+    },
+    editFall: {
+      required,
+      integer,
+      minValue: minValue(0),
     },
   },
   mounted() {
@@ -633,7 +802,7 @@ export default {
   },
   methods: {
     doc() {
-      console.log(this.data1);
+      console.log(this.editBirth);
     },
     open(id) {
       var num = this.data1.length;
@@ -693,45 +862,53 @@ export default {
       this.editFname = histy.u_fname;
       this.editLname = histy.u_lname;
       this.editGender = histy.gender;
-      this.editBirth = histy.date_of_birth;
+      this.editBirth = new Date(histy.date_of_birth);
       this.editWeight = histy.weight;
       this.editHeight = histy.height;
       this.editWaistline = histy.waistline;
       this.editFall = histy.fall_history;
     },
     saveHistory(histy) {
-      const payload = {
-        u_fname: this.editFname,
-        u_lname: this.editLname,
-        gender: this.editGender,
-        date_of_birth: this.editBirth.substring(10, -2),
-        weight: this.editWeight,
-        height: this.editHeight,
-        bmi: parseFloat(
-          this.editWeight / Math.pow(this.editHeight / 100, 2)
-        ).toFixed(2),
-        waistline: this.editWaistline,
-        fall_history: this.editFall,
-      };
-      console.log(payload.bmi);
-      axios
-        .put(`http://localhost:4000/api/users/${histy.u_id}`, payload)
-        .then((res) => {
-          console.log(res);
-          histy.u_fname = this.editFname;
-          histy.u_lname = this.editLname;
-          histy.gender = this.editGender;
-          histy.date_of_birth = this.editBirth;
-          histy.weight = this.editWeight;
-          histy.height = this.editHeight;
-          histy.bmi = payload.bmi;
-          histy.waistline = this.editWaistline;
-          histy.fall_history = this.editFall;
-        })
-        .catch((err) => {
-          console.log(err);
-          alert(err.response.data.message);
-        });
+      this.$v.$touch();
+
+      // เช็คว่าในฟอร์มไม่มี error
+      if (!this.$v.$invalid) {
+        const payload = {
+          u_fname: this.editFname,
+          u_lname: this.editLname,
+          gender: this.editGender,
+          date_of_birth: this.editBirth.toISOString().substring(0, 10),
+          weight: this.editWeight,
+          height: this.editHeight,
+          bmi: parseFloat(
+            this.editWeight / Math.pow(this.editHeight / 100, 2)
+          ).toFixed(2),
+          waistline: this.editWaistline,
+          fall_history: this.editFall,
+        };
+        console.log(payload.bmi);
+        axios
+          .put(`http://localhost:4000/api/users/${histy.u_id}`, payload)
+          .then((res) => {
+            console.log(res);
+            histy.u_fname = this.editFname;
+            histy.u_lname = this.editLname;
+            histy.gender = this.editGender;
+            histy.date_of_birth = this.editBirth;
+            histy.weight = this.editWeight;
+            histy.height = this.editHeight;
+            histy.bmi = payload.bmi;
+            histy.waistline = this.editWaistline;
+            histy.fall_history = this.editFall;
+            this.isEditResult = !this.isEditResult;
+          })
+          .catch((err) => {
+            console.log(err);
+            alert(err.response.data.message);
+          });
+      } else {
+        alert("โปรดกรอกข้อมูลให้ถูกต้องทุกช่อง");
+      }
     },
     // cancelEdit() {
     // history.u_fname = this.editFname;
@@ -777,5 +954,8 @@ export default {
 }
 .modal .modal-content {
   width: 70%;
+}
+.table td {
+  padding: 0.45em 0.75em;
 }
 </style>
