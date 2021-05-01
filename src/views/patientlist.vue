@@ -151,6 +151,7 @@
               </b-table-column>
 
               <b-table-column width="100" v-slot="props" centered>
+                <router-link to="/startpage">
                 <b-button
                   style="background-color: #1e3a8a; color: white"
                   size="is-small"
@@ -163,6 +164,7 @@
                 >
                   ทำแบบประเมิน
                 </b-button>
+                </router-link>
               </b-table-column>
 
               <b-table-column
