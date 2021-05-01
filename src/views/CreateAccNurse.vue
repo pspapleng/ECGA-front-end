@@ -161,14 +161,14 @@
               </p>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
-import forNurse from "@/components/forNurse.vue";
+// import forNurse from "@/components/forNurse.vue";
 import { debounce } from "debounce";
 import { mapMutations, mapActions } from "vuex";
 import {
@@ -195,7 +195,7 @@ function complexPassword(value) {
 
 export default {
   components: {
-    forNurse
+    // forNurse
   },
   name: "CreateAccNurse",
   data() {
