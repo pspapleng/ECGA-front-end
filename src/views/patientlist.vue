@@ -34,17 +34,17 @@
                 @click="getData()"
                 >ค้นหา
               </b-button>
-              <router-link to="/CreateAccUser">
-                <b-button
-                  type="is-success"
-                  icon-left="user-plus"
-                  icon-pack="fas"
-                  style="position: absolute; right: 50px"
-                  @click="doc()"
-                >
-                  เพิ่ม
-                </b-button>
-              </router-link>
+              <!-- <router-link to="/CreateAccUser"> -->
+              <b-button
+                type="is-success"
+                icon-left="user-plus"
+                icon-pack="fas"
+                style="position: absolute; right: 50px"
+                @click="doc()"
+              >
+                เพิ่ม
+              </b-button>
+              <!-- </router-link> -->
             </b-field>
           </div>
           <!-- ตาราง -->
@@ -53,7 +53,7 @@
             style="padding-right: 30px; padding-left: 0px"
           >
             <b-table
-              :data="data1"
+              :data="u_resultId"
               :paginated="true"
               per-page="10"
               current-page.sync="1"
@@ -115,22 +115,23 @@
                 width="100"
                 v-slot="props"
               >
-                <router-link to="/result">
-                  <span
-                    class="tag is-success is-light"
-                    v-if="
-                      props.row.result != null &&
-                      selected.getFullYear() -
-                        new Date(props.row.result_date).getFullYear() <
-                        1
-                    "
-                  >
-                    ประเมินเมื่อ
-                    {{ new Date(props.row.result_date).toLocaleDateString() }}
-                  </span>
-                </router-link>
+                <!-- <router-link to="/Result"> -->
+                <span
+                  class="tag is-success is-light"
+                  @click="seeResult(props.row.u_id)"
+                  v-if="
+                    props.row.result != null &&
+                    selected.getFullYear() -
+                      new Date(props.row.result_date).getFullYear() <
+                      1
+                  "
+                >
+                  ประเมินเมื่อ
+                  {{ new Date(props.row.result_date).toLocaleDateString() }}
+                </span>
+                <!-- </router-link> -->
 
-                <router-link to="/result">
+                <router-link to="/Result">
                   <span
                     class="tag is-warning is-light"
                     v-if="
@@ -152,18 +153,18 @@
 
               <b-table-column width="100" v-slot="props" centered>
                 <router-link to="/startpage">
-                <b-button
-                  style="background-color: #1e3a8a; color: white"
-                  size="is-small"
-                  v-if="
-                    props.row.result == null ||
-                    selected.getFullYear() -
-                      new Date(props.row.result_date).getFullYear() >
-                      1
-                  "
-                >
-                  ทำแบบประเมิน
-                </b-button>
+                  <b-button
+                    style="background-color: #1e3a8a; color: white"
+                    size="is-small"
+                    v-if="
+                      props.row.result == null ||
+                      selected.getFullYear() -
+                        new Date(props.row.result_date).getFullYear() >
+                        1
+                    "
+                  >
+                    ทำแบบประเมิน
+                  </b-button>
                 </router-link>
               </b-table-column>
 
@@ -210,7 +211,7 @@
               </b-table-column>
 
               <template #bottom-left>
-                <b>ทั้งหมด {{ data1.length }} รายชื่อ</b>
+                <b>ทั้งหมด {{ u_resultId.length }} รายชื่อ</b>
               </template>
             </b-table>
           </div>
@@ -482,7 +483,7 @@
                 >
                   <div class="level" style="margin-bottom: 0px">
                     <p class="level-left">ชื่อ</p>
-                    <b-field :type="{ 'is-danger': $v.editFname.$error } ">
+                    <b-field :type="{ 'is-danger': $v.editFname.$error }">
                       <b-input v-model="$v.editFname.$model" />
                       <template v-if="$v.editFname.$error">
                         <p class="help is-danger" v-if="!$v.editFname.required">
@@ -553,7 +554,10 @@
                   <hr style="margin-top: 6px; margin-bottom: 20px" />
                   <div class="level" style="margin-bottom: 0px">
                     <p>ประวัติการล้มใน 1 ปี</p>
-                    <b-field :type="{ 'is-danger': $v.editFall.$error }" style="margin-bottom: 0px">
+                    <b-field
+                      :type="{ 'is-danger': $v.editFall.$error }"
+                      style="margin-bottom: 0px"
+                    >
                       <b-input v-model="$v.editFall.$model" />
                       <template v-if="$v.editFall.$error">
                         <p class="help is-danger" v-if="!$v.editFall.required">
@@ -595,7 +599,10 @@
                   <hr style="margin-top: 0px; margin-bottom: 20px" />
                   <div class="level" style="margin-bottom: 0px">
                     <p class="level-left">น้ำหนัก</p>
-                    <b-field :type="{ 'is-danger': $v.editWeight.$error }" style="margin-bottom: 0px">
+                    <b-field
+                      :type="{ 'is-danger': $v.editWeight.$error }"
+                      style="margin-bottom: 0px"
+                    >
                       <b-input v-model="$v.editWeight.$model" />
                       <template v-if="$v.editWeight.$error">
                         <p
@@ -619,7 +626,10 @@
                   <hr style="margin-top: 0px; margin-bottom: 20px" />
                   <div class="level" style="margin-bottom: 0px">
                     <p class="level-left">ส่วนสูง</p>
-                    <b-field :type="{ 'is-danger': $v.editHeight.$error }" style="margin-bottom: 0px">
+                    <b-field
+                      :type="{ 'is-danger': $v.editHeight.$error }"
+                      style="margin-bottom: 0px"
+                    >
                       <b-input v-model="$v.editHeight.$model" />
                       <template v-if="$v.editHeight.$error">
                         <p
@@ -651,7 +661,10 @@
                   <hr style="margin-top: 6px; margin-bottom: 20px" />
                   <div class="level" style="margin-bottom: 0px">
                     <p class="level-left">รอบเอว</p>
-                    <b-field :type="{ 'is-danger': $v.editWaistline.$error }" style="margin-bottom: 0px">
+                    <b-field
+                      :type="{ 'is-danger': $v.editWaistline.$error }"
+                      style="margin-bottom: 0px"
+                    >
                       <b-input v-model="$v.editWaistline.$model" />
                       <template v-if="$v.editWaistline.$error">
                         <p
@@ -720,6 +733,7 @@
 <script>
 import Sidebar from "@/components/sidebar.vue";
 import axios from "axios";
+import { mapState, mapActions, mapMutations } from "vuex";
 import {
   required,
   integer,
@@ -742,13 +756,9 @@ export default {
   name: "Patientlist",
   data() {
     return {
-      data1: {},
+      data1: [],
       isResult: false,
       isEditResult: false,
-      in_search: "",
-      success: false,
-      unsuccess: false,
-      expire: true,
       result: {},
       selected: new Date(),
       editFname: "",
@@ -759,6 +769,7 @@ export default {
       editHeight: "",
       editWaistline: "",
       editFall: "",
+      in_search: ""
     };
   },
   validations: {
@@ -803,8 +814,11 @@ export default {
     this.getData();
   },
   methods: {
+    ...mapMutations(["setSearch"]),
     doc() {
-      console.log(this.editBirth);
+      // this.getUser();
+      console.log(this.data1);
+      console.log(this.u_resultId);
     },
     open(id) {
       var num = this.data1.length;
@@ -815,20 +829,9 @@ export default {
       }
     },
     getData() {
-      axios
-        .get("http://localhost:4000/api/users", {
-          params: {
-            search: this.in_search,
-          },
-        })
-        .then((response) => {
-          this.data1 = response.data;
-          console.log(this.result);
-        })
-        .catch((err) => {
-          console.log(err);
-          alert(err.response.data.message);
-        });
+      this.setSearch(this.in_search)
+      console.log(this.in_search);
+      this.getUser()
     },
     getAge(date) {
       var today = new Date();
@@ -844,7 +847,7 @@ export default {
       let confirmResult = confirm("are you sure!?");
       if (confirmResult) {
         axios
-          .delete(`http://localhost:4000/api/users/${user.u_id}`)
+          .delete(`http://localhost:3000/api/users/${user.u_id}`)
           .then((res) => {
             console.log(res);
             var num = this.data1.length;
@@ -890,7 +893,7 @@ export default {
         };
         console.log(payload.bmi);
         axios
-          .put(`http://localhost:4000/api/users/${histy.u_id}`, payload)
+          .put(`http://localhost:3000/api/users/${histy.u_id}`, payload)
           .then((res) => {
             console.log(res);
             histy.u_fname = this.editFname;
@@ -912,16 +915,7 @@ export default {
         alert("โปรดกรอกข้อมูลให้ถูกต้องทุกช่อง");
       }
     },
-    // cancelEdit() {
-    // history.u_fname = this.editFname;
-    // history.u_fname = this.editFname;
-    // history.gender = this.editGender;
-    // history.date_of_birth = this.editBirth;
-    // history.weight = this.editWeight;
-    // history.height = this.editHeight;
-    // history.waistline = this.editWaistline;
-    // history.fall_history = this.editFall;
-    // },
+    ...mapActions(["getUser"]),
   },
   computed: {
     dateResult() {
@@ -930,15 +924,13 @@ export default {
     editDateResult() {
       return new Date(this.result.service_date);
     },
-    // statusResult(resul, date) {
-    //   if (resul.length == 0){
-    //     return "no_data"
-    //   }else if(resul.length > 0 && (date.getFullYear() - this.selected.getFullYear() > 1) ){
-    //     return "expire"
-    //   }else if(resul.length > 0 && (date.getFullYear() - this.selected.getFullYear() <= 0) ){
-    //     return "have_data"
-    //   }
-    // }
+    ...mapState(["u_resultId"]),
+  },
+  beforeRouteEnter(to, from, next) {
+    console.log("before");
+    next((vm) => {
+      vm.getUser();
+    });
   },
 };
 </script>

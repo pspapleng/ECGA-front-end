@@ -31,10 +31,18 @@ export default new Vuex.Store({
     result_id: 1,
     checklist: true,
     checkfrom: false,
+    in_search: "",
     n_fname: "Taweewat",
-    n_lname: "Srimek"
+    n_lname: "Srimek",
+    u_resultId: []
   },
   mutations: {
+    setSearch(state, payload){
+      state.in_search = payload
+    },
+    setU_resultId(state, payload){
+      state.u_resultId = payload
+    },
     setResult(state, payload) {
       state.result = payload;
     },
@@ -127,7 +135,20 @@ export default new Vuex.Store({
         console.log(result.data);
         commit("setResult", result.data);
       });
-    }
+    },
+    getUser({ state, commit }) {
+      console.log("in action");
+      console.log(state.in_search);
+      Vue.axios.get(`http://localhost:3000/api/users`, {
+        params: {
+          search: state.in_search,
+        },
+      })
+      .then(data => {
+        // console.log(data.data);
+        commit("setU_resultId", data.data);
+      });
+    },
   },
   modules: {}
 });
