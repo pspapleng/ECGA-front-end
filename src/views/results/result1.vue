@@ -58,8 +58,18 @@
                     >
                       BMI
                     </span>
+                    <span
+                      class="button is-static"
+                      style="color: #393939; font-weight: 400;"
+                    >
+                      <p class="mx-3">{{ result[0].bmi }}</p>
+                    </span>
                   </p>
-                  <b-input v-model="bmi" disabled></b-input>
+                  <!-- <b-input
+                    v-model="result[0].bmi"
+                    disabled
+                    style="color: black; font-weight: 500;"
+                  ></b-input> -->
                 </b-field>
                 <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
                   <b-radio
@@ -75,6 +85,19 @@
               </div>
             </div>
           </div>
+          <div class="columns mt-4">
+            <div class="column is-4">
+              <b-button disabled>
+                <b-icon icon="chevron-left"> </b-icon>
+              </b-button>
+              <router-link to="/results/result2">
+                <b-button>
+                  <b-icon icon="chevron-right"> </b-icon>
+                </b-button>
+              </router-link>
+            </div>
+            <div class="column is-8"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -82,14 +105,11 @@
 </template>
 <script>
 import Sidebar from "@/components/sidebar.vue";
-// import assChooseBar from "@/components/assChooseBar.vue";
-import { mapState, mapMutations } from "vuex";
-// import question from "../assets/test.json";
+import { mapState, mapMutations, mapActions } from "vuex";
 
 export default {
   components: {
     Sidebar
-    // assChooseBar,
   },
   name: "result1",
   data() {
@@ -149,24 +169,24 @@ export default {
           u_id: 1,
           result_id: 1
         }
-      ],
-      // question,
-      // ans: '',
-      order: "is-right",
-      size: "default",
-      prevIcon: "chevron-left",
-      nextIcon: "chevron-right",
-      isEditResult: false
+      ]
     };
   },
   computed: {
     ...mapState({
-      count: state => state.count,
-      form: "json"
+      form: "json",
+      result: "result"
     })
   },
   methods: {
-    ...mapMutations(["setAns"])
+    ...mapMutations(["setAns"]),
+    ...mapActions(["getResult"])
+  },
+  beforeRouteEnter(to, from, next) {
+    console.log("before");
+    next(vm => {
+      vm.getResult();
+    });
   }
 };
 </script>

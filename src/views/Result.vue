@@ -22,8 +22,8 @@
                 </header>
                 <div class="card-content">
                   <div class="content has-text-left" style="font-weight: 300;">
-                    ผู้ทำแบบประเมิน : คุณ {{ result[0].u_fname }}
-                    {{ result[0].u_lname }} <br />
+                    {{ result.length }} hi ผู้ทำแบบประเมิน : คุณ
+                    {{ result[0].u_fname }} {{ result[0].u_lname }} <br />
                     ประเมินโดย : พยาบาล {{ result[0].n_fname }}
                     {{ result[0].n_lname }} <br />
                     วันที่ประเมิน :
