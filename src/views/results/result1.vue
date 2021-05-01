@@ -16,40 +16,61 @@
               </p>
             </header>
           </div>
-          <div class="card" v-for="ques in form[6]" :key="ques.ques_id">
+          <div
+            class="card"
+            v-for="ques in form.slice(0, 5)"
+            :key="ques.ques_id"
+          >
             <div class="card-content">
               <div class="content has-text-left">
                 <p class="title">
                   {{ ques.ques }}
                 </p>
                 <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-                  <input
+                  <b-radio
+                    disabled
                     id="ques.ques_id"
-                    type="radio"
-                    :value="ch.ans_value"
+                    :native-value="ch.ans_value"
                     v-model="ans_arr[ques.ques_id - 1].ans_value"
-                  />
-                  <label for="" id="ques.ques_id">
-                    {{ ch.ans_title }}
-                  </label>
+                    type="is-info"
+                  >
+                    <p style="color: black">{{ ch.ans_title }}</p>
+                  </b-radio>
                 </div>
               </div>
             </div>
+          </div>
+          <div
+            class="card"
+            v-for="ques in form.slice(5, 6)"
+            :key="ques.ques_id"
+          >
             <div class="card-content">
               <div class="content has-text-left">
                 <p class="title">
                   {{ ques.ques }}
                 </p>
+                <b-field class="mb-2" label="">
+                  <p class="control">
+                    <span
+                      class="button is-static"
+                      style="color: white; background-color: #3e5ba8"
+                    >
+                      BMI
+                    </span>
+                  </p>
+                  <b-input v-model="bmi" disabled></b-input>
+                </b-field>
                 <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-                  <input
+                  <b-radio
+                    disabled
                     id="ques.ques_id"
-                    type="radio"
-                    :value="ch.ans_value"
+                    :native-value="ch.ans_value"
                     v-model="ans_arr[ques.ques_id - 1].ans_value"
-                  />
-                  <label for="" id="ques.ques_id">
-                    {{ ch.ans_title }}
-                  </label>
+                    type="is-info"
+                  >
+                    <p style="color: black">{{ ch.ans_title }}</p>
+                  </b-radio>
                 </div>
               </div>
             </div>
@@ -104,7 +125,7 @@ export default {
         {
           ans_id: 4,
           ans_title: "ไม่มี",
-          ans_value: 2,
+          ans_value: 1,
           ans_time: "2021-04-24T16:28:37.000Z",
           ques_id: 4,
           u_id: 1,

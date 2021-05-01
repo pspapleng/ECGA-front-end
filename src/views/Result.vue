@@ -35,7 +35,7 @@
                     <button
                       class="result_bt mr-2"
                       v-for="(item, index) in result"
-                      :key="index"
+                      :key="item.id"
                     >
                       {{ index + 1 }}
                     </button>
@@ -146,7 +146,7 @@ export default {
     Sidebar,
     completeChooseBar
   },
-  name: "Patientlist",
+  name: "Result",
   data() {
     return {};
   },
