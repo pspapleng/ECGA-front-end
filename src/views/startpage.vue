@@ -8,7 +8,7 @@
           </div>
         </div>
         <div class="column is-8" id="details">
-          <h1 id="pageHeader">แบบประเมิน E-CGA</h1>
+          <h1 id="pageHeader" style="font-weight: 400;">แบบประเมิน E-CGA</h1>
           <div class="card" id="detailBox">
             <header class="card-header" style="background-color: lightgrey;">
               <p class="card-header-title">
@@ -16,7 +16,17 @@
               </p>
             </header>
             <div class="card-content">
-              <div class="content"></div>
+              <div class="content has-text-left">
+                <p>
+                  ผู้ทำแบบประเมิน : คุณ {{ user.u_fname }} {{ user.u_lname }}
+                </p>
+                <p>ประเมินโดย : พยาบาล {{ user.n_fname }} {{ user.n_lname }}</p>
+                <p>
+                  วันที่ประเมิน : {{ new Date(user.service_date).getDate() }}/{{
+                    new Date(user.service_date).getMonth()
+                  }}/{{ new Date(user.service_date).getFullYear() }}
+                </p>
+              </div>
             </div>
           </div>
           <div class="card" id="statusBox">
@@ -31,10 +41,10 @@
                   style="margin-top: 5vh;"
                   size="is-large"
                   type="is-info"
-                  :value="100"
+                  :value="0"
                   show-value
                 >
-                  {{ value }} out of 13</b-progress
+                  0 out of 13</b-progress
                 >
               </div>
             </div>
@@ -51,6 +61,7 @@
 <script>
 import Sidebar from "@/components/sidebar.vue";
 import startChooseBar from "@/components/startChooseBar.vue";
+import { mapActions, mapState } from "vuex";
 export default {
   components: {
     Sidebar,
@@ -59,6 +70,18 @@ export default {
   name: "Patientlist",
   data() {
     return {};
+  },
+  computed: {
+    ...mapState(["user"])
+  },
+  methods: {
+    ...mapActions(["getUserById"])
+  },
+  beforeRouteEnter(to, from, next) {
+    console.log("before");
+    next(vm => {
+      vm.getUserById();
+    });
   }
 };
 </script>

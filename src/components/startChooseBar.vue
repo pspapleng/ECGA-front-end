@@ -1,91 +1,74 @@
 <template>
-  <div id="bigBox" class="box has-background-light">
+  <div id="bigBox" class="box has-background-light has-text-left">
     <div>
       <header id="choosebarHeader">หัวข้อแบบประเมินทั้งหมด</header>
     </div>
     <div class="assChoice">
-      <a href="mnaAss">
-        <i class="fas fa-check-circle" id="checkIcon"></i>
-        <label for="">แบบประเมินภาวะโภชนาการ (MNA)</label>
-      </a>
+      <i class="fas fa-check-circle" id="checkIcon"></i>
+      <label for="">แบบประเมินภาวะโภชนาการ (MNA)</label>
     </div>
     <div class="assChoice">
-      <a href="mouthAss">
-        <i class="fas fa-check-circle" id="checkIcon"></i>
-        <label for="">แบบประเมินช่องปากในผู้สูงอายุ</label>
-      </a>
+      <i class="fas fa-check-circle" id="checkIcon"></i>
+      <label for="">แบบประเมินช่องปากในผู้สูงอายุ</label>
     </div>
     <div class="assChoice">
-      <a href="fallRisk">
-        <i class="fas fa-check-circle" id="checkIcon"></i>
-        <label for=""
-          >แบบประเมินภาวะหกล้ม <br />(Fall Risk Assessment Tool)</label
-        >
-      </a>
+      <i class="fas fa-check-circle" id="checkIcon"></i>
+      <label for=""
+        >แบบประเมินภาวะหกล้ม <br />
+        (Fall Risk Assessment Tool)</label
+      >
     </div>
     <div class="assChoice">
-      <a href="tugtAss">
-        <i class="fas fa-check-circle" id="checkIcon"></i>
-        <label for="">แบบประเมินภาวะหกล้ม <br />(TIME UP AND GO TEST)</label>
-      </a>
+      <i class="fas fa-check-circle" id="checkIcon"></i>
+      <label for=""
+        >แบบประเมินภาวะหกล้ม <br />
+        (TIME UP AND GO TEST)</label
+      >
     </div>
     <div class="assChoice">
-      <a href="eyeAss">
-        <i class="fas fa-check-circle" id="checkIcon"></i>
-        <label for="">แบบประเมินสุขภาวะทางตา</label>
-      </a>
+      <i class="fas fa-check-circle" id="checkIcon"></i>
+      <label for="">แบบประเมินสุขภาวะทางตา</label>
     </div>
     <div class="assChoice">
-      <a href="tgdsAss">
-        <i class="fas fa-check-circle" id="checkIcon"></i>
-        <label for="">แบบประเมินความเศร้าในผู้สูงอายุไทย 15 ข้อ</label>
-      </a>
+      <i class="fas fa-check-circle" id="checkIcon"></i>
+      <label for=""
+        >แบบประเมินความเศร้า <br />
+        ในผู้สูงอายุไทย 15 ข้อ</label
+      >
     </div>
     <div class="assChoice">
-      <a href="iqCode">
-        <i class="fas fa-check-circle" id="checkIcon"></i>
-        <label for=""
-          >แบบประเมินคัดกรองความจำเสื่อม <br />สำหรับผู้สูงอายุไทย</label
-        >
-      </a>
+      <i class="fas fa-check-circle" id="checkIcon"></i>
+      <label for=""
+        >แบบประเมินคัดกรองความจำเสื่อม <br />
+        สำหรับผู้สูงอายุไทย</label
+      >
     </div>
     <div class="assChoice">
-      <a href="mmseAss">
-        <i class="fas fa-check-circle" id="checkIcon"></i>
-        <label for="">แบบประเมิน MMSE - Thai 2002</label>
-      </a>
+      <i class="fas fa-check-circle" id="checkIcon"></i>
+      <label for="">แบบประเมิน MMSE - Thai 2002</label>
     </div>
     <div class="assChoice">
-      <a href="longtermAss">
-        <i class="fas fa-check-circle" id="checkIcon"></i>
-        <label for=""
-          >แบบประเมินผู้สูงอายุที่ต้องได้รับ <br />การดูแลระยะยาว</label
-        >
-      </a>
+      <i class="fas fa-check-circle" id="checkIcon"></i>
+      <label for=""
+        >แบบประเมินผู้สูงอายุที่ต้องได้รับ <br />
+        การดูแลระยะยาว</label
+      >
     </div>
     <div class="assChoice">
-      <a href="toiletAss">
-        <i class="fas fa-check-circle" id="checkIcon"></i>
-        <label for="">แบบประเมินภาวะกลั้นปัสสาวะไม่อยู่</label>
-      </a>
+      <i class="fas fa-check-circle" id="checkIcon"></i>
+      <label for="">แบบประเมินภาวะกลั้นปัสสาวะไม่อยู่</label>
     </div>
     <div class="assChoice">
-      <a href="sleepAss">
-        <i class="fas fa-check-circle" id="checkIcon"></i>
-        <label for="">แบบประเมินปัญหาการนอน</label>
-      </a>
+      <i class="fas fa-check-circle" id="checkIcon"></i>
+      <label for="">แบบประเมินปัญหาการนอน</label>
     </div>
     <div class="assChoice">
-      <a href="brokenAss">
-        <i class="fas fa-check-circle" id="checkIcon"></i>
-        <label for="">แบบประเมินโรคข้อเข่าเสื่อมทางคลินิก</label>
-      </a>
+      <i class="fas fa-check-circle" id="checkIcon"></i>
+      <label for="">แบบประเมินโรคข้อเข่าเสื่อมทางคลินิก</label>
     </div>
     <div class="assChoice">
-      <a href="bonyAss">
-        <i class="fas fa-check-circle" id="checkIcon"></i>
-        <label for="">แบบประเมินความเสี่ยงต่อโรคกระดูกพรุน</label>
-      </a>
+      <i class="fas fa-check-circle" id="checkIcon"></i>
+      <label for="">แบบประเมินความเสี่ยงต่อโรคกระดูกพรุน</label>
     </div>
     <div class="buttons" id="startButton">
       <b-button type="is-success" tag="a" href="/forms/form1" target=""
@@ -94,15 +77,13 @@
     </div>
   </div>
 </template>
+
 <script>
 export default {
   data() {
     return {};
   },
-  methods: {
-    // gotoMNA() {
-    // }
-  },
+  methods: {},
   name: "startChooseBar"
 };
 </script>
@@ -110,8 +91,8 @@ export default {
 #bigBox {
   position: fixed;
   height: 100%;
-  width: 100%;
-  right: px;
+  width: 320px;
+  right: 0px;
 }
 #choosebarHeader {
   text-align: left;
@@ -131,13 +112,7 @@ export default {
 }
 #startButton {
   position: fixed;
-  bottom: 6vh;
-  right: 4vw;
-}
-a {
-  color: inherit;
-}
-label {
-  cursor: pointer;
+  bottom: 30vh;
+  left: 83vw;
 }
 </style>
