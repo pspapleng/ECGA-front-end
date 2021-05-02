@@ -37,9 +37,98 @@
                 </div>
               </div>
             </div>
+            <div class="card">
+              <div class="card-content">
+                <div class="content has-text-left">
+                  <u class="title">1. ประเมินพฤติกรรมเสี่ยงต่อสุขภาพช่องปาก</u>
+                  <div
+                    class="ques mt-3"
+                    v-for="ques in form.slice(6, 9)"
+                    :key="ques.ques_id"
+                  >
+                    <p class="title">
+                      {{ ques.ques }}
+                    </p>
+                    <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+                      <b-radio
+                        disabled
+                        v-if="ans[ques.ques_id - 1].ans_value != ch.ans_value"
+                        id="ques.ques_id"
+                        :native-value="ch.ans_value"
+                        v-model="ans[ques.ques_id - 1].ans_value"
+                        type="is-info"
+                      >
+                        <p style="color: black">{{ ch.ans_title }}</p>
+                      </b-radio>
+                      <b-radio
+                        disabled
+                        v-else
+                        id="ques.ques_id"
+                        :native-value="ch.ans_value"
+                        v-model="ans[ques.ques_id - 1].ans_value"
+                        type="is-info"
+                      >
+                        <p style="color: black">
+                          {{ ans[ques.ques_id - 1].ans_title }}
+                        </p>
+                      </b-radio>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-content">
+                <div class="content has-text-left">
+                  <u class="title"
+                    >2. ประเมินสภาวะเสี่ยงต่อการเกิดโรคในช่องปาก</u
+                  >
+                  <div
+                    class="ques mt-3"
+                    v-for="ques in form.slice(9, 11)"
+                    :key="ques.ques_id"
+                  >
+                    <p class="title">
+                      {{ ques.ques }}
+                    </p>
+                    <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+                      <b-radio
+                        disabled
+                        v-if="ans[ques.ques_id - 1].ans_value != ch.ans_value"
+                        id="ques.ques_id"
+                        :native-value="ch.ans_value"
+                        v-model="ans[ques.ques_id - 1].ans_value"
+                        type="is-info"
+                      >
+                        <p style="color: black">{{ ch.ans_title }}</p>
+                      </b-radio>
+                      <b-radio
+                        disabled
+                        v-else
+                        id="ques.ques_id"
+                        :native-value="ch.ans_value"
+                        v-model="ans[ques.ques_id - 1].ans_value"
+                        type="is-info"
+                      >
+                        <p style="color: black">
+                          {{ ans[ques.ques_id - 1].ans_title }}
+                        </p>
+                      </b-radio>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-content">
+                <div class="content has-text-left">
+                  <u class="head">ส่วนที่ 2 ประเมินสุขภาพช่องปากผู้สูงอายุ</u>
+                </div>
+              </div>
+            </div>
             <div
               class="card"
-              v-for="ques in form.slice(6, 8)"
+              v-for="ques in form.slice(11, 18)"
               :key="ques.ques_id"
             >
               <div class="card-content">
@@ -74,7 +163,6 @@
                 </div>
               </div>
             </div>
-
             <div class="columns mt-4">
               <div class="column is-2">
                 <router-link to="/results/result1">
@@ -111,6 +199,52 @@
             <Sidebar />
           </div>
         </div>
+
+        <!-- ผลประเมิน -->
+        <b-modal v-model="isAssess" :width="640">
+          <div class="card">
+            <header class="card-header">
+              <p
+                class="card-header-title"
+                style="color: white; background-color: #1E3A8A"
+              >
+                ผลการประเมินช่องปากผู้สูงอายุ
+              </p>
+            </header>
+            <div class="card-content" style="background-color: #f4f4f4">
+              <div class="content has-text-left ml-6">
+                การแปรผล
+                <br />
+                หากมีความผิดปกติหรือมีความจำเป็นที่จะต้องได้รับการรักษาในข้อ 1 -
+                5 แบบประเมินส่วนที่ 2
+                ให้ทำการส่งต่อเพื่อเข้ารับบริการทางทันตกรรมจากทันตบุคลากร
+              </div>
+              <div class="card">
+                <div class="card-content">
+                  <div class="content">
+                    <p class="title">
+                      ไม่มีความผิดปกติด้านสุขภาพช่องปาก
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <footer class="card-footer">
+              <p
+                class="card-footer-item"
+                @click="isAssess = false"
+                style="color: #F90000"
+              >
+                ย้อนกลับ
+              </p>
+              <router-link class="card-footer-item" to="/results/result3">
+                <p style="color: #047857">
+                  ดูผลแบบประเมินถัดไป
+                </p>
+              </router-link>
+            </footer>
+          </div>
+        </b-modal>
       </div>
     </div>
   </div>
@@ -153,12 +287,12 @@ export default {
   font-weight: 500;
 }
 .head {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 500;
   margin-bottom: 0.75rem;
 }
 .title {
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 500;
   margin-bottom: 0.75rem;
 }
