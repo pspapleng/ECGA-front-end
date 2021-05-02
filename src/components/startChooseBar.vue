@@ -88,7 +88,7 @@
       </a>
     </div>
     <div class="buttons" id="startButton">
-      <b-button type="is-success" tag="a" href="/mnaAss" target=""
+      <b-button type="is-success" tag="a" href="/forms/form1" target=""
         >เริ่มทำแบบประเมิน</b-button
       >
     </div>
