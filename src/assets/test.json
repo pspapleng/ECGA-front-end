@@ -666,7 +666,7 @@
       },
       {
         "ans_id" : 88,
-        "ans_value" : "3",
+        "ans_value" : "1",
         "ans_title" : "เดินได้",
         "have_ans_input": true
       }
@@ -703,13 +703,13 @@
       },
       {
         "ans_id" : 92,
-        "ans_value" : "0",
+        "ans_value" : "1",
         "ans_title" : "ปกติ",
         "have_ans_input": false
       },
       {
         "ans_id" : 93,
-        "ans_value" : "0",
+        "ans_value" : "2",
         "ans_title" : "ยาว",
         "have_ans_input": false
       },
@@ -2209,12 +2209,12 @@
     "choice": [
       {
         "ans_id" : 265,
-        "ans_value" : "0",
+        "ans_value" : "-2",
         "ans_title" : "ชัดเจนโดยไม่ต้องใส่แว่น"
       },
       {
         "ans_id" : 266,
-        "ans_value" : "0",
+        "ans_value" : "-1",
         "ans_title" : "ชัดเจนโดยต้องใส่แว่น"
       },
       {
@@ -2229,7 +2229,7 @@
       },
       {
         "ans_id" : 269,
-        "ans_value" : "1",
+        "ans_value" : "2",
         "ans_title" : "ไม่เห็นเลย"
       }
     ] 
@@ -2241,12 +2241,12 @@
     "choice": [
       {
         "ans_id" : 270,
-        "ans_value" : "0",
+        "ans_value" : "-2",
         "ans_title" : "ชัดเจนโดยไม่ต้องใช้เครื่องช่วยฟัง"
       },
       {
         "ans_id" : 271,
-        "ans_value" : "0",
+        "ans_value" : "-1",
         "ans_title" : "ชัดเจนโดยแต่ต้องใช้เครื่องช่วยฟัง"
       },
       {
@@ -2261,7 +2261,7 @@
       },
       {
         "ans_id" : 274,
-        "ans_value" : "1",
+        "ans_value" : "2",
         "ans_title" : "ไม่ได้ยินเลย"
       }
     ]  },
@@ -3103,17 +3103,17 @@
     "choice": [
       {
         "ans_id" : 377,
-        "ans_value" : "0",
+        "ans_value" : "1",
         "ans_title" : "เล็กน้อย (ไม่กี่หยดหรือไม่เกินครึ่งช้อนโต๊ะ)"
       },
       {
         "ans_id" : 378,
-        "ans_value" : "1",
+        "ans_value" : "2",
         "ans_title" : "ปานกลาง (ชุ่มกางเกงในหรือครึ่งถึง 2 ช้อนโต๊ะ)"
       },
       {
         "ans_id" : 379,
-        "ans_value" : "1",
+        "ans_value" : "3",
         "ans_title" : "มาก (เปียกทะลุถึงผ้านุ่งชั้นนอกหรือมากกว่า 2 ช้อนโต๊ะ)"
       }
     ]
@@ -3126,17 +3126,17 @@
     "choice": [
       {
         "ans_id" : 380,
-        "ans_value" : "0",
+        "ans_value" : "1",
         "ans_title" : "เล็กน้อย / เดือนละครั้ง หรือน้อยกว่านี้"
       },
       {
         "ans_id" : 381,
-        "ans_value" : "1",
+        "ans_value" : "2",
         "ans_title" : "ปานกลาง / หลาย ๆ วันครั้ง หรือเดือนละ 2 ครั้งขึ้นไป"
       },
       {
         "ans_id" : 382,
-        "ans_value" : "1",
+        "ans_value" : "3",
         "ans_title" : "มาก / เกือบทุกวัน หรือวันละตั้งแต่ 1 ครั้งขึ้นไป"
       }
     ]
@@ -3149,17 +3149,17 @@
     "choice": [
       {
         "ans_id" : 383,
-        "ans_value" : "0",
+        "ans_value" : "1",
         "ans_title" : "รุนแรงเล็กน้อย"
       },
       {
         "ans_id" : 384,
-        "ans_value" : "1",
+        "ans_value" : "2",
         "ans_title" : "รุนแรงปานกลาง"
       },
       {
         "ans_id" : 385,
-        "ans_value" : "1",
+        "ans_value" : "3",
         "ans_title" : "รุนแรงมาก"
       }
     ]

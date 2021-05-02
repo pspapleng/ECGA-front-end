@@ -11,27 +11,27 @@
         <!---->
         <!-- questions -->
         <div class="column is-11">
-          <div class="assName card mt-6  mr-6">
+          <div class="assName card mt-6 mr-6">
             <p
               class="card-header-title"
-              style="color: white; background-color: #1E3A8A"
+              style="color: white; background-color: #1e3a8a"
             >
-              แบบประเมินช่องปากผู้สูงอายุ
+              การคัดกรองสุขภาวะทางตา
             </p>
             <div class="card-content">
               <div class="content">
                 <p>
                   <u>ข้อแนะนำ</u>
-                  การประเมินสุขภาพช่องปากผู้สูงอายุเป็นการประเมินพฤติกรรมการดูแลสุขภาพช่องปาก
-                  สภาวะเสี่ยงของสุขภาพช่องปาก
-                  และการส่งต่อเพื่อรับการรักษาทางทันตะกรรม
-                  ตามปัญหาและความต้องการของผู้สูงอายุ
+                  การคัดกรองสุขภาวะทางตาเป็นการคัดกรองการมองเห็น (ระยะไกล -
+                  ใกล้)
+                  ที่มีผลต่อการใช้ชีวิตประจำวันและลักษณะการมองเห็นผิดปกติที่เป็นปัญหาและพบบ่อยในผู้สูงอายุ
+                  ได้แก่ ต้อกระจก ต้อหิน และจอตาเสื่อม
                 </p>
               </div>
             </div>
           </div>
 
-          <div class="card mr-6 ">
+          <div class="card mr-6">
             <div class="card-content">
               <div class="content">
                 <div
@@ -42,17 +42,21 @@
                   <p id="ques_title">
                     {{ ques.ques }}
                   </p>
-                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-                    <input
-                      id="ques.ques_id"
-                      type="radio"
-                      :value="ch.ans_value"
-                      v-model="ques.ans"
-                      @change="
-                        e => setAns({ id: ques.ques_id, value: e.target.value })
-                      "
-                    />
-                    <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                  <div v-for="ch in ques.choice" :key="ch.ans_id">
+                    <b-field>
+                      <b-radio
+                        id="ques.ques_id"
+                        v-model="ques.ans"
+                        :native-value="ch.ans_value"
+                        type="is-info"
+                        @change.native="
+                          e =>
+                            setAns({ id: ques.ques_id, value: e.target.value })
+                        "
+                      >
+                      </b-radio>
+                      <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                    </b-field>
                   </div>
                 </div>
               </div>
@@ -70,24 +74,28 @@
                   <p id="ques_title">
                     {{ ques.ques }}
                   </p>
-                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-                    <input
-                      id="ques.ques_id"
-                      type="radio"
-                      :value="ch.ans_value"
-                      v-model="ques.ans"
-                      @change="
-                        e => setAns({ id: ques.ques_id, value: e.target.value })
-                      "
-                    />
-                    <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                  <div v-for="ch in ques.choice" :key="ch.ans_id">
+                    <b-field>
+                      <b-radio
+                        id="ques.ques_id"
+                        v-model="ques.ans"
+                        :native-value="ch.ans_value"
+                        type="is-info"
+                        @change.native="
+                          e =>
+                            setAns({ id: ques.ques_id, value: e.target.value })
+                        "
+                      >
+                      </b-radio>
+                      <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                    </b-field>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="card mr-6 ">
+          <div class="card mr-6">
             <div class="card-content">
               <div class="content">
                 <div
@@ -98,24 +106,28 @@
                   <p id="ques_title">
                     {{ ques.ques }}
                   </p>
-                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-                    <input
-                      id="ques.ques_id"
-                      type="radio"
-                      :value="ch.ans_value"
-                      v-model="ques.ans"
-                      @change="
-                        e => setAns({ id: ques.ques_id, value: e.target.value })
-                      "
-                    />
-                    <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                  <div v-for="ch in ques.choice" :key="ch.ans_id">
+                    <b-field>
+                      <b-radio
+                        id="ques.ques_id"
+                        v-model="ques.ans"
+                        :native-value="ch.ans_value"
+                        type="is-info"
+                        @change.native="
+                          e =>
+                            setAns({ id: ques.ques_id, value: e.target.value })
+                        "
+                      >
+                      </b-radio>
+                      <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                    </b-field>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="card mr-6 ">
+          <div class="card mr-6">
             <div class="card-content">
               <div class="content">
                 <div
@@ -126,24 +138,28 @@
                   <p id="ques_title">
                     {{ ques.ques }}
                   </p>
-                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-                    <input
-                      id="ques.ques_id"
-                      type="radio"
-                      :value="ch.ans_value"
-                      v-model="ques.ans"
-                      @change="
-                        e => setAns({ id: ques.ques_id, value: e.target.value })
-                      "
-                    />
-                    <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                  <div v-for="ch in ques.choice" :key="ch.ans_id">
+                    <b-field>
+                      <b-radio
+                        id="ques.ques_id"
+                        v-model="ques.ans"
+                        :native-value="ch.ans_value"
+                        type="is-info"
+                        @change.native="
+                          e =>
+                            setAns({ id: ques.ques_id, value: e.target.value })
+                        "
+                      >
+                      </b-radio>
+                      <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                    </b-field>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="component mt-6 ">
+          <div class="component mt-6">
             <b-pagination
               :order="order"
               :size="size"
