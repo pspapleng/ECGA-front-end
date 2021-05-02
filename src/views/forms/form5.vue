@@ -204,7 +204,7 @@
                 id="nextAss"
                 type="is-success"
                 tag="a"
-                href="/form6"
+                href="/forms/form6"
                 target=""
                 >ทำแบบประเมินถัดไป</b-button
               >

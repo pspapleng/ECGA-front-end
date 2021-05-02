@@ -12,7 +12,7 @@
             <header class="card-header">
               <p
                 class="card-header-title"
-                style="color: white; background-color: #1E3A8A"
+                style="color: white; background-color: #1e3a8a"
               >
                 แบบประเมินคัดกรองความจำเสื่อมสำหรับผู้สูงอายุไทย (IQCODE)
               </p>
@@ -28,7 +28,7 @@
                   ดีขึ้นเล็กน้อย, เท่าเดิม, แย่ลงเล็กน้อย, หรือแย่ลงมาก
                 </p>
                 <p>
-                  <u style="color : red;">ตัวอย่างเช่น</u> ถ้าเมื่อ 10
+                  <u style="color: red">ตัวอย่างเช่น</u> ถ้าเมื่อ 10
                   ปีก่อนผู้สูงอายุมักจำชื่อคนอื่นไม่ค่อยได้
                   และปัจจุบันยังคงจำไม่ได้เหมือนเดิมนั้น ให้ถือว่า
                   "ไม่เปลี่ยนแปลง" แต่ถ้าเมื่อ 10 ปีที่แล้วจำได้ดี
@@ -50,17 +50,21 @@
                   <p id="ques_title">
                     {{ ques.ques }}
                   </p>
-                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-                    <input
-                      id="ques.ques_id"
-                      type="radio"
-                      :value="ch.ans_value"
-                      v-model="ques.ans"
-                      @change="
-                        e => setAns({ id: ques.ques_id, value: e.target.value })
-                      "
-                    />
-                    <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                  <div v-for="ch in ques.choice" :key="ch.ans_id">
+                    <b-field>
+                      <b-radio
+                        id="ques.ques_id"
+                        v-model="ques.ans"
+                        :native-value="ch.ans_value"
+                        type="is-info"
+                        @change.native="
+                          e =>
+                            setAns({ id: ques.ques_id, value: e.target.value })
+                        "
+                      >
+                      </b-radio>
+                      <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                    </b-field>
                   </div>
                 </div>
               </div>
@@ -77,17 +81,17 @@
             <span>
               <b-button
                 class="checkButt"
-                label="กลับสู่หน้าหลัก"
-                type="is-light"
-                size=""
-                @click="backHome"
-              />
-              <b-button
-                class="checkButt"
                 label="ประเมินผล"
                 type="is-light"
                 size=""
                 @click="isEditResult = true"
+              />
+              <b-button
+                class="checkButt"
+                label="กลับสู่หน้าหลัก"
+                type="is-light"
+                size=""
+                @click="backHome"
               />
             </span>
           </div>
@@ -117,7 +121,7 @@
                   id="nextAss"
                   type="is-success"
                   tag="a"
-                  href="/form7"
+                  href="/forms/form8"
                   target=""
                   >ทำแบบประเมินถัดไป</b-button
                 >

@@ -14,7 +14,7 @@
           <div class="assName card mt-6 ml-1 mr-6">
             <p
               class="card-header-title"
-              style="color: white; background-color: #1E3A8A"
+              style="color: white; background-color: #1e3a8a"
             >
               แบบประเมินภาวะโภชนาการ (MNA)
             </p>
@@ -28,18 +28,21 @@
               <div class="card-content">
                 <div class="content">
                   <p>{{ ques.ques }}</p>
-                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-                    <input
-                      id="ques.ques_id"
-                      type="radio"
-                      :value="ch.ans_value"
-                      v-model="ques.ans"
-                      @change="
-                        e => setAns({ id: ques.ques_id, value: e.target.value })
-                      "
-                    />
-                    <label id="ques.ques_id" for="">{{ ch.ans_title }}</label
-                    ><br />
+                  <div v-for="ch in ques.choice" :key="ch.ans_id">
+                    <b-field>
+                      <b-radio
+                        id="ques.ques_id"
+                        v-model="ques.ans"
+                        :native-value="ch.ans_value"
+                        type="is-info"
+                        @change.native="
+                          e =>
+                            setAns({ id: ques.ques_id, value: e.target.value })
+                        "
+                      >
+                      </b-radio>
+                      <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                    </b-field>
                   </div>
                 </div>
               </div>
@@ -55,17 +58,38 @@
               <div class="card-content">
                 <div class="content">
                   <p>{{ ques.ques }}</p>
-                  <label for="" style="float: left; margin-left: 2vw;"
+                  <label for="" style="float: left; margin-left: 2vw"
                     >BMI
                   </label>
                   <input
                     id="ques.ques_id"
-                    style="float: left; margin-left: 5px;"
+                    style="float: left; margin-left: 5px"
                     type="text"
                     v-model="ques.ans_input"
                     disabled
                   /><br />
-                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+                  <div v-for="ch in ques.choice" :key="ch.ans_id">
+                    <b-field>
+                      <b-radio
+                        id="ques.ques_id"
+                        v-model="ques.ans"
+                        :native-value="ch.ans_value"
+                        type="is-info"
+                        @change.native="
+                          e =>
+                            setAns({ id: ques.ques_id, value: e.target.value })
+                        "
+                      >
+                      </b-radio>
+                      <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                    </b-field>
+                  </div>
+
+                  <!-- <div>
+                    {{ans}}
+                  </div> -->
+
+                  <!-- <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
                     <input
                       id="ques.ques_id"
                       type="radio"
@@ -77,7 +101,7 @@
                     />
                     <label id="ques.ques_id" for="">{{ ch.ans_title }}</label
                     ><br />
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -96,7 +120,7 @@
                 label="ประเมินผล"
                 type="is-light"
                 size=""
-                @click="isEditResult = true"
+                @click="sumResult()"
               />
               <b-button
                 class="checkButt"
@@ -138,7 +162,7 @@
               id="nextAss"
               type="is-success"
               tag="a"
-              href="/form2"
+              href="/forms/form2"
               target=""
               >ทำแบบประเมินถัดไป</b-button
             >
@@ -169,6 +193,8 @@ export default {
       prevIcon: "chevron-left",
       nextIcon: "chevron-right",
       isEditResult: false
+      // result1: 0,
+      // ans: 0
     };
   },
   computed: {
@@ -191,7 +217,10 @@ export default {
         window.location.pathname = "startpage";
       }
     },
-    ...mapMutations(["setAns"])
+    ...mapMutations(["setAns"]),
+    sumResult() {
+      this.isEditResult = true;
+    }
   }
 };
 </script>

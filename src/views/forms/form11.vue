@@ -14,7 +14,7 @@
           <div class="assName card mt-6 mr-6">
             <p
               class="card-header-title"
-              style="color: white; background-color: #1E3A8A"
+              style="color: white; background-color: #1e3a8a"
             >
               แบบประเมินปัญหาการนอน
             </p>
@@ -29,17 +29,21 @@
               >
                 <div class="quesContent content">
                   <p>{{ ques.ques }}</p>
-                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-                    <input
-                      id="ques.ques_id"
-                      type="radio"
-                      :value="ch.ans_value"
-                      v-model="ques.ans"
-                      @change="
-                        e => setAns({ id: ques.ques_id, value: e.target.value })
-                      "
-                    />
-                    <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                  <div v-for="ch in ques.choice" :key="ch.ans_id">
+                    <b-field>
+                      <b-radio
+                        id="ques.ques_id"
+                        v-model="ques.ans"
+                        :native-value="ch.ans_value"
+                        type="is-info"
+                        @change.native="
+                          e =>
+                            setAns({ id: ques.ques_id, value: e.target.value })
+                        "
+                      >
+                      </b-radio>
+                      <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                    </b-field>
                   </div>
                 </div>
               </div>
@@ -50,21 +54,25 @@
               >
                 <div class="quesContent content">
                   <p>{{ ques.ques }}</p>
-                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-                    <input
-                      id="ques.ques_id"
-                      type="radio"
-                      :value="ch.ans_value"
-                      v-model="ques.ans"
-                      @change="
-                        e => setAns({ id: ques.ques_id, value: e.target.value })
-                      "
-                    />
-                    <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                  <div v-for="ch in ques.choice" :key="ch.ans_id">
+                    <b-field>
+                      <b-radio
+                        id="ques.ques_id"
+                        v-model="ques.ans"
+                        :native-value="ch.ans_value"
+                        type="is-info"
+                        @change.native="
+                          e =>
+                            setAns({ id: ques.ques_id, value: e.target.value })
+                        "
+                      >
+                      </b-radio>
+                      <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                    </b-field>
                   </div>
                 </div>
               </div>
-              <div style="float: left;">
+              <div style="float: left">
                 <input type="text" /> ปี <input type="text" /> เดือน
               </div>
             </div>
@@ -81,19 +89,21 @@
                   <p id="ques_title">
                     {{ ques.ques }}
                   </p>
-                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-                    <input
-                      id="ques.ques_id"
-                      type="text"
-                      v-model="ques.ans_input"
-                      @change="
-                        e =>
-                          setAns({
-                            id: ques.ques_id,
-                            value: e.target.v - model
-                          })
-                      "
-                    />
+                  <div v-for="ch in ques.choice" :key="ch.ans_id">
+                    <b-field>
+                      <b-radio
+                        id="ques.ques_id"
+                        v-model="ques.ans"
+                        :native-value="ch.ans_value"
+                        type="is-info"
+                        @change.native="
+                          e =>
+                            setAns({ id: ques.ques_id, value: e.target.value })
+                        "
+                      >
+                      </b-radio>
+                      <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                    </b-field>
                   </div>
                 </div>
               </div>
@@ -111,16 +121,21 @@
                   <p id="ques_title">
                     {{ ques.ques }}
                   </p>
-                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-                    <input
-                      id="ques.ques_id"
-                      type="radio"
-                      v-model="ques.anst"
-                      @change="
-                        e => setAns({ id: ques.ques_id, value: e.target.value })
-                      "
-                    />
-                    <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                  <div v-for="ch in ques.choice" :key="ch.ans_id">
+                    <b-field>
+                      <b-radio
+                        id="ques.ques_id"
+                        v-model="ques.ans"
+                        :native-value="ch.ans_value"
+                        type="is-info"
+                        @change.native="
+                          e =>
+                            setAns({ id: ques.ques_id, value: e.target.value })
+                        "
+                      >
+                      </b-radio>
+                      <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                    </b-field>
                   </div>
                 </div>
               </div>
@@ -138,33 +153,25 @@
             <span>
               <b-button
                 class="checkButt"
-                label="กลับสู่หน้าหลัก"
-                type="is-light"
-                size=""
-                @click="backHome"
-              />
-              <b-button
-                class="checkButt"
                 label="ประเมินผล"
                 type="is-light"
                 size=""
                 @click="isEditResult = true"
               />
+              <b-button
+                class="checkButt"
+                label="กลับสู่หน้าหลัก"
+                type="is-light"
+                size=""
+                @click="backHome"
+              />
             </span>
           </div>
         </div>
-        <!---->
-        <!-- choose bar maybe fixed side nav-->
-        <div class="column is-3" id="choosebar">
-          <assChooseBar />
-        </div>
-        <!---->
         <b-modal v-model="isEditResult">
           <div class="card">
             <header class="card-header">
-              <p class="card-header-title">
-                ผลการประเมินปัญหาการนอน
-              </p>
+              <p class="card-header-title">ผลการประเมินปัญหาการนอน</p>
             </header>
             <div class="card-content">
               <div class="content">
@@ -184,7 +191,7 @@
                 id="nextAss"
                 type="is-success"
                 tag="a"
-                href="/brokenAss"
+                href="/forms/form12"
                 target=""
                 >ทำแบบประเมินถัดไป</b-button
               >
