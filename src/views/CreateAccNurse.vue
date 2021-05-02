@@ -201,12 +201,12 @@ export default {
   data() {
     return {
       form: {
-        id: "00000000000",
-        n_fname: "asd",
-        n_lname: "asd",
-        username: "admin",
-        password: "123456a",
-        confirm_password: "123456a"
+        id: "00000000004",
+        n_fname: "ณัฐธิดา",
+        n_lname: "ทวีชุติพรกุล",
+        username: "nutthida",
+        password: "nut1234",
+        confirm_password: "nut1234"
       }
     };
   },

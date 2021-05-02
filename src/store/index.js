@@ -31,6 +31,7 @@ export default new Vuex.Store({
       n_id: null
     },
     u_id: 1,
+    n_id: 1,
     user: "",
     result_id: 1,
     checklist: true,
@@ -71,6 +72,23 @@ export default new Vuex.Store({
         username: "",
         password: "",
         confirm_password: ""
+      };
+    },
+    setCreateUsers(state, payload) {
+      state.createUsers = payload;
+    },
+    resetCreateUsers(state) {
+      state.createUsers = {
+        u_fname: "",
+        u_lname: "",
+        gender: 0,
+        date_of_birth: null,
+        weight: 0,
+        height: 0,
+        bmi: 0,
+        waistline: 0,
+        fall_history: 0,
+        n_id: null
       };
     },
     setEditUserId(state, payload) {
@@ -120,6 +138,7 @@ export default new Vuex.Store({
       state.createUsers.bmi = parseFloat(
         state.createUsers.weight / Math.pow(state.createUsers.height / 100, 2)
       ).toFixed(2);
+      state.createUsers.n_id = state.n_id;
       console.log(state.createUsers);
       return Vue.axios
         .post(`http://localhost:3000/api/users`, state.createUsers)
@@ -129,6 +148,7 @@ export default new Vuex.Store({
           return Promise.resolve();
         })
         .catch(e => {
+          console.log(e.response.data);
           return Promise.reject(e.response.data);
         });
     },

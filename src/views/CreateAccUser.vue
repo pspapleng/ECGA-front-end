@@ -238,14 +238,14 @@ export default {
   data() {
     return {
       form: {
-        u_fname: "asad",
-        u_lname: "asdad",
-        gender: 1,
-        date_of_birth: new Date(), //null new Date()
-        weight: 55.25,
-        height: 165.5,
-        waistline: 32.4,
-        fall_history: 5
+        u_fname: "กิตติพงศ์",
+        u_lname: "สุนทรแตร",
+        gender: 2,
+        date_of_birth: new Date("1954-05-03"), //null new Date()
+        weight: 70,
+        height: 171.5,
+        waistline: 35,
+        fall_history: 2
       }
     };
   },
@@ -300,7 +300,7 @@ export default {
             this.$router.push({ name: "PatientList" });
           })
           .catch(e => {
-            console.log(e);
+            console.log(e.details);
             if (Array.isArray(e.details)) {
               console.log("yes");
               let err = "";
@@ -310,7 +310,8 @@ export default {
               alert(err);
             } else {
               console.log("no");
-              alert(e.details.message);
+              console.log(e);
+              alert(e.message);
             }
           });
       } else {
