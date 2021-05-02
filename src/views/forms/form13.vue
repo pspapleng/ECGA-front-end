@@ -118,14 +118,17 @@
           <assChooseBar />
         </div>
         <!---->
-        <b-modal v-model="isEditResult">
+        <b-modal v-model="isEditResult" :width="640">
           <div class="card">
             <header class="card-header">
-              <p class="card-header-title">
+              <p
+                class="card-header-title"
+                style="color: white; background-color: #1E3A8A"
+              >
                 ผลการประเมินความเสี่ยงต่อโรคกระดูกพรุน
               </p>
             </header>
-            <div class="card-content">
+            <div class="card-content has-text-centered">
               <div class="content">
                 <div class="card">
                   <header class="card-header">
@@ -142,15 +145,21 @@
                   </div>
                 </div>
               </div>
-              <b-button
-                id="nextAss"
-                type="is-success"
-                tag="a"
-                href="/startpage"
-                target="_blank"
-                >เสร็จสิ้นการทำแบบประเมิน</b-button
-              >
             </div>
+            <footer class="card-footer">
+              <p
+                class="card-footer-item"
+                @click="isEditResult = false"
+                style="color: #F90000"
+              >
+                ย้อนกลับ
+              </p>
+              <router-link class="card-footer-item" to="/startpage">
+                <p style="color: #047857">
+                  เสร็จสิ้นการทำแบบประเมิน
+                </p>
+              </router-link>
+            </footer>
           </div>
         </b-modal>
       </div>

@@ -134,13 +134,18 @@
           <assChooseBar />
         </div> -->
         <!-- ผลประเมิน -->
-        <b-modal v-model="isEditResult">
+        <b-modal v-model="isEditResult" :width="640">
           <div class="card">
             <header class="card-header">
-              <p class="card-header-title">ผลการประเมินภาวะโภชนาการ</p>
+              <p
+                class="card-header-title"
+                style="color: white; background-color: #1E3A8A"
+              >
+                ผลการประเมินภาวะโภชนาการ (MNA)
+              </p>
             </header>
-            <div class="card-content">
-              <div class="content">
+            <div class="card-content" style="background-color: #f4f4f4">
+              <div class="content has-text-left ml-6">
                 การพิจารณา (คะแนนเต็ม 14 คะแนน)
                 <br />
                 12 - 14 คะแนน = ภาวะโภชนาการปกติ
@@ -149,20 +154,30 @@
                 <br />
                 0 - 7 คะแนน = มีภาวะขาดสารอาหาร
               </div>
-              <div class="innerCard">
-                <div class="innerContent">
-                  ได้คะแนน 12 คะแนน ภาวะโภชนาการปกติ
+              <div class="card">
+                <div class="card-content">
+                  <div class="content">
+                    <p class="has-text-centered">
+                      ได้คะแนน 12 คะแนน ภาวะโภชนาการปกติ
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-            <b-button
-              id="nextAss"
-              type="is-success"
-              tag="a"
-              href="/forms/form2"
-              target=""
-              >ทำแบบประเมินถัดไป</b-button
-            >
+            <footer class="card-footer">
+              <p
+                class="card-footer-item"
+                @click="isEditResult = false"
+                style="color: #F90000"
+              >
+                ย้อนกลับ
+              </p>
+              <router-link class="card-footer-item" to="/forms/form2">
+                <p style="color: #047857">
+                  ทำแบบประเมินถัดไป
+                </p>
+              </router-link>
+            </footer>
           </div>
         </b-modal>
       </div>
