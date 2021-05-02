@@ -53,7 +53,7 @@
             style="padding-right: 30px; padding-left: 0px"
           >
             <b-table
-              :data="u_resultId"
+              :data="u_Data"
               :paginated="true"
               per-page="10"
               current-page.sync="1"
@@ -206,12 +206,12 @@
                   icon-right="trash"
                   icon-pack="fas"
                   size="is-small"
-                  @click="deleteUser(props.row, props.row.HN)"
+                  @click="DeleteUser(props.row, props.row.HN)"
                 />
               </b-table-column>
 
               <template #bottom-left>
-                <b>ทั้งหมด {{ u_resultId.length }} รายชื่อ</b>
+                <b>ทั้งหมด {{ u_Data.length }} รายชื่อ</b>
               </template>
             </b-table>
           </div>
@@ -732,7 +732,7 @@
  
 <script>
 import Sidebar from "@/components/sidebar.vue";
-import axios from "axios";
+// import axios from "axios";
 import { mapState, mapActions, mapMutations } from "vuex";
 import {
   required,
@@ -769,7 +769,7 @@ export default {
       editHeight: "",
       editWaistline: "",
       editFall: "",
-      in_search: ""
+      in_search: "",
     };
   },
   validations: {
@@ -814,24 +814,25 @@ export default {
     this.getData();
   },
   methods: {
-    ...mapMutations(["setSearch"]),
+    ...mapMutations(["setSearch", "setEditUserId"]),
+    ...mapActions(["editUser"]),
     doc() {
       // this.getUser();
-      console.log(this.data1);
-      console.log(this.u_resultId);
+      console.log(this.editUserId);
+      console.log(this.u_Data);
     },
     open(id) {
-      var num = this.data1.length;
+      var num = this.u_Data.length;
       for (var i = 0; i < num; i++) {
-        if (parseInt(id) === parseInt(this.data1[i].HN)) {
-          this.result = this.data1[i];
+        if (parseInt(id) === parseInt(this.u_Data[i].HN)) {
+          this.result = this.u_Data[i];
         }
       }
     },
     getData() {
-      this.setSearch(this.in_search)
+      this.setSearch(this.in_search);
       console.log(this.in_search);
-      this.getUser()
+      this.getUser();
     },
     getAge(date) {
       var today = new Date();
@@ -843,17 +844,17 @@ export default {
       }
       return age;
     },
-    deleteUser(user, index) {
+    DeleteUser(user, index) {
+      this.setEditUserId(user.u_id)
       let confirmResult = confirm("are you sure!?");
       if (confirmResult) {
-        axios
-          .delete(`http://localhost:3000/api/users/${user.u_id}`)
+        this.deleteUser()
           .then((res) => {
             console.log(res);
-            var num = this.data1.length;
+            var num = this.u_Data.length;
             for (var i = 0; i < num; i++) {
-              if (parseInt(index) === parseInt(this.data1[i].HN)) {
-                this.data1.splice(i, 1);
+              if (parseInt(index) === parseInt(this.u_Data[i].HN)) {
+                this.u_Data.splice(i, 1);
               }
             }
           })
@@ -872,6 +873,7 @@ export default {
       this.editHeight = histy.height;
       this.editWaistline = histy.waistline;
       this.editFall = histy.fall_history;
+      this.setEditUserId(histy.u_id);
     },
     saveHistory(histy) {
       this.$v.$touch();
@@ -891,9 +893,7 @@ export default {
           waistline: this.editWaistline,
           fall_history: this.editFall,
         };
-        console.log(payload.bmi);
-        axios
-          .put(`http://localhost:3000/api/users/${histy.u_id}`, payload)
+        this.editUser(payload)
           .then((res) => {
             console.log(res);
             histy.u_fname = this.editFname;
@@ -909,13 +909,13 @@ export default {
           })
           .catch((err) => {
             console.log(err);
-            alert(err.response.data.message);
+            alert("ERROR");
           });
       } else {
         alert("โปรดกรอกข้อมูลให้ถูกต้องทุกช่อง");
       }
     },
-    ...mapActions(["getUser"]),
+    ...mapActions(["getUser", "editUser", "deleteUser"]),
   },
   computed: {
     dateResult() {
@@ -924,7 +924,7 @@ export default {
     editDateResult() {
       return new Date(this.result.service_date);
     },
-    ...mapState(["u_resultId"]),
+    ...mapState(["u_Data", "editUserId"]),
   },
   beforeRouteEnter(to, from, next) {
     console.log("before");

@@ -36,14 +36,15 @@ export default new Vuex.Store({
     in_search: "",
     n_fname: "Taweewat",
     n_lname: "Srimek",
-    u_resultId: []
+    u_Data: [],
+    editUserId: null
   },
   mutations: {
-    setSearch(state, payload) {
-      state.in_search = payload;
+    setSearch(state, payload){
+      state.in_search = payload
     },
-    setU_resultId(state, payload) {
-      state.u_resultId = payload;
+    setU_Data(state, payload) {
+      state.u_Data = payload
     },
     setAllResult(state, payload) {
       state.result = payload;
@@ -67,22 +68,11 @@ export default new Vuex.Store({
         confirm_password: ""
       };
     },
-    setCreateUsers(state, payload) {
-      state.createUsers = payload;
+    setEditUserId(state, payload) {
+      state.editUserId = payload;
     },
-    resetCreateUsers(state) {
-      state.createUsers = {
-        u_fname: "",
-        u_lname: "",
-        gender: 0,
-        date_of_birth: null,
-        weight: 0,
-        height: 0,
-        bmi: 0,
-        waistline: 0,
-        fall_history: 0,
-        n_id: null
-      };
+    resetEditUserId(state) {
+      state.editUserId = null;
     },
     // set value for var ans
     setAns(state, payload) {
@@ -98,7 +88,7 @@ export default new Vuex.Store({
       // Object.assign(target,{ans:parseInt(value)})
       // state.json.ans = parseInt(payload)
       console.log(state.json);
-    }
+    },
   },
   actions: {
     createNurse({ state, commit }) {
@@ -157,17 +147,40 @@ export default new Vuex.Store({
         });
     },
     getUser({ state, commit }) {
-      console.log("in action");
+      console.log("get user");
       console.log(state.in_search);
-      Vue.axios
-        .get(`http://localhost:3000/api/users`, {
-          params: {
-            search: state.in_search
-          }
-        })
+      Vue.axios.get(`http://localhost:3000/api/users`, {
+        params: {
+          search: state.in_search,
+        },
+      })
         .then(data => {
           // console.log(data.data);
-          commit("setU_resultId", data.data);
+          commit("setU_Data", data.data);
+        });
+    },
+    editUser({ state, commit }, payload) {
+      console.log(state.editUserId);
+      console.log(payload);
+      return Vue.axios
+        .put(`http://localhost:3000/api/users/${state.editUserId}`, payload)
+        .then((res) => {
+          commit("resetEditUserId")
+          return Promise.resolve(res);
+        })
+        .catch((err) => {
+          return Promise.reject(err);
+        });
+    },
+    deleteUser({ state, commit }) {
+      return Vue.axios
+        .delete(`http://localhost:3000/api/users/${state.editUserId}`)
+        .then((res) => {
+          commit("resetEditUserId")
+          return Promise.resolve(res);
+        })
+        .catch((err) => {
+          return Promise.reject(err);
         });
     }
   },
