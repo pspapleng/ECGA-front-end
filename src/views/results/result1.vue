@@ -32,12 +32,25 @@
                   <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
                     <b-radio
                       disabled
+                      v-if="ans[ques.ques_id - 1].ans_value != ch.ans_value"
                       id="ques.ques_id"
                       :native-value="ch.ans_value"
                       v-model="ans[ques.ques_id - 1].ans_value"
                       type="is-info"
                     >
                       <p style="color: black">{{ ch.ans_title }}</p>
+                    </b-radio>
+                    <b-radio
+                      disabled
+                      v-else
+                      id="ques.ques_id"
+                      :native-value="ch.ans_value"
+                      v-model="ans[ques.ques_id - 1].ans_value"
+                      type="is-info"
+                    >
+                      <p style="color: black">
+                        {{ ans[ques.ques_id - 1].ans_title }}
+                      </p>
                     </b-radio>
                   </div>
                 </div>
@@ -77,12 +90,25 @@
                   <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
                     <b-radio
                       disabled
+                      v-if="ans[ques.ques_id - 1].ans_value != ch.ans_value"
                       id="ques.ques_id"
                       :native-value="ch.ans_value"
                       v-model="ans[ques.ques_id - 1].ans_value"
                       type="is-info"
                     >
                       <p style="color: black">{{ ch.ans_title }}</p>
+                    </b-radio>
+                    <b-radio
+                      disabled
+                      v-else
+                      id="ques.ques_id"
+                      :native-value="ch.ans_value"
+                      v-model="ans[ques.ques_id - 1].ans_value"
+                      type="is-info"
+                    >
+                      <p style="color: black">
+                        {{ ans[ques.ques_id - 1].ans_title }}
+                      </p>
                     </b-radio>
                   </div>
                 </div>
@@ -148,7 +174,7 @@
                 <div class="card-content">
                   <div class="content">
                     <p class="title">
-                      สรุปผล
+                      ได้คะแนน 12 คะแนน ภาวะโภชนาการปกติ
                     </p>
                   </div>
                 </div>
@@ -208,12 +234,11 @@ export default {
 </script>
 <style>
 .card-header-title {
-  /* color: white; */
   font-size: 1.5rem;
   font-weight: 500;
 }
 .title {
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 500;
   margin-bottom: 0.75rem;
 }

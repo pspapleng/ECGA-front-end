@@ -22,7 +22,7 @@
                 </header>
                 <div class="card-content">
                   <div class="content has-text-left" style="font-weight: 300;">
-                    {{ result.length }} hi ผู้ทำแบบประเมิน : คุณ
+                    ผู้ทำแบบประเมิน : คุณ
                     {{ result[0].u_fname }} {{ result[0].u_lname }} <br />
                     ประเมินโดย : พยาบาล {{ result[0].n_fname }}
                     {{ result[0].n_lname }} <br />
@@ -33,7 +33,17 @@
                     <br />
                     ผลการทำแบบประเมินทั้งหมด :
                     <button
+                      v-show="item.result_id !== result_id"
                       class="result_bt mr-2"
+                      v-for="(item, index) in result"
+                      :key="item.id"
+                    >
+                      {{ index + 1 }}
+                    </button>
+                    <button
+                      v-show="item.result_id === result_id"
+                      disabled
+                      class="result_bt mr-2 button is-info"
                       v-for="(item, index) in result"
                       :key="item.id"
                     >
@@ -151,7 +161,7 @@ export default {
     return {};
   },
   computed: {
-    ...mapState(["result"])
+    ...mapState(["result", "result_id"])
   },
   methods: {
     ...mapActions(["getAllResult"])
