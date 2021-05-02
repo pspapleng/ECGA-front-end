@@ -34,7 +34,7 @@
                       disabled
                       id="ques.ques_id"
                       :native-value="ch.ans_value"
-                      v-model="ans_arr[ques.ques_id - 1].ans_value"
+                      v-model="ans[ques.ques_id - 1].ans_value"
                       type="is-info"
                     >
                       <p style="color: black">{{ ch.ans_title }}</p>
@@ -65,7 +65,7 @@
                         class="button is-static"
                         style="color: #393939; font-weight: 400;border: 0;border-radius: 0"
                       >
-                        <p class="mx-3">{{ result[0].bmi }}</p>
+                        <p class="mx-3">{{ user.bmi }}</p>
                       </span>
                     </p>
                     <!-- <b-input
@@ -79,7 +79,7 @@
                       disabled
                       id="ques.ques_id"
                       :native-value="ch.ans_value"
-                      v-model="ans_arr[ques.ques_id - 1].ans_value"
+                      v-model="ans[ques.ques_id - 1].ans_value"
                       type="is-info"
                     >
                       <p style="color: black">{{ ch.ans_title }}</p>
@@ -176,7 +176,7 @@
 </template>
 <script>
 import Sidebar from "@/components/sidebar.vue";
-import { mapState, mapMutations, mapActions } from "vuex";
+import { mapState, mapActions } from "vuex";
 
 export default {
   components: {
@@ -185,79 +185,23 @@ export default {
   name: "result1",
   data() {
     return {
-      isAssess: false,
-      ans_arr: [
-        {
-          ans_id: 1,
-          ans_title: "ความอยากอาหารไม่ลดลง",
-          ans_value: 2,
-          ans_time: "2021-04-24T16:28:37.000Z",
-          ques_id: 1,
-          u_id: 1,
-          result_id: 1
-        },
-        {
-          ans_id: 2,
-          ans_title: "น้ำหนักไม่ลดลง",
-          ans_value: 2,
-          ans_time: "2021-04-24T16:28:37.000Z",
-          ques_id: 2,
-          u_id: 1,
-          result_id: 1
-        },
-        {
-          ans_id: 3,
-          ans_title: "เดินและเคลื่อนไหวได้ตามปกติ",
-          ans_value: 2,
-          ans_time: "2021-04-24T16:28:37.000Z",
-          ques_id: 3,
-          u_id: 1,
-          result_id: 1
-        },
-        {
-          ans_id: 4,
-          ans_title: "ไม่มี",
-          ans_value: 1,
-          ans_time: "2021-04-24T16:28:37.000Z",
-          ques_id: 4,
-          u_id: 1,
-          result_id: 1
-        },
-        {
-          ans_id: 5,
-          ans_title: "ไม่มีปัญหาทางประสาท",
-          ans_value: 2,
-          ans_time: "2021-04-24T16:28:37.000Z",
-          ques_id: 5,
-          u_id: 1,
-          result_id: 1
-        },
-        {
-          ans_id: 6,
-          ans_title: "BMIตั้งแต่ 23 ขึ้นไป",
-          ans_value: 3,
-          ans_time: "2021-04-24T16:28:37.000Z",
-          ques_id: 6,
-          u_id: 1,
-          result_id: 1
-        }
-      ]
+      isAssess: false
     };
   },
   computed: {
     ...mapState({
       form: "json",
-      result: "result"
+      ans: "ans",
+      user: "owner"
     })
   },
   methods: {
-    ...mapMutations(["setAns"]),
-    ...mapActions(["getResult"])
+    ...mapActions(["getAns"])
   },
   beforeRouteEnter(to, from, next) {
     console.log("before");
     next(vm => {
-      vm.getResult();
+      vm.getAns();
     });
   }
 };
