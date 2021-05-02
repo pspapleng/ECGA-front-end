@@ -28,18 +28,21 @@
               <div class="card-content">
                 <div class="content">
                   <p>{{ ques.ques }}</p>
-                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-                    <input
-                      id="ques.ques_id"
-                      type="radio"
-                      :value="ch.ans_value"
-                      v-model="ques.ans"
-                      @change="
-                        e => setAns({ id: ques.ques_id, value: e.target.value })
-                      "
-                    />
-                    <label id="ques.ques_id" for="">{{ ch.ans_title }}</label
-                    ><br />
+                  <div v-for="ch in ques.choice" :key="ch.ans_id">
+                    <b-field>
+                      <b-radio
+                        id="ques.ques_id"
+                        v-model="ques.ans"
+                        :native-value="ch.ans_value"
+                        type="is-info"
+                        @change.native="
+                          e =>
+                            setAns({ id: ques.ques_id, value: e.target.value })
+                        "
+                      >
+                      </b-radio>
+                      <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                    </b-field>
                   </div>
                 </div>
               </div>
@@ -101,7 +104,7 @@
                 id="nextAss"
                 type="is-success"
                 tag="a"
-                href="/form4"
+                href="/forms/form4"
                 target=""
                 >ทำแบบประเมินถัดไป</b-button
               >
@@ -159,8 +162,8 @@ export default {
       // console.log("tid laeww")
       // alert("Sure mai ka???")
       // window.location.href = "startpage";
-      if (confirm("sure mai ka??") == true) {
-        window.location.href = "startpage";
+      if (confirm("sure mai ka??")) {
+        window.location.pathname = "startpage";
       }
     },
     ...mapMutations(["setAns"])

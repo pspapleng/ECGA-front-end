@@ -317,7 +317,7 @@
                 id="nextAss"
                 type="is-success"
                 tag="a"
-                href="/toiletAss"
+                href="/forms/form10"
                 target=""
                 >ทำแบบประเมินถัดไป</b-button
               >
@@ -393,8 +393,8 @@ export default {
       // console.log("tid laeww")
       // alert("Sure mai ka???")
       // window.location.href = "startpage";
-      if (confirm("sure mai ka??") == true) {
-        window.location.href = "startpage";
+      if (confirm("sure mai ka??")) {
+        window.location.pathname = "startpage";
       }
     },
     ...mapMutations(["setAns"])
