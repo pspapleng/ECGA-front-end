@@ -154,12 +154,12 @@ export default {
     ...mapState(["result"])
   },
   methods: {
-    ...mapActions(["getResult"])
+    ...mapActions(["getAllResult"])
   },
   beforeRouteEnter(to, from, next) {
     console.log("before");
     next(vm => {
-      vm.getResult();
+      vm.getAllResult();
     });
   }
 };

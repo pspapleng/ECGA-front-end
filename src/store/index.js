@@ -8,6 +8,8 @@ export default new Vuex.Store({
   state: {
     json: question,
     result: null,
+    ans: null,
+    owner: null,
     createNurse: {
       id: "",
       n_fname: "",
@@ -37,14 +39,20 @@ export default new Vuex.Store({
     u_resultId: []
   },
   mutations: {
-    setSearch(state, payload){
-      state.in_search = payload
+    setSearch(state, payload) {
+      state.in_search = payload;
     },
-    setU_resultId(state, payload){
-      state.u_resultId = payload
+    setU_resultId(state, payload) {
+      state.u_resultId = payload;
     },
-    setResult(state, payload) {
+    setAllResult(state, payload) {
       state.result = payload;
+    },
+    setAllAns(state, payload) {
+      state.ans = payload;
+    },
+    setUserFromAns(state, payload) {
+      state.owner = payload;
     },
     setCreateNurse(state, payload) {
       state.createNurse = payload;
@@ -129,26 +137,39 @@ export default new Vuex.Store({
           return Promise.reject(e.response.data);
         });
     },
-    getResult({ commit }) {
-      console.log("in action");
-      Vue.axios.get(`http://localhost:3000/api/result/user/1`).then(result => {
-        console.log(result.data);
-        commit("setResult", result.data);
-      });
+    getAllResult({ state, commit }) {
+      // console.log("in action");
+      Vue.axios
+        .get(`http://localhost:3000/api/result/user/${state.result_id}`)
+        .then(result => {
+          console.log(result.data[0].result_id);
+          commit("setAllResult", result.data);
+        });
+    },
+    getAns({ state, commit }) {
+      // console.log("in action");
+      Vue.axios
+        .get(`http://localhost:3000/api/ans/${state.result_id}`)
+        .then(ans => {
+          console.log(ans.data.ans);
+          commit("setUserFromAns", ans.data.user);
+          commit("setAllAns", ans.data.ans);
+        });
     },
     getUser({ state, commit }) {
       console.log("in action");
       console.log(state.in_search);
-      Vue.axios.get(`http://localhost:3000/api/users`, {
-        params: {
-          search: state.in_search,
-        },
-      })
-      .then(data => {
-        // console.log(data.data);
-        commit("setU_resultId", data.data);
-      });
-    },
+      Vue.axios
+        .get(`http://localhost:3000/api/users`, {
+          params: {
+            search: state.in_search
+          }
+        })
+        .then(data => {
+          // console.log(data.data);
+          commit("setU_resultId", data.data);
+        });
+    }
   },
   modules: {}
 });
