@@ -37,7 +37,12 @@
                         type="is-info"
                         @change.native="
                           e =>
-                            setAns({ id: ques.ques_id, value: e.target.value })
+                            setAns({
+                              id: ques.ques_id,
+                              value: e.target.value,
+                              title: ch.ans_title,
+                              u_id: 1
+                            })
                         "
                       >
                       </b-radio>
@@ -77,59 +82,51 @@
                         type="is-info"
                         @change.native="
                           e =>
-                            setAns({ id: ques.ques_id, value: e.target.value })
+                            setAns({
+                              id: ques.ques_id,
+                              value: e.target.value,
+                              title: ch.ans_title,
+                              u_id: 1
+                            })
                         "
                       >
                       </b-radio>
                       <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
                     </b-field>
                   </div>
-
-                  <!-- <div>
-                    {{ans}}
-                  </div> -->
-
-                  <!-- <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-                    <input
-                      id="ques.ques_id"
-                      type="radio"
-                      :value="ch.ans_value"
-                      v-model="ques.ans"
-                      @change="
-                        e => setAns({ id: ques.ques_id, value: e.target.value })
-                      "
-                    />
-                    <label id="ques.ques_id" for="">{{ ch.ans_title }}</label
-                    ><br />
-                  </div> -->
                 </div>
               </div>
             </div>
           </div>
-          <div class="component mt-6">
-            <b-pagination
-              :order="order"
-              :size="size"
-              :icon-prev="prevIcon"
-              :icon-next="nextIcon"
-            >
-            </b-pagination>
-            <span>
+          <div class="columns mt-4">
+            <div class="column is-1">
+              <b-button class="mr-2" disabled>
+                <b-icon icon="chevron-left"> </b-icon>
+              </b-button>
+              <router-link to="/forms/form2">
+                <b-button>
+                  <b-icon icon="chevron-right"> </b-icon>
+                </b-button>
+              </router-link>
+            </div>
+            <div class="column is-11 is-offset-4">
+              <router-link to="">
+                <b-button
+                  class="back mr-2"
+                  type="is-light"
+                  @click="backHome()"
+                  style="font-family: 'Kanit', sans-serif; font-weight: 400; color: #1E3A8A"
+                  >กลับสู่หน้าหลัก</b-button
+                >
+              </router-link>
               <b-button
-                class="checkButt"
-                label="ประเมินผล"
+                class="assess"
                 type="is-light"
-                size=""
                 @click="sumResult()"
-              />
-              <b-button
-                class="checkButt"
-                label="กลับสู่หน้าหลัก"
-                type="is-light"
-                size=""
-                @click="backHome"
-              />
-            </span>
+                style="font-family: 'Kanit', sans-serif; font-weight: 400; color: #047857"
+                >ประเมินผล</b-button
+              >
+            </div>
           </div>
         </div>
         <!---->
@@ -192,15 +189,15 @@ export default {
       size: "default",
       prevIcon: "chevron-left",
       nextIcon: "chevron-right",
-      isEditResult: false
-      // result1: 0,
-      // ans: 0
+      isEditResult: false,
+      cal_ans: 0
     };
   },
   computed: {
     ...mapState({
       count: state => state.count,
-      form: "json"
+      form: "json",
+      ans: "keep_ans"
       // {
       //   get () {
       //   console.log(this.$store.state.json)
@@ -220,6 +217,11 @@ export default {
     ...mapMutations(["setAns"]),
     sumResult() {
       this.isEditResult = true;
+      // console.log(ans)
+      // for (var i = 0; i < 6; i++) {
+      //     this.cal_ans += this.ans[i].ans_value
+      // }
+      // return this.cal_ans
     }
   }
 };

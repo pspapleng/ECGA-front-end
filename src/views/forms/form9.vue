@@ -254,30 +254,37 @@
             </div>
           </div>
 
-          <div class="component mt-6">
-            <b-pagination
-              :order="order"
-              :size="size"
-              :icon-prev="prevIcon"
-              :icon-next="nextIcon"
-            >
-            </b-pagination>
-            <span>
+          <div class="columns mt-4">
+            <div class="column is-1">
+              <router-link to="/forms/form8">
+                <b-button class="mr-2">
+                  <b-icon icon="chevron-left"> </b-icon>
+                </b-button>
+              </router-link>
+              <router-link to="/forms/form10">
+                <b-button>
+                  <b-icon icon="chevron-right"> </b-icon>
+                </b-button>
+              </router-link>
+            </div>
+            <div class="column is-11 is-offset-4">
+              <router-link to="">
+                <b-button
+                  class="back mr-2"
+                  type="is-light"
+                  @click="backHome()"
+                  style="font-family: 'Kanit', sans-serif; font-weight: 400; color: #1E3A8A"
+                  >กลับสู่หน้าหลัก</b-button
+                >
+              </router-link>
               <b-button
-                class="checkButt"
-                label="ประเมินผล"
+                class="assess"
                 type="is-light"
-                size=""
-                @click="isEditResult = true"
-              />
-              <b-button
-                class="checkButt"
-                label="กลับสู่หน้าหลัก"
-                type="is-light"
-                size=""
-                @click="backHome"
-              />
-            </span>
+                @click="sumResult()"
+                style="font-family: 'Kanit', sans-serif; font-weight: 400; color: #047857"
+                >ประเมินผล</b-button
+              >
+            </div>
           </div>
         </div>
         <b-modal v-model="isEditResult">
@@ -397,7 +404,15 @@ export default {
         window.location.pathname = "startpage";
       }
     },
-    ...mapMutations(["setAns"])
+    ...mapMutations(["setAns"]),
+    sumResult() {
+      this.isEditResult = true;
+      // console.log(ans)
+      // for (var i = 0; i < 6; i++) {
+      //     this.cal_ans += this.ans[i].ans_value
+      // }
+      // return this.cal_ans
+    }
   }
 };
 </script>
