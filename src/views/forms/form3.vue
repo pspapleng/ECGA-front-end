@@ -2,14 +2,12 @@
   <div>
     <section>
       <div class="columns">
-        <!-- side bar -->
         <div class="column is-1">
           <div>
             <Sidebar />
           </div>
         </div>
-        <!---->
-        <!-- questions -->
+
         <div class="column is-11">
           <div class="assName card mt-6 ml-1 mr-6">
             <p
@@ -86,12 +84,7 @@
             </div>
           </div>
         </div>
-        <!---->
-        <!-- choose bar maybe fixed side nav-->
-        <!-- <div class="column is-3" id="choosebar">
-          <assChooseBar />
-        </div>  -->
-        <!---->
+
         <b-modal v-model="isEditResult" :width="640">
           <div class="card">
             <header class="card-header">
@@ -99,11 +92,11 @@
                 class="card-header-title"
                 style="color: white; background-color: #1E3A8A"
               >
-                ผลการประเมินภาวะหกล้ม
+                ผลการประเมินภาวะหกล้ม (Fall Risk Assessment Tool)
               </p>
             </header>
             <div class="card-content" style="background-color: #f4f4f4">
-              <div class="content has-text-left ml-6">
+              <div class="content has-text-lefts ml-6">
                 การพิจารณา (คะแนนเต็ม 30 คะแนน)
                 <br />
                 18 - 30 คะแนน = มีความเสี่ยงที่จะหกล้มสูง
@@ -130,7 +123,7 @@
               >
                 ย้อนกลับ
               </p>
-              <router-link class="card-footer-item" to="/forms/form2">
+              <router-link class="card-footer-item" to="/forms/form4">
                 <p style="color: #047857">
                   ทำแบบประเมินถัดไป
                 </p>
@@ -144,18 +137,14 @@
 </template>
 <script>
 import Sidebar from "@/components/sidebar.vue";
-// import assChooseBar from "@/components/assChooseBar.vue";
 import { mapState, mapMutations, mapActions } from "vuex";
-// import question from "../assets/test.json";
 export default {
   components: {
     Sidebar
-    // assChooseBar,
   },
   name: "Patientlist",
   data() {
     return {
-      // question,
       order: "is-right",
       size: "default",
       prevIcon: "chevron-left",
@@ -171,20 +160,13 @@ export default {
       form: "json",
       ans: "keep_ans",
       user: "user"
-      // {
-      //   get () {
-      //   console.log(this.$store.state.json)
-      //   return this.$store.state.json
-      // }}
     })
   },
   methods: {
     ...mapMutations(["setAns"]),
     ...mapActions(["getUserById"]),
+
     backHome() {
-      // console.log("tid laeww")
-      // alert("Sure mai ka???")
-      // window.location.href = "startpage";
       if (confirm("sure mai ka??")) {
         window.location.pathname = "startpage";
       }
@@ -220,7 +202,6 @@ h1 {
   text-align: left;
 }
 .card-header-title {
-  /* color: white; */
   font-size: 18px;
   font-weight: 500;
 }

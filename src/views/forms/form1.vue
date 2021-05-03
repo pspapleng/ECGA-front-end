@@ -2,14 +2,12 @@
   <div>
     <section>
       <div class="columns">
-        <!-- side bar -->
         <div class="column is-1">
           <div>
             <Sidebar />
           </div>
         </div>
-        <!---->
-        <!-- questions -->
+
         <div class="column is-11">
           <div class="assName card mt-6 ml-1 mr-6">
             <p
@@ -182,20 +180,15 @@
 </template>
 <script>
 import Sidebar from "@/components/sidebar.vue";
-// import assChooseBar from "@/components/assChooseBar.vue";
 import { mapState, mapMutations, mapActions } from "vuex";
-// import question from "../assets/test.json";
 
 export default {
   components: {
     Sidebar
-    // assChooseBar,
   },
   name: "Patientlist",
   data() {
     return {
-      // question,
-      // ans: '',
       order: "is-right",
       size: "default",
       prevIcon: "chevron-left",
@@ -211,11 +204,6 @@ export default {
       form: "json",
       ans: "keep_ans",
       user: "user"
-      // {
-      //   get () {
-      //   console.log(this.$store.state.json)
-      //   return this.$store.state.json
-      // }}
     })
   },
   methods: {
@@ -263,7 +251,6 @@ h1 {
   text-align: left;
 }
 .card-header-title {
-  /* color: white; */
   font-size: 18px;
   font-weight: 500;
 }

@@ -268,19 +268,14 @@
 </template>
 <script>
 import Sidebar from "@/components/sidebar.vue";
-// import assChooseBar from "@/components/assChooseBar.vue";
 import { mapState, mapMutations, mapActions } from "vuex";
-// import question from "../assets/test.json";
 export default {
   components: {
     Sidebar
-    // assChooseBar,
   },
   name: "Patientlist",
   data() {
     return {
-      // question,
-      // ans: '',
       order: "is-right",
       size: "default",
       prevIcon: "chevron-left",
@@ -295,11 +290,6 @@ export default {
       form: "json",
       ans: "keep_ans",
       user: "user"
-      // {
-      //   get () {
-      //   console.log(this.$store.state.json)
-      //   return this.$store.state.json
-      // }}
     })
   },
   methods: {
@@ -331,6 +321,14 @@ export default {
       }
       if (this.ans[15].ans_value == 1) {
         this.anstitle1 += "ฟันเทียมผิดปกติ";
+      } else if (
+        this.ans[11].ans_value == 0 &&
+        this.ans[12].ans_value == 0 &&
+        this.ans[13].ans_value == 0 &&
+        this.ans[14].ans_value == 0 &&
+        this.ans[15].ans_value == 0
+      ) {
+        this.anstitle1 += "สุขภาวะทางตาปกติ";
       }
       return this.anstitle1;
     }
@@ -351,7 +349,6 @@ h1 {
   text-align: left;
 }
 .card-header-title {
-  /* color: white; */
   font-size: 18px;
   font-weight: 500;
 }
