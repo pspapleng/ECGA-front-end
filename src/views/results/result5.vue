@@ -67,7 +67,7 @@
                 <div class="content has-text-left">
                   <p class="title">3. ปิดตาดูทีละข้างพบว่าตามัวคล้ายหมอกบัง?</p>
                   <div
-                    class="ques mt-3 ml-4"
+                    class="ques mt-3 ml-5"
                     v-for="ques in form.slice(40, 42)"
                     :key="ques.ques_id"
                   >
@@ -110,7 +110,7 @@
                     เห็นรอบข้างหรือมักเดินชนประตูสิ่งของบ่อยๆ?
                   </p>
                   <div
-                    class="ques mt-3 ml-4"
+                    class="ques mt-3 ml-5"
                     v-for="ques in form.slice(42, 44)"
                     :key="ques.ques_id"
                   >
@@ -153,7 +153,7 @@
                     หรือเห็นภาพบิดเบี้ยว?
                   </p>
                   <div
-                    class="ques mt-3 ml-4"
+                    class="ques mt-3 ml-5"
                     v-for="ques in form.slice(44, 46)"
                     :key="ques.ques_id"
                   >
@@ -281,7 +281,7 @@ export default {
   components: {
     Sidebar
   },
-  name: "result3",
+  name: "result5",
   data() {
     return {
       isAssess: false
@@ -309,6 +309,11 @@ export default {
 .card-header-title {
   font-size: 1.5rem;
   font-weight: 500;
+}
+.head {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
 }
 .title {
   font-size: 1rem;

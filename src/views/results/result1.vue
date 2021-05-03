@@ -237,6 +237,11 @@ export default {
   font-size: 1.5rem;
   font-weight: 500;
 }
+.head {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
 .title {
   font-size: 1rem;
   font-weight: 500;

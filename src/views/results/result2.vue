@@ -42,7 +42,7 @@
                 <div class="content has-text-left">
                   <u class="title">1. ประเมินพฤติกรรมเสี่ยงต่อสุขภาพช่องปาก</u>
                   <div
-                    class="ques mt-3"
+                    class="ques mt-3 ml-5"
                     v-for="ques in form.slice(6, 9)"
                     :key="ques.ques_id"
                   >
@@ -84,7 +84,7 @@
                     >2. ประเมินสภาวะเสี่ยงต่อการเกิดโรคในช่องปาก</u
                   >
                   <div
-                    class="ques mt-3"
+                    class="ques mt-3 ml-5"
                     v-for="ques in form.slice(9, 11)"
                     :key="ques.ques_id"
                   >

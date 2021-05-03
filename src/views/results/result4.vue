@@ -236,7 +236,7 @@ export default {
   components: {
     Sidebar
   },
-  name: "result3",
+  name: "result4",
   data() {
     return {
       isAssess: false
@@ -264,6 +264,11 @@ export default {
 .card-header-title {
   font-size: 1.5rem;
   font-weight: 500;
+}
+.head {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
 }
 .title {
   font-size: 1rem;
