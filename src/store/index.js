@@ -43,8 +43,11 @@ export default new Vuex.Store({
     editUserId: null
   },
   mutations: {
-    setSearch(state, payload) {
-      state.in_search = payload;
+    setResultId(state, payload){
+      state.result_id = payload
+    },
+    setSearch(state, payload){
+      state.in_search = payload
     },
     setU_Data(state, payload) {
       state.u_Data = payload;
@@ -174,20 +177,16 @@ export default new Vuex.Store({
     getUser({ state, commit }) {
       console.log("get user");
       console.log(state.in_search);
-      Vue.axios
-        .get(`http://localhost:3000/api/users`, {
-          params: {
-            search: state.in_search
-          }
-        })
+      Vue.axios.get(`http://localhost:3000/api/users`, {
+        params: {
+          search: state.in_search,
+        },
+      })
         .then(data => {
-          // console.log(data.data);
           commit("setU_Data", data.data);
         });
     },
     editUser({ state, commit }, payload) {
-      console.log(state.editUserId);
-      console.log(payload);
       return Vue.axios
         .put(`http://localhost:3000/api/users/${state.editUserId}`, payload)
         .then(res => {

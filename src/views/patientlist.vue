@@ -115,10 +115,10 @@
                 width="100"
                 v-slot="props"
               >
-                <!-- <router-link to="/Result"> -->
+                <router-link to="/Result">
                 <span
                   class="tag is-success is-light"
-                  @click="seeResult(props.row.u_id)"
+                  @click="seeResult(props.row.result_id)"
                   v-if="
                     props.row.result != null &&
                     selected.getFullYear() -
@@ -129,11 +129,12 @@
                   ประเมินเมื่อ
                   {{ new Date(props.row.result_date).toLocaleDateString() }}
                 </span>
-                <!-- </router-link> -->
+                </router-link>
 
                 <router-link to="/Result">
                   <span
                     class="tag is-warning is-light"
+                    @click="seeResult(props.row.result_id)"
                     v-if="
                       props.row.result != null &&
                       selected.getFullYear() -
@@ -152,10 +153,11 @@
               </b-table-column>
 
               <b-table-column width="100" v-slot="props" centered>
-                <router-link to="/startpage">
+                <!-- <router-link to="/startpage"> -->
                   <b-button
                     style="background-color: #1e3a8a; color: white"
                     size="is-small"
+                    @click="DoForm(props.row.u_id)"
                     v-if="
                       props.row.result == null ||
                       selected.getFullYear() -
@@ -165,7 +167,7 @@
                   >
                     ทำแบบประเมิน
                   </b-button>
-                </router-link>
+                <!-- </router-link> -->
               </b-table-column>
 
               <b-table-column
@@ -540,6 +542,12 @@
                         >
                           * กรุณากรอกเพศ
                         </p>
+                        <p
+                          class="help is-danger"
+                          v-if="!$v.editGender.GenderOnly"
+                        >
+                          * กรุณากรอกชาย หรือหญิง เท่านั้น
+                        </p>
                       </template>
                     </b-field>
                   </div>
@@ -749,6 +757,13 @@ function onlyString(value) {
   return true;
 }
 
+function GenderOnly(value) {
+  if (!value.match(/Male|Female/)) {
+    return false;
+  }
+  return true;
+}
+
 export default {
   components: {
     Sidebar,
@@ -785,6 +800,7 @@ export default {
     },
     editGender: {
       required,
+      GenderOnly
     },
     editBirth: {
       required,
@@ -814,7 +830,7 @@ export default {
     this.getData();
   },
   methods: {
-    ...mapMutations(["setSearch", "setEditUserId"]),
+    ...mapMutations(["setSearch", "setEditUserId", "setResultId"]),
     ...mapActions(["editUser"]),
     doc() {
       // this.getUser();
@@ -829,9 +845,16 @@ export default {
         }
       }
     },
+    seeResult(id){
+      console.log(id);
+      this.setResultId(id)
+    },
+    DoForm(id) {
+      console.log(id);
+      this.setEditUserId(id)
+    },
     getData() {
       this.setSearch(this.in_search);
-      console.log(this.in_search);
       this.getUser();
     },
     getAge(date) {
