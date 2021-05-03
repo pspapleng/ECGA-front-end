@@ -76,12 +76,12 @@
             </div>
             <div class="columns mt-4">
               <div class="column is-2">
-                <router-link to="/results/result5">
+                <router-link to="/results/result6">
                   <b-button class="mr-2">
                     <b-icon icon="chevron-left"> </b-icon>
                   </b-button>
                 </router-link>
-                <router-link to="/results/result7">
+                <router-link to="/results/result8">
                   <b-button>
                     <b-icon icon="chevron-right"> </b-icon>
                   </b-button>
@@ -116,26 +116,24 @@
           <div class="card">
             <header class="card-header">
               <p
-                class="card-header-title"
+                class="card-header-title has-text-left"
                 style="color: white; background-color: #1E3A8A"
               >
-                ผลการประเมินแบบวัดความเศร้าในผู้สูงอายุไทย (TGDS)
+                ผลการประเมินคัดกรองความจำเสื่อมสำหรับผู้สูงอายุไทย (IQCODE)
               </p>
             </header>
             <div class="card-content" style="background-color: #f4f4f4">
               <div class="content has-text-left ml-6">
-                การพิจารณา
+                การคิดคะแนน : คะแนนทั้งหมด / จำนวนข้อ
                 <br />
-                6 คะแนนขึ้นไป = บ่งบอกว่ามีภาวะซึมเศร้า
-                ควรติดตามหรือส่งพบแพทย์ประเมินอาหารทางคลินิก
-                <br />
-                11 คะแนนขึ้นไป = มีภาวะซึมเศร้าแน่นอน ควรพบจิตแพทย์
+                ถ้าผู้สูงอายุมีคะแนนเท่ากับหรือมากกว่า 3.44 =
+                ผู้สูงอายุน่าจะมีภาวะสมองเสื่อม
               </div>
               <div class="card">
                 <div class="card-content">
                   <div class="content">
                     <p class="title">
-                      {{ user.result.TGDS15 }}
+                      {{ user.result.IQCODE }}
                     </p>
                   </div>
                 </div>
@@ -149,7 +147,7 @@
               >
                 ย้อนกลับ
               </p>
-              <router-link class="card-footer-item" to="/results/result7">
+              <router-link class="card-footer-item" to="/results/result8">
                 <p style="color: #047857">
                   ดูผลแบบประเมินถัดไป
                 </p>
