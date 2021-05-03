@@ -39,7 +39,7 @@
                           e =>
                             setAns({
                               id: ques.ques_id,
-                              value: e.target.value,
+                              value: parseInt(e.target.value),
                               title: ch.ans_title,
                               u_id: 1
                             })
@@ -85,7 +85,7 @@
                           e =>
                             setAns({
                               id: ques.ques_id,
-                              value: e.target.value,
+                              value: parseInt(e.target.value),
                               title: ch.ans_title,
                               u_id: 1
                             })
@@ -130,11 +130,6 @@
             </div>
           </div>
         </div>
-        <!---->
-        <!-- <div class="column is-3" id="choosebar">
-          <assChooseBar />
-        </div> -->
-        <!-- ผลประเมิน -->
         <b-modal v-model="isEditResult" :width="640">
           <div class="card">
             <header class="card-header">
@@ -159,7 +154,7 @@
                 <div class="card-content">
                   <div class="content">
                     <p class="has-text-centered">
-                      ได้คะแนน 12 คะแนน ภาวะโภชนาการปกติ
+                      ได้คะแนน {{ ansvalue }} คะแนน {{ anstitle }}
                     </p>
                   </div>
                 </div>
@@ -206,21 +201,22 @@ export default {
       prevIcon: "chevron-left",
       nextIcon: "chevron-right",
       isEditResult: false,
-      cal_ans: 0
+      ansvalue: 0,
+      anstitle: ""
     };
   },
   computed: {
     ...mapState({
       count: state => state.count,
       form: "json",
-      ans: "keep_ans"
+      ans: "keep_ans",
+      user: "user"
       // {
       //   get () {
       //   console.log(this.$store.state.json)
       //   return this.$store.state.json
       // }}
-    }),
-    ...mapState(["user"])
+    })
   },
   methods: {
     ...mapMutations(["setAns"]),
@@ -232,9 +228,23 @@ export default {
       }
     },
     sumResult() {
-      // this.isEditResult = true;
-      // for (var i = 0; i < 7; i++) {
-      // }
+      console.log(this.ans);
+      this.isEditResult = true;
+      this.ansvalue = 0;
+      this.anstitle = "";
+      for (var i = 0; i < 7; i++) {
+        this.ansvalue += this.ans[i].ans_value;
+      }
+
+      if (this.ansvalue >= 0 && this.ansvalue <= 7) {
+        return (this.anstitle = "มีภาวะขาดสารอาหาร");
+      } else if (this.ansvalue >= 8 && this.ansvalue <= 11) {
+        return (this.anstitle = "มีความเสี่ยงต่อการเกิดภาวะขาดสารอาหาร");
+      } else if (this.ansvalue >= 12 && this.ansvalue <= 14) {
+        return (this.anstitle = "ภาวะโภชนาการปกติ");
+      }
+
+      return this.ansvalue, this.anstitle;
     }
   },
   beforeRouteEnter(to, from, next) {

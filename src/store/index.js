@@ -1,12 +1,14 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import question from "../assets/test.json";
+import keep_ans from "../assets/ans.json";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
     json: question,
+    keep_ans: keep_ans,
     result: null,
     ans: null,
     owner: null,
@@ -43,11 +45,11 @@ export default new Vuex.Store({
     UserId: null
   },
   mutations: {
-    setResultId(state, payload){
-      state.result_id = payload
+    setResultId(state, payload) {
+      state.result_id = payload;
     },
-    setSearch(state, payload){
-      state.in_search = payload
+    setSearch(state, payload) {
+      state.in_search = payload;
     },
     setU_Data(state, payload) {
       state.u_Data = payload;
@@ -103,13 +105,13 @@ export default new Vuex.Store({
     // set value for var ans
     setAns(state, payload) {
       let idd = payload.id;
-      console.log(payload);
-      console.log(idd);
-      let target = state.json.find(e => e.ques_id === idd);
-      target.ans = payload.value;
-      console.log(payload.value);
-      console.log(state.json);
-      console.log(target);
+      // console.log(payload);
+      // console.log(idd);
+      let target = state.keep_ans.find(e => e.ques_id === idd);
+      // console.log(target)
+      target.ans_value = payload.value;
+      target.ans_title = payload.title;
+      target.u_id = payload.u_id;
     }
   },
   actions: {
@@ -173,11 +175,12 @@ export default new Vuex.Store({
     getUser({ state, commit }) {
       console.log("get user");
       console.log(state.in_search);
-      Vue.axios.get(`http://localhost:3000/api/users`, {
-        params: {
-          search: state.in_search,
-        },
-      })
+      Vue.axios
+        .get(`http://localhost:3000/api/users`, {
+          params: {
+            search: state.in_search
+          }
+        })
         .then(data => {
           commit("setU_Data", data.data);
         });

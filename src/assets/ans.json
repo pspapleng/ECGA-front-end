@@ -1,1136 +1,1143 @@
 [
     {
-        "ques_id": "1",
+        "ques_id": 1,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "2",
+        "ques_id": 2,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "3",
+        "ques_id": 3,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "4",
+        "ques_id": 4,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "5",
+        "ques_id": 5,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "6",
+        "ques_id": 6,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "7",
+        "ques_id": 7,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "8",
+        "ques_id": 8,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "9",
+        "ques_id": 9,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "10",
+        "ques_id": 10,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "11",
+        "ques_id": 11,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "12",
+        "ques_id": 12,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "13",
+        "ques_id": 13,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "14",
+        "ques_id": 14,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "15",
+        "ques_id": 15,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "16",
+        "ques_id": 16,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "17",
+        "ques_id": 17,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "18",
+        "ques_id": 18,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "19",
+        "ques_id": 19,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "20",
+        "ques_id": 20,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "21",
+        "ques_id": 21,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "22",
+        "ques_id": 22,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "23",
+        "ques_id": 23,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "24",
+        "ques_id": 24,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "25",
+        "ques_id": 25,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "26",
+        "ques_id": 26,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "27",
+        "ques_id": 27,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "28",
+        "ques_id": 28,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "29",
+        "ques_id": 29,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "30",
+        "ques_id": 30,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "31",
+        "ques_id": 31,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "32",
+        "ques_id": 32,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "33",
+        "ques_id": 33,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "34",
+        "ques_id": 34,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "35",
+        "ques_id": 35,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "36",
+        "ques_id": 36,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "37",
+        "ques_id": 37,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "38",
+        "ques_id": 38,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "39",
+        "ques_id": 39,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "40",
+        "ques_id": 40,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "41",
+        "ques_id": 41,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "42",
+        "ques_id": 42,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "43",
+        "ques_id": 43,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "44",
+        "ques_id": 44,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "45",
+        "ques_id": 45,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "46",
+        "ques_id": 46,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "47",
+        "ques_id": 47,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "48",
+        "ques_id": 48,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "49",
+        "ques_id": 49,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "50",
+        "ques_id": 50,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "51",
+        "ques_id": 51,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "52",
+        "ques_id": 52,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "53",
+        "ques_id": 53,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "54",
+        "ques_id": 54,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "55",
+        "ques_id": 55,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "56",
+        "ques_id": 56,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "57",
+        "ques_id": 57,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "58",
+        "ques_id": 58,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "59",
+        "ques_id": 59,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "60",
+        "ques_id": 60,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "61",
+        "ques_id": 61,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "62",
+        "ques_id": 62,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "63",
+        "ques_id": 63,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "64",
+        "ques_id": 64,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "65",
+        "ques_id": 65,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "66",
+        "ques_id": 66,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "67",
+        "ques_id": 67,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "68",
+        "ques_id": 68,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "69",
+        "ques_id": 69,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "70",
+        "ques_id": 70,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "71",
+        "ques_id": 71,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "72",
+        "ques_id": 72,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "73",
+        "ques_id": 73,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "74",
+        "ques_id": 74,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "75",
+        "ques_id": 75,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "76",
+        "ques_id": 76,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "77",
+        "ques_id": 77,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "78",
+        "ques_id": 78,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "79",
+        "ques_id": 79,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "80",
+        "ques_id": 80,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "81",
+        "ques_id": 81,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "82",
+        "ques_id": 82,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "83",
+        "ques_id": 83,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "84",
+        "ques_id": 84,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "85",
+        "ques_id": 85,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "86",
+        "ques_id": 86,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "87",
+        "ques_id": 87,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "88",
+        "ques_id": 88,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "89",
+        "ques_id": 89,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "90",
+        "ques_id": 90,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "91",
+        "ques_id": 91,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "92",
+        "ques_id": 92,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "93",
+        "ques_id": 93,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "94",
+        "ques_id": 94,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "95",
+        "ques_id": 95,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "96",
+        "ques_id": 96,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "97",
+        "ques_id": 97,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "98",
+        "ques_id": 98,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "99",
+        "ques_id": 99,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "100",
+        "ques_id": 100,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "101",
+        "ques_id": 101,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "102",
+        "ques_id": 102,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "103",
+        "ques_id": 103,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "104",
+        "ques_id": 104,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "105",
+        "ques_id": 105,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "106",
+        "ques_id": 106,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "107",
+        "ques_id": 107,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "108",
+        "ques_id": 108,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "109",
+        "ques_id": 109,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "110",
+        "ques_id": 110,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "111",
+        "ques_id": 111,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "112",
+        "ques_id": 112,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "113",
+        "ques_id": 113,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "114",
+        "ques_id": 114,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "115",
+        "ques_id": 115,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "116",
+        "ques_id": 116,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "117",
+        "ques_id": 117,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "118",
+        "ques_id": 118,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "119",
+        "ques_id": 119,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "120",
+        "ques_id": 120,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "121",
+        "ques_id": 121,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "122",
+        "ques_id": 122,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "123",
+        "ques_id": 123,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "124",
+        "ques_id": 124,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "125",
+        "ques_id": 125,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "126",
+        "ques_id": 126,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "127",
+        "ques_id": 127,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "128",
+        "ques_id": 128,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "129",
+        "ques_id": 129,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "130",
+        "ques_id": 130,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "131",
+        "ques_id": 131,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "132",
+        "ques_id": 132,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "133",
+        "ques_id": 133,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "134",
+        "ques_id": 134,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "135",
+        "ques_id": 135,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "136",
+        "ques_id": 136,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "137",
+        "ques_id": 137,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "138",
+        "ques_id": 138,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "139",
+        "ques_id": 139,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "140",
+        "ques_id": 140,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "141",
+        "ques_id": 141,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "142",
+        "ques_id": 142,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "143",
+        "ques_id": 143,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "144",
+        "ques_id": 144,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "145",
+        "ques_id": 145,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "146",
+        "ques_id": 146,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "147",
+        "ques_id": 147,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "148",
+        "ques_id": 148,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "149",
+        "ques_id": 149,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "150",
+        "ques_id": 150,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "151",
+        "ques_id": 151,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "152",
+        "ques_id": 152,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "153",
+        "ques_id": 153,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "154",
+        "ques_id": 154,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "155",
+        "ques_id": 155,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "156",
+        "ques_id": 156,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "157",
+        "ques_id": 157,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "158",
+        "ques_id": 158,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "159",
+        "ques_id": 159,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "160",
+        "ques_id": 160,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "161",
+        "ques_id": 161,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     },
     {
-        "ques_id": "162",
+        "ques_id": 162,
         "ans_title": "",
-        "ans_value": "",
-        "u_id": "",
-        "result_id": ""
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
+    },
+    {
+        "ques_id": 163,
+        "ans_title": "",
+        "ans_value": 0,
+        "u_id": 0,
+        "result_id": 0
     }
 ]

@@ -7,17 +7,17 @@
     "choice": [
       {
         "ans_id": 1,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ความอยากอาหารลดลงอย่างมาก"
       },
       {
         "ans_id": 2,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ความอยากอาหารลดลงปานกลาง"
       },
       {
         "ans_id": 3,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "ความอยากอาหารไม่ลดลง"
       }
     ]
@@ -30,22 +30,22 @@
     "choice": [
       {
         "ans_id": 4,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "น้ำหนักลดลงมากกว่า 3 กิโลกรัม"
       },
       {
         "ans_id": 5,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ไม่ทราบ"
       },
       {
         "ans_id": 6,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "น้ำหนักลดลงระหว่าง 1 - 3 กิโลกรัม"
       },
       {
         "ans_id": 7,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "น้ำหนักไม่ลดลง"
       }
     ]
@@ -58,17 +58,17 @@
     "choice": [
       {
         "ans_id": 8,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "นอนบนเตียง หรือ ต้องอาศัยรถเข็นตลอดเวลา"
       },
       {
         "ans_id": 9,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ลุกจากเตียงหรือรถเข็นได้บ้าง แต่ไม่สามารถไปข้างนอกได้เอง"
       },
       {
         "ans_id": 10,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "เดินและเคลื่อนไหวได้ตามปกติ"
       }
     ]
@@ -81,12 +81,12 @@
     "choice": [
       {
         "ans_id": 11,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "มี"
       },
       {
         "ans_id": 12,
-        "ans_value": "1",
+        "ans_value": 2,
         "ans_title": "ไม่มี"
       }
     ]
@@ -99,17 +99,17 @@
     "choice": [
       {
         "ans_id": 13,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ความจำเสื่อม หรือ ซึมเศร้ารุนแรง"
       },
       {
         "ans_id": 14,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ความจำเสื่อมเล็กน้อย"
       },
       {
         "ans_id": 15,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "ไม่มีปัญหาทางประสาท"
       }
     ]
@@ -123,25 +123,25 @@
     "choice": [
       {
         "ans_id": 16,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "BMI น้อยกว่า 19",
         "have_ans_input": true
       },
       {
         "ans_id": 17,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "BMI ตั้งแต่ 19 แต่น้อยกว่า 21",
         "have_ans_input": true
       },
       {
         "ans_id": 18,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "BMI ตั้งแต่ 21 แต่น้อยกว่า 23",
         "have_ans_input": true
       },
       {
         "ans_id": 19,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "BMI ตั้งแต่ 23 ขึ้นไป",
         "have_ans_input": true
       }
@@ -156,31 +156,31 @@
     "choice": [
       {
         "ans_id": 20,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ได้ใช้แปรงสีฟัน",
         "have_ans_input": false
       },
       {
         "ans_id": 21,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "แปรงฟันวันละ 1 ครั้ง ก่อนนอน",
         "have_ans_input": false
       },
       {
         "ans_id": 22,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "แปรงฟันวันละ 2 ครั้ง เช้าและก่อนนอน",
         "have_ans_input": false
       },
       {
         "ans_id": 23,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "แปรงฟันมากกว่าวันละ 2 ครั้ง ระบุ",
         "have_ans_input": true
       },
       {
         "ans_id": 24,
-        "ans_value": "4",
+        "ans_value": 4,
         "ans_title": "อื่น ๆ",
         "have_ans_input": true
       }
@@ -194,12 +194,12 @@
     "choice": [
       {
         "ans_id": 25,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ได้ใช้"
       },
       {
         "ans_id": 26,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ใช้"
       }
     ]
@@ -212,12 +212,12 @@
     "choice": [
       {
         "ans_id": 27,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ทำ"
       },
       {
         "ans_id": 28,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ทำ โดยใช้อุปกรณ์ แปรง/ไหมขัดฟัน"
       }
     ]
@@ -230,12 +230,12 @@
     "choice": [
       {
         "ans_id": 29,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ใช่"
       },
       {
         "ans_id": 30,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ไม่ใช่"
       }
     ]
@@ -248,12 +248,12 @@
     "choice": [
       {
         "ans_id": 31,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ใช่"
       },
       {
         "ans_id": 32,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ไม่ใช่"
       }
     ]
@@ -266,12 +266,12 @@
     "choice": [
       {
         "ans_id": 33,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ปกติ"
       },
       {
         "ans_id": 34,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ผิดปกติ"
       }
     ]
@@ -284,12 +284,12 @@
     "choice": [
       {
         "ans_id": 35,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ปกติ"
       },
       {
         "ans_id": 36,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ผิดปกติ"
       }
     ]
@@ -302,12 +302,12 @@
     "choice": [
       {
         "ans_id": 37,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ปกติ"
       },
       {
         "ans_id": 38,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ผิดปกติ"
       }
     ]
@@ -320,12 +320,12 @@
     "choice": [
       {
         "ans_id": 39,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ปกติ"
       },
       {
         "ans_id": 40,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ผิดปกติ"
       }
     ]
@@ -338,12 +338,12 @@
     "choice": [
       {
         "ans_id": 41,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "จำเป็น"
       },
       {
         "ans_id": 42,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ไม่จำเป็น"
       }
     ]
@@ -356,12 +356,12 @@
     "choice": [
       {
         "ans_id": 43,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "เคย"
       },
       {
         "ans_id": 44,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ไม่เคย"
       }
     ]
@@ -374,12 +374,12 @@
     "choice": [
       {
         "ans_id": 45,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ต้องการ"
       },
       {
         "ans_id": 46,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ไม่ต้องการ"
       }
     ]
@@ -392,22 +392,22 @@
     "choice": [
       {
         "ans_id": 47,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "0-19 ปี"
       },
       {
         "ans_id": 48,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "20-59 ปี"
       },
       {
         "ans_id": 49,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "60-70 ปี"
       },
       {
         "ans_id": 50,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "มากกว่า 70 ปี"
       }
     ]
@@ -420,22 +420,22 @@
     "choice": [
       {
         "ans_id": 51,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่หกล้มในปีก่อน"
       },
       {
         "ans_id": 52,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "หกล้มใน 6 เดือนก่อน"
       },
       {
         "ans_id": 53,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "หกล้มใน 3 เดือนก่อน"
       },
       {
         "ans_id": 54,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "หกล้มในเดือนก่อน"
       }
     ]
@@ -448,22 +448,22 @@
     "choice": [
       {
         "ans_id": 55,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ยืนและหมุนตัวได้ด้วยการช่วยเหลือจากผู้อื่น"
       },
       {
         "ans_id": 56,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "เดินโดยใช้อุปกรณ์หรือคนช่วย 2 คน"
       },
       {
         "ans_id": 57,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "เดินโดยใช้อุปกรณ์หรือคนช่วย 1 คน"
       },
       {
         "ans_id": 58,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "เดินโดยไม่ใช้อุปกรณ์หรือไม่ต้องการคนช่วย"
       }
     ]
@@ -476,22 +476,22 @@
     "choice": [
       {
         "ans_id": 59,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "รู้เวลา สถานที่ บุคคล"
       },
       {
         "ans_id": 60,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "รู้สถานที่ บุคคล"
       },
       {
         "ans_id": 61,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "รู้บุคคล"
       },
       {
         "ans_id": 62,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "ไม่รับรู้การตัดสินใจบกพร่อง"
       }
     ]
@@ -504,22 +504,22 @@
     "choice": [
       {
         "ans_id": 63,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "อาหารเพียงพอ การนอนหลับผิดปกติ"
       },
       {
         "ans_id": 64,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ไม่เจริญอาหาร การนอนหลับผิดปกติ"
       },
       {
         "ans_id": 65,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "การนอนหลับผิดปกติมาก"
       },
       {
         "ans_id": 66,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "ขาดอาหารน้ำหนักลด"
       }
     ]
@@ -532,22 +532,22 @@
     "choice": [
       {
         "ans_id": 67,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ปกติ"
       },
       {
         "ans_id": 68,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ใช้แว่นตา"
       },
       {
         "ans_id": 69,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "มองไม่ชัดเจน ตาต้อ"
       },
       {
         "ans_id": 70,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "มองเห็นผิดปกติมาก ถึงขั้นตาบอด"
       }
     ]
@@ -560,22 +560,22 @@
     "choice": [
       {
         "ans_id": 71,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ปกติ"
       },
       {
         "ans_id": 72,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มีปัญหาการพูดแต่เข้าใจภาษาดี"
       },
       {
         "ans_id": 73,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "พูดไม่ชัดมีปัญหาการสื่อสาร"
       },
       {
         "ans_id": 74,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "การสื่อสารบกพร่องขั้นรุนแรง"
       }
     ]
@@ -588,22 +588,22 @@
     "choice": [
       {
         "ans_id": 75,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มียาที่มีผล"
       },
       {
         "ans_id": 76,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มียาระบบหัวใจและหลอดเลือดที่มีผล เช่น β-blocker ยาขับปัสสาวะ ยาลดความดันเลือด"
       },
       {
         "ans_id": 77,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "มียาระบบประสาทที่มีผล เช่น ยากล่อมประสาท ยานอนหลับ ยากลุ่ม psychoactive"
       },
       {
         "ans_id": 78,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "มีทั้งยาระบบหัวใจ หลอดเลือดและระบบประสาทที่มีผล"
       }
     ]
@@ -616,22 +616,22 @@
     "choice": [
       {
         "ans_id": 79,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มีปัญหา"
       },
       {
         "ans_id": 80,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มีโรคเรื้อรัง 1 โรค"
       },
       {
         "ans_id": 81,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "มีโรคเรื้อรัง 2 โรค"
       },
       {
         "ans_id": 82,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "มีโรคเรื้อรังมากกว่าหรือเท่ากับ 3 โรค"
       }
     ]
@@ -644,22 +644,22 @@
     "choice": [
       {
         "ans_id": 83,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มีปัญหา"
       },
       {
         "ans_id": 84,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ปัสสาวะบ่อย"
       },
       {
         "ans_id": 85,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "ปัสสาวะกลางคืน ปัสสาวะราด (stress incontinence) คาสายปัสสาวะ"
       },
       {
         "ans_id": 86,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "ปัสสาวะราด (Urge incontinence)"
       }
     ]
@@ -673,13 +673,13 @@
     "choice": [
       {
         "ans_id": 87,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "เดินไม่ได้",
         "have_ans_input": false
       },
       {
         "ans_id": 88,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "เดินได้",
         "have_ans_input": true
       }
@@ -693,12 +693,12 @@
     "choice": [
       {
         "ans_id": 89,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มั่นคง"
       },
       {
         "ans_id": 90,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มั่นคง"
       }
     ]
@@ -712,25 +712,25 @@
     "choice": [
       {
         "ans_id": 91,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "สั้น",
         "have_ans_input": false
       },
       {
         "ans_id": 92,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ปกติ",
         "have_ans_input": false
       },
       {
         "ans_id": 93,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "ยาว",
         "have_ans_input": false
       },
       {
         "ans_id": 94,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "อื่น ๆ ระบุ",
         "have_ans_input": true
       }
@@ -745,19 +745,19 @@
     "choice": [
       {
         "ans_id": 95,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มั่นใจ",
         "have_ans_input": false
       },
       {
         "ans_id": 96,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มั่นใจ",
         "have_ans_input": false
       },
       {
         "ans_id": 97,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "อื่น ๆ ระบุ",
         "have_ans_input": true
       }
@@ -772,31 +772,31 @@
     "choice": [
       {
         "ans_id": 98,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม้เท้า",
         "have_ans_input": false
       },
       {
         "ans_id": 99,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "tripod cane",
         "have_ans_input": false
       },
       {
         "ans_id": 100,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "single cane",
         "have_ans_input": false
       },
       {
         "ans_id": 101,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "walker",
         "have_ans_input": false
       },
       {
         "ans_id": 102,
-        "ans_value": "4",
+        "ans_value": 4,
         "ans_title": "อื่น ๆ ระบุ",
         "have_ans_input": true
       }
@@ -810,12 +810,12 @@
     "choice": [
       {
         "ans_id": 103,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่เหมาะสม"
       },
       {
         "ans_id": 104,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "เหมาะสม"
       }
     ]
@@ -828,12 +828,12 @@
     "choice": [
       {
         "ans_id": 105,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "บางครั้ง"
       },
       {
         "ans_id": 106,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ใช้ประจำ"
       }
     ]
@@ -846,12 +846,12 @@
     "choice": [
       {
         "ans_id": 107,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่เหมาะสม"
       },
       {
         "ans_id": 108,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "เหมาะสม"
       }
     ]
@@ -865,13 +865,13 @@
     "choice": [
       {
         "ans_id": 109,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ยืนไม่ได้",
         "have_ans_input": false
       },
       {
         "ans_id": 110,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ยืนได้",
         "have_ans_input": true
       }
@@ -885,12 +885,12 @@
     "choice": [
       {
         "ans_id": 111,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มั่นคง"
       },
       {
         "ans_id": 112,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มั่นคง"
       }
     ]
@@ -903,12 +903,12 @@
     "choice": [
       {
         "ans_id": 113,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 114,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ใช่"
       }
     ]
@@ -921,12 +921,12 @@
     "choice": [
       {
         "ans_id": 115,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 116,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ใช่"
       }
     ]
@@ -939,12 +939,12 @@
     "choice": [
       {
         "ans_id": 117,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 118,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ใช่"
       }
     ]
@@ -957,12 +957,12 @@
     "choice": [
       {
         "ans_id": 119,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 120,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ใช่"
       }
     ]
@@ -975,12 +975,12 @@
     "choice": [
       {
         "ans_id": 121,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 122,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ใช่"
       }
     ]
@@ -993,12 +993,12 @@
     "choice": [
       {
         "ans_id": 123,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 124,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ใช่"
       }
     ]
@@ -1011,12 +1011,12 @@
     "choice": [
       {
         "ans_id": 125,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 126,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ใช่"
       }
     ]
@@ -1029,12 +1029,12 @@
     "choice": [
       {
         "ans_id": 127,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 128,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ใช่"
       }
     ]
@@ -1047,12 +1047,12 @@
     "choice": [
       {
         "ans_id": 129,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 130,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ใช่"
       }
     ]
@@ -1065,12 +1065,12 @@
     "choice": [
       {
         "ans_id": 131,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 132,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ใช่"
       }
     ]
@@ -1083,12 +1083,12 @@
     "choice": [
       {
         "ans_id": 133,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 134,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ใช่"
       }
     ]
@@ -1101,12 +1101,12 @@
     "choice": [
       {
         "ans_id": 135,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 136,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ใช่"
       }
     ]
@@ -1119,12 +1119,12 @@
     "choice": [
       {
         "ans_id": 137,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 138,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ใช่"
       }
     ]
@@ -1137,12 +1137,12 @@
     "choice": [
       {
         "ans_id": 139,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 140,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ใช่"
       }
     ]
@@ -1155,12 +1155,12 @@
     "choice": [
       {
         "ans_id": 141,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 142,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ใช่"
       }
     ]
@@ -1173,12 +1173,12 @@
     "choice": [
       {
         "ans_id": 143,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 144,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ใช่"
       }
     ]
@@ -1191,12 +1191,12 @@
     "choice": [
       {
         "ans_id": 145,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 146,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ใช่"
       }
     ]
@@ -1209,12 +1209,12 @@
     "choice": [
       {
         "ans_id": 147,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 148,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ใช่"
       }
     ]
@@ -1227,12 +1227,12 @@
     "choice": [
       {
         "ans_id": 149,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 150,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ใช่"
       }
     ]
@@ -1245,12 +1245,12 @@
     "choice": [
       {
         "ans_id": 151,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 152,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ใช่"
       }
     ]
@@ -1263,12 +1263,12 @@
     "choice": [
       {
         "ans_id": 153,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 154,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ใช่"
       }
     ]
@@ -1281,12 +1281,12 @@
     "choice": [
       {
         "ans_id": 155,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 156,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ใช่"
       }
     ]
@@ -1299,12 +1299,12 @@
     "choice": [
       {
         "ans_id": 157,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 158,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ใช่"
       }
     ]
@@ -1317,17 +1317,17 @@
     "choice": [
       {
         "ans_id": 159,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ผู้ดูแลประจำ"
       },
       {
         "ans_id": 160,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ผู้ดูแลบางครั้ง"
       },
       {
         "ans_id": 161,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "มาคนเดียว ไม่ต้องทำแบบคัดกรอง"
       }
     ]
@@ -1340,27 +1340,27 @@
     "choice": [
       {
         "ans_id": 162,
-        "ans_value": "-2",
+        "ans_value": -2,
         "ans_title": "แย่ลงมาก"
       },
       {
         "ans_id": 163,
-        "ans_value": "-1",
+        "ans_value": -1,
         "ans_title": "แย่ลงเล็กน้อย"
       },
       {
         "ans_id": 164,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่เปลี่ยนแปลง"
       },
       {
         "ans_id": 165,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ดีขึ้นเล็กน้อย"
       },
       {
         "ans_id": 166,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "ดีขึ้นมาก"
       }
     ]
@@ -1373,27 +1373,27 @@
     "choice": [
       {
         "ans_id": 167,
-        "ans_value": "-2",
+        "ans_value": -2,
         "ans_title": "แย่ลงมาก"
       },
       {
         "ans_id": 168,
-        "ans_value": "-1",
+        "ans_value": -1,
         "ans_title": "แย่ลงเล็กน้อย"
       },
       {
         "ans_id": 169,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่เปลี่ยนแปลง"
       },
       {
         "ans_id": 170,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ดีขึ้นเล็กน้อย"
       },
       {
         "ans_id": 171,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "ดีขึ้นมาก"
       }
     ]
@@ -1406,27 +1406,27 @@
     "choice": [
       {
         "ans_id": 172,
-        "ans_value": "-2",
+        "ans_value": -2,
         "ans_title": "แย่ลงมาก"
       },
       {
         "ans_id": 173,
-        "ans_value": "-1",
+        "ans_value": -1,
         "ans_title": "แย่ลงเล็กน้อย"
       },
       {
         "ans_id": 174,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่เปลี่ยนแปลง"
       },
       {
         "ans_id": 175,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ดีขึ้นเล็กน้อย"
       },
       {
         "ans_id": 176,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "ดีขึ้นมาก"
       }
     ]
@@ -1439,27 +1439,27 @@
     "choice": [
       {
         "ans_id": 177,
-        "ans_value": "-2",
+        "ans_value": -2,
         "ans_title": "แย่ลงมาก"
       },
       {
         "ans_id": 178,
-        "ans_value": "-1",
+        "ans_value": -1,
         "ans_title": "แย่ลงเล็กน้อย"
       },
       {
         "ans_id": 179,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่เปลี่ยนแปลง"
       },
       {
         "ans_id": 180,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ดีขึ้นเล็กน้อย"
       },
       {
         "ans_id": 181,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "ดีขึ้นมาก"
       }
     ]
@@ -1472,27 +1472,27 @@
     "choice": [
       {
         "ans_id": 182,
-        "ans_value": "-2",
+        "ans_value": -2,
         "ans_title": "แย่ลงมาก"
       },
       {
         "ans_id": 183,
-        "ans_value": "-1",
+        "ans_value": -1,
         "ans_title": "แย่ลงเล็กน้อย"
       },
       {
         "ans_id": 184,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่เปลี่ยนแปลง"
       },
       {
         "ans_id": 185,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ดีขึ้นเล็กน้อย"
       },
       {
         "ans_id": 186,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "ดีขึ้นมาก"
       }
     ]
@@ -1505,27 +1505,27 @@
     "choice": [
       {
         "ans_id": 187,
-        "ans_value": "-2",
+        "ans_value": -2,
         "ans_title": "แย่ลงมาก"
       },
       {
         "ans_id": 188,
-        "ans_value": "-1",
+        "ans_value": -1,
         "ans_title": "แย่ลงเล็กน้อย"
       },
       {
         "ans_id": 189,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่เปลี่ยนแปลง"
       },
       {
         "ans_id": 190,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ดีขึ้นเล็กน้อย"
       },
       {
         "ans_id": 191,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "ดีขึ้นมาก"
       }
     ]
@@ -1538,27 +1538,27 @@
     "choice": [
       {
         "ans_id": 192,
-        "ans_value": "-2",
+        "ans_value": -2,
         "ans_title": "แย่ลงมาก"
       },
       {
         "ans_id": 193,
-        "ans_value": "-1",
+        "ans_value": -1,
         "ans_title": "แย่ลงเล็กน้อย"
       },
       {
         "ans_id": 194,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่เปลี่ยนแปลง"
       },
       {
         "ans_id": 195,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ดีขึ้นเล็กน้อย"
       },
       {
         "ans_id": 196,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "ดีขึ้นมาก"
       }
     ]
@@ -1571,27 +1571,27 @@
     "choice": [
       {
         "ans_id": 197,
-        "ans_value": "-2",
+        "ans_value": -2,
         "ans_title": "แย่ลงมาก"
       },
       {
         "ans_id": 198,
-        "ans_value": "-1",
+        "ans_value": -1,
         "ans_title": "แย่ลงเล็กน้อย"
       },
       {
         "ans_id": 199,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่เปลี่ยนแปลง"
       },
       {
         "ans_id": 200,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ดีขึ้นเล็กน้อย"
       },
       {
         "ans_id": 201,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "ดีขึ้นมาก"
       }
     ]
@@ -1604,17 +1604,17 @@
     "choice": [
       {
         "ans_id": 202,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่สามารถอ่านออกเขียนได้"
       },
       {
         "ans_id": 203,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "เรียนระดับประถมศึกษา"
       },
       {
         "ans_id": 204,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "เรียนสูงกว่าระดับประถมศึกษา"
       }
     ]
@@ -1628,13 +1628,13 @@
     "choice": [
       {
         "ans_id": 205,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ถูกต้อง",
         "have_ans_input": true
       },
       {
         "ans_id": 206,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ถูกต้อง",
         "have_ans_input": true
       }
@@ -1649,13 +1649,13 @@
     "choice": [
       {
         "ans_id": 207,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ถูกต้อง",
         "have_ans_input": true
       },
       {
         "ans_id": 208,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ถูกต้อง",
         "have_ans_input": true
       }
@@ -1670,13 +1670,13 @@
     "choice": [
       {
         "ans_id": 209,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ถูกต้อง",
         "have_ans_input": true
       },
       {
         "ans_id": 210,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ถูกต้อง",
         "have_ans_input": true
       }
@@ -1691,13 +1691,13 @@
     "choice": [
       {
         "ans_id": 211,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ถูกต้อง",
         "have_ans_input": true
       },
       {
         "ans_id": 212,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ถูกต้อง",
         "have_ans_input": true
       }
@@ -1712,13 +1712,13 @@
     "choice": [
       {
         "ans_id": 213,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ถูกต้อง",
         "have_ans_input": true
       },
       {
         "ans_id": 214,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ถูกต้อง",
         "have_ans_input": true
       }
@@ -1733,13 +1733,13 @@
     "choice": [
       {
         "ans_id": 215,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "โรงพยาบาล",
         "have_ans_input": true
       },
       {
         "ans_id": 216,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "บ้านของผู้ถูกทดสอบ",
         "have_ans_input": true
       }
@@ -1754,13 +1754,13 @@
     "choice": [
       {
         "ans_id": 217,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ถูกต้อง",
         "have_ans_input": true
       },
       {
         "ans_id": 218,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ถูกต้อง",
         "have_ans_input": true
       }
@@ -1775,13 +1775,13 @@
     "choice": [
       {
         "ans_id": 219,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ถูกต้อง",
         "have_ans_input": true
       },
       {
         "ans_id": 220,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ถูกต้อง",
         "have_ans_input": true
       }
@@ -1796,13 +1796,13 @@
     "choice": [
       {
         "ans_id": 221,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ถูกต้อง",
         "have_ans_input": true
       },
       {
         "ans_id": 222,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ถูกต้อง",
         "have_ans_input": true
       }
@@ -1817,13 +1817,13 @@
     "choice": [
       {
         "ans_id": 223,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ถูกต้อง",
         "have_ans_input": true
       },
       {
         "ans_id": 224,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ถูกต้อง",
         "have_ans_input": true
       }
@@ -1838,13 +1838,13 @@
     "choice": [
       {
         "ans_id": 225,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ถูกต้อง",
         "have_ans_input": true
       },
       {
         "ans_id": 226,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ถูกต้อง",
         "have_ans_input": true
       }
@@ -1859,13 +1859,13 @@
     "choice": [
       {
         "ans_id": 227,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ถูกต้อง",
         "have_ans_input": true
       },
       {
         "ans_id": 228,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ถูกต้อง",
         "have_ans_input": true
       }
@@ -1880,13 +1880,13 @@
     "choice": [
       {
         "ans_id": 229,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ถูกต้อง",
         "have_ans_input": true
       },
       {
         "ans_id": 230,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ถูกต้อง",
         "have_ans_input": true
       }
@@ -1901,13 +1901,13 @@
     "choice": [
       {
         "ans_id": 231,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ถูกต้อง",
         "have_ans_input": true
       },
       {
         "ans_id": 232,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ถูกต้อง",
         "have_ans_input": true
       }
@@ -1922,13 +1922,13 @@
     "choice": [
       {
         "ans_id": 233,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ได้",
         "have_ans_input": true
       },
       {
         "ans_id": 234,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ได้",
         "have_ans_input": true
       }
@@ -1943,13 +1943,13 @@
     "choice": [
       {
         "ans_id": 235,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ได้",
         "have_ans_input": true
       },
       {
         "ans_id": 236,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ได้",
         "have_ans_input": true
       }
@@ -1964,13 +1964,13 @@
     "choice": [
       {
         "ans_id": 237,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ได้",
         "have_ans_input": true
       },
       {
         "ans_id": 238,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ได้",
         "have_ans_input": true
       }
@@ -1985,13 +1985,13 @@
     "choice": [
       {
         "ans_id": 239,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ได้",
         "have_ans_input": true
       },
       {
         "ans_id": 240,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ได้",
         "have_ans_input": true
       }
@@ -2006,13 +2006,13 @@
     "choice": [
       {
         "ans_id": 241,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ได้",
         "have_ans_input": true
       },
       {
         "ans_id": 242,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ได้",
         "have_ans_input": true
       }
@@ -2027,13 +2027,13 @@
     "choice": [
       {
         "ans_id": 243,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ได้",
         "have_ans_input": true
       },
       {
         "ans_id": 244,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ได้",
         "have_ans_input": true
       }
@@ -2048,13 +2048,13 @@
     "choice": [
       {
         "ans_id": 245,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ได้",
         "have_ans_input": true
       },
       {
         "ans_id": 246,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ได้",
         "have_ans_input": true
       }
@@ -2069,13 +2069,13 @@
     "choice": [
       {
         "ans_id": 247,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ได้",
         "have_ans_input": true
       },
       {
         "ans_id": 248,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ได้",
         "have_ans_input": true
       }
@@ -2090,13 +2090,13 @@
     "choice": [
       {
         "ans_id": 249,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ได้",
         "have_ans_input": true
       },
       {
         "ans_id": 250,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ได้",
         "have_ans_input": true
       }
@@ -2111,13 +2111,13 @@
     "choice": [
       {
         "ans_id": 251,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ได้",
         "have_ans_input": true
       },
       {
         "ans_id": 252,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ได้",
         "have_ans_input": true
       }
@@ -2132,13 +2132,13 @@
     "choice": [
       {
         "ans_id": 253,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ได้",
         "have_ans_input": true
       },
       {
         "ans_id": 254,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ได้",
         "have_ans_input": true
       }
@@ -2153,13 +2153,13 @@
     "choice": [
       {
         "ans_id": 255,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ได้",
         "have_ans_input": true
       },
       {
         "ans_id": 256,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ได้",
         "have_ans_input": true
       }
@@ -2173,12 +2173,12 @@
     "choice": [
       {
         "ans_id": 257,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ได้"
       },
       {
         "ans_id": 258,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ได้"
       }
     ]
@@ -2191,12 +2191,12 @@
     "choice": [
       {
         "ans_id": 259,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ได้อยู่คนเดียว หรือ มีคนดูแลเมื่อเจ็บป่วย"
       },
       {
         "ans_id": 260,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "อยู่คนเดียว หรือ ไม่มีคนดูแลเมื่อเจ็บป่วย"
       }
     ]
@@ -2209,12 +2209,12 @@
     "choice": [
       {
         "ans_id": 261,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "มั่นคงแข็งแรง หรือ ไม่มั่นคงแต่ไม่มีผลต่อความปลอดภัยในชีวิตและสุขภาพ"
       },
       {
         "ans_id": 262,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ไม่มีที่อยู่อาศัย หรือ มีที่อยู่อาศัยแต่ไม่ปลอดภัยต่อชีวิตและสุขภาพ"
       }
     ]
@@ -2227,12 +2227,12 @@
     "choice": [
       {
         "ans_id": 263,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "เพียงพอ"
       },
       {
         "ans_id": 264,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ไม่เพียงพอ"
       }
     ]
@@ -2245,27 +2245,27 @@
     "choice": [
       {
         "ans_id": 265,
-        "ans_value": "-2",
+        "ans_value": -2,
         "ans_title": "ชัดเจนโดยไม่ต้องใส่แว่น"
       },
       {
         "ans_id": 266,
-        "ans_value": "-1",
+        "ans_value": -1,
         "ans_title": "ชัดเจนโดยต้องใส่แว่น"
       },
       {
         "ans_id": 267,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ชัดเจนแต่ไม่มีปัญหาในการทำกิจวัตรประจำวัน"
       },
       {
         "ans_id": 268,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ไม่ชัดเจนและมีปัญหาในการทำกิจวัตรประจำวัน"
       },
       {
         "ans_id": 269,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "ไม่เห็นเลย"
       }
     ]
@@ -2278,27 +2278,27 @@
     "choice": [
       {
         "ans_id": 270,
-        "ans_value": "-2",
+        "ans_value": -2,
         "ans_title": "ชัดเจนโดยไม่ต้องใช้เครื่องช่วยฟัง"
       },
       {
         "ans_id": 271,
-        "ans_value": "-1",
+        "ans_value": -1,
         "ans_title": "ชัดเจนโดยแต่ต้องใช้เครื่องช่วยฟัง"
       },
       {
         "ans_id": 272,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ชัดเจนแต่ไม่มีปัญหาในการทำกิจวัตรประจำวัน"
       },
       {
         "ans_id": 273,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ไม่ชัดเจนและมีปัญหาในการทำกิจวัตรประจำวัน"
       },
       {
         "ans_id": 274,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "ไม่ได้ยินเลย"
       }
     ]
@@ -2311,12 +2311,12 @@
     "choice": [
       {
         "ans_id": 275,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มี"
       },
       {
         "ans_id": 276,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มี"
       }
     ]
@@ -2329,12 +2329,12 @@
     "choice": [
       {
         "ans_id": 277,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มี"
       },
       {
         "ans_id": 278,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มี"
       }
     ]
@@ -2347,12 +2347,12 @@
     "choice": [
       {
         "ans_id": 279,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มี"
       },
       {
         "ans_id": 280,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มี"
       }
     ]
@@ -2365,12 +2365,12 @@
     "choice": [
       {
         "ans_id": 281,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 282,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ใช่"
       }
     ]
@@ -2383,12 +2383,12 @@
     "choice": [
       {
         "ans_id": 283,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 284,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ใช่"
       }
     ]
@@ -2401,12 +2401,12 @@
     "choice": [
       {
         "ans_id": 285,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 286,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ใช่"
       }
     ]
@@ -2419,12 +2419,12 @@
     "choice": [
       {
         "ans_id": 287,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ใช้เวลาน้อยกว่า 30 วินาที"
       },
       {
         "ans_id": 288,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ใช้เวลามากกว่า 30 วินาที / ไม่สามารถเดินได้"
       }
     ]
@@ -2437,12 +2437,12 @@
     "choice": [
       {
         "ans_id": 289,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 290,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ใช่"
       }
     ]
@@ -2455,17 +2455,17 @@
     "choice": [
       {
         "ans_id": 291,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ทำได้ด้วยตัวเอง รวมใช้อุปกรณ์ช่วย"
       },
       {
         "ans_id": 292,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "ทำได้ด้วยตัวเอง ต้องมีคนช่วยจึงจะสำเร็จ"
       },
       {
         "ans_id": 293,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "ทำด้วยตนเองไม่ได้เลย"
       }
     ]
@@ -2478,17 +2478,17 @@
     "choice": [
       {
         "ans_id": 294,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ทำได้ด้วยตัวเอง รวมใช้อุปกรณ์ช่วย"
       },
       {
         "ans_id": 295,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "ทำได้ด้วยตัวเอง ต้องมีคนช่วยจึงจะสำเร็จ"
       },
       {
         "ans_id": 296,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "ทำด้วยตนเองไม่ได้เลย"
       }
     ]
@@ -2501,17 +2501,17 @@
     "choice": [
       {
         "ans_id": 297,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ทำได้ด้วยตัวเอง รวมใช้อุปกรณ์ช่วย"
       },
       {
         "ans_id": 298,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "ทำได้ด้วยตัวเอง ต้องมีคนช่วยจึงจะสำเร็จ"
       },
       {
         "ans_id": 299,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "ทำด้วยตนเองไม่ได้เลย"
       }
     ]
@@ -2524,17 +2524,17 @@
     "choice": [
       {
         "ans_id": 300,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ทำได้ด้วยตัวเอง รวมใช้อุปกรณ์ช่วย"
       },
       {
         "ans_id": 301,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "ทำได้ด้วยตัวเอง ต้องมีคนช่วยจึงจะสำเร็จ"
       },
       {
         "ans_id": 302,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "ทำด้วยตนเองไม่ได้เลย"
       }
     ]
@@ -2547,17 +2547,17 @@
     "choice": [
       {
         "ans_id": 303,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ทำได้ด้วยตัวเอง รวมใช้อุปกรณ์ช่วย"
       },
       {
         "ans_id": 304,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "ทำได้ด้วยตัวเอง ต้องมีคนช่วยจึงจะสำเร็จ"
       },
       {
         "ans_id": 305,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "ทำด้วยตนเองไม่ได้เลย"
       }
     ]
@@ -2570,17 +2570,17 @@
     "choice": [
       {
         "ans_id": 306,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ทำได้ด้วยตัวเอง รวมใช้อุปกรณ์ช่วย"
       },
       {
         "ans_id": 307,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "ทำได้ด้วยตัวเอง ต้องมีคนช่วยจึงจะสำเร็จ"
       },
       {
         "ans_id": 308,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "ทำด้วยตนเองไม่ได้เลย"
       }
     ]
@@ -2593,17 +2593,17 @@
     "choice": [
       {
         "ans_id": 309,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ทำได้ด้วยตัวเอง รวมใช้อุปกรณ์ช่วย"
       },
       {
         "ans_id": 310,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "ทำได้ด้วยตัวเอง ต้องมีคนช่วยจึงจะสำเร็จ"
       },
       {
         "ans_id": 311,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "ทำด้วยตนเองไม่ได้เลย"
       }
     ]
@@ -2616,17 +2616,17 @@
     "choice": [
       {
         "ans_id": 312,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ทำได้ด้วยตัวเอง รวมใช้อุปกรณ์ช่วย"
       },
       {
         "ans_id": 313,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "ทำได้ด้วยตัวเอง ต้องมีคนช่วยจึงจะสำเร็จ"
       },
       {
         "ans_id": 314,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "ทำด้วยตนเองไม่ได้เลย"
       }
     ]
@@ -2639,17 +2639,17 @@
     "choice": [
       {
         "ans_id": 315,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "กลั้นได้ปกติ"
       },
       {
         "ans_id": 316,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "กลั้นไม่ได้บางครั้ง"
       },
       {
         "ans_id": 317,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "กลั้นไม่ได้เลย (รวมสวน / ใส่สายสวน)"
       }
     ]
@@ -2662,17 +2662,17 @@
     "choice": [
       {
         "ans_id": 318,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "กลั้นได้ปกติ"
       },
       {
         "ans_id": 319,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "กลั้นไม่ได้บางครั้ง"
       },
       {
         "ans_id": 320,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "กลั้นไม่ได้เลย (รวมสวน / ใส่สายสวน)"
       }
     ]
@@ -2685,17 +2685,17 @@
     "choice": [
       {
         "ans_id": 321,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ทำได้ด้วยตัวเอง รวมใช้อุปกรณ์ช่วย"
       },
       {
         "ans_id": 322,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "ทำได้ด้วยตัวเอง ต้องมีคนช่วยจึงจะสำเร็จ"
       },
       {
         "ans_id": 323,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "ทำด้วยตนเองไม่ได้เลย"
       }
     ]
@@ -2708,17 +2708,17 @@
     "choice": [
       {
         "ans_id": 324,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ทำได้ด้วยตัวเอง รวมใช้อุปกรณ์ช่วย"
       },
       {
         "ans_id": 325,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "ทำได้ด้วยตัวเอง ต้องมีคนช่วยจึงจะสำเร็จ"
       },
       {
         "ans_id": 326,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "ทำด้วยตนเองไม่ได้เลย"
       }
     ]
@@ -2731,17 +2731,17 @@
     "choice": [
       {
         "ans_id": 327,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ทำได้ด้วยตัวเอง รวมใช้อุปกรณ์ช่วย"
       },
       {
         "ans_id": 328,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "ทำได้ด้วยตัวเอง ต้องมีคนช่วยจึงจะสำเร็จ"
       },
       {
         "ans_id": 329,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "ทำด้วยตนเองไม่ได้เลย"
       }
     ]
@@ -2754,17 +2754,17 @@
     "choice": [
       {
         "ans_id": 330,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ทำได้ด้วยตัวเอง รวมใช้อุปกรณ์ช่วย"
       },
       {
         "ans_id": 331,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "ทำได้ด้วยตัวเอง ต้องมีคนช่วยจึงจะสำเร็จ"
       },
       {
         "ans_id": 332,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "ทำด้วยตนเองไม่ได้เลย"
       }
     ]
@@ -2777,17 +2777,17 @@
     "choice": [
       {
         "ans_id": 333,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ทำได้ด้วยตัวเอง รวมใช้อุปกรณ์ช่วย"
       },
       {
         "ans_id": 334,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "ทำได้ด้วยตัวเอง ต้องมีคนช่วยจึงจะสำเร็จ"
       },
       {
         "ans_id": 335,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "ทำด้วยตนเองไม่ได้เลย"
       }
     ]
@@ -2800,17 +2800,17 @@
     "choice": [
       {
         "ans_id": 336,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "ทำได้ด้วยตัวเอง รวมใช้อุปกรณ์ช่วย"
       },
       {
         "ans_id": 337,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "ทำได้ด้วยตัวเอง ต้องมีคนช่วยจึงจะสำเร็จ"
       },
       {
         "ans_id": 338,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "ทำด้วยตนเองไม่ได้เลย"
       }
     ]
@@ -2823,22 +2823,22 @@
     "choice": [
       {
         "ans_id": 339,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่เกิน 6 เดือน"
       },
       {
         "ans_id": 340,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มากกว่า 6 เดือนแต่ไม่เกิน 12 เดือน"
       },
       {
         "ans_id": 341,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "1 - 5 ปี"
       },
       {
         "ans_id": 342,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "5 ปีขึ้นไป"
       }
     ]
@@ -2851,12 +2851,12 @@
     "choice": [
       {
         "ans_id": 343,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มี"
       },
       {
         "ans_id": 344,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มี"
       }
     ]
@@ -2869,12 +2869,12 @@
     "choice": [
       {
         "ans_id": 345,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มี"
       },
       {
         "ans_id": 346,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มี"
       }
     ]
@@ -2887,12 +2887,12 @@
     "choice": [
       {
         "ans_id": 347,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มี"
       },
       {
         "ans_id": 348,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มี"
       }
     ]
@@ -2905,12 +2905,12 @@
     "choice": [
       {
         "ans_id": 349,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มี"
       },
       {
         "ans_id": 350,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มี"
       }
     ]
@@ -2923,12 +2923,12 @@
     "choice": [
       {
         "ans_id": 351,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มี"
       },
       {
         "ans_id": 352,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มี"
       }
     ]
@@ -2941,12 +2941,12 @@
     "choice": [
       {
         "ans_id": 353,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มี"
       },
       {
         "ans_id": 354,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มี"
       }
     ]
@@ -2959,12 +2959,12 @@
     "choice": [
       {
         "ans_id": 355,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มี"
       },
       {
         "ans_id": 356,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มี"
       }
     ]
@@ -2977,12 +2977,12 @@
     "choice": [
       {
         "ans_id": 357,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มี"
       },
       {
         "ans_id": 358,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มี"
       }
     ]
@@ -2995,12 +2995,12 @@
     "choice": [
       {
         "ans_id": 359,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มี"
       },
       {
         "ans_id": 360,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มี"
       }
     ]
@@ -3013,12 +3013,12 @@
     "choice": [
       {
         "ans_id": 361,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มี"
       },
       {
         "ans_id": 362,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มี"
       }
     ]
@@ -3031,12 +3031,12 @@
     "choice": [
       {
         "ans_id": 363,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มี"
       },
       {
         "ans_id": 364,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มี"
       }
     ]
@@ -3049,12 +3049,12 @@
     "choice": [
       {
         "ans_id": 365,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มี"
       },
       {
         "ans_id": 366,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มี"
       }
     ]
@@ -3067,12 +3067,12 @@
     "choice": [
       {
         "ans_id": 367,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มี"
       },
       {
         "ans_id": 368,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มี"
       }
     ]
@@ -3085,12 +3085,12 @@
     "choice": [
       {
         "ans_id": 369,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มี"
       },
       {
         "ans_id": 370,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มี"
       }
     ]
@@ -3103,12 +3103,12 @@
     "choice": [
       {
         "ans_id": 371,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มี"
       },
       {
         "ans_id": 372,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มี"
       }
     ]
@@ -3121,12 +3121,12 @@
     "choice": [
       {
         "ans_id": 373,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มี"
       },
       {
         "ans_id": 374,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มี"
       }
     ]
@@ -3139,12 +3139,12 @@
     "choice": [
       {
         "ans_id": 375,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มี"
       },
       {
         "ans_id": 376,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มี"
       }
     ]
@@ -3157,17 +3157,17 @@
     "choice": [
       {
         "ans_id": 377,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "เล็กน้อย (ไม่กี่หยดหรือไม่เกินครึ่งช้อนโต๊ะ)"
       },
       {
         "ans_id": 378,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "ปานกลาง (ชุ่มกางเกงในหรือครึ่งถึง 2 ช้อนโต๊ะ)"
       },
       {
         "ans_id": 379,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "มาก (เปียกทะลุถึงผ้านุ่งชั้นนอกหรือมากกว่า 2 ช้อนโต๊ะ)"
       }
     ]
@@ -3180,17 +3180,17 @@
     "choice": [
       {
         "ans_id": 380,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "เล็กน้อย / เดือนละครั้ง หรือน้อยกว่านี้"
       },
       {
         "ans_id": 381,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "ปานกลาง / หลาย ๆ วันครั้ง หรือเดือนละ 2 ครั้งขึ้นไป"
       },
       {
         "ans_id": 382,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "มาก / เกือบทุกวัน หรือวันละตั้งแต่ 1 ครั้งขึ้นไป"
       }
     ]
@@ -3203,17 +3203,17 @@
     "choice": [
       {
         "ans_id": 383,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "รุนแรงเล็กน้อย"
       },
       {
         "ans_id": 384,
-        "ans_value": "2",
+        "ans_value": 2,
         "ans_title": "รุนแรงปานกลาง"
       },
       {
         "ans_id": 385,
-        "ans_value": "3",
+        "ans_value": 3,
         "ans_title": "รุนแรงมาก"
       }
     ]
@@ -3226,12 +3226,12 @@
     "choice": [
       {
         "ans_id": 386,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มีปัญหา"
       },
       {
         "ans_id": 387,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มีปัญหา"
       }
     ]
@@ -3244,12 +3244,12 @@
     "choice": [
       {
         "ans_id": 388,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มี"
       },
       {
         "ans_id": 389,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มี"
       }
     ]
@@ -3262,12 +3262,12 @@
     "choice": [
       {
         "ans_id": 390,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มี"
       },
       {
         "ans_id": 391,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มี"
       }
     ]
@@ -3280,12 +3280,12 @@
     "choice": [
       {
         "ans_id": 392,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มี"
       },
       {
         "ans_id": 393,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มี"
       }
     ]
@@ -3298,12 +3298,12 @@
     "choice": [
       {
         "ans_id": 394,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มี"
       },
       {
         "ans_id": 395,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มี"
       }
     ]
@@ -3317,13 +3317,13 @@
     "choice": [
       {
         "ans_id": 396,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มี",
         "have_ans_input": false
       },
       {
         "ans_id": 397,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มี",
         "have_ans_input": true
       }
@@ -3338,13 +3338,13 @@
     "choice": [
       {
         "ans_id": 398,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มี",
         "have_ans_input": false
       },
       {
         "ans_id": 399,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มี",
         "have_ans_input": true
       }
@@ -3359,7 +3359,7 @@
     "choice": [
       {
         "ans_id": 400,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "",
         "have_ans_input": true
       }
@@ -3373,12 +3373,12 @@
     "choice": [
       {
         "ans_id": 401,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มี"
       },
       {
         "ans_id": 402,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มี"
       }
     ]
@@ -3391,12 +3391,12 @@
     "choice": [
       {
         "ans_id": 403,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มี"
       },
       {
         "ans_id": 404,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มี"
       }
     ]
@@ -3409,12 +3409,12 @@
     "choice": [
       {
         "ans_id": 405,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มี"
       },
       {
         "ans_id": 406,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มี"
       }
     ]
@@ -3427,12 +3427,12 @@
     "choice": [
       {
         "ans_id": 407,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มี"
       },
       {
         "ans_id": 408,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มี"
       }
     ]
@@ -3445,12 +3445,12 @@
     "choice": [
       {
         "ans_id": 409,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มี"
       },
       {
         "ans_id": 410,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มี"
       }
     ]
@@ -3463,12 +3463,12 @@
     "choice": [
       {
         "ans_id": 411,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "ไม่มี"
       },
       {
         "ans_id": 412,
-        "ans_value": "1",
+        "ans_value": 1,
         "ans_title": "มี"
       }
     ]
@@ -3482,7 +3482,7 @@
     "choice": [
       {
         "ans_id": 413,
-        "ans_value": "0",
+        "ans_value": 0,
         "ans_title": "",
         "have_ans_input": true
       }
