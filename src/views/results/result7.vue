@@ -2,158 +2,206 @@
   <div class="hero is-fullheight">
     <div class="hero-body py-3">
       <div class="container">
-        <div class="column is-1 ">
-          <Sidebar />
+        <div class="columns">
+          <div
+            class="column is-11-desktop is-9-tablet is-7-mobile is-offset-1-desktop is-offset-2-tablet is-offset-3-mobile"
+          >
+            <div class="card">
+              <header class="card-header">
+                <p
+                  class="card-header-title"
+                  style="color: white; background-color: #1E3A8A"
+                >
+                  แบบประเมินคัดกรองความจำเสื่อมสำหรับผู้สูงอายุไทย (IQCODE)
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="content has-text-left">
+                  <u>คำชี้แจง</u> :
+                  ขอความกรุณาให้ผู้ดูแลผู้สูงอายุเปรียบเทียบความจำ สติปัญญา
+                  และความสามารถในการปฏิบัติกิจวัตรประจำวันในแต่ละสถานการณ์ในระยะเวลา
+                  <span style="color : #F90000; font-style: italic;"
+                    >10 ปีที่ผ่านมา กับ ปัจจุบัน</span
+                  >
+                  ของผู้สูงอายุ โดยกดเลือกคำตอบที่แสดงถึงระดับการเปลี่ยนแปลงว่า
+                  ดีขึ้นมาก, ดีขึ้นเล็กน้อย, เท่าเดิม, แย่ลงเล็กน้อย,
+                  หรือแย่ลงมาก
+                  <br />
+                  <p class="mb-2"></p>
+                  <u style="color: #1E3A8A">ตัวอย่าง</u>
+                  ถ้าเมื่อ 10 ปีก่อนผู้สูงอายุมักจำชื่อคนอื่นไม่ค่อยได้
+                  และปัจจุบันยังคงจำไม่ได้เหมือนเดิมนั้น ให้ถือว่า
+                  "ไม่เปลี่ยนแปลง" แต่ถ้าเมื่อ 10 ปีที่แล้วจำได้ดี
+                  แต่ตอนนี้จำไม่ได้เลยให้ถือว่า "แย่ลงมาก" แต่ถ้า 10
+                  ปีที่แล้วจำไม่ได้เลยและตอนนี้จำได้บ้างถือว่า "ดีขึ้นเล็กน้อย"
+                </div>
+              </div>
+            </div>
+            <div
+              class="card"
+              v-for="ques in form.slice(61, 70)"
+              :key="ques.ques_id"
+            >
+              <div class="card-content">
+                <div class="content has-text-left">
+                  <p class="title">
+                    {{ ques.ques }}
+                  </p>
+                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+                    <b-radio
+                      disabled
+                      v-if="ans[ques.ques_id - 1].ans_value != ch.ans_value"
+                      id="ques.ques_id"
+                      :native-value="ch.ans_value"
+                      v-model="ans[ques.ques_id - 1].ans_value"
+                      type="is-info"
+                    >
+                      <p style="color: black">{{ ch.ans_title }}</p>
+                    </b-radio>
+                    <b-radio
+                      disabled
+                      v-else
+                      id="ques.ques_id"
+                      :native-value="ch.ans_value"
+                      v-model="ans[ques.ques_id - 1].ans_value"
+                      type="is-info"
+                    >
+                      <p style="color: black">
+                        {{ ans[ques.ques_id - 1].ans_title }}
+                      </p>
+                    </b-radio>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="columns mt-4">
+              <div class="column is-2">
+                <router-link to="/results/result5">
+                  <b-button class="mr-2">
+                    <b-icon icon="chevron-left"> </b-icon>
+                  </b-button>
+                </router-link>
+                <router-link to="/results/result7">
+                  <b-button>
+                    <b-icon icon="chevron-right"> </b-icon>
+                  </b-button>
+                </router-link>
+              </div>
+              <div class="column is-8 is-offset-4">
+                <router-link to="/result">
+                  <b-button
+                    class="back mr-2"
+                    type="is-light"
+                    style="font-family: 'Kanit', sans-serif; font-weight: 400; color: #1E3A8A"
+                    >กลับสู่หน้าหลัก</b-button
+                  >
+                </router-link>
+                <b-button
+                  class="assess"
+                  type="is-light"
+                  @click="isAssess = true"
+                  style="font-family: 'Kanit', sans-serif; font-weight: 400; color: #047857"
+                  >ประเมินผล</b-button
+                >
+              </div>
+            </div>
+          </div>
+          <div class="column is-1-desktop is-3-tablet is-5-mobile">
+            <Sidebar />
+          </div>
         </div>
-        <div class="column is-11 is-offset-1">
+
+        <!-- ผลประเมิน -->
+        <b-modal v-model="isAssess" :width="640">
           <div class="card">
             <header class="card-header">
               <p
                 class="card-header-title"
                 style="color: white; background-color: #1E3A8A"
               >
-                แบบประเมินภาวะโภชนาการ (MNA)
+                ผลการประเมินแบบวัดความเศร้าในผู้สูงอายุไทย (TGDS)
               </p>
             </header>
-          </div>
-          <div class="card" v-for="ques in form[6]" :key="ques.ques_id">
-            <div class="card-content">
-              <div class="content has-text-left">
-                <p class="title">
-                  {{ ques.ques }}
-                </p>
-                <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-                  <input
-                    id="ques.ques_id"
-                    type="radio"
-                    :value="ch.ans_value"
-                    v-model="ans_arr[ques.ques_id - 1].ans_value"
-                  />
-                  <label for="" id="ques.ques_id">
-                    {{ ch.ans_title }}
-                  </label>
+            <div class="card-content" style="background-color: #f4f4f4">
+              <div class="content has-text-left ml-6">
+                การพิจารณา
+                <br />
+                6 คะแนนขึ้นไป = บ่งบอกว่ามีภาวะซึมเศร้า
+                ควรติดตามหรือส่งพบแพทย์ประเมินอาหารทางคลินิก
+                <br />
+                11 คะแนนขึ้นไป = มีภาวะซึมเศร้าแน่นอน ควรพบจิตแพทย์
+              </div>
+              <div class="card">
+                <div class="card-content">
+                  <div class="content">
+                    <p class="title">
+                      {{ user.result.TGDS15 }}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="card-content">
-              <div class="content has-text-left">
-                <p class="title">
-                  {{ ques.ques }}
+            <footer class="card-footer">
+              <p
+                class="card-footer-item"
+                @click="isAssess = false"
+                style="color: #F90000"
+              >
+                ย้อนกลับ
+              </p>
+              <router-link class="card-footer-item" to="/results/result7">
+                <p style="color: #047857">
+                  ดูผลแบบประเมินถัดไป
                 </p>
-                <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-                  <input
-                    id="ques.ques_id"
-                    type="radio"
-                    :value="ch.ans_value"
-                    v-model="ans_arr[ques.ques_id - 1].ans_value"
-                  />
-                  <label for="" id="ques.ques_id">
-                    {{ ch.ans_title }}
-                  </label>
-                </div>
-              </div>
-            </div>
+              </router-link>
+            </footer>
           </div>
-        </div>
+        </b-modal>
       </div>
     </div>
   </div>
 </template>
 <script>
 import Sidebar from "@/components/sidebar.vue";
-// import assChooseBar from "@/components/assChooseBar.vue";
-import { mapState, mapMutations } from "vuex";
-// import question from "../assets/test.json";
+import { mapState, mapActions } from "vuex";
 
 export default {
   components: {
     Sidebar
-    // assChooseBar,
   },
-  name: "result1",
+  name: "result7",
   data() {
     return {
-      ans_arr: [
-        {
-          ans_id: 1,
-          ans_title: "ความอยากอาหารไม่ลดลง",
-          ans_value: 2,
-          ans_time: "2021-04-24T16:28:37.000Z",
-          ques_id: 1,
-          u_id: 1,
-          result_id: 1
-        },
-        {
-          ans_id: 2,
-          ans_title: "น้ำหนักไม่ลดลง",
-          ans_value: 2,
-          ans_time: "2021-04-24T16:28:37.000Z",
-          ques_id: 2,
-          u_id: 1,
-          result_id: 1
-        },
-        {
-          ans_id: 3,
-          ans_title: "เดินและเคลื่อนไหวได้ตามปกติ",
-          ans_value: 2,
-          ans_time: "2021-04-24T16:28:37.000Z",
-          ques_id: 3,
-          u_id: 1,
-          result_id: 1
-        },
-        {
-          ans_id: 4,
-          ans_title: "ไม่มี",
-          ans_value: 2,
-          ans_time: "2021-04-24T16:28:37.000Z",
-          ques_id: 4,
-          u_id: 1,
-          result_id: 1
-        },
-        {
-          ans_id: 5,
-          ans_title: "ไม่มีปัญหาทางประสาท",
-          ans_value: 2,
-          ans_time: "2021-04-24T16:28:37.000Z",
-          ques_id: 5,
-          u_id: 1,
-          result_id: 1
-        },
-        {
-          ans_id: 6,
-          ans_title: "BMIตั้งแต่ 23 ขึ้นไป",
-          ans_value: 3,
-          ans_time: "2021-04-24T16:28:37.000Z",
-          ques_id: 6,
-          u_id: 1,
-          result_id: 1
-        }
-      ],
-      // question,
-      // ans: '',
-      order: "is-right",
-      size: "default",
-      prevIcon: "chevron-left",
-      nextIcon: "chevron-right",
-      isEditResult: false
+      isAssess: false
     };
   },
   computed: {
     ...mapState({
-      count: state => state.count,
-      form: "json"
+      form: "json",
+      ans: "ans",
+      user: "owner"
     })
   },
   methods: {
-    ...mapMutations(["setAns"])
+    ...mapActions(["getAns"])
+  },
+  beforeRouteEnter(to, from, next) {
+    console.log("before");
+    next(vm => {
+      vm.getAns();
+    });
   }
 };
 </script>
 <style>
 .card-header-title {
-  /* color: white; */
   font-size: 1.5rem;
   font-weight: 500;
+}
+.head {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
 }
 .title {
   font-size: 1rem;

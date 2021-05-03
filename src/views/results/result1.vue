@@ -174,7 +174,7 @@
                 <div class="card-content">
                   <div class="content">
                     <p class="title">
-                      ได้คะแนน 12 คะแนน ภาวะโภชนาการปกติ
+                      {{ user.result.MNA }}
                     </p>
                   </div>
                 </div>
@@ -236,6 +236,11 @@ export default {
 .card-header-title {
   font-size: 1.5rem;
   font-weight: 500;
+}
+.head {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
 }
 .title {
   font-size: 1rem;

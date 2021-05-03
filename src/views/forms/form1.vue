@@ -71,6 +71,7 @@
                     style="float: left; margin-left: 5px"
                     type="text"
                     v-model="ques.ans_input"
+                    :placeholder="user.bmi"
                     disabled
                   /><br />
                   <div v-for="ch in ques.choice" :key="ch.ans_id">
@@ -187,7 +188,7 @@
 <script>
 import Sidebar from "@/components/sidebar.vue";
 // import assChooseBar from "@/components/assChooseBar.vue";
-import { mapState, mapMutations } from "vuex";
+import { mapState, mapMutations, mapActions } from "vuex";
 // import question from "../assets/test.json";
 
 export default {
@@ -218,26 +219,29 @@ export default {
       //   console.log(this.$store.state.json)
       //   return this.$store.state.json
       // }}
-    })
+    }),
+    ...mapState(["user"])
   },
   methods: {
+    ...mapMutations(["setAns"]),
+    ...mapActions(["getUserById"]),
+
     backHome() {
-      // console.log("tid laeww")
-      // alert("Sure mai ka???")
-      // window.location.href = "startpage";
       if (confirm("sure mai ka??")) {
         window.location.pathname = "startpage";
       }
     },
-    ...mapMutations(["setAns"]),
     sumResult() {
-      this.isEditResult = true;
-      // console.log(ans)
-      // for (var i = 0; i < 6; i++) {
-      //     this.cal_ans += this.ans[i].ans_value
+      // this.isEditResult = true;
+      // for (var i = 0; i < 7; i++) {
       // }
-      // return this.cal_ans
     }
+  },
+  beforeRouteEnter(to, from, next) {
+    console.log("before");
+    next(vm => {
+      vm.getUserById();
+    });
   }
 };
 </script>

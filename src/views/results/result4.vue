@@ -145,12 +145,12 @@
             </div>
             <div class="columns mt-4">
               <div class="column is-2">
-                <router-link to="/results/result2">
+                <router-link to="/results/result3">
                   <b-button class="mr-2">
                     <b-icon icon="chevron-left"> </b-icon>
                   </b-button>
                 </router-link>
-                <router-link to="/results/result4">
+                <router-link to="/results/result5">
                   <b-button>
                     <b-icon icon="chevron-right"> </b-icon>
                   </b-button>
@@ -202,8 +202,7 @@
                 <div class="card-content">
                   <div class="content">
                     <p class="title">
-                      ใช้เวลาในการเดิน 20 วินาที และ ยืนได้ 20 วินาที
-                      ไม่มีความเสี่ยงต่อภาวะหกล้ม
+                      {{ user.result.TUGT }}
                     </p>
                   </div>
                 </div>
@@ -237,7 +236,7 @@ export default {
   components: {
     Sidebar
   },
-  name: "result3",
+  name: "result4",
   data() {
     return {
       isAssess: false
@@ -265,6 +264,11 @@ export default {
 .card-header-title {
   font-size: 1.5rem;
   font-weight: 500;
+}
+.head {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
 }
 .title {
   font-size: 1rem;
