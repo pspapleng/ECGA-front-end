@@ -244,7 +244,7 @@ export default {
         return (this.anstitle = "ภาวะโภชนาการปกติ");
       }
 
-      return this.ansvalue, this.anstitle;
+      return this.ansvalue;
     }
   },
   beforeRouteEnter(to, from, next) {

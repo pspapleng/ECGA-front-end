@@ -63,7 +63,12 @@
                         type="is-info"
                         @change.native="
                           e =>
-                            setAns({ id: ques.ques_id, value: e.target.value })
+                            setAns({
+                              id: ques.ques_id,
+                              value: parseInt(e.target.value),
+                              title: ch.ans_title,
+                              u_id: 1
+                            })
                         "
                       >
                       </b-radio>
@@ -86,7 +91,12 @@
                         type="is-info"
                         @change.native="
                           e =>
-                            setAns({ id: ques.ques_id, value: e.target.value })
+                            setAns({
+                              id: ques.ques_id,
+                              value: parseInt(e.target.value),
+                              title: ch.ans_title,
+                              u_id: 1
+                            })
                         "
                       >
                       </b-radio>
@@ -119,7 +129,12 @@
                         type="is-info"
                         @change.native="
                           e =>
-                            setAns({ id: ques.ques_id, value: e.target.value })
+                            setAns({
+                              id: ques.ques_id,
+                              value: parseInt(e.target.value),
+                              title: ch.ans_title,
+                              u_id: 1
+                            })
                         "
                       >
                       </b-radio>
@@ -153,9 +168,14 @@
                         v-model="ques.ans"
                         :native-value="ch.ans_value"
                         type="is-info"
-                        @change.native.native="
+                        @change.native="
                           e =>
-                            setAns({ id: ques.ques_id, value: e.target.value })
+                            setAns({
+                              id: ques.ques_id,
+                              value: parseInt(e.target.value),
+                              title: ch.ans_title,
+                              u_id: 1
+                            })
                         "
                       >
                       </b-radio>
@@ -199,37 +219,47 @@
             </div>
           </div>
         </div>
-        <b-modal v-model="isEditResult">
+        <b-modal v-model="isEditResult" :width="640">
           <div class="card">
-            <header class="result card-header">
-              <p class="card-header-title">ผลการประเมินช่องปากผู้สูงอายุ</p>
+            <header class="card-header">
+              <p
+                class="card-header-title"
+                style="color: white; background-color: #1E3A8A"
+              >
+                ผลการประเมินช่องปากผู้สูงอายุ
+              </p>
             </header>
-            <div class="card-content">
-              <div class="content">
-                การแปรผล
-                <br />
-                หากมีความผิดปกติหรือมีความจำเป็นที่จะต้องได้รับการรักษาในข้อ 1 -
-                5 แบบประเมินส่วนที่ 2
-                ให้ทำการส่งต่อเพื่อเข้ารับบริการทางทันตกรรมจากทันตบุคลากร
+            <div class="card-content" style="background-color: #f4f4f4">
+              <div class="content has-text-left ml-6">
+                การแปลผล
+                หากมีความผิดปกติหรือมีความจำเป็นที่จะต้องได้รับการรักษา<br />ในข้อ
+                1 - 5 ของแบบประเมินส่วนที่ 2
+                ให้ทำการส่งต่อเพื่อเข้ารับบริการทางทันตกรรม<br />จากทันตบุคลากร
               </div>
-              <div class="innerCard">
-                <div class="innerContent">
-                  เนื้อเยื่อในช่องปากผิดปกติ
-                  <br />
-                  ปัญหาการเคี้ยว
-                  <br />
-                  โปรดส่งต่อเพื่อเข้ารับบริการทางทันตกรรมกับบุคลากร
+              <div class="card">
+                <div class="card-content">
+                  <div class="content">
+                    <p class="has-text-centered">
+                      {{ anstitle1 }}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-            <b-button
-              id="nextAss"
-              type="is-success"
-              tag="a"
-              href="/forms/form3"
-              target=""
-              >ทำแบบประเมินถัดไป</b-button
-            >
+            <footer class="card-footer">
+              <p
+                class="card-footer-item"
+                @click="isEditResult = false"
+                style="color: #F90000"
+              >
+                ย้อนกลับ
+              </p>
+              <router-link class="card-footer-item" to="/forms/form3">
+                <p style="color: #047857">
+                  ทำแบบประเมินถัดไป
+                </p>
+              </router-link>
+            </footer>
           </div>
         </b-modal>
       </div>
@@ -239,7 +269,7 @@
 <script>
 import Sidebar from "@/components/sidebar.vue";
 // import assChooseBar from "@/components/assChooseBar.vue";
-import { mapState, mapMutations } from "vuex";
+import { mapState, mapMutations, mapActions } from "vuex";
 // import question from "../assets/test.json";
 export default {
   components: {
@@ -255,13 +285,16 @@ export default {
       size: "default",
       prevIcon: "chevron-left",
       nextIcon: "chevron-right",
-      isEditResult: false
+      isEditResult: false,
+      anstitle1: ""
     };
   },
   computed: {
     ...mapState({
       count: state => state.count,
-      form: "json"
+      form: "json",
+      ans: "keep_ans",
+      user: "user"
       // {
       //   get () {
       //   console.log(this.$store.state.json)
@@ -270,23 +303,43 @@ export default {
     })
   },
   methods: {
+    ...mapMutations(["setAns"]),
+    ...mapActions(["getUserById"]),
+
     backHome() {
-      // console.log("tid laeww")
-      // alert("Sure mai ka???")
-      // window.location.href = "startpage";
       if (confirm("sure mai ka??")) {
         window.location.pathname = "startpage";
       }
     },
-    ...mapMutations(["setAns"]),
+
     sumResult() {
+      console.log(this.ans);
       this.isEditResult = true;
-      // console.log(ans)
-      // for (var i = 0; i < 6; i++) {
-      //     this.cal_ans += this.ans[i].ans_value
-      // }
-      // return this.cal_ans
+      this.anstitle1 = "";
+
+      if (this.ans[11].ans_value == 1) {
+        this.anstitle1 += "เนื้อเยื่อในช่องปากผิดปกติ";
+      }
+      if (this.ans[12].ans_value == 1) {
+        this.anstitle1 += "เหงือกและอวัยวะปริทันต์ผิดปกติ";
+      }
+      if (this.ans[13].ans_value == 1) {
+        this.anstitle1 += "ฟันผิดปกติ";
+      }
+      if (this.ans[14].ans_value == 1) {
+        this.anstitle1 += "ปัญหาการเคี้ยวอาหารผิดปกติ";
+      }
+      if (this.ans[15].ans_value == 1) {
+        this.anstitle1 += "ฟันเทียมผิดปกติ";
+      }
+      return this.anstitle1;
     }
+  },
+  beforeRouteEnter(to, from, next) {
+    console.log("before");
+    next(vm => {
+      vm.getUserById();
+    });
   }
 };
 </script>
