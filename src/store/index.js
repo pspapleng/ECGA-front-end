@@ -34,13 +34,13 @@ export default new Vuex.Store({
     n_id: 1,
     user: "",
     result_id: 1,
-    checklist: true,
-    checkfrom: false,
+    checklist: false,
+    checkfrom: true,
     in_search: "",
     n_fname: "Taweewat",
     n_lname: "Srimek",
     u_Data: [],
-    editUserId: null
+    UserId: null
   },
   mutations: {
     setResultId(state, payload){
@@ -94,11 +94,11 @@ export default new Vuex.Store({
         n_id: null
       };
     },
-    setEditUserId(state, payload) {
-      state.editUserId = payload;
+    setUserId(state, payload) {
+      state.UserId = payload;
     },
-    resetEditUserId(state) {
-      state.editUserId = null;
+    resetUserId(state) {
+      state.UserId = null;
     },
     // set value for var ans
     setAns(state, payload) {
@@ -184,9 +184,9 @@ export default new Vuex.Store({
     },
     editUser({ state, commit }, payload) {
       return Vue.axios
-        .put(`http://localhost:3000/api/users/${state.editUserId}`, payload)
+        .put(`http://localhost:3000/api/users/${state.UserId}`, payload)
         .then(res => {
-          commit("resetEditUserId");
+          commit("resetUserId");
           return Promise.resolve(res);
         })
         .catch(err => {
@@ -195,9 +195,9 @@ export default new Vuex.Store({
     },
     deleteUser({ state, commit }) {
       return Vue.axios
-        .delete(`http://localhost:3000/api/users/${state.editUserId}`)
+        .delete(`http://localhost:3000/api/users/${state.UserId}`)
         .then(res => {
-          commit("resetEditUserId");
+          commit("resetUserId");
           return Promise.resolve(res);
         })
         .catch(err => {

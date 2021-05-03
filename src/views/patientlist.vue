@@ -116,29 +116,13 @@
                 v-slot="props"
               >
                 <router-link to="/Result">
-                <span
-                  class="tag is-success is-light"
-                  @click="seeResult(props.row.result_id)"
-                  v-if="
-                    props.row.result != null &&
-                    selected.getFullYear() -
-                      new Date(props.row.result_date).getFullYear() <
-                      1
-                  "
-                >
-                  ประเมินเมื่อ
-                  {{ new Date(props.row.result_date).toLocaleDateString() }}
-                </span>
-                </router-link>
-
-                <router-link to="/Result">
                   <span
-                    class="tag is-warning is-light"
+                    class="tag is-success is-light"
                     @click="seeResult(props.row.result_id)"
                     v-if="
                       props.row.result != null &&
                       selected.getFullYear() -
-                        new Date(props.row.result_date).getFullYear() >
+                        new Date(props.row.result_date).getFullYear() <
                         1
                     "
                   >
@@ -147,13 +131,28 @@
                   </span>
                 </router-link>
 
+                <span
+                  class="tag is-warning is-light"
+                  @click="seeResult(props.row.result_id)"
+                  v-if="
+                    props.row.result != null &&
+                    selected.getFullYear() -
+                      new Date(props.row.result_date).getFullYear() >
+                      1
+                  "
+                >
+                  ประเมินเมื่อ
+                  {{ new Date(props.row.result_date).toLocaleDateString() }}
+                  <router-link to="/Result" />
+                </span>
+
                 <span class="tag" v-if="props.row.result == null" disabled>
                   ไม่มีข้อมูลผลประเมิน
                 </span>
               </b-table-column>
 
               <b-table-column width="100" v-slot="props" centered>
-                <!-- <router-link to="/startpage"> -->
+                <router-link to="/startpage">
                   <b-button
                     style="background-color: #1e3a8a; color: white"
                     size="is-small"
@@ -167,7 +166,7 @@
                   >
                     ทำแบบประเมิน
                   </b-button>
-                <!-- </router-link> -->
+                </router-link>
               </b-table-column>
 
               <b-table-column
@@ -800,7 +799,7 @@ export default {
     },
     editGender: {
       required,
-      GenderOnly
+      GenderOnly,
     },
     editBirth: {
       required,
@@ -830,11 +829,10 @@ export default {
     this.getData();
   },
   methods: {
-    ...mapMutations(["setSearch", "setEditUserId", "setResultId"]),
+    ...mapMutations(["setSearch", "setUserId", "setResultId"]),
     ...mapActions(["editUser"]),
     doc() {
       // this.getUser();
-      console.log(this.editUserId);
       console.log(this.u_Data);
     },
     open(id) {
@@ -845,13 +843,14 @@ export default {
         }
       }
     },
-    seeResult(id){
+    seeResult(id) {
       console.log(id);
-      this.setResultId(id)
+      this.setResultId(id);
+      console.log(this.result_id);
     },
     DoForm(id) {
       console.log(id);
-      this.setEditUserId(id)
+      this.setUserId(id);
     },
     getData() {
       this.setSearch(this.in_search);
@@ -868,7 +867,7 @@ export default {
       return age;
     },
     DeleteUser(user, index) {
-      this.setEditUserId(user.u_id)
+      this.setUserId(user.u_id);
       let confirmResult = confirm("are you sure!?");
       if (confirmResult) {
         this.deleteUser()
@@ -896,7 +895,7 @@ export default {
       this.editHeight = histy.height;
       this.editWaistline = histy.waistline;
       this.editFall = histy.fall_history;
-      this.setEditUserId(histy.u_id);
+      this.setUserId(histy.u_id);
     },
     saveHistory(histy) {
       this.$v.$touch();
@@ -947,7 +946,7 @@ export default {
     editDateResult() {
       return new Date(this.result.service_date);
     },
-    ...mapState(["u_Data", "editUserId"]),
+    ...mapState(["u_Data", "UserId", "result_id"]),
   },
   beforeRouteEnter(to, from, next) {
     console.log("before");
