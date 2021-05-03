@@ -124,7 +124,7 @@
                 <div class="card-content">
                   <div class="content">
                     <p class="title">
-                      ได้คะแนน 15 คะแนน มีความเสี่ยงที่จะหกล้มปานกลาง
+                      {{ user.result.FallRisk }}
                     </p>
                   </div>
                 </div>

@@ -174,7 +174,7 @@
                 <div class="card-content">
                   <div class="content">
                     <p class="title">
-                      ได้คะแนน 12 คะแนน ภาวะโภชนาการปกติ
+                      {{ user.result.MNA }}
                     </p>
                   </div>
                 </div>

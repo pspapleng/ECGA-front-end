@@ -223,7 +223,7 @@
                 <div class="card-content">
                   <div class="content">
                     <p class="title">
-                      ไม่มีความผิดปกติด้านสุขภาพช่องปาก
+                      {{ user.result.OCA }}
                     </p>
                   </div>
                 </div>
