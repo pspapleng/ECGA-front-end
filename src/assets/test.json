@@ -3352,7 +3352,7 @@
   },
   {
     "ques_id": 156,
-    "ques": "1.7 โดยเฉลี่ยผู้สูงอายุหลับได้คืนละ (ชั่วโมง)",
+    "ques": "2. โดยเฉลี่ยผู้สูงอายุหลับได้คืนละ (ชั่วโมง)",
     "form_name_id": 11,
     "ans": "",
     "ans_input": "",
@@ -3367,7 +3367,7 @@
   },
   {
     "ques_id": 157,
-    "ques": "2. ผู้สูงอายุมีอาการง่วง อ่อนเพลีย ตอนกลางวันหรือไม่? ",
+    "ques": "3. ผู้สูงอายุมีอาการง่วง อ่อนเพลีย ตอนกลางวันหรือไม่? ",
     "form_name_id": 11,
     "ans": "",
     "choice": [
@@ -3392,12 +3392,12 @@
       {
         "ans_id": 403,
         "ans_value": 0,
-        "ans_title": "ไม่มี"
+        "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 404,
         "ans_value": 1,
-        "ans_title": "มี"
+        "ans_title": "ใช่"
       }
     ]
   },
@@ -3410,12 +3410,12 @@
       {
         "ans_id": 405,
         "ans_value": 0,
-        "ans_title": "ไม่มี"
+        "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 406,
         "ans_value": 1,
-        "ans_title": "มี"
+        "ans_title": "ใช่"
       }
     ]
   },
@@ -3428,12 +3428,12 @@
       {
         "ans_id": 407,
         "ans_value": 0,
-        "ans_title": "ไม่มี"
+        "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 408,
         "ans_value": 1,
-        "ans_title": "มี"
+        "ans_title": "ใช่"
       }
     ]
   },
@@ -3446,12 +3446,12 @@
       {
         "ans_id": 409,
         "ans_value": 0,
-        "ans_title": "ไม่มี"
+        "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 410,
         "ans_value": 1,
-        "ans_title": "มี"
+        "ans_title": "ใช่"
       }
     ]
   },
@@ -3464,12 +3464,12 @@
       {
         "ans_id": 411,
         "ans_value": 0,
-        "ans_title": "ไม่มี"
+        "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 412,
         "ans_value": 1,
-        "ans_title": "มี"
+        "ans_title": "ใช่"
       }
     ]
   },

@@ -15,19 +15,10 @@
                   แบบประเมินภาวะกลั้นปัสสาวะไม่อยู่
                 </p>
               </header>
-              <div class="card-content">
-                <div class="content has-text-left">
-                  <u>ข้อแนะนำ</u> :
-                  การคัดกรองสุขภาวะทางตาเป็นการคัดกรองการมองเห็น (ระยะไกล -
-                  ใกล้)
-                  ที่มีผลต่อการใช้ชีวิตประจำวันและลักษณะการมองเห็นผิดปกติที่เป็นปัญหาและพบบ่อยในผู้สูงอายุ
-                  ได้แก่ ต้อกระจก ต้อหิน และจอตาเสื่อม
-                </div>
-              </div>
             </div>
             <div
               class="card"
-              v-for="ques in form.slice(38, 40)"
+              v-for="ques in form.slice(127, 128)"
               :key="ques.ques_id"
             >
               <div class="card-content">
@@ -65,10 +56,121 @@
             <div class="card">
               <div class="card-content">
                 <div class="content has-text-left">
-                  <p class="title">3. ปิดตาดูทีละข้างพบว่าตามัวคล้ายหมอกบัง?</p>
+                  <p class="title">
+                    2. ท่านมีอาการกลั้นปัสสาวะไม่อยู่ดังต่อไปนี้หรือไม่
+                  </p>
+                  <p class="title ml-4">2.1 ปัสสาวะเล็ด</p>
                   <div
-                    class="ques mt-3 ml-5"
-                    v-for="ques in form.slice(40, 42)"
+                    class="ques mt-3 ml-6"
+                    v-for="ques in form.slice(128, 131)"
+                    :key="ques.ques_id"
+                  >
+                    <p class="title">
+                      {{ ques.ques }}
+                    </p>
+                    <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+                      <b-radio
+                        disabled
+                        v-if="ans[ques.ques_id - 1].ans_value != ch.ans_value"
+                        id="ques.ques_id"
+                        :native-value="ch.ans_value"
+                        v-model="ans[ques.ques_id - 1].ans_value"
+                        type="is-info"
+                      >
+                        <p style="color: black">{{ ch.ans_title }}</p>
+                      </b-radio>
+                      <b-radio
+                        disabled
+                        v-else
+                        id="ques.ques_id"
+                        :native-value="ch.ans_value"
+                        v-model="ans[ques.ques_id - 1].ans_value"
+                        type="is-info"
+                      >
+                        <p style="color: black">
+                          {{ ans[ques.ques_id - 1].ans_title }}
+                        </p>
+                      </b-radio>
+                    </div>
+                  </div>
+                  <p class="title mt-3 ml-4">
+                    2.2 ปัสสาวะราด/กลั้นปัสสาวะไม่ทัน
+                  </p>
+                  <div
+                    class="ques mt-3 ml-6"
+                    v-for="ques in form.slice(131, 134)"
+                    :key="ques.ques_id"
+                  >
+                    <p class="title">
+                      {{ ques.ques }}
+                    </p>
+                    <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+                      <b-radio
+                        disabled
+                        v-if="ans[ques.ques_id - 1].ans_value != ch.ans_value"
+                        id="ques.ques_id"
+                        :native-value="ch.ans_value"
+                        v-model="ans[ques.ques_id - 1].ans_value"
+                        type="is-info"
+                      >
+                        <p style="color: black">{{ ch.ans_title }}</p>
+                      </b-radio>
+                      <b-radio
+                        disabled
+                        v-else
+                        id="ques.ques_id"
+                        :native-value="ch.ans_value"
+                        v-model="ans[ques.ques_id - 1].ans_value"
+                        type="is-info"
+                      >
+                        <p style="color: black">
+                          {{ ans[ques.ques_id - 1].ans_title }}
+                        </p>
+                      </b-radio>
+                    </div>
+                  </div>
+                  <p class="title mt-3 ml-4">
+                    2.3 กลั้นปัสสาวะไม่อยู่เพราะปัสสาวะล้น
+                  </p>
+                  <div
+                    class="ques mt-3 ml-6"
+                    v-for="ques in form.slice(134, 140)"
+                    :key="ques.ques_id"
+                  >
+                    <p class="title">
+                      {{ ques.ques }}
+                    </p>
+                    <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+                      <b-radio
+                        disabled
+                        v-if="ans[ques.ques_id - 1].ans_value != ch.ans_value"
+                        id="ques.ques_id"
+                        :native-value="ch.ans_value"
+                        v-model="ans[ques.ques_id - 1].ans_value"
+                        type="is-info"
+                      >
+                        <p style="color: black">{{ ch.ans_title }}</p>
+                      </b-radio>
+                      <b-radio
+                        disabled
+                        v-else
+                        id="ques.ques_id"
+                        :native-value="ch.ans_value"
+                        v-model="ans[ques.ques_id - 1].ans_value"
+                        type="is-info"
+                      >
+                        <p style="color: black">
+                          {{ ans[ques.ques_id - 1].ans_title }}
+                        </p>
+                      </b-radio>
+                    </div>
+                  </div>
+                  <p class="title mt-3 ml-4">
+                    2.4 ปัสสาวะรดเครื่องนุ่งห่มเพราะมีขีดจำกัดทางร่างกาย
+                  </p>
+                  <div
+                    class="ques mt-3 ml-6"
+                    v-for="ques in form.slice(140, 145)"
                     :key="ques.ques_id"
                   >
                     <p class="title">
@@ -102,88 +204,113 @@
                 </div>
               </div>
             </div>
-            <div class="card">
+            <div
+              class="card"
+              v-for="ques in form.slice(145, 146)"
+              :key="ques.ques_id"
+            >
               <div class="card-content">
                 <div class="content has-text-left">
                   <p class="title">
-                    4. ปิดตาดูทีละข้างพบว่ามองเห็นชัดแต่ตรงกลางไม่
-                    เห็นรอบข้างหรือมักเดินชนประตูสิ่งของบ่อยๆ?
+                    {{ ques.ques }}
                   </p>
-                  <div
-                    class="ques mt-3 ml-5"
-                    v-for="ques in form.slice(42, 44)"
-                    :key="ques.ques_id"
-                  >
-                    <p class="title">
-                      {{ ques.ques }}
-                    </p>
-                    <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-                      <b-radio
-                        disabled
-                        v-if="ans[ques.ques_id - 1].ans_value != ch.ans_value"
-                        id="ques.ques_id"
-                        :native-value="ch.ans_value"
-                        v-model="ans[ques.ques_id - 1].ans_value"
-                        type="is-info"
-                      >
-                        <p style="color: black">{{ ch.ans_title }}</p>
-                      </b-radio>
-                      <b-radio
-                        disabled
-                        v-else
-                        id="ques.ques_id"
-                        :native-value="ch.ans_value"
-                        v-model="ans[ques.ques_id - 1].ans_value"
-                        type="is-info"
-                      >
-                        <p style="color: black">
-                          {{ ans[ques.ques_id - 1].ans_title }}
-                        </p>
-                      </b-radio>
-                    </div>
+                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+                    <b-radio
+                      disabled
+                      v-if="ans[ques.ques_id - 1].ans_value != ch.ans_value"
+                      id="ques.ques_id"
+                      :native-value="ch.ans_value"
+                      v-model="ans[ques.ques_id - 1].ans_value"
+                      type="is-info"
+                    >
+                      <p style="color: black">{{ ch.ans_title }}</p>
+                    </b-radio>
+                    <b-radio
+                      disabled
+                      v-else
+                      id="ques.ques_id"
+                      :native-value="ch.ans_value"
+                      v-model="ans[ques.ques_id - 1].ans_value"
+                      type="is-info"
+                    >
+                      <p style="color: black">
+                        {{ ans[ques.ques_id - 1].ans_title }}
+                      </p>
+                    </b-radio>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="card">
+            <div
+              class="card"
+              v-for="ques in form.slice(146, 147)"
+              :key="ques.ques_id"
+            >
               <div class="card-content">
                 <div class="content has-text-left">
                   <p class="title">
-                    5. ปิดตาดูทีละข้างพบว่ามองเห็นจุดดำกลางภาพ
-                    หรือเห็นภาพบิดเบี้ยว?
+                    {{ ques.ques }}
                   </p>
-                  <div
-                    class="ques mt-3 ml-5"
-                    v-for="ques in form.slice(44, 46)"
-                    :key="ques.ques_id"
-                  >
-                    <p class="title">
-                      {{ ques.ques }}
-                    </p>
-                    <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-                      <b-radio
-                        disabled
-                        v-if="ans[ques.ques_id - 1].ans_value != ch.ans_value"
-                        id="ques.ques_id"
-                        :native-value="ch.ans_value"
-                        v-model="ans[ques.ques_id - 1].ans_value"
-                        type="is-info"
-                      >
-                        <p style="color: black">{{ ch.ans_title }}</p>
-                      </b-radio>
-                      <b-radio
-                        disabled
-                        v-else
-                        id="ques.ques_id"
-                        :native-value="ch.ans_value"
-                        v-model="ans[ques.ques_id - 1].ans_value"
-                        type="is-info"
-                      >
-                        <p style="color: black">
-                          {{ ans[ques.ques_id - 1].ans_title }}
-                        </p>
-                      </b-radio>
-                    </div>
+                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+                    <b-radio
+                      disabled
+                      v-if="ans[ques.ques_id - 1].ans_value != ch.ans_value"
+                      id="ques.ques_id"
+                      :native-value="ch.ans_value"
+                      v-model="ans[ques.ques_id - 1].ans_value"
+                      type="is-info"
+                    >
+                      <p style="color: black">{{ ch.ans_title }}</p>
+                    </b-radio>
+                    <b-radio
+                      disabled
+                      v-else
+                      id="ques.ques_id"
+                      :native-value="ch.ans_value"
+                      v-model="ans[ques.ques_id - 1].ans_value"
+                      type="is-info"
+                    >
+                      <p style="color: black">
+                        {{ ans[ques.ques_id - 1].ans_title }}
+                      </p>
+                    </b-radio>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="card"
+              v-for="ques in form.slice(147, 148)"
+              :key="ques.ques_id"
+            >
+              <div class="card-content">
+                <div class="content has-text-left">
+                  <p class="title">
+                    {{ ques.ques }}
+                  </p>
+                  <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
+                    <b-radio
+                      disabled
+                      v-if="ans[ques.ques_id - 1].ans_value != ch.ans_value"
+                      id="ques.ques_id"
+                      :native-value="ch.ans_value"
+                      v-model="ans[ques.ques_id - 1].ans_value"
+                      type="is-info"
+                    >
+                      <p style="color: black">{{ ch.ans_title }}</p>
+                    </b-radio>
+                    <b-radio
+                      disabled
+                      v-else
+                      id="ques.ques_id"
+                      :native-value="ch.ans_value"
+                      v-model="ans[ques.ques_id - 1].ans_value"
+                      type="is-info"
+                    >
+                      <p style="color: black">
+                        {{ ans[ques.ques_id - 1].ans_title }}
+                      </p>
+                    </b-radio>
                   </div>
                 </div>
               </div>
@@ -191,12 +318,12 @@
 
             <div class="columns mt-4">
               <div class="column is-2">
-                <router-link to="/results/result4">
+                <router-link to="/results/result9">
                   <b-button class="mr-2">
                     <b-icon icon="chevron-left"> </b-icon>
                   </b-button>
                 </router-link>
-                <router-link to="/results/result6">
+                <router-link to="/results/result11">
                   <b-button>
                     <b-icon icon="chevron-right"> </b-icon>
                   </b-button>
@@ -234,20 +361,28 @@
                 class="card-header-title"
                 style="color: white; background-color: #1E3A8A"
               >
-                ผลการประเมินการคัดกรองสุขภาวะทางตา
+                ผลการประเมินภาวะกลั้นปัสสาวะไม่อยู่
               </p>
             </header>
             <div class="card-content" style="background-color: #f4f4f4">
-              <div class="content has-text-left ml-6">
-                การพิจารณา
+              <div class="content has-text-left mx-4">
+                การพิจารณา (พิจารณาจากข้อ 3 และ 4)
                 <br />
-                ถ้าตอบ ใช่ ข้อใดข้อหนึ่ง แสดงว่ามีปัญหาการมองเห็น
+                รุนแรงมาก =
+                ปริมาณปัสสาวะที่กลั้นไม่อยู่มากถึงระดับเปียกถึงผ้านุ่งชั้นนอก
+                และ/หรือเกิดอาการบ่อยมาก
+                <br />
+                รุนแรงปานกลาง = ปริมาณปัสสาวะมากระดับชุ่มกางเกง และ/หรือ
+                เกิดอาการบ่อยปานกลาง
+                <br />
+                รุนแรงน้อย =
+                ปริมาณปัสสาวะที่กลั้นไม่อยู่ไม่กี่หยดและเกิดอาการบ่อยเล็กน้อย
               </div>
               <div class="card">
                 <div class="card-content">
                   <div class="content">
                     <p class="title">
-                      {{ user.result.EYES }}
+                      {{ user.result.UIA }}
                     </p>
                   </div>
                 </div>
@@ -261,7 +396,7 @@
               >
                 ย้อนกลับ
               </p>
-              <router-link class="card-footer-item" to="/results/result6">
+              <router-link class="card-footer-item" to="/results/result11">
                 <p style="color: #047857">
                   ดูผลแบบประเมินถัดไป
                 </p>
