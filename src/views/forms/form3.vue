@@ -37,7 +37,12 @@
                         type="is-info"
                         @change.native="
                           e =>
-                            setAns({ id: ques.ques_id, value: e.target.value })
+                            setAns({
+                              id: ques.ques_id,
+                              value: parseInt(e.target.value),
+                              title: ch.ans_title,
+                              u_id: 1
+                            })
                         "
                       >
                       </b-radio>
@@ -87,35 +92,50 @@
           <assChooseBar />
         </div>  -->
         <!---->
-        <b-modal v-model="isEditResult">
+        <b-modal v-model="isEditResult" :width="640">
           <div class="card">
             <header class="card-header">
-              <p class="card-header-title">ผลการประเมินภาวะหกล้ม</p>
+              <p
+                class="card-header-title"
+                style="color: white; background-color: #1E3A8A"
+              >
+                ผลการประเมินภาวะหกล้ม
+              </p>
             </header>
-            <div class="card-content">
-              <div class="content">
+            <div class="card-content" style="background-color: #f4f4f4">
+              <div class="content has-text-left ml-6">
                 การพิจารณา (คะแนนเต็ม 30 คะแนน)
-                <br />
-                เนื้อเยื่อในช่องปากผิดปกติ
                 <br />
                 18 - 30 คะแนน = มีความเสี่ยงที่จะหกล้มสูง
                 <br />
                 8 - 17 คะแนน = มีความเสี่ยงที่จะหกล้มปานกลาง
                 <br />
-                0 - 7 คะแนน = มีความเสี่ยงที่จะหกล้ม ให้ทำการทดสอบ stand test
+                0 - 7 คะแนน = มีความเสี่ยงที่จะหกล้ม ให้ทำการทดสอบ stan test
               </div>
-              <div class="innerCard">
-                <div class="innerContent">มีปัญหา ...</div>
+              <div class="card">
+                <div class="card-content">
+                  <div class="content">
+                    <p class="has-text-centered">
+                      ได้คะแนน {{ ansvalue }} คะแนน {{ anstitle }}
+                    </p>
+                  </div>
+                </div>
               </div>
-              <b-button
-                id="nextAss"
-                type="is-success"
-                tag="a"
-                href="/forms/form4"
-                target=""
-                >ทำแบบประเมินถัดไป</b-button
-              >
             </div>
+            <footer class="card-footer">
+              <p
+                class="card-footer-item"
+                @click="isEditResult = false"
+                style="color: #F90000"
+              >
+                ย้อนกลับ
+              </p>
+              <router-link class="card-footer-item" to="/forms/form2">
+                <p style="color: #047857">
+                  ทำแบบประเมินถัดไป
+                </p>
+              </router-link>
+            </footer>
           </div>
         </b-modal>
       </div>
@@ -125,7 +145,7 @@
 <script>
 import Sidebar from "@/components/sidebar.vue";
 // import assChooseBar from "@/components/assChooseBar.vue";
-import { mapState, mapMutations } from "vuex";
+import { mapState, mapMutations, mapActions } from "vuex";
 // import question from "../assets/test.json";
 export default {
   components: {
@@ -140,23 +160,17 @@ export default {
       size: "default",
       prevIcon: "chevron-left",
       nextIcon: "chevron-right",
-      isEditResult: false
-      // age: '',
-      // fallHistory: '',
-      // selfBalance: '',
-      // knowing: '',
-      // physical: '',
-      // sight: '',
-      // speaking: '',
-      // medicine: '',
-      // chronicDis: '',
-      // toiletContr: ''
+      isEditResult: false,
+      anstitle: "",
+      ansvalue: 0
     };
   },
   computed: {
     ...mapState({
       count: state => state.count,
-      form: "json"
+      form: "json",
+      ans: "keep_ans",
+      user: "user"
       // {
       //   get () {
       //   console.log(this.$store.state.json)
@@ -165,6 +179,8 @@ export default {
     })
   },
   methods: {
+    ...mapMutations(["setAns"]),
+    ...mapActions(["getUserById"]),
     backHome() {
       // console.log("tid laeww")
       // alert("Sure mai ka???")
@@ -173,14 +189,25 @@ export default {
         window.location.pathname = "startpage";
       }
     },
-    ...mapMutations(["setAns"]),
     sumResult() {
+      console.log(this.ans);
       this.isEditResult = true;
-      // console.log(ans)
-      // for (var i = 0; i < 6; i++) {
-      //     this.cal_ans += this.ans[i].ans_value
-      // }
-      // return this.cal_ans
+      (this.anstitle = ""), (this.ansvalue = 0);
+
+      for (var i = 0; i < 28; i++) {
+        this.ansvalue += this.ans[i].ans_value;
+      }
+
+      if (this.ansvalue >= 0 && this.ansvalue <= 7) {
+        return (this.anstitle =
+          "มีความเสี่ยงที่จะหกล้ม ให้ทำการทดสอบ stan test");
+      } else if (this.ansvalue >= 8 && this.ansvalue <= 17) {
+        return (this.anstitle = "มีความเสี่ยงที่จะหกล้มปานกลาง");
+      } else if (this.ansvalue >= 18 && this.ansvalue <= 30) {
+        return (this.anstitle = "มีความเสี่ยงที่จะหกล้มสูง");
+      }
+
+      return this.ansvalue;
     }
   }
 };
