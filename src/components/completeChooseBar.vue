@@ -1,6 +1,6 @@
 <template>
   <div class="box has-background-light has-text-left py-5 px-5">
-    <header class="head-title my-1">
+    <header class="head-title my-2">
       หัวข้อแบบประเมินทั้งหมด
     </header>
     <div>

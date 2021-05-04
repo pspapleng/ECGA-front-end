@@ -10,9 +10,6 @@
               <h1 class="head ml-2">
                 ผลการประเมิน E-CGA
               </h1>
-              <!-- <div v-for="(item, index) in result" :key="index">
-                {{ item }}
-              </div> -->
               <div class="card">
                 <header class="card-header" style="background-color: #F4F4F4;">
                   <p class="card-header-title" style="font-weight: 500;">
@@ -22,32 +19,32 @@
                 <div class="card-content">
                   <div class="content has-text-left" style="font-weight: 300;">
                     ผู้ทำแบบประเมิน : คุณ
-                    {{ result[0].u_fname }} {{ result[0].u_lname }} <br />
-                    ประเมินโดย : พยาบาล {{ result[0].n_fname }}
-                    {{ result[0].n_lname }} <br />
+                    {{ result_now ? result_now.u_fname : "" }}
+                    {{ result_now ? result_now.u_lname : "" }} <br />
+                    ประเมินโดย : พยาบาล
+                    {{ result_now ? result_now.n_fname : "" }}
+                    {{ result_now ? result_now.n_lname : "" }} <br />
                     วันที่ประเมิน :
-                    {{ new Date(result[0].result_date).getDate() }}/{{
-                      new Date(result[0].result_date).getMonth()
-                    }}/{{ new Date(result[0].result_date).getFullYear() }}
+                    {{ new Date(result_now.result_date).getDate() }}/{{
+                      new Date(result_now.result_date).getMonth()
+                    }}/{{ new Date(result_now.result_date).getFullYear() }}
                     <br />
-                    ผลการทำแบบประเมินทั้งหมด :
-                    <button
-                      v-show="item.result_id !== result_id"
-                      class="result_bt mr-2"
-                      v-for="(item, index) in result"
-                      :key="item.id"
-                    >
-                      {{ index + 1 }}
-                    </button>
-                    <button
-                      v-show="item.result_id === result_id"
-                      disabled
-                      class="result_bt mr-2 button is-info"
-                      v-for="(item, index) in result"
-                      :key="item.id"
-                    >
-                      {{ index + 1 }}
-                    </button>
+                    ผลการทำแบบประเมินทั้งหมด
+                    <div class="buttons mt-2">
+                      <button
+                        v-for="(item, index) in result"
+                        :key="index + item.result_id + index"
+                        class="result_bt mr-2 button"
+                        :disabled="item.result_id === result_id"
+                        :class="{
+                          'is-info': item.result_id === result_id,
+                          'is-light': item.result_id !== result_id
+                        }"
+                        @click="changeResultTo(item.result_id)"
+                      >
+                        {{ index + 1 }}
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -62,73 +59,73 @@
                     <ul class="mt-0">
                       <li class="form_title">แบบประเมินภาวะโภชนาการ (MNA)</li>
                       {{
-                        result[0].result.MNA
+                        result_now.result.MNA
                       }}
                       <li class="form_title">แบบประเมินช่องปากในผู้สูงอายุ</li>
                       {{
-                        result[0].result.OCA
+                        result_now.result.OCA
                       }}
                       <li class="form_title">
                         แบบประเมินภาวะกลั้นปัสสาวะไม่อยู่
                       </li>
                       {{
-                        result[0].result.UIA
+                        result_now.result.UIA
                       }}
                       <li class="form_title">แบบประเมินสุขภาวะทางตา</li>
                       {{
-                        result[0].result.EYES
+                        result_now.result.EYES
                       }}
                       <li class="form_title">
                         แบบประเมินโรคข้อเข่าเสื่อมทางคลินิก
                       </li>
                       {{
-                        result[0].result.KNEE
+                        result_now.result.KNEE
                       }}
                       <li class="form_title">
                         แบบประเมินผู้สูงอายุที่ต้องได้รับการดูแลระยะยาว
                       </li>
                       {{
-                        result[0].result.LTTA
+                        result_now.result.LTTA
                       }}
                       <li class="form_title">แบบประเมิน MMSE - Thai 2002</li>
                       {{
-                        result[0].result.MMSE
+                        result_now.result.MMSE
                       }}
                       <li class="form_title">
                         แบบประเมินความเสี่ยงต่อโรคกระดูกพรุน
                       </li>
                       {{
-                        result[0].result.OSTA
+                        result_now.result.OSTA
                       }}
                       <li class="form_title">
                         แบบประเมินภาวะหกล้ม (TIME UP AND GO TEST)
                       </li>
                       {{
-                        result[0].result.TUGT
+                        result_now.result.TUGT
                       }}
                       <li class="form_title">
                         แบบประเมินปัญหาการนอน
                       </li>
                       {{
-                        result[0].result.SLEEP
+                        result_now.result.SLEEP
                       }}
                       <li class="form_title">
                         แบบประเมินคัดกรองความจำเสื่อมสำหรับผู้สูงอายุไทย
                       </li>
                       {{
-                        result[0].result.IQCODE
+                        result_now.result.IQCODE
                       }}
                       <li class="form_title">
                         แบบประเมินความเศร้าในผู้สูงอายุไทย 15 ข้อ
                       </li>
                       {{
-                        result[0].result.TGDS15
+                        result_now.result.TGDS15
                       }}
                       <li class="form_title">
                         แบบประเมินภาวะหกล้ม (Fall Risk Assessment Tool)
                       </li>
                       {{
-                        result[0].result.FallRisk
+                        result_now.result.FallRisk
                       }}
                     </ul>
                   </div>
@@ -136,6 +133,7 @@
               </div>
             </div>
           </div>
+
           <div class="column is-1-desktop is-3-tablet is-5-mobile">
             <Sidebar />
           </div>
@@ -151,7 +149,7 @@
 <script>
 import Sidebar from "@/components/sidebar.vue";
 import completeChooseBar from "@/components/completeChooseBar.vue";
-import { mapActions, mapState } from "vuex";
+import { mapActions, mapState, mapMutations } from "vuex";
 export default {
   components: {
     Sidebar,
@@ -162,14 +160,49 @@ export default {
     return {};
   },
   computed: {
-    ...mapState(["result", "result_id"])
+    ...mapState(["result", "result_id"]),
+    result_now() {
+      // console.log("result", this.result);
+      if (!this.result || this.result.length === 0) {
+        return {
+          result: {
+            MNA: "",
+            OCA: "",
+            UIA: "",
+            EYES: "",
+            KNEE: "",
+            LTTA: "",
+            MMSE: "",
+            OSTA: "",
+            TUGT: "",
+            SLEEP: "",
+            IQCODE: "",
+            TGDS15: "",
+            FallRisk: ""
+          },
+          result_date: "",
+          u_fname: "",
+          u_lname: "",
+          n_fname: "",
+          n_lname: ""
+        };
+      }
+      // console.log(this.result);
+      return this.result.find(e => e.result_id === this.result_id);
+    }
   },
   methods: {
-    ...mapActions(["getAllResult"])
+    ...mapActions(["getAllResult", "updateResultId"]),
+    ...mapMutations(["setResultId"]),
+    changeResultTo(id) {
+      // console.log("have click result", id);
+      this.setResultId(id);
+    }
   },
   beforeRouteEnter(to, from, next) {
     console.log("before");
     next(vm => {
+      console.log("before router enter");
       vm.getAllResult();
     });
   }
@@ -188,6 +221,7 @@ export default {
   font-weight: 500;
   width: 30px;
   height: 30px;
+  cursor: pointer;
 }
 .form_title {
   font-weight: 500;

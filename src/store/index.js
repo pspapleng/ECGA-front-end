@@ -46,6 +46,7 @@ export default new Vuex.Store({
   },
   mutations: {
     setResultId(state, payload) {
+      // console.log("in mutation", payload);
       state.result_id = payload;
     },
     setSearch(state, payload) {
@@ -154,22 +155,24 @@ export default new Vuex.Store({
         });
     },
     getAllResult({ state, commit }) {
-      // console.log("in action");
-      Vue.axios
-        .get(`http://localhost:3000/api/result/user/${state.result_id}`)
+      // console.log("in action", state.u_id);
+      return Vue.axios
+        .get(`http://localhost:3000/api/result/user/${state.u_id}`)
         .then(result => {
-          console.log(result.data[0].result_id);
           commit("setAllResult", result.data);
+          console.log(result.data);
+          return Promise.resolve();
         });
     },
     getAns({ state, commit }) {
-      // console.log("in action");
-      Vue.axios
+      // console.log("result _id", state.result_id);
+      return Vue.axios
         .get(`http://localhost:3000/api/ans/${state.result_id}`)
         .then(ans => {
           console.log(ans.data.ans);
           commit("setUserFromAns", ans.data.user);
           commit("setAllAns", ans.data.ans);
+          return Promise.resolve();
         });
     },
     getUser({ state, commit }) {
