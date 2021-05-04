@@ -2,14 +2,12 @@
   <div>
     <section>
       <div class="columns">
-        <!-- side bar -->
         <div class="column is-1">
           <div>
             <Sidebar />
           </div>
         </div>
-        <!---->
-        <!-- questions -->
+
         <div class="column is-11">
           <div class="assName card mr-6">
             <header class="card-header">
@@ -55,7 +53,12 @@
                         type="is-info"
                         @change.native="
                           e =>
-                            setAns({ id: ques.ques_id, value: e.target.value })
+                            setAns({
+                              id: ques.ques_id,
+                              value: parseInt(e.target.value),
+                              title: ch.ans_title,
+                              u_id: 1
+                            })
                         "
                       >
                       </b-radio>
@@ -88,7 +91,12 @@
                         type="is-info"
                         @change.native="
                           e =>
-                            setAns({ id: ques.ques_id, value: e.target.value })
+                            setAns({
+                              id: ques.ques_id,
+                              value: parseInt(e.target.value),
+                              title: ch.ans_title,
+                              u_id: 1
+                            })
                         "
                       >
                       </b-radio>
@@ -121,7 +129,12 @@
                         type="is-info"
                         @change.native="
                           e =>
-                            setAns({ id: ques.ques_id, value: e.target.value })
+                            setAns({
+                              id: ques.ques_id,
+                              value: parseInt(e.target.value),
+                              title: ch.ans_title,
+                              u_id: 1
+                            })
                         "
                       >
                       </b-radio>
@@ -149,7 +162,12 @@
                         type="is-info"
                         @change.native="
                           e =>
-                            setAns({ id: ques.ques_id, value: e.target.value })
+                            setAns({
+                              id: ques.ques_id,
+                              value: parseInt(e.target.value),
+                              title: ch.ans_title,
+                              u_id: 1
+                            })
                         "
                       >
                       </b-radio>
@@ -182,7 +200,12 @@
                         type="is-info"
                         @change.native="
                           e =>
-                            setAns({ id: ques.ques_id, value: e.target.value })
+                            setAns({
+                              id: ques.ques_id,
+                              value: parseInt(e.target.value),
+                              title: ch.ans_title,
+                              u_id: 1
+                            })
                         "
                       >
                       </b-radio>
@@ -216,7 +239,12 @@
                         type="is-info"
                         @change.native="
                           e =>
-                            setAns({ id: ques.ques_id, value: e.target.value })
+                            setAns({
+                              id: ques.ques_id,
+                              value: parseInt(e.target.value),
+                              title: ch.ans_title,
+                              u_id: 1
+                            })
                         "
                       >
                       </b-radio>
@@ -242,7 +270,12 @@
                         type="is-info"
                         @change.native="
                           e =>
-                            setAns({ id: ques.ques_id, value: e.target.value })
+                            setAns({
+                              id: ques.ques_id,
+                              value: parseInt(e.target.value),
+                              title: ch.ans_title,
+                              u_id: 1
+                            })
                         "
                       >
                       </b-radio>
@@ -287,48 +320,51 @@
             </div>
           </div>
         </div>
-        <b-modal v-model="isEditResult">
+
+        <b-modal v-model="isEditResult" :width="640">
           <div class="card">
             <header class="card-header">
-              <p class="card-header-title">
-                ผลการประเมินคัดกรองผู้สูงอายุที่ต้องได้รับการดูแลระยะยาว
+              <p
+                class="card-header-title"
+                style="color: white; background-color: #1E3A8A"
+              >
+                ผลการประเมินคัดกรองความจำเสื่อมสำหรับผู้สูงอายุ
               </p>
             </header>
-            <div class="card-content">
-              <div class="content">
-                การแปลผล
+            <div class="card-content" style="background-color: #f4f4f4">
+              <div class="content has-text-left ml-6">
+                การคิดคะแนน
                 <br />
-                คะแนน 0 - 16 คะแนน = ไม่ต้องได้รับการดูแลระยะยาว
-                สนับสนุนการส่งเสริมสุขภาพ
+                คะแนนทั้งหมด / ขำนวนข้อทั้งหมด
                 <br />
-                คะแนน 17 - 19 คะแนน = ต้องเฝ้าระวัง ประเมินซ้ำทุก 6 เดือน หรือ 1
-                ปี
-                <br />
-                คะแนน 20 คะแนนขึ้นไป = ต้องได้รับการดูแลระยะยาว
-                ประเมินซ้ำทุกเดือนก่อนพบแพทย์
-                <ol>
-                  <li>โรคประจำตัว</li>
-                  <li>ด้านสังคม</li>
-                  <li>ภาวะซึมเศร้า</li>
-                  <li>สมรรถภาพสมอง หรือ ภาวะสมองเสื่อม</li>
-                </ol>
-                <div class="innerCard">
-                  <div class="innerContent">
-                    คะแนนที่ได้ทั้งหมด 99 คะแนน
-                    <br />
-                    ต้องได้รับการดูแลระยะยาวและประเมินซ้ำทุกเดือนก่อนพบแพทย์
+                ถ้าผู้สูงอายุมีคะแนนเท่ากับหรือมากกว่า 3.44 =
+                ผู้สูงอายุน่าจะมีภาวะสมองเสื่อม
+              </div>
+              <div class="card">
+                <div class="card-content">
+                  <div class="content">
+                    <p class="has-text-centered">
+                      ได้คะแนน {{ ansvalue }} คะแนน <br />
+                      {{ anstitle }}
+                    </p>
                   </div>
                 </div>
               </div>
-              <b-button
-                id="nextAss"
-                type="is-success"
-                tag="a"
-                href="/forms/form10"
-                target=""
-                >ทำแบบประเมินถัดไป</b-button
-              >
             </div>
+            <footer class="card-footer">
+              <p
+                class="card-footer-item"
+                @click="isEditResult = false"
+                style="color: #F90000"
+              >
+                ย้อนกลับ
+              </p>
+              <router-link class="card-footer-item" to="/forms/form4">
+                <p style="color: #047857">
+                  ทำแบบประเมินถัดไป
+                </p>
+              </router-link>
+            </footer>
           </div>
         </b-modal>
       </div>
@@ -338,7 +374,7 @@
 <script>
 import Sidebar from "@/components/sidebar.vue";
 // import assChooseBar from "@/components/assChooseBar.vue";
-import { mapState, mapMutations } from "vuex";
+import { mapState, mapMutations, mapActions } from "vuex";
 // import question from "../assets/test.json";
 export default {
   components: {
@@ -353,65 +389,30 @@ export default {
       size: "default",
       prevIcon: "chevron-left",
       nextIcon: "chevron-right",
-      isEditResult: false
-      // pplTakeCare: '',
-      // habitatType: '',
-      // inCome: '',
-      // sightLevel: '',
-      // forgetThing: '',
-      // twoWeeksDep: '',
-      // twoWeeksBored: '',
-      // yearLoseWeight: '',
-      // alwaysTried: '',
-      // cantWalkAlone: '',
-      // thirtySecTUGT: '',
-      // cleanHouse: '',
-      // handsWeakness: '',
-      // getUpBed: '',
-      // tidyTheirSelves: '',
-      // takeBath: '',
-      // getDress: '',
-      // eatAlone: '',
-      // afterToilet: '',
-      // walkAtHome: '',
-      // stepStair: '',
-      // holdToilet: '',
-      // holdHugeToilet: '',
-      // walkOutHome: '',
-      // cookFood: '',
-      // goShopping: '',
-      // publicTransport: '',
-      // takeMed: ''
+      isEditResult: false,
+      ansvalue: 0,
+      anstitle: ""
     };
   },
   computed: {
     ...mapState({
       count: state => state.count,
-      form: "json"
-      // {
-      //   get () {
-      //   console.log(this.$store.state.json)
-      //   return this.$store.state.json
-      // }}
+      form: "json",
+      ans: "keep_ans",
+      user: "user"
     })
   },
   methods: {
+    ...mapMutations(["setAns"]),
+    ...mapActions(["getUserById"]),
+
     backHome() {
-      // console.log("tid laeww")
-      // alert("Sure mai ka???")
-      // window.location.href = "startpage";
       if (confirm("sure mai ka??")) {
         window.location.pathname = "startpage";
       }
     },
-    ...mapMutations(["setAns"]),
     sumResult() {
       this.isEditResult = true;
-      // console.log(ans)
-      // for (var i = 0; i < 6; i++) {
-      //     this.cal_ans += this.ans[i].ans_value
-      // }
-      // return this.cal_ans
     }
   }
 };
