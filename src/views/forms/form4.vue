@@ -222,7 +222,7 @@
                 class="card-header-title"
                 style="color: white; background-color: #1E3A8A"
               >
-                ผลการประเมินภาวะหกล้ม (Fall Risk Assessment Tool)
+                ผลการประเมินความเสี่ยงในการหกล้ม (TIME UP AND GO TEST)
               </p>
             </header>
             <div class="card-content" style="background-color: #f4f4f4">

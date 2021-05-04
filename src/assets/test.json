@@ -1047,12 +1047,12 @@
     "choice": [
       {
         "ans_id": 129,
-        "ans_value": 0,
+        "ans_value": 1,
         "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 130,
-        "ans_value": 1,
+        "ans_value": 0,
         "ans_title": "ใช่"
       }
     ]
@@ -1119,12 +1119,12 @@
     "choice": [
       {
         "ans_id": 137,
-        "ans_value": 0,
+        "ans_value": 1,
         "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 138,
-        "ans_value": 1,
+        "ans_value": 0,
         "ans_title": "ใช่"
       }
     ]
@@ -1155,12 +1155,12 @@
     "choice": [
       {
         "ans_id": 141,
-        "ans_value": 0,
+        "ans_value": 1,
         "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 142,
-        "ans_value": 1,
+        "ans_value": 0,
         "ans_title": "ใช่"
       }
     ]
@@ -1227,12 +1227,12 @@
     "choice": [
       {
         "ans_id": 149,
-        "ans_value": 0,
+        "ans_value": 1,
         "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 150,
-        "ans_value": 1,
+        "ans_value": 0,
         "ans_title": "ใช่"
       }
     ]
@@ -1263,12 +1263,12 @@
     "choice": [
       {
         "ans_id": 153,
-        "ans_value": 0,
+        "ans_value": 1,
         "ans_title": "ไม่ใช่"
       },
       {
         "ans_id": 154,
-        "ans_value": 1,
+        "ans_value": 0,
         "ans_title": "ใช่"
       }
     ]
