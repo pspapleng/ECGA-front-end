@@ -2,14 +2,12 @@
   <div>
     <section>
       <div class="columns">
-        <!-- side bar -->
         <div class="column is-1">
           <div>
             <Sidebar />
           </div>
         </div>
-        <!---->
-        <!-- questions -->
+
         <div class="column is-11">
           <div class="assName card mr-6">
             <header class="card-header">
@@ -43,10 +41,12 @@
                     ข้อมูลผู้เข้ารับบริการ
                   </p>
                   <p class="ml-6">
-                    น้ำหนักตัว <input type="text" disabled /> กิโลกรัม
+                    น้ำหนักตัว
+                    <input type="text" :placeholder="user.weight" disabled />
+                    กิโลกรัม
                   </p>
                   <p style="margin-left: 217px;">
-                    อายุ <input type="text" disabled /> ปี
+                    อายุ <input type="text" :placeholder="age" disabled /> ปี
                   </p>
                 </div>
               </div>
@@ -60,25 +60,18 @@
                   <p class="mr-6" style="float: left;">การคำนวณค่า OSTA</p>
                   <p class="ml-6">สูตร 0.2 x (น้ำหนักตัว - อายุ)</p>
                   <p style="margin-left: 180px;">
-                    แทนค่า 0.2 x (<input type="text" disabled /> -
-                    <input type="text" disabled />)
+                    แทนค่า 0.2 x (<input
+                      type="text has-text-center"
+                      :placeholder="user.weight"
+                      disabled
+                    />
+                    - <input type="text" :placeholder="age" disabled />)
                   </p>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- <div class="content">
-                        <div class="questions" v-for="ques in form.slice(162, 163)" :key="ques.ques_id">
-                            <p id="ques_title">
-                                {{ ques.ques }}
-                            </p>
-                            <div class="ans" v-for="ch in ques.choice" :key="ch.ans_id">
-                                <input id="ques.ques_id" type="radio" :value="ch.ans_value" v-model="ques.ans" @change="(e) => setAns({ id: ques.ques_id, value: e.target.value })"/>
-                                <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
-                            </div>
-                        </div>
-                    </div> -->
           <h1>ตารางประเมินความเสี่ยง</h1>
           <img style="width: 45%; height: 45%;" src="@/assets/ass_table1.png" />
           <div class="columns mt-4">
@@ -112,12 +105,7 @@
             </div>
           </div>
         </div>
-        <!---->
-        <!-- choose bar maybe fixed side nav-->
-        <div class="column is-3" id="choosebar">
-          <assChooseBar />
-        </div>
-        <!---->
+
         <b-modal v-model="isEditResult" :width="640">
           <div class="card">
             <header class="card-header">
@@ -133,15 +121,15 @@
                 <div class="card">
                   <header class="card-header">
                     <p class="card-header-title">
-                      ค่าที่คำนวณได้เท่ากับ -5 มีความเสี่ยงสูงต่อโรคกระดูกพรุน
+                      ค่าที่คำนวณได้เท่ากับ {{ osta }} มี{{
+                        anstitle
+                      }}ต่อโรคกระดูกพรุน
                     </p>
                   </header>
                   <div class="card-content">
                     คำแนะนำ
                     <br />
-                    ถ้าเอกซเรย์ TL - spine พบ Osteopenia
-                    ไม่สามารถส่งตรวจความหนาแน่นของกระดูกด้วยเครื่อง DXA ได้
-                    อาจพิจารณาให้การรักษา
+                    {{ anssuggest }}
                   </div>
                 </div>
               </div>
@@ -168,12 +156,10 @@
 </template>
 <script>
 import Sidebar from "@/components/sidebar.vue";
-import { mapState, mapMutations } from "vuex";
-// import assChooseBar from "@/components/assChooseBar.vue";
+import { mapState, mapMutations, mapActions } from "vuex";
 export default {
   components: {
     Sidebar
-    // assChooseBar
   },
   name: "Patientlist",
   data() {
@@ -182,38 +168,66 @@ export default {
       size: "default",
       prevIcon: "chevron-left",
       nextIcon: "chevron-right",
-      isEditResult: false
+      isEditResult: false,
+      anssuggest: "",
+      anstitle: "",
+      osta: 0
     };
   },
   computed: {
     ...mapState({
       count: state => state.count,
-      form: "json"
-      // {
-      //   get () {
-      //   console.log(this.$store.state.json)
-      //   return this.$store.state.json
-      // }}
-    })
+      form: "json",
+      ans: "keep_ans",
+      user: "user"
+    }),
+    age() {
+      var today = new Date();
+      var birthDate = new Date(this.user.date_of_birth);
+      var age = today.getFullYear() - birthDate.getFullYear();
+      var m = today.getMonth() - birthDate.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+      }
+      return age;
+    }
   },
   methods: {
+    ...mapMutations(["setAns"]),
+    ...mapActions(["getUserById"]),
+
     backHome() {
-      // console.log("tid laeww")
-      // alert("Sure mai ka???")
-      // window.location.href = "startpage";
       if (confirm("sure mai ka??")) {
         window.location.pathname = "startpage";
       }
     },
-    ...mapMutations(["setAns"]),
     sumResult() {
+      this.osta = 0;
+      this.anstitle = "";
+      this.anssuggest = "";
       this.isEditResult = true;
-      // console.log(ans)
-      // for (var i = 0; i < 6; i++) {
-      //     this.cal_ans += this.ans[i].ans_value
-      // }
-      // return this.cal_ans
+
+      this.osta = 0.2 * (this.user.weight - this.age);
+      this.osta = this.osta.toFixed(2);
+      if (this.osta < -4) {
+        this.anstitle = "ความเสี่ยงสูง";
+        this.anssuggest =
+          "ถ้าเอกซเรย์ TL - spine พบ Osteopenia ไม่สามารถส่งตรวจความหนาแน่นของกระดูกด้วยเครื่อง DXA ได้ อาจพิจารณาให้การรักษา";
+      } else if (this.osta >= -4 && this.osta <= -1) {
+        this.anstitle = "ความเสี่ยงสูง";
+        this.anssuggest =
+          "ควรส่งตรวจความหนาแน่นของกระดูกก่อนพิจารณาให้การรักษา";
+      } else if (this.osta >= -1) {
+        this.anstitle = "ความเสี่ยงต่ำ";
+        this.anssuggest = "ยังไม่จำเป็นต้องตรวจความหนาแน่นกระดูก";
+      }
     }
+  },
+  beforeRouteEnter(to, from, next) {
+    console.log("before");
+    next(vm => {
+      vm.getUserById();
+    });
   }
 };
 </script>

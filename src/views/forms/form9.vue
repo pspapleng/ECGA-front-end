@@ -359,7 +359,7 @@
               >
                 ย้อนกลับ
               </p>
-              <router-link class="card-footer-item" to="/forms/form4">
+              <router-link class="card-footer-item" to="/forms/form10">
                 <p style="color: #047857">
                   ทำแบบประเมินถัดไป
                 </p>
@@ -414,6 +414,12 @@ export default {
     sumResult() {
       this.isEditResult = true;
     }
+  },
+  beforeRouteEnter(to, from, next) {
+    console.log("before");
+    next(vm => {
+      vm.getUserById();
+    });
   }
 };
 </script>

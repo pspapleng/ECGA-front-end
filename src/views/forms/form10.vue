@@ -305,7 +305,7 @@
               >
                 ย้อนกลับ
               </p>
-              <router-link class="card-footer-item" to="/forms/form4">
+              <router-link class="card-footer-item" to="/forms/form11">
                 <p style="color: #047857">
                   ทำแบบประเมินถัดไป
                 </p>
@@ -367,6 +367,12 @@ export default {
         return (this.anstitle = "มีการกลั้นปัสสาวะไม่อยู่ในระดับรุนแรงน้อย");
       }
     }
+  },
+  beforeRouteEnter(to, from, next) {
+    console.log("before");
+    next(vm => {
+      vm.getUserById();
+    });
   }
 };
 </script>

@@ -239,7 +239,7 @@
                 <div class="card-content">
                   <div class="content">
                     <p class="has-text-centered">
-                      ได้คะแนน {{ ansvalue }} คะแนน {{ anstitle }}
+                      <!-- ได้คะแนน {{ ansvalue }} คะแนน {{ anstitle }} -->
                     </p>
                   </div>
                 </div>
@@ -267,7 +267,7 @@
 </template>
 <script>
 import Sidebar from "@/components/sidebar.vue";
-import { mapState, mapMutations } from "vuex";
+import { mapState, mapMutations, mapActions } from "vuex";
 export default {
   components: {
     Sidebar
@@ -285,19 +285,30 @@ export default {
   computed: {
     ...mapState({
       count: state => state.count,
-      form: "json"
+      form: "json",
+      ans: "keep_ans",
+      user: "user"
     })
   },
   methods: {
+    ...mapMutations(["setAns"]),
+    ...mapActions(["getUserById"]),
+
     backHome() {
       if (confirm("sure mai ka??")) {
         window.location.pathname = "startpage";
       }
     },
-    ...mapMutations(["setAns"]),
+
     sumResult() {
       this.isEditResult = true;
     }
+  },
+  beforeRouteEnter(to, from, next) {
+    console.log("before");
+    next(vm => {
+      vm.getUserById();
+    });
   }
 };
 </script>

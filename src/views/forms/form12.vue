@@ -2,14 +2,12 @@
   <div>
     <section>
       <div class="columns">
-        <!-- side bar -->
         <div class="column is-1">
           <div>
             <Sidebar />
           </div>
         </div>
-        <!---->
-        <!-- questions -->
+
         <div class="column is-11">
           <div class="assName card mr-6">
             <header class="card-header">
@@ -51,7 +49,12 @@
                         type="is-info"
                         @change.native="
                           e =>
-                            setAns({ id: ques.ques_id, value: e.target.value })
+                            setAns({
+                              id: ques.ques_id,
+                              value: parseInt(e.target.value),
+                              title: ch.ans_title,
+                              u_id: 1
+                            })
                         "
                       >
                       </b-radio>
@@ -96,34 +99,46 @@
           </div>
         </div>
 
-        <b-modal v-model="isEditResult">
+        <b-modal v-model="isEditResult" :width="640">
           <div class="card">
             <header class="card-header">
-              <p class="card-header-title">
+              <p
+                class="card-header-title"
+                style="color: white; background-color: #1E3A8A"
+              >
                 ผลการประเมินการคัดกรองโรคข้อเข่าเสื่อมทางคลินิก
               </p>
             </header>
-            <div class="card-content">
-              <div class="content">
+            <div class="card-content" style="background-color: #f4f4f4">
+              <div class="content has-text-left ml-6">
                 การพิจารณา
                 <br />
-                ผู้สูงอายุมีการตอบว่าใช่ 2 ข้อ =
-                มีโอกาสที่จะเป็นโรคข้อเข่าเสื่อม
-                <div class="innerCard">
-                  <div class="innerContent">
-                    มีโอกาสที่จะเป็นโรคข้อเข่าเสื่อม
+                ผู้สูงอายุมีการตอบว่าใช่ 2 ข้อ = มีโอกาสเป็นโรคข้อเข่าเสื่อม
+              </div>
+              <div class="card">
+                <div class="card-content">
+                  <div class="content">
+                    <p class="has-text-centered">
+                      {{ anstitle }}
+                    </p>
                   </div>
                 </div>
               </div>
-              <b-button
-                id="nextAss"
-                type="is-success"
-                tag="a"
-                href="/forms/form13"
-                target=""
-                >ทำแบบประเมินถัดไป</b-button
-              >
             </div>
+            <footer class="card-footer">
+              <p
+                class="card-footer-item"
+                @click="isEditResult = false"
+                style="color: #F90000"
+              >
+                ย้อนกลับ
+              </p>
+              <router-link class="card-footer-item" to="/forms/form13">
+                <p style="color: #047857">
+                  ทำแบบประเมินถัดไป
+                </p>
+              </router-link>
+            </footer>
           </div>
         </b-modal>
       </div>
@@ -132,54 +147,65 @@
 </template>
 <script>
 import Sidebar from "@/components/sidebar.vue";
-import { mapState, mapMutations } from "vuex";
-// import question from "../assets/test.json";
-// import assChooseBar from "@/components/assChooseBar.vue";
+import { mapState, mapMutations, mapActions } from "vuex";
 export default {
   components: {
     Sidebar
-    // assChooseBar
   },
   name: "Patientlist",
   data() {
     return {
-      // question,
       order: "is-right",
       size: "default",
       prevIcon: "chevron-left",
       nextIcon: "chevron-right",
-      isEditResult: false
+      isEditResult: false,
+      anstitle: "",
+      countans: 0
     };
   },
   computed: {
     ...mapState({
       count: state => state.count,
-      form: "json"
-      // {
-      //   get () {
-      //   console.log(this.$store.state.json)
-      //   return this.$store.state.json
-      // }}
+      form: "json",
+      ans: "keep_ans",
+      user: "user"
     })
   },
   methods: {
+    ...mapMutations(["setAns"]),
+    ...mapActions(["getUserById"]),
+
     backHome() {
-      // console.log("tid laeww")
-      // alert("Sure mai ka???")
-      // window.location.href = "startpage";
       if (confirm("sure mai ka??")) {
         window.location.pathname = "startpage";
       }
     },
-    ...mapMutations(["setAns"]),
+
     sumResult() {
+      this.countans = 0;
+      this.anstitle = "";
+      console.log(this.ans);
       this.isEditResult = true;
-      // console.log(ans)
-      // for (var i = 0; i < 6; i++) {
-      //     this.cal_ans += this.ans[i].ans_value
-      // }
-      // return this.cal_ans
+      for (var i = 157; i < 162; i++) {
+        if (this.ans[i].ans_value == 1) {
+          this.countans += 1;
+        }
+      }
+
+      if (this.countans >= 2) {
+        this.anstitle =
+          "มีโอกาสที่จะเป็นโรคข้อเข่าเสื่อม ส่งต่อแพทย์ตรวจวินิจฉัยเพื่อยืนยันผลและทำการรักษา";
+      } else {
+        this.anstitle = "ไม่มีความเสี่ยงที่จะเป็นโรคข้อเข่าเสื่อม";
+      }
     }
+  },
+  beforeRouteEnter(to, from, next) {
+    console.log("before");
+    next(vm => {
+      vm.getUserById();
+    });
   }
 };
 </script>

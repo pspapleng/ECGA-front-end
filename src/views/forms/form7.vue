@@ -146,7 +146,7 @@
                 >
                   ย้อนกลับ
                 </p>
-                <router-link class="card-footer-item" to="/forms/form4">
+                <router-link class="card-footer-item" to="/forms/form8">
                   <p style="color: #047857">
                     ทำแบบประเมินถัดไป
                   </p>
@@ -213,6 +213,12 @@ export default {
         return (this.anstitle = "ผู้สูงอายุอยู่ในเกณฑ์ปกติ");
       }
     }
+  },
+  beforeRouteEnter(to, from, next) {
+    console.log("before");
+    next(vm => {
+      vm.getUserById();
+    });
   }
 };
 </script>

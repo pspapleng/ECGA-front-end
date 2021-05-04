@@ -191,6 +191,12 @@ export default {
 
       return this.ansvalue;
     }
+  },
+  beforeRouteEnter(to, from, next) {
+    console.log("before");
+    next(vm => {
+      vm.getUserById();
+    });
   }
 };
 </script>

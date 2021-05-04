@@ -245,7 +245,7 @@
               >
                 ย้อนกลับ
               </p>
-              <router-link class="card-footer-item" to="/forms/form4">
+              <router-link class="card-footer-item" to="/forms/form6">
                 <p style="color: #047857">
                   ทำแบบประเมินถัดไป
                 </p>
@@ -334,6 +334,12 @@ export default {
       }
       return this.anstitle;
     }
+  },
+  beforeRouteEnter(to, from, next) {
+    console.log("before");
+    next(vm => {
+      vm.getUserById();
+    });
   }
 };
 </script>
