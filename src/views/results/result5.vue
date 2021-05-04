@@ -12,7 +12,7 @@
                   class="card-header-title"
                   style="color: white; background-color: #1E3A8A"
                 >
-                  การคัดกรองสุขภาวะทางตา
+                  แบบประเมินการคัดกรองสุขภาวะทางตา
                 </p>
               </header>
               <div class="card-content">
@@ -203,7 +203,7 @@
                 </router-link>
               </div>
               <div class="column is-8 is-offset-4">
-                <router-link to="/result">
+                <router-link to="/results">
                   <b-button
                     class="back mr-2"
                     type="is-light"

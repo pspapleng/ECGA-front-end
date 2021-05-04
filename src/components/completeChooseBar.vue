@@ -1,74 +1,114 @@
 <template>
-  <div id="bigBox" class="box has-background-light has-text-left">
+  <div class="box has-background-light has-text-left py-5 px-5">
+    <header class="head-title my-1">
+      หัวข้อแบบประเมินทั้งหมด
+    </header>
     <div>
-      <header id="choosebarHeader">หัวข้อแบบประเมินทั้งหมด</header>
-    </div>
-    <div class="assChoice">
-      <i class="fas fa-check-circle" id="checkIcon"></i>
-      <label for="">แบบประเมินภาวะโภชนาการ (MNA)</label>
-    </div>
-    <div class="assChoice">
-      <i class="fas fa-check-circle" id="checkIcon"></i>
-      <label for="">แบบประเมินช่องปากในผู้สูงอายุ</label>
-    </div>
-    <div class="assChoice">
-      <i class="fas fa-check-circle" id="checkIcon"></i>
-      <label for=""
-        >แบบประเมินภาวะหกล้ม <br />
-        (Fall Risk Assessment Tool)</label
-      >
-    </div>
-    <div class="assChoice">
-      <i class="fas fa-check-circle" id="checkIcon"></i>
-      <label for=""
-        >แบบประเมินภาวะหกล้ม <br />
-        (TIME UP AND GO TEST)</label
-      >
-    </div>
-    <div class="assChoice">
-      <i class="fas fa-check-circle" id="checkIcon"></i>
-      <label for="">แบบประเมินสุขภาวะทางตา</label>
-    </div>
-    <div class="assChoice">
-      <i class="fas fa-check-circle" id="checkIcon"></i>
-      <label for=""
-        >แบบประเมินความเศร้า <br />
-        ในผู้สูงอายุไทย 15 ข้อ</label
-      >
-    </div>
-    <div class="assChoice">
-      <i class="fas fa-check-circle" id="checkIcon"></i>
-      <label for=""
-        >แบบประเมินคัดกรองความจำเสื่อม <br />
-        สำหรับผู้สูงอายุไทย</label
-      >
-    </div>
-    <div class="assChoice">
-      <i class="fas fa-check-circle" id="checkIcon"></i>
-      <label for="">แบบประเมิน MMSE - Thai 2002</label>
-    </div>
-    <div class="assChoice">
-      <i class="fas fa-check-circle" id="checkIcon"></i>
-      <label for=""
-        >แบบประเมินผู้สูงอายุที่ต้องได้รับ <br />
-        การดูแลระยะยาว</label
-      >
-    </div>
-    <div class="assChoice">
-      <i class="fas fa-check-circle" id="checkIcon"></i>
-      <label for="">แบบประเมินภาวะกลั้นปัสสาวะไม่อยู่</label>
-    </div>
-    <div class="assChoice">
-      <i class="fas fa-check-circle" id="checkIcon"></i>
-      <label for="">แบบประเมินปัญหาการนอน</label>
-    </div>
-    <div class="assChoice">
-      <i class="fas fa-check-circle" id="checkIcon"></i>
-      <label for="">แบบประเมินโรคข้อเข่าเสื่อมทางคลินิก</label>
-    </div>
-    <div class="assChoice">
-      <i class="fas fa-check-circle" id="checkIcon"></i>
-      <label for="">แบบประเมินความเสี่ยงต่อโรคกระดูกพรุน</label>
+      <div class="name mt-2">
+        <b-icon pack="fas" icon="check-circle" style="color: #047857;">
+        </b-icon>
+        <router-link to="/results/result1">
+          <span class="name-title mx-1">แบบประเมินภาวะโภชนาการ (MNA)</span>
+        </router-link>
+      </div>
+      <div class="name mt-2">
+        <b-icon pack="fas" icon="check-circle" style="color: #047857;">
+        </b-icon>
+        <router-link to="/results/result2">
+          <span class="name-title mx-1">แบบประเมินช่องปากผู้สูงอายุ</span>
+        </router-link>
+      </div>
+      <div class="name mt-2">
+        <b-icon pack="fas" icon="check-circle" style="color: #047857;">
+        </b-icon>
+        <router-link to="/results/result3">
+          <span class="name-title mx-1"
+            >แบบประเมินภาวะหกล้ม (Fall Risk Assessment Tool)</span
+          >
+        </router-link>
+      </div>
+      <div class="name mt-2">
+        <b-icon pack="fas" icon="check-circle" style="color: #047857;">
+        </b-icon>
+        <router-link to="/results/result4">
+          <span class="name-title mx-1"
+            >แบบประเมินความเสี่ยงในการหกล้ม (TIME UP AND GO TEST)</span
+          >
+        </router-link>
+      </div>
+      <div class="name mt-2">
+        <b-icon pack="fas" icon="check-circle" style="color: #047857;">
+        </b-icon>
+        <router-link to="/results/result5">
+          <span class="name-title mx-1">แบบประเมินการคัดกรองสุขภาวะทางตา</span>
+        </router-link>
+      </div>
+      <div class="name mt-2">
+        <b-icon pack="fas" icon="check-circle" style="color: #047857;">
+        </b-icon>
+        <router-link to="/results/result6">
+          <span class="name-title mx-1"
+            >แบบประเมินความเศร้าในผู้สูงอายุไทย 15 ข้อ (TGDS-15)*</span
+          >
+        </router-link>
+      </div>
+      <div class="name mt-2">
+        <b-icon pack="fas" icon="check-circle" style="color: #047857;">
+        </b-icon>
+        <router-link to="/results/result7">
+          <span class="name-title mx-1"
+            >แบบประเมินคัดกรองความจำเสื่อมสำหรับผู้สูงอายุไทย (IQCODE)</span
+          >
+        </router-link>
+      </div>
+      <div class="name mt-2">
+        <b-icon pack="fas" icon="check-circle" style="color: #047857;">
+        </b-icon>
+        <router-link to="/results/result8">
+          <span class="name-title mx-1">แบบประเมิน MMSE – Thai 2002</span>
+        </router-link>
+      </div>
+      <div class="name mt-2">
+        <b-icon pack="fas" icon="check-circle" style="color: #047857;">
+        </b-icon>
+        <router-link to="/results/result9">
+          <span class="name-title mx-1"
+            >แบบประเมินผู้สูงอายุที่ต้องได้รับการดูแลระยะยาว</span
+          >
+        </router-link>
+      </div>
+      <div class="name mt-2">
+        <b-icon pack="fas" icon="check-circle" style="color: #047857;">
+        </b-icon>
+        <router-link to="/results/result10">
+          <span class="name-title mx-1">แบบประเมินภาวะกลั้นปัสสาวะไม่อยู่</span>
+        </router-link>
+      </div>
+      <div class="name mt-2">
+        <b-icon pack="fas" icon="check-circle" style="color: #047857;">
+        </b-icon>
+        <router-link to="/results/result11">
+          <span class="name-title mx-1">แบบประเมินปัญหาการนอน</span>
+        </router-link>
+      </div>
+      <div class="name mt-2">
+        <b-icon pack="fas" icon="check-circle" style="color: #047857;">
+        </b-icon>
+        <router-link to="/results/result12">
+          <span class="name-title mx-1"
+            >แบบประเมินโรคข้อเข่าเสื่อมทางคลินิก</span
+          >
+        </router-link>
+      </div>
+      <div class="name mt-2">
+        <b-icon pack="fas" icon="check-circle" style="color: #047857;">
+        </b-icon>
+        <router-link to="/results/result13">
+          <span class="name-title mx-1"
+            >แบบประเมินความเสี่ยงต่อโรคกระดูกพรุน</span
+          >
+        </router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -81,35 +121,21 @@ export default {
 };
 </script>
 <style>
-#bigBox {
+.box {
   position: fixed;
   height: 100%;
-  width: 320 px;
+  width: 30vw;
   top: 0;
   right: 0;
+  overflow: auto;
 }
-#choosebarHeader {
-  text-align: left;
-  margin-top: 5vh;
-  margin-bottom: 2vh;
-  font-size: 1.125rem;
-  font-weight: 600;
+.head-title {
+  font-size: 1.25rem;
+  font-weight: 500;
 }
-#choosebar {
-  text-align: left;
-  height: 720px;
-}
-.assChoice {
-  margin-top: 1vh;
-  margin-bottom: 1.25vh;
-}
-#checkIcon {
-  margin-right: 0.5vw;
-  color: #047857;
-}
-#startButton {
-  position: fixed;
-  bottom: 6vh;
-  right: 4vw;
+.name-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #393939;
 }
 </style>

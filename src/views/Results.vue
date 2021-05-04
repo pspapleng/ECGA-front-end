@@ -3,12 +3,11 @@
     <div class="hero-body">
       <div class="container">
         <div class="columns">
-          <div class="column is-1">
-            <Sidebar />
-          </div>
-          <div class="column is-8">
+          <div
+            class="column is-8-desktop is-7-tablet is-6-mobile is-offset-1-desktop is-offset-2-tablet is-offset-2-mobile"
+          >
             <div class="column is-10">
-              <h1 class="title">
+              <h1 class="head ml-2">
                 ผลการประเมิน E-CGA
               </h1>
               <!-- <div v-for="(item, index) in result" :key="index">
@@ -137,8 +136,10 @@
               </div>
             </div>
           </div>
-
-          <div class="column is-3">
+          <div class="column is-1-desktop is-3-tablet is-5-mobile">
+            <Sidebar />
+          </div>
+          <div class="column is-3-desktop is-5-tablet is-7-mobile">
             <completeChooseBar />
           </div>
         </div>
@@ -175,11 +176,12 @@ export default {
 };
 </script>
 <style>
-.title {
+.head {
   color: black;
   text-align: left;
   font-weight: 500;
   font-size: 1.75rem;
+  margin-bottom: 1rem;
 }
 .result_bt {
   font-family: "Kanit", sans-serif;

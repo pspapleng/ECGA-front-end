@@ -95,7 +95,7 @@
                 </b-button>
               </div>
               <div class="column is-8 is-offset-4">
-                <router-link to="/result">
+                <router-link to="/results">
                   <b-button
                     class="back mr-2"
                     type="is-light"
@@ -157,7 +157,7 @@
               >
                 ย้อนกลับ
               </p>
-              <router-link class="card-footer-item" to="/result">
+              <router-link class="card-footer-item" to="/results">
                 <p style="color: #047857">
                   เสร็จสิ้นการดูผลประเมิน
                 </p>

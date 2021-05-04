@@ -15,7 +15,7 @@
                   class="card-header-title"
                   style="color: white; background-color: #1E3A8A"
                 >
-                  แบบวัดความเศร้าในผู้สูงอายุไทย (TGDS)
+                  แบบประเมินความเศร้าในผู้สูงอายุไทย 15 ข้อ (TGDS-15)*
                 </p>
               </header>
               <div class="card-content">
@@ -77,7 +77,7 @@
                 </router-link>
               </div>
               <div class="column is-8 is-offset-4">
-                <router-link to="/result">
+                <router-link to="/results">
                   <b-button
                     class="back mr-2"
                     type="is-light"
@@ -108,7 +108,7 @@
                 class="card-header-title"
                 style="color: white; background-color: #1E3A8A"
               >
-                ผลการประเมินแบบวัดความเศร้าในผู้สูงอายุไทย (TGDS)
+                ผลการประเมินความเศร้าในผู้สูงอายุไทย 15 ข้อ (TGDS-15)*
               </p>
             </header>
             <div class="card-content" style="background-color: #f4f4f4">
