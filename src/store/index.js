@@ -32,6 +32,10 @@ export default new Vuex.Store({
       fall_history: 0,
       n_id: null
     },
+    login: {
+      username: "",
+      password: ""
+    },
     u_id: 1,
     n_id: 1,
     user: "",
@@ -45,6 +49,16 @@ export default new Vuex.Store({
     UserId: null
   },
   mutations: {
+    setLogin(state, payload) {
+      console.log(payload);
+      state.login = payload;
+    },
+    resetLogin(state) {
+      state.login = {
+        username: "",
+        password: ""
+      };
+    },
     setResultId(state, payload) {
       // console.log("in mutation", payload);
       state.result_id = payload;
@@ -116,6 +130,24 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    login({ state, commit }) {
+      console.log(state.login);
+      return Vue.axios
+        .post(`http://localhost:3000/api/nurse`, state.login)
+        .then(res => {
+          console.log(res);
+          const token = res.data.token;
+          localStorage.setItem("token", token);
+          this.$emit("auth-change"); // ทำการ $emit event มาที่ App.vue เพื่ออัพเดต Navigation Bar
+          this.$router.push({ path: "/patientlist" });
+          commit("resetLogin");
+          return Promise.resolve();
+        })
+        .catch(e => {
+          console.log(e.response.data);
+          return Promise.reject(e.response.data);
+        });
+    },
     createNurse({ state, commit }) {
       console.log("hi");
       console.log(state.createNurse);

@@ -5,22 +5,54 @@
         <p class="title has-text-centered">
           เข้าสู่ระบบ <mark type="is-warning">E-CGA</mark>
         </p>
+        <p
+          v-if="error"
+          class="px-3 py-2 mb-3 has-text-danger-dark has-background-danger-light"
+        >
+          {{ error }}
+        </p>
         <div class="column is-4 is-offset-4">
-          <b-field>
-            <b-input v-model="name" placeholder="ชื่อบัญชีผู้ใช้"></b-input>
-          </b-field>
-          <b-field>
+          <b-field
+            class="mb-2"
+            :type="{ 'is-danger': $v.login_form.username.$error }"
+          >
             <b-input
-              v-model="pass"
+              v-model="$v.login_form.username.$model"
+              placeholder="ชื่อบัญชีผู้ใช้"
+            ></b-input>
+          </b-field>
+          <template v-if="$v.login_form.username.$error">
+            <p
+              class="help is-danger has-text-left mb-2"
+              v-if="!$v.login_form.username.required"
+            >
+              * กรุณากรอกชื่อบัญชีผู้ใช้
+            </p>
+          </template>
+          <b-field
+            class="mb-2"
+            :type="{ 'is-danger': $v.login_form.password.$error }"
+          >
+            <b-input
+              v-model="$v.login_form.password.$model"
               type="password"
               placeholder="รหัสผ่าน"
               password-reveal
             />
           </b-field>
+          <template v-if="$v.login_form.password.$error">
+            <p
+              class="help is-danger has-text-left mb-2"
+              v-if="!$v.login_form.password.required"
+            >
+              * กรุณากรอกรหัสผ่าน
+            </p>
+          </template>
         </div>
         <b-button
           class="login"
           style="font-family: 'Kanit', sans-serif; font-weight: 400;"
+          @click="login"
         >
           เข้าสู่ระบบ
         </b-button>
@@ -34,10 +66,64 @@
   </div>
 </template>
 <script>
+import { debounce } from "debounce";
+import { required } from "vuelidate/lib/validators";
+import { mapMutations, mapActions } from "vuex";
+
 export default {
   name: "Login",
   data() {
-    return {};
+    return {
+      login_form: {
+        username: "",
+        password: ""
+      },
+      error: ""
+    };
+  },
+  validations: {
+    login_form: {
+      username: { required },
+      password: { required }
+    }
+  },
+  methods: {
+    ...mapMutations(["setLogin"]),
+    ...mapActions(["login"]),
+    debounceInput: debounce(function(e) {
+      console.log(e);
+      this.setLogin(e);
+    }, 300),
+    login() {
+      // Validate all fields
+      this.$v.$touch();
+      // เช็คว่าในฟอร์มไม่มี error
+      if (!this.$v.$invalid) {
+        alert("login");
+        this.login()
+          .then(() => {
+            this.$router.push({ name: "Login" });
+          })
+          .catch(e => {
+            console.log(e.details);
+          });
+      } else {
+        alert("โปรดกรอกข้อมูลให้ถูกต้องทุกช่อง");
+      }
+    }
+  },
+  watch: {
+    login_form: {
+      // This will let Vue know to look inside the array
+      deep: true,
+
+      // We have to move our method to a handler field
+      handler(val) {
+        this.debounceInput(val);
+
+        console.log("The form has changed!");
+      }
+    }
   }
 };
 </script>
