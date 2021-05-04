@@ -101,7 +101,7 @@
               </p>
             </header>
             <div class="card-content" style="background-color: #f4f4f4">
-              <div class="content has-text-left ml-5">
+              <div class="content has-text-left ml-6">
                 การพิจารณา (คะแนนเต็ม 15 คะแนน)
                 <br />
                 6 คะแนนขึ้นไป = บ่งบอกว่ามีภาวะซึมเศร้าควรติดตามหรือ<br />ส่งพบแพทย์ประเมินอาการทางคลินิก
@@ -141,18 +141,14 @@
 </template>
 <script>
 import Sidebar from "@/components/sidebar.vue";
-// import assChooseBar from "@/components/assChooseBar.vue";
 import { mapState, mapMutations, mapActions } from "vuex";
-// import question from "../assets/test.json";
 export default {
   components: {
     Sidebar
-    // assChooseBar,
   },
   name: "Patientlist",
   data() {
     return {
-      // question,
       order: "is-right",
       size: "default",
       prevIcon: "chevron-left",

@@ -59,7 +59,12 @@
                         type="is-info"
                         @change.native="
                           e =>
-                            setAns({ id: ques.ques_id, value: e.target.value })
+                            setAns({
+                              id: ques.ques_id,
+                              value: parseInt(e.target.value),
+                              title: ch.ans_title,
+                              u_id: 1
+                            })
                         "
                       >
                       </b-radio>
@@ -103,36 +108,50 @@
             </div>
           </div>
 
-          <b-modal v-model="isEditResult">
+          <b-modal v-model="isEditResult" :width="640">
             <div class="card">
               <header class="card-header">
-                <p class="card-header-title">
-                  ผลการประเมินคัดกรองความจำเสื่อมสำหรับผู้สูงอายุไทย
+                <p
+                  class="card-header-title"
+                  style="color: white; background-color: #1E3A8A"
+                >
+                  ผลการประเมินคัดกรองความจำเสื่อมสำหรับผู้สูงอายุ
                 </p>
               </header>
-              <div class="card-content">
-                <div class="content">
+              <div class="card-content" style="background-color: #f4f4f4">
+                <div class="content has-text-left ml-6">
                   การคิดคะแนน
                   <br />
-                  ทั้งหมด / จำนวนข้อ
+                  คะแนนทั้งหมด / ขำนวนข้อทั้งหมด
                   <br />
                   ถ้าผู้สูงอายุมีคะแนนเท่ากับหรือมากกว่า 3.44 =
                   ผู้สูงอายุน่าจะมีภาวะสมองเสื่อม
-                  <div class="innerCard">
-                    <div class="innerContent">
-                      ผู้สูงอายุน่าจะมีภาวะสมองเสื่อม
+                </div>
+                <div class="card">
+                  <div class="card-content">
+                    <div class="content">
+                      <p class="has-text-centered">
+                        ได้คะแนน {{ ansvalue }} คะแนน <br />
+                        {{ anstitle }}
+                      </p>
                     </div>
                   </div>
                 </div>
-                <b-button
-                  id="nextAss"
-                  type="is-success"
-                  tag="a"
-                  href="/forms/form8"
-                  target=""
-                  >ทำแบบประเมินถัดไป</b-button
-                >
               </div>
+              <footer class="card-footer">
+                <p
+                  class="card-footer-item"
+                  @click="isEditResult = false"
+                  style="color: #F90000"
+                >
+                  ย้อนกลับ
+                </p>
+                <router-link class="card-footer-item" to="/forms/form4">
+                  <p style="color: #047857">
+                    ทำแบบประเมินถัดไป
+                  </p>
+                </router-link>
+              </footer>
             </div>
           </b-modal>
         </div>
@@ -142,61 +161,57 @@
 </template>
 <script>
 import Sidebar from "@/components/sidebar.vue";
-// import assChooseBar from "@/components/assChooseBar.vue";
-import { mapState, mapMutations } from "vuex";
-// import question from "../assets/test.json";
+import { mapState, mapMutations, mapActions } from "vuex";
 export default {
   components: {
     Sidebar
-    // assChooseBar,
   },
   name: "Patientlist",
   data() {
     return {
-      // question,
       order: "is-right",
       size: "default",
       prevIcon: "chevron-left",
       nextIcon: "chevron-right",
-      isEditResult: false
-      // nurse: '',
-      // famMemmory: '',
-      // pastEvent: '',
-      // selfAdjust: '',
-      // learnNew: '',
-      // understandSitu: '',
-      // canTravel: '',
-      // canWork: ''
+      isEditResult: false,
+      anstitle: "",
+      ansvalue: 0
     };
   },
   computed: {
     ...mapState({
       count: state => state.count,
-      form: "json"
-      // {
-      //   get () {
-      //   console.log(this.$store.state.json)
-      //   return this.$store.state.json
-      // }}
+      form: "json",
+      ans: "keep_ans",
+      user: "user"
     })
   },
   methods: {
+    ...mapMutations(["setAns"]),
+    ...mapActions(["getUserById"]),
+
     backHome() {
-      // console.log("tid laeww")
-      // alert("Sure mai ka???")
-      // window.location.href = "startpage";
       if (confirm("sure mai ka??")) {
         window.location.pathname = "startpage";
       }
     },
-    ...mapMutations(["setAns"]),
+
     sumResult() {
       this.isEditResult = true;
-      // console.log(ans)
-      // for (var i = 0; i < 6; i++) {
-      //     this.cal_ans += this.ans[i].ans_value
-      // }
-      // return this.cal_ans
+      this.ansvalue = 0;
+      this.anstitle = "";
+
+      for (var i = 62; i < 70; i++) {
+        this.ansvalue += this.ans[i].ans_value;
+      }
+
+      this.ansvalue = this.ansvalue / 8;
+
+      if (this.ansvalue >= 3.44) {
+        return (this.anstitle = "ผู้สูงอายุน่าจะมีภาวะสมองเสื่อม");
+      } else {
+        return (this.anstitle = "ผู้สูงอายุอยู่ในเกณฑ์ปกติ");
+      }
     }
   }
 };
