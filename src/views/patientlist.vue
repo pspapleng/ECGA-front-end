@@ -111,7 +111,7 @@
                 <router-link to="/results">
                   <span
                     class="tag is-success is-light"
-                    @click="seeResult(props.row.u_id)"
+                    @click="seeResult(props.row)"
                     v-if="
                       props.row.result != null &&
                       selected.getFullYear() -
@@ -126,7 +126,7 @@
 
                 <span
                   class="tag is-warning is-light"
-                  @click="seeResult(props.row.u_id)"
+                  @click="seeResult(props.row)"
                   v-if="
                     props.row.result != null &&
                     selected.getFullYear() -
@@ -841,7 +841,8 @@ export default {
     },
     seeResult(id) {
       console.log(id);
-      this.setUserId(id);
+      this.setUserId(id.u_id);
+      this.setResultId(id.result_id);
       console.log(this.result_id);
     },
     DoForm(id) {
