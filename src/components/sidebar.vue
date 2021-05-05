@@ -70,7 +70,6 @@
               {{ who_login.n_fname }} {{ who_login.n_lname }}
             </p>
           </router-link>
-          <!-- <router-link to="/login"> -->
           <b-button
             type="is-danger"
             icon-left="sign-out-alt"
@@ -80,7 +79,6 @@
             expanded
             >Log out
           </b-button>
-          <!-- </router-link> -->
         </template>
         <b-button
           style="background-color: #1e3a8a; color: white; border-color: #1e3a8a"
