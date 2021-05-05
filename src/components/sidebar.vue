@@ -1,29 +1,26 @@
 <template>
-  <!-- <b-sidebar
-    fullheight="true"
-    reduce="true"
-    style="background-color: #1e3a8a"
-    open
-  > -->
   <div class="sidebar">
-    <!-- <b-menu> -->
     <div class="top">
       <!-- ปุ่มรายชื่อ -->
       <div
         style="padding: 20px 25px 10px"
-        v-if="store.state.checklist == false"
-        @click="(store.state.checklist = !store.state.checklist), (store.state.checkfrom = !store.state.checkfrom)"
+        v-if="checklist == false"
+        @click="(checklist = !checklist), (checkfrom = !checkfrom)"
       >
-      <router-link to="/patientlist">
-        <b-button
-          style="background-color: #1e3a8a; color: white; border-color: #1e3a8a"
-          size="is-large"
-        >
-          <b-icon icon="menu" size="is-medium"> </b-icon>
-        </b-button>
-      </router-link>
+        <router-link to="/patientlist">
+          <b-button
+            style="
+              background-color: #1e3a8a;
+              color: white;
+              border-color: #1e3a8a;
+            "
+            size="is-large"
+          >
+            <b-icon icon="menu" size="is-medium"> </b-icon>
+          </b-button>
+        </router-link>
       </div>
-      <div style="padding: 20px 25px 10px" v-if="store.state.checklist == true">
+      <div style="padding: 20px 25px 10px" v-if="checklist == true">
         <b-button
           style="background-color: white; color: #1e3a8a; border-color: white"
           size="is-large"
@@ -34,19 +31,23 @@
       <!-- ปุ่มแบบประเมิน -->
       <div
         style="padding: 0px 25px 0px"
-        v-if="store.state.checkfrom == false"
-        @click="(store.state.checklist = !store.state.checklist), (store.state.checkfrom = !store.state.checkfrom)"
+        v-if="checkfrom == false"
+        @click="(checklist = !checklist), (checkfrom = !checkfrom)"
       >
-      <router-link to="/startpage">
-        <b-button
-          style="background-color: #1e3a8a; color: white; border-color: #1e3a8a"
-          size="is-large"
-        >
-          <b-icon icon="text-box-outline" size="is-medium"> </b-icon>
-        </b-button>
-      </router-link>
+        <router-link to="/startpage">
+          <b-button
+            style="
+              background-color: #1e3a8a;
+              color: white;
+              border-color: #1e3a8a;
+            "
+            size="is-large"
+          >
+            <b-icon icon="text-box-outline" size="is-medium"> </b-icon>
+          </b-button>
+        </router-link>
       </div>
-      <div style="padding: 0px 25px 0px" v-if="store.state.checkfrom == true">
+      <div style="padding: 0px 25px 0px" v-if="checkfrom == true">
         <b-button
           style="background-color: white; color: #1e3a8a; border-color: white"
           size="is-large"
@@ -64,14 +65,14 @@
         :auto-close="['outside', 'escape']"
       >
         <template v-slot:content>
-          <p>{{store.state.n_fname}} {{store.state.n_lname}}</p>
+          <p>{{ login.username }} {{ login.password }}</p>
           <router-link to="/login">
             <b-button
               type="is-danger"
               icon-left="sign-out-alt"
               icon-pack="fas"
               size="is-small"
-              @click="getData()"
+              @click="logOut()"
               expanded
               >Log out
             </b-button>
@@ -91,14 +92,30 @@
 </template>
 
 <script>
-import store from "@/store/index.js";
+import { mapState, mapMutations } from "vuex";
 export default {
   data() {
     return {
-      store,
+      checklist: "",
+      checkfrom: "",
+      n_fname: "Taweewat",
+      n_lname: "Srimek",
+      login: {
+        username: "",
+        password: "",
+      },
     };
   },
   name: "Sidebar",
+  methods: {
+    ...mapMutations(["resetLogin"]),
+    logOut() {
+      this.resetLogin()
+    }
+  },
+  computed: {
+    ...mapState(["login"]),
+  },
 };
 </script>
 

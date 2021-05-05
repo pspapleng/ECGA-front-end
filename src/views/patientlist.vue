@@ -27,13 +27,6 @@
                 icon="magnify"
               >
               </b-input>
-              <b-button
-                type="is-success"
-                icon-left="search"
-                icon-pack="fas"
-                @click="getData()"
-                >ค้นหา
-              </b-button>
               <!-- <router-link to="/CreateAccUser"> -->
               <b-button
                 type="is-success"
@@ -115,7 +108,7 @@
                 width="100"
                 v-slot="props"
               >
-                <router-link to="/Result">
+                <router-link to="/results">
                   <span
                     class="tag is-success is-light"
                     @click="seeResult(props.row.result_id)"
@@ -143,7 +136,7 @@
                 >
                   ประเมินเมื่อ
                   {{ new Date(props.row.result_date).toLocaleDateString() }}
-                  <router-link to="/Result" />
+                  <router-link to="/results" />
                 </span>
 
                 <span class="tag" v-if="props.row.result == null" disabled>
@@ -739,7 +732,7 @@
  
 <script>
 import Sidebar from "@/components/sidebar.vue";
-// import axios from "axios";
+import { debounce } from "debounce";
 import { mapState, mapActions, mapMutations } from "vuex";
 import {
   required,
@@ -825,12 +818,15 @@ export default {
       minValue: minValue(0),
     },
   },
-  mounted() {
-    this.getData();
-  },
   methods: {
     ...mapMutations(["setSearch", "setUserId", "setResultId"]),
     ...mapActions(["editUser"]),
+    debounceInput: debounce(function(e) {
+      this.setSearch(this.in_search);
+      this.getUser(e);
+      console.log(e);
+      console.log(this.in_search);
+    }, 300),
     doc() {
       // this.getUser();
       console.log(this.u_Data);
@@ -851,10 +847,6 @@ export default {
     DoForm(id) {
       console.log(id);
       this.setUserId(id);
-    },
-    getData() {
-      this.setSearch(this.in_search);
-      this.getUser();
     },
     getAge(date) {
       var today = new Date();
@@ -954,6 +946,15 @@ export default {
       vm.getUser();
     });
   },
+  watch: {
+    in_search: {
+      handler(val) {
+        this.debounceInput();
+        console.log(val);
+        console.log("The form has changed!");
+      }
+    },
+  }
 };
 </script>
 

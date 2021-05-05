@@ -40,11 +40,7 @@ export default new Vuex.Store({
     n_id: 1,
     user: "",
     result_id: 1,
-    checklist: false,
-    checkfrom: true,
     in_search: "",
-    n_fname: "Taweewat",
-    n_lname: "Srimek",
     u_Data: [],
     UserId: null
   },
