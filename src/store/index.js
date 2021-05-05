@@ -36,8 +36,14 @@ export default new Vuex.Store({
       username: "",
       password: ""
     },
+    who_login: {
+      n_id: 0,
+      ID: "",
+      n_fname: "",
+      n_lname: "",
+      username: ""
+    },
     u_id: 1,
-    n_id: 1,
     user: "",
     result_id: 1,
     in_search: "",
@@ -45,6 +51,9 @@ export default new Vuex.Store({
     UserId: null
   },
   mutations: {
+    setState(state, { name, value }) {
+      state[name] = value;
+    },
     setLogin(state, payload) {
       console.log(payload);
       state.login = payload;
@@ -53,6 +62,18 @@ export default new Vuex.Store({
       state.login = {
         username: "",
         password: ""
+      };
+    },
+    setWhoLogin(state, payload) {
+      state.who_login = payload;
+    },
+    resetWhoLogin(state) {
+      state.who_login = {
+        n_id: 0,
+        ID: "",
+        n_fname: "",
+        n_lname: "",
+        username: ""
       };
     },
     setResultId(state, payload) {
@@ -126,17 +147,41 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    login({ state, commit }) {
-      console.log(state.login);
+    createLogin({ state, commit, dispatch }) {
+      // console.log(state.login);
       return Vue.axios
-        .post(`http://localhost:3000/api/nurse`, state.login)
+        .post(`http://localhost:3000/api/login`, state.login)
         .then(res => {
           console.log(res);
           const token = res.data.token;
           localStorage.setItem("token", token);
-          this.$emit("auth-change"); // ทำการ $emit event มาที่ App.vue เพื่ออัพเดต Navigation Bar
-          this.$router.push({ path: "/patientlist" });
+          dispatch("getWhoLogin");
           commit("resetLogin");
+          return Promise.resolve();
+        })
+        .catch(e => {
+          console.log(e.response.data);
+          return Promise.reject(e.response.data);
+        });
+    },
+    getWhoLogin({ commit }) {
+      const token = localStorage.getItem("token");
+      return Vue.axios
+        .get(`http://localhost:3000/api/login/user/me`, {
+          headers: { Authorization: "Bearer " + token }
+        })
+        .then(res => {
+          console.log("whologin", res.data);
+          commit("setWhoLogin", res.data);
+        });
+    },
+    createLogout({ state, commit }) {
+      return Vue.axios
+        .delete(`http://localhost:3000/api/login/${state.who_login.n_id}`)
+        .then(res => {
+          console.log(res);
+          localStorage.removeItem("token");
+          commit("resetWhoLogin");
           return Promise.resolve();
         })
         .catch(e => {

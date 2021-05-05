@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuelidate from "vuelidate";
-import axios from "axios";
+import axios from "@/plugins/axios";
 import VueAxios from "vue-axios";
 import App from "./App.vue";
 import "./registerServiceWorker";

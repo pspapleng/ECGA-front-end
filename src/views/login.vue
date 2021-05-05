@@ -5,13 +5,13 @@
         <p class="title has-text-centered">
           เข้าสู่ระบบ <mark type="is-warning">E-CGA</mark>
         </p>
-        <p
-          v-if="error"
-          class="px-3 py-2 mb-3 has-text-danger-dark has-background-danger-light"
-        >
-          {{ error }}
-        </p>
         <div class="column is-4 is-offset-4">
+          <p
+            v-if="error"
+            class="px-3 py-2 mb-4 has-text-danger-dark has-background-danger-light"
+          >
+            {{ error }}
+          </p>
           <b-field
             class="mb-2"
             :type="{ 'is-danger': $v.login_form.username.$error }"
@@ -89,7 +89,7 @@ export default {
   },
   methods: {
     ...mapMutations(["setLogin"]),
-    ...mapActions(["login"]),
+    ...mapActions(["createLogin"]),
     debounceInput: debounce(function(e) {
       console.log(e);
       this.setLogin(e);
@@ -99,13 +99,14 @@ export default {
       this.$v.$touch();
       // เช็คว่าในฟอร์มไม่มี error
       if (!this.$v.$invalid) {
-        alert("login");
-        this.login()
+        // alert("login");
+        this.createLogin()
           .then(() => {
-            this.$router.push({ name: "Login" });
+            this.$router.push({ name: "PatientList" });
           })
           .catch(e => {
-            console.log(e.details);
+            console.log(e);
+            this.error = e;
           });
       } else {
         alert("โปรดกรอกข้อมูลให้ถูกต้องทุกช่อง");
@@ -116,11 +117,9 @@ export default {
     login_form: {
       // This will let Vue know to look inside the array
       deep: true,
-
       // We have to move our method to a handler field
       handler(val) {
         this.debounceInput(val);
-
         console.log("The form has changed!");
       }
     }

@@ -1,11 +1,15 @@
 <template>
   <div id="app">
-    <router-view :key="$route.fullPath" @auth-change="onAuthChange" />
+    <router-view
+      :key="$route.fullPath"
+      @auth-change="onAuthChange"
+      :user="user"
+    />
   </div>
 </template>
+
 <script>
-// import axios from "axios";
-import Vue from "vue";
+import { mapActions } from "vuex";
 
 export default {
   data() {
@@ -17,6 +21,7 @@ export default {
     this.onAuthChange();
   },
   methods: {
+    ...mapActions(["getWhoLogin"]),
     onAuthChange() {
       const token = localStorage.getItem("token");
       if (token) {
@@ -24,18 +29,12 @@ export default {
       }
     },
     getUser() {
-      const token = localStorage.getItem("token");
-      Vue.axios
-        .get("http://localhost:3000/api/login/me", {
-          headers: { Authorization: "Bearer " + token }
-        })
-        .then(res => {
-          this.user = res.data;
-        });
+      this.getWhoLogin();
     }
   }
 };
 </script>
+
 <style>
 #app {
   font-family: "Kanit", sans-serif;
