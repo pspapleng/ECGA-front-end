@@ -65,18 +65,22 @@
         :auto-close="['outside', 'escape']"
       >
         <template v-slot:content>
-          <p>{{ login.username }} {{ login.password }}</p>
-          <router-link to="/login">
-            <b-button
-              type="is-danger"
-              icon-left="sign-out-alt"
-              icon-pack="fas"
-              size="is-small"
-              @click="logOut()"
-              expanded
-              >Log out
-            </b-button>
+          <router-link to="/profile">
+            <p class="py-2 mx-3">
+              {{ who_login.n_fname }} {{ who_login.n_lname }}
+            </p>
           </router-link>
+          <!-- <router-link to="/login"> -->
+          <b-button
+            type="is-danger"
+            icon-left="sign-out-alt"
+            icon-pack="fas"
+            size="is-small"
+            @click="logOut()"
+            expanded
+            >Log out
+          </b-button>
+          <!-- </router-link> -->
         </template>
         <b-button
           style="background-color: #1e3a8a; color: white; border-color: #1e3a8a"
@@ -92,30 +96,30 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex";
+import { mapState, mapActions } from "vuex";
 export default {
   data() {
     return {
       checklist: "",
-      checkfrom: "",
-      n_fname: "Taweewat",
-      n_lname: "Srimek",
-      login: {
-        username: "",
-        password: "",
-      },
+      checkfrom: ""
     };
   },
   name: "Sidebar",
   methods: {
-    ...mapMutations(["resetLogin"]),
+    ...mapActions(["createLogout"]),
     logOut() {
-      this.resetLogin()
+      this.createLogout()
+        .then(() => {
+          this.$router.push({ name: "Login" });
+        })
+        .catch(e => {
+          console.log(e.details);
+        });
     }
   },
   computed: {
-    ...mapState(["login"]),
-  },
+    ...mapState(["who_login"])
+  }
 };
 </script>
 
