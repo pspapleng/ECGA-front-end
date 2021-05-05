@@ -111,7 +111,7 @@
                 <router-link to="/results">
                   <span
                     class="tag is-success is-light"
-                    @click="seeResult(props.row.result_id)"
+                    @click="seeResult(props.row.u_id)"
                     v-if="
                       props.row.result != null &&
                       selected.getFullYear() -
@@ -126,7 +126,7 @@
 
                 <span
                   class="tag is-warning is-light"
-                  @click="seeResult(props.row.result_id)"
+                  @click="seeResult(props.row.u_id)"
                   v-if="
                     props.row.result != null &&
                     selected.getFullYear() -
@@ -829,7 +829,7 @@ export default {
     }, 300),
     doc() {
       // this.getUser();
-      console.log(this.u_Data);
+      console.log(this.who_login.n_id);
     },
     open(id) {
       var num = this.u_Data.length;
@@ -841,7 +841,7 @@ export default {
     },
     seeResult(id) {
       console.log(id);
-      this.setResultId(id);
+      this.setUserId(id);
       console.log(this.result_id);
     },
     DoForm(id) {
@@ -906,6 +906,7 @@ export default {
           ).toFixed(2),
           waistline: this.editWaistline,
           fall_history: this.editFall,
+          n_id: this.who_login.n_id
         };
         this.editUser(payload)
           .then((res) => {
@@ -938,7 +939,7 @@ export default {
     editDateResult() {
       return new Date(this.result.service_date);
     },
-    ...mapState(["u_Data", "UserId", "result_id"]),
+    ...mapState(["u_Data", "UserId", "result_id", "who_login"]),
   },
   beforeRouteEnter(to, from, next) {
     console.log("before");
