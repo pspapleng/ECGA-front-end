@@ -160,11 +160,13 @@ export default {
     return {};
   },
   computed: {
-    ...mapState(["result", "result_id"]),
+    ...mapState(["result", "UserId", "result_id"]),
     result_now() {
-      // console.log("result", this.result);
+      console.log("result", this.result);
       if (!this.result || this.result.length === 0) {
         return {
+          result_id: 0,
+          result_date: null,
           result: {
             MNA: "",
             OCA: "",
@@ -180,19 +182,20 @@ export default {
             TGDS15: "",
             FallRisk: ""
           },
-          result_date: "",
           u_fname: "",
           u_lname: "",
           n_fname: "",
           n_lname: ""
         };
       }
-      // console.log(this.result);
+      console.log("user", this.UserId);
+      console.log("result id", this.result_id);
+      console.log(this.result.find(e => e.result_id === this.result_id));
       return this.result.find(e => e.result_id === this.result_id);
     }
   },
   methods: {
-    ...mapActions(["getAllResult", "updateResultId"]),
+    ...mapActions(["getAllResultByUid", "updateResultId"]),
     ...mapMutations(["setResultId"]),
     changeResultTo(id) {
       // console.log("have click result", id);
@@ -203,7 +206,7 @@ export default {
     console.log("before");
     next(vm => {
       console.log("before router enter");
-      vm.getAllResult();
+      vm.getAllResultByUid();
     });
   }
 };

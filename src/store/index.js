@@ -43,9 +43,8 @@ export default new Vuex.Store({
       n_lname: "",
       username: ""
     },
-    u_id: 1,
     user: "",
-    result_id: 1,
+    result_id: null,
     in_search: "",
     u_Data: [],
     UserId: null
@@ -143,7 +142,7 @@ export default new Vuex.Store({
       // console.log(target)
       target.ans_value = payload.value;
       target.ans_title = payload.title;
-      target.u_id = payload.u_id;
+      target.u_id = payload.UserId;
     }
   },
   actions: {
@@ -213,7 +212,7 @@ export default new Vuex.Store({
       state.createUsers.bmi = parseFloat(
         state.createUsers.weight / Math.pow(state.createUsers.height / 100, 2)
       ).toFixed(2);
-      state.createUsers.n_id = state.n_id;
+      state.createUsers.n_id = state.who_login.n_id;
       console.log(state.createUsers);
       return Vue.axios
         .post(`http://localhost:3000/api/users`, state.createUsers)
@@ -227,10 +226,10 @@ export default new Vuex.Store({
           return Promise.reject(e.response.data);
         });
     },
-    getAllResult({ state, commit }) {
-      // console.log("in action", state.u_id);
+    getAllResultByUid({ state, commit }) {
+      // console.log("in action", state.UserId);
       return Vue.axios
-        .get(`http://localhost:3000/api/result/user/${state.u_id}`)
+        .get(`http://localhost:3000/api/result/user/${state.UserId}`)
         .then(result => {
           commit("setAllResult", result.data);
           console.log(result.data);
@@ -285,7 +284,7 @@ export default new Vuex.Store({
     },
     getUserById({ state, commit }) {
       Vue.axios
-        .get(`http://localhost:3000/api/users/${state.u_id}`)
+        .get(`http://localhost:3000/api/users/${state.UserId}`)
         .then(user => {
           console.log(user.data[0]);
           commit("setUserFromUId", user.data[0]);
