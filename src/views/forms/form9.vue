@@ -328,24 +328,33 @@
                 class="card-header-title"
                 style="color: white; background-color: #1E3A8A"
               >
-                ผลการประเมินคัดกรองความจำเสื่อมสำหรับผู้สูงอายุ
+                ผลการประเมินการคัดกรองผู้สูงอายถที่ต้องได้รับการดูแลระยะยาว
               </p>
             </header>
             <div class="card-content" style="background-color: #f4f4f4">
               <div class="content has-text-left ml-6">
-                การคิดคะแนน
+                การแปลผล
                 <br />
-                คะแนนทั้งหมด / ขำนวนข้อทั้งหมด
+                คะแนน 0 - 16 คะแนน = ไม่ต้องได้รับการดูแลระยะยาว
+                สนับสนุนการส่งเสริมสุขภาพ
                 <br />
-                ถ้าผู้สูงอายุมีคะแนนเท่ากับหรือมากกว่า 3.44 =
-                ผู้สูงอายุน่าจะมีภาวะสมองเสื่อม
+                คะแนน 17 - 19 คะแนน = ต้องเฝ้าระวัง ประเมินซ้ำทุก 6 เดือน หรือ 1
+                ปี
+                <br />
+                คะแนน 20 คะแนนขึ้นไป = ต้องได้รับการดูแลระยะยาว
+                ประเมินซ้ำทุกเดือนก่อนพบแพทย์ ในด้านต่อไปนี้
+                <ol class="ml-6 my-0">
+                  <li>โรคประจำตัว</li>
+                  <li>ด้านสังคม</li>
+                  <li>ภาวะซึมเศร้า</li>
+                  <li>สมรรถภาพสมอง หรือ ภาวะสมองเสื่อม</li>
+                </ol>
               </div>
               <div class="card">
                 <div class="card-content">
                   <div class="content">
                     <p class="has-text-centered">
-                      ได้คะแนน {{ ansvalue }} คะแนน <br />
-                      {{ anstitle }}
+                      ได้คะแนน {{ anssum }} คะแนน {{ anstitle }}
                     </p>
                   </div>
                 </div>
@@ -390,7 +399,12 @@ export default {
       prevIcon: "chevron-left",
       nextIcon: "chevron-right",
       isEditResult: false,
-      ansvalue: 0,
+      valuepart1: 0,
+      valuepart2: 0,
+      valuepart3: 0,
+      valuepart4: 0,
+      valuepart5: 0,
+      anssum: 0,
       anstitle: ""
     };
   },
@@ -412,7 +426,102 @@ export default {
       }
     },
     sumResult() {
+      var i = 0;
+      this.valuepart1 = 0;
+      this.valuepart2 = 0;
+      this.valuepart3 = 0;
+      this.valuepart4 = 0;
+      this.valuepart5 = 0;
+      this.anssum = 0;
+      this.anstitle = "";
+      console.log(this.anssum);
+      console.log(this.anstitle);
+      console.log(this.ans);
       this.isEditResult = true;
+
+      //part1
+      for (i = 98; i < 101; i++) {
+        this.valuepart1 += this.ans[i].ans_value;
+      }
+      this.valuepart1 = 0;
+
+      //part2
+      for (i = 101; i < 103; i++) {
+        if (this.ans[i].ans_value < 0) {
+          this.ans[i].ans_value = 0;
+          this.valuepart2 += this.ans[i].ans_value;
+        } else {
+          this.valuepart2 += this.ans[i].ans_value;
+        }
+      }
+      if (this.valuepart2 == 0) {
+        this.valuepart2 = 1;
+      } else if (this.valuepart2 == 1) {
+        this.valuepart2 = 2;
+      } else if (this.valuepart2 == 2) {
+        this.valuepart2 = 3;
+      }
+
+      //part3
+      for (i = 103; i < 106; i++) {
+        if (this.ans[104].ans_value == 0 && this.ans[105].ans_value == 0) {
+          this.valuepart3 = this.ans[103].ans_value;
+        } else if (
+          this.ans[104].ans_value == 1 ||
+          this.ans[105].ans_value == 1
+        ) {
+          this.valuepart3 = this.ans[103].ans_value + 1;
+        }
+      }
+      if (this.valuepart3 == 0) {
+        this.valuepart3 = 2;
+      } else if (this.valuepart3 == 1) {
+        this.valuepart3 = 4;
+      } else if (this.valuepart3 == 2) {
+        this.valuepart3 = 6;
+      }
+
+      //part4
+      for (i = 106; i < 111; i++) {
+        this.valuepart4 += this.ans[i].ans_value;
+      }
+      if (this.valuepart4 == 0) {
+        this.valuepart4 = 4;
+      } else if (this.valuepart4 >= 1 && this.valuepart4 <= 2) {
+        this.valuepart4 = 8;
+      } else if (this.valuepart4 >= 3 && this.valuepart4 <= 5) {
+        this.valuepart4 = 12;
+      }
+
+      //part5
+      for (i = 111; i < 127; i++) {
+        this.valuepart5 += this.ans[i].ans_value;
+      }
+      if (this.valuepart5 >= 16 && this.valuepart5 <= 20) {
+        this.valuepart5 = 6;
+      } else if (this.valuepart5 >= 21 && this.valuepart5 <= 35) {
+        this.valuepart5 = 12;
+      } else if (this.valuepart5 >= 36 && this.valuepart5 <= 48) {
+        this.valuepart5 = 18;
+      }
+
+      //sumall
+      this.anssum =
+        this.valuepart1 +
+        this.valuepart2 +
+        this.valuepart3 +
+        this.valuepart4 +
+        this.valuepart5;
+      if (this.anssum >= 0 && this.sumans <= 16) {
+        return (this.anstitle =
+          "ไม่ต้องดูแลระยะยาว และสนับสนุนการส่งเสริมสุขภาพ");
+      } else if (this.anssum >= 17 && this.anssum <= 19) {
+        return (this.anstitle =
+          "ต้องเฝ้าระวังและประเมินซ้ำทุก 6 เดือนหรือ 1 ปี");
+      } else if (this.anssum >= 20) {
+        return (this.anstitle =
+          "ต้องได้รับการดูแลระยะยาวและประเมินซ้ำทุกเดือนก่อนพบแพทย์");
+      }
     }
   },
   beforeRouteEnter(to, from, next) {
