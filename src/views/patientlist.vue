@@ -149,7 +149,7 @@
                   <b-button
                     style="background-color: #1e3a8a; color: white"
                     size="is-small"
-                    @click="DoForm(props.row.u_id)"
+                    @click="DoForm(props.row)"
                     v-if="
                       props.row.result == null ||
                       selected.getFullYear() -
@@ -846,8 +846,8 @@ export default {
       console.log(this.result_id);
     },
     DoForm(id) {
-      console.log(id);
-      this.setUserId(id);
+      console.log(id.u_id);
+      this.setUserId(id.u_id);
     },
     getAge(date) {
       var today = new Date();

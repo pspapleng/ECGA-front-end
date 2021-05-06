@@ -47,9 +47,14 @@ export default new Vuex.Store({
     result_id: null,
     in_search: "",
     u_Data: [],
-    UserId: null
+    UserId: 1,
+    formFinish: [],
+    checkForm: []
   },
   mutations: {
+    setCheckForm(state, payload) {
+      state.checkForm = payload
+    },
     setState(state, { name, value }) {
       state[name] = value;
     },
@@ -143,6 +148,9 @@ export default new Vuex.Store({
       target.ans_value = payload.value;
       target.ans_title = payload.title;
       target.u_id = payload.UserId;
+    },
+    setFormFinish(state, payload) {
+      state.formFinish = payload
     }
   },
   actions: {
@@ -286,10 +294,10 @@ export default new Vuex.Store({
       Vue.axios
         .get(`http://localhost:3000/api/users/${state.UserId}`)
         .then(user => {
-          console.log(user.data[0]);
+          console.log(user);
           commit("setUserFromUId", user.data[0]);
         });
-    }
+    },
   },
   modules: {}
 });

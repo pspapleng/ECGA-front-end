@@ -8,12 +8,10 @@
           </div>
         </div>
         <div class="column is-8" id="details">
-          <h1 id="pageHeader" style="font-weight: 400;">แบบประเมิน E-CGA</h1>
+          <h1 id="pageHeader" style="font-weight: 400">แบบประเมิน E-CGA</h1>
           <div class="card" id="detailBox">
-            <header class="card-header" style="background-color: lightgrey;">
-              <p class="card-header-title">
-                รายละเอียด
-              </p>
+            <header class="card-header" style="background-color: lightgrey">
+              <p class="card-header-title">รายละเอียด</p>
             </header>
             <div class="card-content">
               <div class="content has-text-left">
@@ -30,21 +28,20 @@
             </div>
           </div>
           <div class="card" id="statusBox">
-            <header class="card-header" style="background-color: lightgrey;">
-              <p class="card-header-title">
-                สถานะ
-              </p>
+            <header class="card-header" style="background-color: lightgrey">
+              <p class="card-header-title">สถานะ</p>
             </header>
             <div class="card-content">
               <div class="content">
                 <b-progress
-                  style="margin-top: 5vh;"
+                  style="margin-top: 5vh"
                   size="is-large"
                   type="is-info"
-                  :value="0"
+                  :max="13"
+                  :value="formFinish.length"
                   show-value
                 >
-                  0 out of 13</b-progress
+                  {{checkForm}} out of 13</b-progress
                 >
               </div>
             </div>
@@ -65,24 +62,32 @@ import { mapActions, mapState } from "vuex";
 export default {
   components: {
     Sidebar,
-    startChooseBar
+    startChooseBar,
   },
-  name: "Patientlist",
+  name: "startpage",
   data() {
     return {};
   },
   computed: {
-    ...mapState(["user"])
+    ...mapState(["user", "formFinish", "checkForm"]),
   },
   methods: {
-    ...mapActions(["getUserById"])
+    ...mapActions(["getUserById"]),
+    doc() {
+      console.log(this.formFinish.length);
+      console.log(this.user);
+      console.log(this.checkForm);
+    },
+    Success() {
+
+    }
   },
   beforeRouteEnter(to, from, next) {
     console.log("before");
-    next(vm => {
+    next((vm) => {
       vm.getUserById();
     });
-  }
+  },
 };
 </script>
 <style>

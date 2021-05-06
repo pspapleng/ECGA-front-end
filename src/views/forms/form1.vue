@@ -34,12 +34,12 @@
                         :native-value="ch.ans_value"
                         type="is-info"
                         @change.native="
-                          e =>
+                          (e) =>
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
                               title: ch.ans_title,
-                              u_id: 1
+                              u_id: 1,
                             })
                         "
                       >
@@ -80,12 +80,12 @@
                         :native-value="ch.ans_value"
                         type="is-info"
                         @change.native="
-                          e =>
+                          (e) =>
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
                               title: ch.ans_title,
-                              u_id: 1
+                              u_id: 1,
                             })
                         "
                       >
@@ -114,7 +114,11 @@
                   class="back mr-2"
                   type="is-light"
                   @click="backHome()"
-                  style="font-family: 'Kanit', sans-serif; font-weight: 400; color: #1E3A8A"
+                  style="
+                    font-family: 'Kanit', sans-serif;
+                    font-weight: 400;
+                    color: #1e3a8a;
+                  "
                   >กลับสู่หน้าหลัก</b-button
                 >
               </router-link>
@@ -122,7 +126,11 @@
                 class="assess"
                 type="is-light"
                 @click="sumResult()"
-                style="font-family: 'Kanit', sans-serif; font-weight: 400; color: #047857"
+                style="
+                  font-family: 'Kanit', sans-serif;
+                  font-weight: 400;
+                  color: #047857;
+                "
                 >ประเมินผล</b-button
               >
             </div>
@@ -133,7 +141,7 @@
             <header class="card-header">
               <p
                 class="card-header-title"
-                style="color: white; background-color: #1E3A8A"
+                style="color: white; background-color: #1e3a8a"
               >
                 ผลการประเมินภาวะโภชนาการ (MNA)
               </p>
@@ -162,12 +170,13 @@
               <p
                 class="card-footer-item"
                 @click="isEditResult = false"
-                style="color: #F90000"
+                style="color: #f90000"
               >
                 ย้อนกลับ
               </p>
-              <router-link class="card-footer-item" to="/forms/form2">
-                <p style="color: #047857">
+              <router-link class="card-footer-item" to="/forms/form2"
+                >
+                <p style="color: #047857" @click="Finish()">
                   ทำแบบประเมินถัดไป
                 </p>
               </router-link>
@@ -184,7 +193,7 @@ import { mapState, mapMutations, mapActions } from "vuex";
 
 export default {
   components: {
-    Sidebar
+    Sidebar,
   },
   name: "Patientlist",
   data() {
@@ -195,19 +204,21 @@ export default {
       nextIcon: "chevron-right",
       isEditResult: false,
       ansvalue: 0,
-      anstitle: ""
+      anstitle: "",
+      // formFinish: 0
     };
   },
   computed: {
     ...mapState({
-      count: state => state.count,
+      count: (state) => state.count,
       form: "json",
       ans: "keep_ans",
-      user: "user"
-    })
+      user: "user",
+    }),
+    ...mapState(["formFinish"]),
   },
   methods: {
-    ...mapMutations(["setAns"]),
+    ...mapMutations(["setAns", "setFormFinish"]),
     ...mapActions(["getUserById"]),
 
     backHome() {
@@ -233,14 +244,19 @@ export default {
       }
 
       return this.ansvalue;
-    }
+    },
+    Finish() {
+      this.formFinish.push("MNA")
+      this.setFormFinish(this.formFinish);
+      console.log(this.formFinish);
+    },
   },
   beforeRouteEnter(to, from, next) {
     console.log("before");
-    next(vm => {
+    next((vm) => {
       vm.getUserById();
     });
-  }
+  },
 };
 </script>
 <style>
