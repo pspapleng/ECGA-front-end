@@ -199,7 +199,7 @@
                 tandem stand น้อยกว่า 10 วินาที ให้ส่งต่อคลินิก Fall
               </div>
               <div class="card">
-                <div class="card-content">
+                <div class="card-content has-text-centered">
                   <div class="content">
                     <p class="title">
                       {{ user.result.TUGT }}

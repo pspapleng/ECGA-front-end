@@ -140,7 +140,7 @@
                 ค่า OSTA ระหว่างมากกว่า -1 = ความเสี่ยงต่ำ
               </div>
               <div class="card">
-                <div class="card-content">
+                <div class="card-content has-text-centered">
                   <div class="content">
                     <p class="title mx-5">
                       {{ user.result.OSTA }}

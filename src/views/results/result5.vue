@@ -244,7 +244,7 @@
                 ถ้าตอบ ใช่ ข้อใดข้อหนึ่ง แสดงว่ามีปัญหาการมองเห็น
               </div>
               <div class="card">
-                <div class="card-content">
+                <div class="card-content has-text-centered">
                   <div class="content">
                     <p class="title">
                       {{ user.result.EYES }}

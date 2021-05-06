@@ -2,7 +2,7 @@
   <div class="sidebar">
     <div class="top">
       <!-- ปุ่มรายชื่อ -->
-      <div style="padding: 20px 25px 10px" v-if="!isPatientList">
+      <div style="padding: 20px 25px 10px" v-show="!isNotAssessment">
         <b-button
           style="
               background-color: #1e3a8a;
@@ -15,7 +15,7 @@
           <b-icon icon="menu" size="is-medium"> </b-icon>
         </b-button>
       </div>
-      <div style="padding: 20px 25px 10px" v-else>
+      <div style="padding: 20px 25px 10px" v-show="isNotAssessment">
         <b-button
           style="background-color: white; color: #1e3a8a; border-color: white"
           size="is-large"
@@ -24,7 +24,7 @@
         </b-button>
       </div>
       <!-- ปุ่มแบบประเมิน -->
-      <div style="padding: 0px 25px 0px" v-if="!isAssessment">
+      <div style="padding: 0px 25px 0px" v-show="isNotAssessment">
         <b-button
           :disabled="haveUserData"
           style="
@@ -37,7 +37,7 @@
           <b-icon icon="text-box-outline" size="is-medium"> </b-icon>
         </b-button>
       </div>
-      <div style="padding: 0px 25px 0px" v-else>
+      <div style="padding: 0px 25px 0px" v-show="!isNotAssessment">
         <b-button
           style="background-color: white; color: #1e3a8a; border-color: white"
           size="is-large"
@@ -117,14 +117,11 @@ export default {
     currentRouteName() {
       return this.$route.name;
     },
-    isPatientList() {
+    isNotAssessment() {
       return (
         this.$route.name === "PatientList" ||
         this.$route.name === "CreateAccUser"
       );
-    },
-    isAssessment() {
-      return this.$route.name === "startpage" || this.$route.name === "Result";
     },
     haveUserData() {
       return this.u_Data !== [] || this.result_id !== null;

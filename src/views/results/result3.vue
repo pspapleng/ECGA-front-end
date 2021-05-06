@@ -121,7 +121,7 @@
                 0 - 7 คะแนน = มีความเสี่ยงที่จะหกล้ม ให้ทำการทดสอบ stand test
               </div>
               <div class="card">
-                <div class="card-content">
+                <div class="card-content has-text-centered">
                   <div class="content">
                     <p class="title">
                       {{ user.result.FallRisk }}

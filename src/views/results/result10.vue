@@ -379,7 +379,7 @@
                 ปริมาณปัสสาวะที่กลั้นไม่อยู่ไม่กี่หยดและเกิดอาการบ่อยเล็กน้อย
               </div>
               <div class="card">
-                <div class="card-content">
+                <div class="card-content has-text-centered">
                   <div class="content">
                     <p class="title">
                       {{ user.result.UIA }}

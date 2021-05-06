@@ -119,7 +119,7 @@
                 มีโอกาสที่จะเป็นโรคข้อเข่าเสื่อม
               </div>
               <div class="card">
-                <div class="card-content">
+                <div class="card-content has-text-centered">
                   <div class="content">
                     <p class="title mx-5">
                       {{ user.result.KNEE }}

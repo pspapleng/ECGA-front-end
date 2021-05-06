@@ -384,7 +384,7 @@
                 </ol>
               </div>
               <div class="card">
-                <div class="card-content">
+                <div class="card-content has-text-centered">
                   <div class="content">
                     <p class="title">
                       {{ user.result.LTTA }}
