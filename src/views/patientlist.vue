@@ -27,17 +27,16 @@
                 icon="magnify"
               >
               </b-input>
-              <!-- <router-link to="/CreateAccUser"> -->
-              <b-button
-                type="is-success"
-                icon-left="user-plus"
-                icon-pack="fas"
-                style="position: absolute; right: 50px"
-                @click="doc()"
-              >
-                เพิ่ม
-              </b-button>
-              <!-- </router-link> -->
+              <router-link to="/CreateAccUser">
+                <b-button
+                  type="is-success"
+                  icon-left="user-plus"
+                  icon-pack="fas"
+                  style="position: absolute; right: 50px"
+                >
+                  เพิ่ม
+                </b-button>
+              </router-link>
             </b-field>
           </div>
           <!-- ตาราง -->
@@ -821,16 +820,12 @@ export default {
   methods: {
     ...mapMutations(["setSearch", "setUserId", "setResultId"]),
     ...mapActions(["editUser"]),
-    debounceInput: debounce(function(e) {
+    debounceInput: debounce(function (e) {
       this.setSearch(this.in_search);
       this.getUser(e);
       console.log(e);
       console.log(this.in_search);
     }, 300),
-    doc() {
-      // this.getUser();
-      console.log(this.who_login.n_id);
-    },
     open(id) {
       var num = this.u_Data.length;
       for (var i = 0; i < num; i++) {
@@ -907,7 +902,7 @@ export default {
           ).toFixed(2),
           waistline: this.editWaistline,
           fall_history: this.editFall,
-          n_id: this.who_login.n_id
+          n_id: this.who_login.n_id,
         };
         this.editUser(payload)
           .then((res) => {
@@ -954,9 +949,9 @@ export default {
         this.debounceInput();
         console.log(val);
         console.log("The form has changed!");
-      }
+      },
     },
-  }
+  },
 };
 </script>
 
