@@ -2,825 +2,66 @@
   <div>
     <section>
       <div class="columns">
-        <!-- side bar -->
         <div class="column is-1">
           <div>
             <Sidebar />
           </div>
         </div>
-        <!---->
-        <!-- questions -->
-        <div class="column is-8">
-          <h1>แบบทดสอบ MMSE - Thai 2002</h1>
-          <p style="text-align: left">
-            Mini - Mental State Examination: Thai Version
-          </p>
-          <div class="question">
-            <h1>ผู้ถูกทดสอบมีระดับการศึกษาระดับใด?</h1>
-            <div class="ans">
-              <input type="radio" />
-              <label for="">ไม่สามารถอ่านออกเขียนได้</label>
-              <input type="radio" />
-              <label for="">เรียนระดับประถมศึกษา</label>
-              <input type="radio" />
-              <label for="">เรียนสูงกว่าระดับประถมศึกษา</label>
-            </div>
-            <h1><u>ส่วนที่ 1 Orientation for time</u></h1>
-            <p style="text-align: left">
-              ให้ผู้ทดสอบตอบคำถามแล้วตรวจเช็คความถูกต้องของคำตอบพร้อมบันทึกคำตอบทั้งผิดและถูกทุกครั้ง
+
+        <div class="column is-11">
+          <div class="assName card mt-6 mr-6">
+            <p
+              class="card-header-title"
+              style="color: white; background-color: #1e3a8a"
+            >
+              แบบทดสอบ MMSE - Thai 2002 <br />
+              Mini - Mental State Examination: Thai version
             </p>
-            <h1>1. วันนี้วันที่เท่าไหร่?</h1>
-            <div class="ans">
-              <span>
-                <label for="">คำตอบ : </label>
-                <input type="text" />
-                <b-field>
-                  <b-radio-button
-                    v-model="radioButton"
-                    native-value="0"
-                    type="is-success is-light is-outlined"
-                  >
-                    <b-icon icon="check"></b-icon>
-                    <span>ถูกต้อง</span>
-                  </b-radio-button>
-                  <b-radio-button
-                    v-model="radioButton"
-                    native-value="0"
-                    type="is-warning is-light is-outlined"
-                  >
-                    <b-icon icon="close"></b-icon>
-                    <span>ไม่ถูกต้อง</span>
-                  </b-radio-button>
-                </b-field>
-              </span>
-            </div>
-            <h1>2. วันนี้วันอะไร?</h1>
-            <div class="ans">
-              <span>
-                <label for="">คำตอบ : </label>
-                <input type="text" />
-                <b-field>
-                  <b-radio-button
-                    v-model="radioButton"
-                    native-value="0"
-                    type="is-success is-light is-outlined"
-                  >
-                    <b-icon icon="check"></b-icon>
-                    <span>ถูกต้อง</span>
-                  </b-radio-button>
-                  <b-radio-button
-                    v-model="radioButton"
-                    native-value="0"
-                    type="is-warning is-light is-outlined"
-                  >
-                    <b-icon icon="close"></b-icon>
-                    <span>ไม่ถูกต้อง</span>
-                  </b-radio-button>
-                </b-field>
-              </span>
-            </div>
-            <h1>3. เดือนนี้เดือนอะไร?</h1>
-            <div class="ans">
-              <span>
-                <label for="">คำตอบ : </label>
-                <input type="text" />
-                <b-field>
-                  <b-radio-button
-                    v-model="radioButton"
-                    native-value="0"
-                    type="is-success is-light is-outlined"
-                  >
-                    <b-icon icon="check"></b-icon>
-                    <span>ถูกต้อง</span>
-                  </b-radio-button>
-                  <b-radio-button
-                    v-model="radioButton"
-                    native-value="0"
-                    type="is-warning is-light is-outlined"
-                  >
-                    <b-icon icon="close"></b-icon>
-                    <span>ไม่ถูกต้อง</span>
-                  </b-radio-button>
-                </b-field>
-              </span>
-            </div>
-            <h1>4. ปีนี้ปีอะไร?</h1>
-            <div class="ans">
-              <span>
-                <label for="">คำตอบ : </label>
-                <input type="text" />
-                <b-field>
-                  <b-radio-button
-                    v-model="radioButton"
-                    native-value="0"
-                    type="is-success is-light is-outlined"
-                  >
-                    <b-icon icon="check"></b-icon>
-                    <span>ถูกต้อง</span>
-                  </b-radio-button>
-                  <b-radio-button
-                    v-model="radioButton"
-                    native-value="0"
-                    type="is-warning is-light is-outlined"
-                  >
-                    <b-icon icon="close"></b-icon>
-                    <span>ไม่ถูกต้อง</span>
-                  </b-radio-button>
-                </b-field>
-              </span>
-            </div>
-            <h1>5. ฤดูนี้ฤดูอะไร?</h1>
-            <div class="ans">
-              <span>
-                <label for="">คำตอบ : </label>
-                <input type="text" />
-                <b-field>
-                  <b-radio-button
-                    v-model="radioButton"
-                    native-value="0"
-                    type="is-success is-light is-outlined"
-                  >
-                    <b-icon icon="check"></b-icon>
-                    <span>ถูกต้อง</span>
-                  </b-radio-button>
-                  <b-radio-button
-                    v-model="radioButton"
-                    native-value="0"
-                    type="is-warning is-light is-outlined"
-                  >
-                    <b-icon icon="close"></b-icon>
-                    <span>ไม่ถูกต้อง</span>
-                  </b-radio-button>
-                </b-field>
-              </span>
-            </div>
-            <h1><u>ส่วนที่ 2 Orientation for place</u></h1>
-            <p style="text-align: left">
-              ให้ผู้ทดสอบตอบคำถามแล้วตรวจเช็คความถูกต้องของคำตอบพร้อมบันทึกคำตอบทั้งผิดและถูกทุกครั้ง
-            </p>
-            <h1>ขณะที่กำลังทดสอบ ผู้ทดสอบอยู่ในสถานที่ใด?</h1>
-            <div class="ans">
-              <input type="radio" />
-              <label for="">โรงพยาบาล</label>
-              <input type="radio" />
-              <label for="">บ้านของผู้ถูกสอบถาม</label>
-            </div>
-            <h1>กรณีอยู่โรงพยาบาล</h1>
-            <div class="atHospital">
-              <h1>1. สถานที่ตรงนี้เรียกว่าอะไร? และชื่อว่าอะไร?</h1>
-              <div class="ans">
-                <span>
-                  <label for="">คำตอบ : </label>
-                  <input type="text" />
-                  <b-field>
-                    <b-radio-button
-                      v-model="radioButton"
-                      native-value="0"
-                      type="is-success is-light is-outlined"
-                    >
-                      <b-icon icon="check"></b-icon>
-                      <span>ถูกต้อง</span>
-                    </b-radio-button>
-                    <b-radio-button
-                      v-model="radioButton"
-                      native-value="0"
-                      type="is-warning is-light is-outlined"
-                    >
-                      <b-icon icon="close"></b-icon>
-                      <span>ไม่ถูกต้อง</span>
-                    </b-radio-button>
-                  </b-field>
-                </span>
-              </div>
-              <h1>2. ขณะนี้ท่านอยู่ชั้นที่เท่าไหร่ของตัวอาคาร?</h1>
-              <div class="ans">
-                <span>
-                  <label for="">คำตอบ : </label>
-                  <input type="text" />
-                  <b-field>
-                    <b-radio-button
-                      v-model="radioButton"
-                      native-value="0"
-                      type="is-success is-light is-outlined"
-                    >
-                      <b-icon icon="check"></b-icon>
-                      <span>ถูกต้อง</span>
-                    </b-radio-button>
-                    <b-radio-button
-                      v-model="radioButton"
-                      native-value="0"
-                      type="is-warning is-light is-outlined"
-                    >
-                      <b-icon icon="close"></b-icon>
-                      <span>ไม่ถูกต้อง</span>
-                    </b-radio-button>
-                  </b-field>
-                </span>
-              </div>
-              <h1>3. ที่อยู่ในอำเภอ / เขตอะไร?</h1>
-              <div class="ans">
-                <span>
-                  <label for="">คำตอบ : </label>
-                  <input type="text" />
-                  <b-field>
-                    <b-radio-button
-                      v-model="radioButton"
-                      native-value="0"
-                      type="is-success is-light is-outlined"
-                    >
-                      <b-icon icon="check"></b-icon>
-                      <span>ถูกต้อง</span>
-                    </b-radio-button>
-                    <b-radio-button
-                      v-model="radioButton"
-                      native-value="0"
-                      type="is-warning is-light is-outlined"
-                    >
-                      <b-icon icon="close"></b-icon>
-                      <span>ไม่ถูกต้อง</span>
-                    </b-radio-button>
-                  </b-field>
-                </span>
-              </div>
-              <h1>4. ที่นี่จังหวัดอะไร?</h1>
-              <div class="ans">
-                <span>
-                  <label for="">คำตอบ : </label>
-                  <input type="text" />
-                  <b-field>
-                    <b-radio-button
-                      v-model="radioButton"
-                      native-value="0"
-                      type="is-success is-light is-outlined"
-                    >
-                      <b-icon icon="check"></b-icon>
-                      <span>ถูกต้อง</span>
-                    </b-radio-button>
-                    <b-radio-button
-                      v-model="radioButton"
-                      native-value="0"
-                      type="is-warning is-light is-outlined"
-                    >
-                      <b-icon icon="close"></b-icon>
-                      <span>ไม่ถูกต้อง</span>
-                    </b-radio-button>
-                  </b-field>
-                </span>
-              </div>
-              <h1>5. ที่นี่ภาคอะไร?</h1>
-              <div class="ans">
-                <span>
-                  <label for="">คำตอบ : </label>
-                  <input type="text" />
-                  <b-field>
-                    <b-radio-button
-                      v-model="radioButton"
-                      native-value="0"
-                      type="is-success is-light is-outlined"
-                    >
-                      <b-icon icon="check"></b-icon>
-                      <span>ถูกต้อง</span>
-                    </b-radio-button>
-                    <b-radio-button
-                      v-model="radioButton"
-                      native-value="0"
-                      type="is-warning is-light is-outlined"
-                    >
-                      <b-icon icon="close"></b-icon>
-                      <span>ไม่ถูกต้อง</span>
-                    </b-radio-button>
-                  </b-field>
-                </span>
-              </div>
-            </div>
-            <h1>กรณีอยู่บ้านของผู้ถูกทดสอบ</h1>
-            <div class="atHome">
-              <h1>1. สถานที่ตรงนี้เรียกว่าอะไร? และบ้านเลขที่อะไร?</h1>
-              <div class="ans">
-                <span>
-                  <label for="">คำตอบ : </label>
-                  <input type="text" />
-                  <b-field>
-                    <b-radio-button
-                      v-model="radioButton"
-                      native-value="0"
-                      type="is-success is-light is-outlined"
-                    >
-                      <b-icon icon="check"></b-icon>
-                      <span>ถูกต้อง</span>
-                    </b-radio-button>
-                    <b-radio-button
-                      v-model="radioButton"
-                      native-value="0"
-                      type="is-warning is-light is-outlined"
-                    >
-                      <b-icon icon="close"></b-icon>
-                      <span>ไม่ถูกต้อง</span>
-                    </b-radio-button>
-                  </b-field>
-                </span>
-              </div>
-              <h1>2. ที่นี่หมู่บ้าน หรือละแวก/คุ้ม/ย่าน/ถนนอะไร?</h1>
-              <div class="ans">
-                <span>
-                  <label for="">คำตอบ : </label>
-                  <input type="text" />
-                  <b-field>
-                    <b-radio-button
-                      v-model="radioButton"
-                      native-value="0"
-                      type="is-success is-light is-outlined"
-                    >
-                      <b-icon icon="check"></b-icon>
-                      <span>ถูกต้อง</span>
-                    </b-radio-button>
-                    <b-radio-button
-                      v-model="radioButton"
-                      native-value="0"
-                      type="is-warning is-light is-outlined"
-                    >
-                      <b-icon icon="close"></b-icon>
-                      <span>ไม่ถูกต้อง</span>
-                    </b-radio-button>
-                  </b-field>
-                </span>
-              </div>
-              <h1>3. ที่อยู่ในอำเภอ / เขตอะไร?</h1>
-              <div class="ans">
-                <span>
-                  <label for="">คำตอบ : </label>
-                  <input type="text" />
-                  <b-field>
-                    <b-radio-button
-                      v-model="radioButton"
-                      native-value="0"
-                      type="is-success is-light is-outlined"
-                    >
-                      <b-icon icon="check"></b-icon>
-                      <span>ถูกต้อง</span>
-                    </b-radio-button>
-                    <b-radio-button
-                      v-model="radioButton"
-                      native-value="0"
-                      type="is-warning is-light is-outlined"
-                    >
-                      <b-icon icon="close"></b-icon>
-                      <span>ไม่ถูกต้อง</span>
-                    </b-radio-button>
-                  </b-field>
-                </span>
-              </div>
-              <h1>4. ที่นี่จังหวัดอะไร?</h1>
-              <div class="ans">
-                <span>
-                  <label for="">คำตอบ : </label>
-                  <input type="text" />
-                  <b-field>
-                    <b-radio-button
-                      v-model="radioButton"
-                      native-value="0"
-                      type="is-success is-light is-outlined"
-                    >
-                      <b-icon icon="check"></b-icon>
-                      <span>ถูกต้อง</span>
-                    </b-radio-button>
-                    <b-radio-button
-                      v-model="radioButton"
-                      native-value="0"
-                      type="is-warning is-light is-outlined"
-                    >
-                      <b-icon icon="close"></b-icon>
-                      <span>ไม่ถูกต้อง</span>
-                    </b-radio-button>
-                  </b-field>
-                </span>
-              </div>
-              <h1>5. ที่นี่ภาคอะไร?</h1>
-              <div class="ans">
-                <span>
-                  <label for="">คำตอบ : </label>
-                  <input type="text" />
-                  <b-field>
-                    <b-radio-button
-                      v-model="radioButton"
-                      native-value="0"
-                      type="is-success is-light is-outlined"
-                    >
-                      <b-icon icon="check"></b-icon>
-                      <span>ถูกต้อง</span>
-                    </b-radio-button>
-                    <b-radio-button
-                      v-model="radioButton"
-                      native-value="0"
-                      type="is-warning is-light is-outlined"
-                    >
-                      <b-icon icon="close"></b-icon>
-                      <span>ไม่ถูกต้อง</span>
-                    </b-radio-button>
-                  </b-field>
-                </span>
-              </div>
-            </div>
-            <h1><u>ส่วนที่ 3 Registration</u></h1>
-            <p style="text-align: left">
-              ผู้ทำแบบทดสอบเคยทำแบบทดสอบนี้ภายใน 2 เดือนที่ผ่านมาหรือไม่?
-            </p>
-            <div class="ans">
-              <input type="radio" />
-              <label for="">ไม่เคย</label>
-              <input type="radio" />
-              <label for="">เคย</label>
-            </div>
-            <p>ให้พยาบาลบอกรายละเอียดกับผู้ถูกทดสอบดังนี้</p>
-            <div class="card" id="description">
-              <div class="card-content">
-                <div class="content">
-                  <p>
-                    "ต่อไปนี้เป็นการทดสอบความจำ ผม (ดิฉัน) จะบอกชื่อของ 3 อย่าง
-                    คุณ (ตา, ยาย, ...) ตั้งใจฟังให้ดีนะ
-                    เพราะจะบอกเพียงครั้งเดียว ไม่มีการบอกซ้ำอีก เมื่อผม (ดิฉัน)
-                    พูดจบให้คุณ (ตา, ยาย, ...) พูดทบทวนตามที่ได้ยินให้ครบทั้ง 3
-                    ชื่อ แล้วพยายามจำไว้ให้ดี เดี๋ยวผม (ดิฉัน) จะถามซ้ำ"
-                  </p>
-                </div>
-              </div>
-            </div>
-            <h1>
-              <u>ข้อปฏิบัติ</u> การบอกชื่อแต่ละคำให้ห่างกันประมาณ 1 วินาที
-              ต้องไม่ช้าหรือเร็วเกินไป
-            </h1>
-            <div class="ansjing">
-              <input type="checkbox" />
-              <label for=""> ดอกไม้ </label>
-              <input type="checkbox" />
-              <label for=""> ไม่ถูกต้อง</label><br />
-              <input type="checkbox" />
-              <label for=""> แม่น้ำ </label>
-              <input type="checkbox" />
-              <label for=""> ไม่ถูกต้อง</label><br />
-              <input type="checkbox" />
-              <label for=""> รถไฟ </label>
-              <input type="checkbox" />
-              <label for=""> ไม่ถูกต้อง</label><br />
-            </div>
-            <div class="ans_disable">
-              <input type="checkbox" />
-              <label for=""> ต้นไม้ </label>
-              <input type="checkbox" />
-              <label for=""> ไม่ถูกต้อง</label><br />
-              <input type="checkbox" />
-              <label for=""> ทะเล </label>
-              <input type="checkbox" />
-              <label for=""> ไม่ถูกต้อง</label><br />
-              <input type="checkbox" />
-              <label for=""> รถยนต์ </label>
-              <input type="checkbox" />
-              <label for=""> ไม่ถูกต้อง</label><br />
-            </div>
-            <h1><u>ส่วนที่ 4 Attention/Calculation</u></h1>
-            <p style="text-align: left">
-              ให้ผู้ถูกทดสอบตอบคำถามแล้วตรวจเช็คความถูกต้องของคำตอบพร้อมบันทึกคำตอบทั้งผิดและถูกทุกครั้ง
-            </p>
-            <h1>ผู้ถูกทดสอบสามารถคิดเลขในใจได้หรือไม่?</h1>
-            <input type="radio" />
-            <label for="">ได้</label><br />
-            <input type="radio" />
-            <label for="">ไม่ได้</label><br />
-            <div class="canCal">
-              <h1>กรณีสามารถคิดเลขในใจได้</h1>
-              <p style="text-align: left">
-                ให้พยาบาลบอกรายละเอียดกับผู้ถูกทดสอบดังนี้
-              </p>
-              <div class="card" id="description">
-                <div class="card-content">
-                  <div class="content">
-                    <p>
-                      "ข้อนี้คิดในใจ เอา 100 ตั้ง ลบออกทีละ 7 ไปเรื่อย ๆ
-                      ได้ผลเท่าไหร่บอกมา"
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <h1>คำตอบ :</h1>
-              <div class="ans">
-                <input type="checkbox" />
-                <label for=""> 93 </label>
-                <input type="checkbox" />
-                <label for=""> 86 </label>
-                <input type="checkbox" />
-                <label for=""> 79 </label>
-                <input type="checkbox" />
-                <label for=""> 72 </label>
-                <input type="checkbox" />
-                <label for=""> 65 </label>
-                <input type="checkbox" />
-                <label for=""> 58 </label>
-                <input type="checkbox" />
-                <label for=""> 51 </label>
-                <input type="checkbox" />
-                <label for=""> 44 </label>
-                <input type="checkbox" />
-                <label for=""> 37 </label>
-                <input type="checkbox" />
-                <label for=""> 30 </label>
-                <input type="checkbox" />
-                <label for=""> 23 </label>
-                <input type="checkbox" />
-                <label for=""> 16 </label>
-                <input type="checkbox" />
-                <label for=""> 9 </label>
-                <input type="checkbox" />
-                <label for=""> 2 </label><br />
-                <label for="">รวม : </label>
-                <input type="text" disabled /><br />
-              </div>
-            </div>
-            <div class="cantCal">
-              <h1>กรณีที่ไม่สามารถคิดเลขในใจได้หรือ</h1>
-              <p style="text-align: left">
-                ให้พยาบาลบอกรายละเอียดกับผู้ถูกทดสอบดังนี้
-              </p>
-              <div class="card" id="description">
-                <div class="card-content">
-                  <div class="content">
-                    <p>
-                      "ผม (ดิฉัน) จะสะกดคำว่า มะนาว ให้คุณ (ตา, ยาย, ...) ฟัง
-                      แล้วให้คุณ (ตา, ยาย, ...) สะกดถอยหลังไปตัวแรก
-                      คำว่ามะนาวสะกดว่า มอม้า-สระอะ-นอหนู-สระอา-วอแหวน ไหนคุณ
-                      (ตา, ยาย, ...) สะกดถอยหลังให้ฟังหน่อย"
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <h1>คำตอบ :</h1>
-              <div class="ans">
-                <input type="text" />
-                <input type="text" />
-                <input type="text" />
-                <input type="text" />
-                <input type="text" />
-              </div>
-            </div>
-            <h1><u>ส่วนที่ 5 Recall</u></h1>
-            <p style="text-align: left">
-              ให้พยาบาลบอกรายละเอียดกับผู้ถูกทดสอบดังนี้
-            </p>
-            <div class="card" id="description">
-              <div class="card-content">
-                <div class="content">
-                  <p>"เมื่อสักครู่ที่ให้จำของ 3 อย่าง จำได้ไหม มีอะไรบ้าง"</p>
-                </div>
-              </div>
-            </div>
-            <div class="ans_recalljing">
-              <input type="checkbox" />
-              <label for=""> ดอกไม้ </label>
-              <input type="checkbox" />
-              <label for=""> ไม่ถูกต้อง</label><br />
-              <input type="checkbox" />
-              <label for=""> แม่น้ำ </label>
-              <input type="checkbox" />
-              <label for=""> ไม่ถูกต้อง</label><br />
-              <input type="checkbox" />
-              <label for=""> รถไฟ </label>
-              <input type="checkbox" />
-              <label for=""> ไม่ถูกต้อง</label><br />
-            </div>
-            <div class="ans_recalldisable">
-              <input type="checkbox" />
-              <label for=""> ต้นไม้ </label>
-              <input type="checkbox" />
-              <label for=""> ไม่ถูกต้อง</label><br />
-              <input type="checkbox" />
-              <label for=""> ทะเล </label>
-              <input type="checkbox" />
-              <label for=""> ไม่ถูกต้อง</label><br />
-              <input type="checkbox" />
-              <label for=""> รถยนต์ </label>
-              <input type="checkbox" />
-              <label for=""> ไม่ถูกต้อง</label><br />
-            </div>
-            <h1><u>ส่วนที่ 6 Naming</u></h1>
-            <h1>
-              1. ยื่นดินสอให้ผู้ถูกทดสอบดูแล้วถามว่า "ของสิ่งนี้เรียกว่าอะไร"
-            </h1>
-            <div class="ans">
-              <input type="checkbox" />
-              <label for=""> ดินสอ </label>
-              <label for="">คำตอบอื่น : </label>
-              <input type="text" />
-            </div>
-            <h1>
-              2. ชี้นาฬิกาข้อมูลให้ผู้ถูกทดสอบดูแล้วถามว่า
-              "ของสิ่งนี้เรียกว่าอะไร"
-            </h1>
-            <div class="ans">
-              <input type="checkbox" />
-              <label for=""> นาฬิกาข้อมือ </label>
-              <label for="">คำตอบอื่น : </label>
-              <input type="text" />
-            </div>
-            <h1><u>ส่วนที่ 7 Repetition</u></h1>
-            <p style="text-align: left">
-              ให้พยาบาลบอกรายละเอียดกับผู้ถูกทดสอบดังนี้
-            </p>
-            <div class="card" id="description">
-              <div class="card-content">
-                <div class="content">
-                  <p>
-                    "ตั้งใจฟังผม (ดิฉัน) เมื่อผม (ดิฉัน) พูดข้อความนี้แล้วให้คุณ
-                    (ตา , ยาย, ...) พูดตาม ผม (ดิฉัน) จะบอกเพียงครั้งเดียว"
-                  </p>
-                  <p>
-                    <b>"ใครใคร่ขายไข่ไก่"</b>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="ans">
-              <input type="checkbox" />
-              <label for=""> สามารถพูดได้อย่างถูกต้อง</label><br />
-              <input type="checkbox" />
-              <label for=""> พูดไม่ถูกต้อง </label>
-              <label for="">คำตอบอื่น : </label>
-              <input type="text" />
-            </div>
-            <h1><u>ส่วนที่ 8 Verbal command</u></h1>
-            <p style="text-align: left">
-              ให้พยาบาลบอกรายละเอียดกับผู้ถูกทดสอบดังนี้
-            </p>
-            <div class="card" id="description">
-              <div class="card-content">
-                <div class="content">
-                  <p>
-                    "ฟังดี ๆ นะ เดี๋ยวผม (ดิฉัน) จะส่งกระดาษให้คุณ แล้วให้คุณ
-                    (ตา , ยาย, ...) รับด้วยมือขวา พับครึ่งกระดาษ
-                    แล้ววางไว้ที่... (พื้น, โต๊ะ, เตียง)"
-                  </p>
-                </div>
-              </div>
-            </div>
-            <h1>1. รับด้วยมือขวา</h1>
-            <div class="ans">
-              <span>
-                <b-field>
-                  <b-radio-button
-                    v-model="radioButton"
-                    native-value="0"
-                    type="is-success is-light is-outlined"
-                  >
-                    <b-icon icon="check"></b-icon>
-                    <span>ทำได้</span>
-                  </b-radio-button>
-                  <b-radio-button
-                    v-model="radioButton"
-                    native-value="0"
-                    type="is-warning is-light is-outlined"
-                  >
-                    <b-icon icon="close"></b-icon>
-                    <span>ทำไม่ได้</span>
-                  </b-radio-button>
-                </b-field>
-              </span>
-            </div>
-            <h1>2. พับครึ่ง</h1>
-            <div class="ans">
-              <span>
-                <b-field>
-                  <b-radio-button
-                    v-model="radioButton"
-                    native-value="0"
-                    type="is-success is-light is-outlined"
-                  >
-                    <b-icon icon="check"></b-icon>
-                    <span>ทำได้</span>
-                  </b-radio-button>
-                  <b-radio-button
-                    v-model="radioButton"
-                    native-value="0"
-                    type="is-warning is-light is-outlined"
-                  >
-                    <b-icon icon="close"></b-icon>
-                    <span>ทำไม่ได้</span>
-                  </b-radio-button>
-                </b-field>
-              </span>
-            </div>
-            <h1>3. วางไว้ที่(พื้น, โต๊ะ, เตียง)</h1>
-            <div class="ans">
-              <span>
-                <b-field>
-                  <b-radio-button
-                    v-model="radioButton"
-                    native-value="0"
-                    type="is-success is-light is-outlined"
-                  >
-                    <b-icon icon="check"></b-icon>
-                    <span>ทำได้</span>
-                  </b-radio-button>
-                  <b-radio-button
-                    v-model="radioButton"
-                    native-value="0"
-                    type="is-warning is-light is-outlined"
-                  >
-                    <b-icon icon="close"></b-icon>
-                    <span>ทำไม่ได้</span>
-                  </b-radio-button>
-                </b-field>
-              </span>
-            </div>
-            <h1><u>ส่วนที่ 9 Written command</u></h1>
-            <p style="text-align: left">
-              ให้พยาบาลบอกรายละเอียดกับผู้ถูกทดสอบดังนี้
-            </p>
-            <div class="card" id="description">
-              <div class="card-content">
-                <div class="content">
-                  <p>
-                    "ต่อไปนี้เป็นคำสั่งที่เขียนเป็นตัวหนังสือ ต้องการให้คุณ (ตา,
-                    ยาย, ...) อ่านแล้วทำตาม คุณ (ตา, ยาย, ...)
-                    จะอ่านออกเสียงหรืออ่านในใจก็ได้"
-                  </p>
-                </div>
-              </div>
-            </div>
-            <h1>1. ผู้ทดสอบอ่านการดาษที่แสดงคำว่า "หลับตา" แล้วทำตาม</h1>
-            <div class="ans">
-              <span>
-                <b-field>
-                  <b-radio-button
-                    v-model="radioButton"
-                    native-value="0"
-                    type="is-success is-light is-outlined"
-                  >
-                    <b-icon icon="check"></b-icon>
-                    <span>ทำได้</span>
-                  </b-radio-button>
-                  <b-radio-button
-                    v-model="radioButton"
-                    native-value="0"
-                    type="is-warning is-light is-outlined"
-                  >
-                    <b-icon icon="close"></b-icon>
-                    <span>ทำไม่ได้</span>
-                  </b-radio-button>
-                </b-field>
-              </span>
-            </div>
-            <h1><u>ส่วนที่ 10 Writing</u></h1>
-            <p style="text-align: left">
-              ให้พยาบาลบอกรายละเอียดกับผู้ถูกทดสอบดังนี้
-            </p>
-            <div class="card" id="description">
-              <div class="card-content">
-                <div class="content">
-                  <p>
-                    "ให้คุณ (ตา, ยาย, ...)
-                    เขียนข้อความอะไรก็ได้ที่อ่านแล้วรู้เรื่องหรือมีความหมายมา 1
-                    ประโยค"
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="ans">
-              <label for="">ข้อความที่เขียน </label>
-              <input type="text" />
-              <h1>ข้อความที่เขียนมีความหมายหรือไม่?</h1>
-              <span>
-                <b-field>
-                  <b-radio-button
-                    v-model="radioButton"
-                    native-value="0"
-                    type="is-success is-light is-outlined"
-                  >
-                    <b-icon icon="check"></b-icon>
-                    <span>มี</span>
-                  </b-radio-button>
-                  <b-radio-button
-                    v-model="radioButton"
-                    native-value="0"
-                    type="is-warning is-light is-outlined"
-                  >
-                    <b-icon icon="close"></b-icon>
-                    <span>ไม่มี</span>
-                  </b-radio-button>
-                </b-field>
-              </span>
-            </div>
-            <h1><u>ส่วนที่ 11 Visuoconstruction</u></h1>
-            <p style="text-align: left">
-              ข้อนี้เป็นคำสั่ง "จงวาดภาพให้เหมือนภาพตัวอย่าง"
-            </p>
-            <img src="@/assets/visuo.png" alt="" />
           </div>
+
+          <div class="questions">
+            <div class="card mr-6">
+              <div
+                class="card-content"
+                v-for="ques in form.slice(70, 71)"
+                :key="ques.ques_id"
+              >
+                <div class="quesContent content">
+                  <p>{{ ques.ques }}</p>
+                  <div v-for="ch in ques.choice" :key="ch.ans_id">
+                    <b-field>
+                      <b-radio
+                        id="ques.ques_id"
+                        v-model="ques.ans"
+                        :native-value="ch.ans_value"
+                        type="is-info"
+                        @change.native="
+                          e =>
+                            setAns({
+                              id: ques.ques_id,
+                              value: parseInt(e.target.value),
+                              title: ch.ans_title,
+                              u_id: 1
+                            })
+                        "
+                      >
+                      </b-radio>
+                      <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                    </b-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div class="columns mt-4">
             <div class="column is-1">
-              <router-link to="/forms/form7">
+              <router-link to="/forms/form10">
                 <b-button class="mr-2">
                   <b-icon icon="chevron-left"> </b-icon>
                 </b-button>
               </router-link>
-              <router-link to="/forms/form9">
+              <router-link to="/forms/form12">
                 <b-button>
                   <b-icon icon="chevron-right"> </b-icon>
                 </b-button>
@@ -846,55 +87,59 @@
             </div>
           </div>
         </div>
-        <!---->
-        <!-- choose bar maybe fixed side nav-->
-        <div class="column is-3" id="choosebar">
-          <assChooseBar />
-        </div>
-        <b-modal v-model="isEditResult">
+        <b-modal v-model="isEditResult" :width="640">
           <div class="card">
             <header class="card-header">
-              <p class="card-header-title">ผลการประเมินแบบทดสอบ MMSE</p>
+              <p
+                class="card-header-title"
+                style="color: white; background-color: #1E3A8A"
+              >
+                ผลการประเมินปัญหาการนอน
+              </p>
             </header>
-            <div class="card-content">
-              <div class="content">
-                การแปลผล
+            <div class="card-content" style="background-color: #f4f4f4">
+              <div class="content has-text-left ml-1">
+                การพิจารณา
                 <br />
-                ถ้าคะแนนน้อยกว่าจุดตัด แสดงว่า เป็นผู้สงสัยว่ามีภาสะสมองเสื่อม
-                (Cognitive Impairment)
-                ให้ส่งต่อแพทย์เพื่อตรวจวินิจฉัยยืนยันและทำการรักษาในรายการที่สงสัยว่าภาวะสมองเสื่อม
-                <br />
-                <div class="innerCard">
-                  <div class="innerContent">
-                    คะแนนที่ได้ทั้งหมด 99 คะแนน
-                    <br />
-                    ไม่มีภาวะสมองเสื่อม
+                หากตอบ "มีปัญหา" ข้อใดข้อหนึ่ง
+                ควรส่งต่อให้แพทย์ตรวจวินิจฉัยเพื่อยืนยันและทำการรักษา
+              </div>
+              <div class="card">
+                <div class="card-content">
+                  <div class="content">
+                    <p class="has-text-centered">
+                      {{ anstitle }}
+                    </p>
                   </div>
                 </div>
               </div>
-              <b-button
-                id="nextAss"
-                type="is-success"
-                tag="a"
-                href="/forms/form9"
-                target=""
-                >ทำแบบประเมินถัดไป</b-button
-              >
             </div>
+            <footer class="card-footer">
+              <p
+                class="card-footer-item"
+                @click="isEditResult = false"
+                style="color: #F90000"
+              >
+                ย้อนกลับ
+              </p>
+              <router-link class="card-footer-item" to="/forms/form12">
+                <p style="color: #047857">
+                  ทำแบบประเมินถัดไป
+                </p>
+              </router-link>
+            </footer>
           </div>
         </b-modal>
-        <!---->
       </div>
     </section>
   </div>
 </template>
 <script>
 import Sidebar from "@/components/sidebar.vue";
-import assChooseBar from "@/components/assChooseBar.vue";
+import { mapState, mapMutations, mapActions } from "vuex";
 export default {
   components: {
-    Sidebar,
-    assChooseBar
+    Sidebar
   },
   name: "Patientlist",
   data() {
@@ -903,26 +148,59 @@ export default {
       size: "default",
       prevIcon: "chevron-left",
       nextIcon: "chevron-right",
-      isEditResult: false
+      isEditResult: false,
+      anstitle: ""
     };
   },
+  computed: {
+    ...mapState({
+      count: state => state.count,
+      form: "json",
+      ans: "keep_ans",
+      user: "user"
+    })
+  },
   methods: {
+    ...mapMutations(["setAns"]),
+    ...mapActions(["getUserById"]),
+
     backHome() {
-      // console.log("tid laeww")
-      // alert("Sure mai ka???")
-      // window.location.href = "startpage";
       if (confirm("sure mai ka??")) {
         window.location.pathname = "startpage";
       }
     },
+
     sumResult() {
+      console.log(this.ans);
+      this.anstitle = "";
       this.isEditResult = true;
-      // console.log(ans)
-      // for (var i = 0; i < 6; i++) {
-      //     this.cal_ans += this.ans[i].ans_value
-      // }
-      // return this.cal_ans
+
+      if (this.ans[148].ans_value == 1 || this.ans[156].ans_value == 1) {
+        this.anstitle = "มีปัญหาการนอนหลับ";
+      } else {
+        this.anstitle = "ไม่มีปัญหาการนอนหลับ";
+      }
+
+      for (var i = 149; i < 154; i++) {
+        if (this.ans[i].ans_value == 1) {
+          this.anstitle += " " + this.form[i].ques.substring(3);
+        }
+      }
+
+      if (this.ans[156].ans_value == 1) {
+        this.anstitle += " " + "ผู้สูงอายุมีอาการง่วง อ่อนเพลีย ตอนกลางวัน";
+      }
+      if (this.anstitle != "ไม่มีปัญหาการนอนหลับ") {
+        this.anstitle +=
+          " โปรดส่งต่อให้แพทย์เพื่อทำการตรวจวินิจฉัยเพื่อยืนยันผล";
+      }
     }
+  },
+  beforeRouteEnter(to, from, next) {
+    console.log("before");
+    next(vm => {
+      vm.getUserById();
+    });
   }
 };
 </script>
@@ -933,32 +211,44 @@ h1 {
   margin-left: 0vw;
   text-align: left;
 }
-#choosebarHeader {
+.card-header-title {
+  font-size: 18px;
+  font-weight: 500;
+}
+.content {
+  font-size: 1rem;
+}
+.card {
+  margin-top: 3vh;
+}
+p {
   text-align: left;
-  margin-top: 5vh;
-  margin-bottom: 2vh;
-  font-size: 1.125rem;
-  font-weight: 600;
 }
-#choosebar {
+.ans {
   text-align: left;
+  margin-left: 2vw;
 }
-#startButton {
-  width: 200px;
-  bottom: 1px;
+.component {
+  display: flex;
 }
-.assChoice {
-  margin-top: 1vh;
+.checkButt {
+  float: right;
 }
-#checkIcon {
-  margin-right: 0.5vw;
+.innerCard {
+  border-radius: 10px;
+  display: block;
+  text-align: center;
+  height: auto;
+  margin-bottom: 0.5vh;
+  margin-left: 12vw;
+  position: relative;
+  width: 25vw;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
-#startButton {
-  position: fixed;
-  bottom: 6vh;
-  right: 4vw;
+.innerContent {
+  margin-top: 2.2vh;
 }
-#description {
-  margin-top: 1vh;
+#nextAss {
+  margin-bottom: 3vh;
 }
 </style>

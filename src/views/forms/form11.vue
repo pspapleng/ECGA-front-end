@@ -52,7 +52,7 @@
               </div>
               <div
                 class="card-content"
-                v-for="ques in form.slice(149, 155)"
+                v-for="ques in form.slice(149, 154)"
                 :key="ques.ques_id"
               >
                 <div class="quesContent content">
@@ -80,9 +80,40 @@
                   </div>
                 </div>
               </div>
-              <div style="float: left">
-                <input type="text" /> ปี <input type="text" /> เดือน
+              <div
+                class="card-content"
+                v-for="ques in form.slice(154, 155)"
+                :key="ques.ques_id"
+              >
+                <div class="quesContent content">
+                  <p>{{ ques.ques }}</p>
+                  <div v-for="ch in ques.choice" :key="ch.ans_id">
+                    <b-field>
+                      <b-radio
+                        id="ques.ques_id"
+                        v-model="ques.ans"
+                        :native-value="ch.ans_value"
+                        type="is-info"
+                        @change.native="
+                          e =>
+                            setAns({
+                              id: ques.ques_id,
+                              value: parseInt(e.target.value),
+                              title: ch.ans_title + concatYear,
+                              u_id: 1
+                            })
+                        "
+                      >
+                      </b-radio>
+                      <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                    </b-field>
+                  </div>
+                </div>
               </div>
+
+              <input type="text" v-model="year" /> ปี
+              <input type="text" v-model="month" /> เดือน <br />
+              เป็นเวลา : <input type="text" :value="concatYear" />
             </div>
           </div>
 
@@ -200,28 +231,21 @@
                 class="card-header-title"
                 style="color: white; background-color: #1E3A8A"
               >
-                ผลการประเมินภาวะกลั้นปัสสาวะไม่อยู่ (พิจารณาจากข้อ 3 และ 4)
+                ผลการประเมินปัญหาการนอน
               </p>
             </header>
             <div class="card-content" style="background-color: #f4f4f4">
-              <div class="content has-text-left ml-6">
+              <div class="content has-text-left ml-1">
                 การพิจารณา
                 <br />
-                รุนแรงมาก =
-                ปริมาณปัสสาวะที่กลั้นไม่อยู่มากถึงระดับเปียกถึงผ้านุ่งชั้นนอก<br />และ
-                / หรือ เกิดอาการบ่อยมาก
-                <br />
-                รุนแรงปานกลาง = ปริมาณปัสสาวะมากระดับชุ่มกางเกง<br />และ / หรือ
-                เกิดอาการบ่อยปานกลาง
-                <br />
-                รุนแรงน้อย =
-                ปริมาณปัสสาวะที่กลั้นไม่อยู่ไม่กี่หยดและเกิดอาการบ่อยเล็กน้อย
+                หากตอบ "มีปัญหา" ข้อใดข้อหนึ่ง
+                ควรส่งต่อให้แพทย์ตรวจวินิจฉัยเพื่อยืนยันและทำการรักษา
               </div>
               <div class="card">
                 <div class="card-content">
                   <div class="content">
                     <p class="has-text-centered">
-                      <!-- {{ anstitle }} -->
+                      {{ anstitle }}
                     </p>
                   </div>
                 </div>
@@ -261,7 +285,10 @@ export default {
       size: "default",
       prevIcon: "chevron-left",
       nextIcon: "chevron-right",
-      isEditResult: false
+      isEditResult: false,
+      year: "",
+      month: "",
+      anstitle: ""
     };
   },
   computed: {
@@ -270,28 +297,45 @@ export default {
       form: "json",
       ans: "keep_ans",
       user: "user"
-    })
+    }),
+    concatYear() {
+      return " " + this.year + " ปี " + this.month + " เดือน";
+    }
   },
   methods: {
     ...mapMutations(["setAns"]),
     ...mapActions(["getUserById"]),
 
     backHome() {
-      // console.log("tid laeww")
-      // alert("Sure mai ka???")
-      // window.location.href = "startpage";
       if (confirm("sure mai ka??")) {
         window.location.pathname = "startpage";
       }
     },
 
     sumResult() {
+      console.log(this.ans);
+      this.anstitle = "";
       this.isEditResult = true;
-      // console.log(ans)
-      // for (var i = 0; i < 6; i++) {
-      //     this.cal_ans += this.ans[i].ans_value
-      // }
-      // return this.cal_ans
+
+      if (this.ans[148].ans_value == 1 || this.ans[156].ans_value == 1) {
+        this.anstitle = "มีปัญหาการนอนหลับ";
+      } else {
+        this.anstitle = "ไม่มีปัญหาการนอนหลับ";
+      }
+
+      for (var i = 149; i < 154; i++) {
+        if (this.ans[i].ans_value == 1) {
+          this.anstitle += " " + this.form[i].ques.substring(3);
+        }
+      }
+
+      if (this.ans[156].ans_value == 1) {
+        this.anstitle += " " + "ผู้สูงอายุมีอาการง่วง อ่อนเพลีย ตอนกลางวัน";
+      }
+      if (this.anstitle != "ไม่มีปัญหาการนอนหลับ") {
+        this.anstitle +=
+          " โปรดส่งต่อให้แพทย์เพื่อทำการตรวจวินิจฉัยเพื่อยืนยันผล";
+      }
     }
   },
   beforeRouteEnter(to, from, next) {
@@ -310,7 +354,6 @@ h1 {
   text-align: left;
 }
 .card-header-title {
-  /* color: white; */
   font-size: 18px;
   font-weight: 500;
 }
