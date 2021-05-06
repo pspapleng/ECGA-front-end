@@ -202,11 +202,10 @@
               </router-link>
             </div>
             <div class="column is-11 is-offset-4">
-              <router-link to="">
+              <router-link to="/startpage">
                 <b-button
                   class="back mr-2"
                   type="is-light"
-                  @click="backHome()"
                   style="font-family: 'Kanit', sans-serif; font-weight: 400; color: #1E3A8A"
                   >กลับสู่หน้าหลัก</b-button
                 >
@@ -297,18 +296,12 @@ export default {
     }),
     concatYear() {
       return " " + this.year + " ปี " + this.month + " เดือน";
-    }
+    },
+    ...mapState(["formFinish"]),
   },
   methods: {
-    ...mapMutations(["setAns"]),
+    ...mapMutations(["setAns", "setFormFinish"]),
     ...mapActions(["getUserById"]),
-
-    backHome() {
-      if (confirm("sure mai ka??")) {
-        window.location.pathname = "startpage";
-      }
-    },
-
     sumResult() {
       console.log(this.ans);
       this.anstitle = "";

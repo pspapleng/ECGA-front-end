@@ -720,11 +720,10 @@
               </router-link>
             </div>
             <div class="column is-11 is-offset-4">
-              <router-link to="">
+              <router-link to="/startpage">
                 <b-button
                   class="back mr-2"
                   type="is-light"
-                  @click="backHome()"
                   style="font-family: 'Kanit', sans-serif; font-weight: 400; color: #1E3A8A"
                   >กลับสู่หน้าหลัก</b-button
                 >
@@ -783,8 +782,8 @@
               >
                 ย้อนกลับ
               </p>
-              <router-link class="card-footer-item" to="/forms/form12">
-                <p style="color: #047857">
+              <router-link class="card-footer-item" to="/forms/form9">
+                <p style="color: #047857" @click="Finish()">
                   ทำแบบประเมินถัดไป
                 </p>
               </router-link>
@@ -822,18 +821,12 @@ export default {
       form: "json",
       ans: "keep_ans",
       user: "user"
-    })
+    }),
+    ...mapState(["formFinish"]),
   },
   methods: {
-    ...mapMutations(["setAns"]),
+    ...mapMutations(["setAns", "setFormFinish"]),
     ...mapActions(["getUserById"]),
-
-    backHome() {
-      if (confirm("sure mai ka??")) {
-        window.location.pathname = "startpage";
-      }
-    },
-
     sumResult() {
       console.log(this.ans);
       this.anstitle = "";
@@ -873,7 +866,12 @@ export default {
       } else {
         this.anstitle += "ไม่เป็นผู้สงสัยว่ามีภาวะสมองเสื่อม";
       }
-    }
+    },
+    Finish() {
+      this.formFinish.push("IQCODE")
+      this.setFormFinish(this.formFinish);
+      console.log(this.formFinish);
+    },
   },
   beforeRouteEnter(to, from, next) {
     console.log("before");
