@@ -246,7 +246,7 @@
                 ย้อนกลับ
               </p>
               <router-link class="card-footer-item" to="/forms/form6">
-                <p style="color: #047857">
+                <p style="color: #047857" @click="Finish()">
                   ทำแบบประเมินถัดไป
                 </p>
               </router-link>
@@ -281,10 +281,11 @@ export default {
       form: "json",
       ans: "keep_ans",
       user: "user"
-    })
+    }),
+    ...mapState(["formFinish"]),
   },
   methods: {
-    ...mapMutations(["setAns"]),
+    ...mapMutations(["setAns", "setFormFinish"]),
     ...mapActions(["getUserById"]),
 
     backHome() {
@@ -333,7 +334,12 @@ export default {
         this.anstitle += "สุขภาวะทางตาปกติ";
       }
       return this.anstitle;
-    }
+    },
+    Finish() {
+      this.formFinish.push("EYES")
+      this.setFormFinish(this.formFinish);
+      console.log(this.formFinish);
+    },
   },
   beforeRouteEnter(to, from, next) {
     console.log("before");

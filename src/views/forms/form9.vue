@@ -369,7 +369,7 @@
                 ย้อนกลับ
               </p>
               <router-link class="card-footer-item" to="/forms/form10">
-                <p style="color: #047857">
+                <p style="color: #047857" @click="Finish()">
                   ทำแบบประเมินถัดไป
                 </p>
               </router-link>
@@ -414,10 +414,11 @@ export default {
       form: "json",
       ans: "keep_ans",
       user: "user"
-    })
+    }),
+    ...mapState(["formFinish"]),
   },
   methods: {
-    ...mapMutations(["setAns"]),
+    ...mapMutations(["setAns", "setFormFinish"]),
     ...mapActions(["getUserById"]),
 
     backHome() {
@@ -522,7 +523,12 @@ export default {
         return (this.anstitle =
           "ต้องได้รับการดูแลระยะยาวและประเมินซ้ำทุกเดือนก่อนพบแพทย์");
       }
-    }
+    },
+    Finish() {
+      this.formFinish.push("LTTA")
+      this.setFormFinish(this.formFinish);
+      console.log(this.formFinish);
+    },
   },
   beforeRouteEnter(to, from, next) {
     console.log("before");

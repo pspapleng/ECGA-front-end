@@ -143,7 +143,7 @@
                 ย้อนกลับ
               </p>
               <router-link class="card-footer-item" to="/startpage">
-                <p style="color: #047857">
+                <p style="color: #047857" @click="Finish()">
                   เสร็จสิ้นการทำแบบประเมิน
                 </p>
               </router-link>
@@ -190,10 +190,11 @@ export default {
         age--;
       }
       return age;
-    }
+    },
+    ...mapState(["formFinish"]),
   },
   methods: {
-    ...mapMutations(["setAns"]),
+    ...mapMutations(["setAns", "setFormFinish"]),
     ...mapActions(["getUserById"]),
 
     backHome() {
@@ -221,7 +222,12 @@ export default {
         this.anstitle = "ความเสี่ยงต่ำ";
         this.anssuggest = "ยังไม่จำเป็นต้องตรวจความหนาแน่นกระดูก";
       }
-    }
+    },
+    Finish() {
+      this.formFinish.push("OSTA")
+      this.setFormFinish(this.formFinish);
+      console.log(this.formFinish);
+    },
   },
   beforeRouteEnter(to, from, next) {
     console.log("before");

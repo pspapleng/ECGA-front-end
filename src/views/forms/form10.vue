@@ -306,7 +306,7 @@
                 ย้อนกลับ
               </p>
               <router-link class="card-footer-item" to="/forms/form11">
-                <p style="color: #047857">
+                <p style="color: #047857" @click="Finish()">
                   ทำแบบประเมินถัดไป
                 </p>
               </router-link>
@@ -342,10 +342,11 @@ export default {
       form: "json",
       ans: "keep_ans",
       user: "user"
-    })
+    }),
+    ...mapState(["formFinish"]),
   },
   methods: {
-    ...mapMutations(["setAns"]),
+    ...mapMutations(["setAns", "setFormFinish"]),
     ...mapActions(["getUserById"]),
 
     backHome() {
@@ -366,7 +367,12 @@ export default {
       } else if (this.ans[145].ans_value == 1 && this.ans[146].ans_value == 1) {
         return (this.anstitle = "มีการกลั้นปัสสาวะไม่อยู่ในระดับรุนแรงน้อย");
       }
-    }
+    },
+    Finish() {
+      this.formFinish.push("UIA")
+      this.setFormFinish(this.formFinish);
+      console.log(this.formFinish);
+    },
   },
   beforeRouteEnter(to, from, next) {
     console.log("before");
