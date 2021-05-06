@@ -11,7 +11,7 @@
                 <div class="column is-10">
                   <h1 class="title pb-6 pl-6">
                     <nobr id="underline">ข้อมูล</nobr>บัญชีพยาบาล
-                    <a @click="editN"
+                    <a @click="edit"
                       ><b-icon
                         class="ml-5"
                         pack="fas"
@@ -190,18 +190,10 @@
                       </p>
                     </template>
                     <div class="buttons px-5">
-                      <b-button
-                        class="save mt-4 px-6"
-                        style="font-family: 'Kanit', sans-serif; font-weight: 400;"
-                        @click="save"
-                      >
+                      <b-button class="save mt-4 px-6" @click="save">
                         บันทึก
                       </b-button>
-                      <b-button
-                        class="cancel mt-4 px-6"
-                        style="font-family: 'Kanit', sans-serif; font-weight: 400;"
-                        @click="cancel"
-                      >
+                      <b-button class="cancel mt-4 px-5" @click="cancel">
                         ยกเลิก
                       </b-button>
                     </div>
@@ -221,7 +213,7 @@
 <script>
 import Sidebar from "@/components/sidebar.vue";
 import forProfile from "@/components/forProfile.vue";
-import { debounce } from "debounce";
+// import { debounce } from "debounce";
 import { mapMutations, mapState, mapActions } from "vuex";
 import {
   required,
@@ -291,11 +283,7 @@ export default {
   methods: {
     ...mapMutations(["setUpdateNurse", "resetUpdateNurse"]),
     ...mapActions(["updateNurse"]),
-    debounceInput: debounce(function(e) {
-      console.log(e);
-      this.setUpdateNurse(e);
-    }, 300),
-    editN() {
+    edit() {
       this.isEdit = false;
     },
     save() {
@@ -304,7 +292,7 @@ export default {
 
       // เช็คว่าในฟอร์มไม่มี error
       if (!this.$v.$invalid) {
-        // alert("สร้าง");
+        this.setUpdateNurse(this.form);
         this.updateNurse()
           .then(() => {
             alert("บันทึกข้อมูลเรียบร้อย");
@@ -329,22 +317,17 @@ export default {
       }
     },
     cancel() {
-      this.resetUpdateNurse();
+      // this.form.old_password = "";
+      // this.form.new_password = "";
+      // this.form.confirm_password = "";
+      // this.resetUpdateNurse();
       this.isEdit = true;
     }
   },
   computed: {
     ...mapState(["who_login"])
   },
-  watch: {
-    form: {
-      deep: true,
-      handler(val) {
-        this.debounceInput(val);
-        console.log("The form has changed!");
-      }
-    }
-  },
+  watch: {},
   mounted() {
     this.form = { ...this.form, ...this.who_login };
   }
@@ -377,13 +360,13 @@ input {
 .save {
   color: #ffffff;
   background-color: #047857;
+  font-family: "Kanit", sans-serif;
+  font-weight: 400;
 }
 .cancel {
   color: #ffffff;
   background-color: #db2b39;
-}
-.haveacc {
-  color: #494949;
-  font-size: 0.75rem;
+  font-family: "Kanit", sans-serif;
+  font-weight: 400;
 }
 </style>

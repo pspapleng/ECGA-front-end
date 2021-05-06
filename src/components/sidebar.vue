@@ -2,25 +2,20 @@
   <div class="sidebar">
     <div class="top">
       <!-- ปุ่มรายชื่อ -->
-      <div
-        style="padding: 20px 25px 10px"
-        v-if="checklist == false"
-        @click="(checklist = !checklist), (checkfrom = !checkfrom)"
-      >
-        <router-link to="/patientlist">
-          <b-button
-            style="
+      <div style="padding: 20px 25px 10px" v-if="!isPatientList">
+        <b-button
+          style="
               background-color: #1e3a8a;
               color: white;
               border-color: #1e3a8a;
             "
-            size="is-large"
-          >
-            <b-icon icon="menu" size="is-medium"> </b-icon>
-          </b-button>
-        </router-link>
+          size="is-large"
+          @click="changeToPatient"
+        >
+          <b-icon icon="menu" size="is-medium"> </b-icon>
+        </b-button>
       </div>
-      <div style="padding: 20px 25px 10px" v-if="checklist == true">
+      <div style="padding: 20px 25px 10px" v-else>
         <b-button
           style="background-color: white; color: #1e3a8a; border-color: white"
           size="is-large"
@@ -29,25 +24,20 @@
         </b-button>
       </div>
       <!-- ปุ่มแบบประเมิน -->
-      <div
-        style="padding: 0px 25px 0px"
-        v-if="checkfrom == false"
-        @click="(checklist = !checklist), (checkfrom = !checkfrom)"
-      >
-        <router-link to="/startpage">
-          <b-button
-            style="
+      <div style="padding: 0px 25px 0px" v-if="!isAssessment">
+        <b-button
+          :disabled="haveUserData"
+          style="
               background-color: #1e3a8a;
               color: white;
               border-color: #1e3a8a;
             "
-            size="is-large"
-          >
-            <b-icon icon="text-box-outline" size="is-medium"> </b-icon>
-          </b-button>
-        </router-link>
+          size="is-large"
+        >
+          <b-icon icon="text-box-outline" size="is-medium"> </b-icon>
+        </b-button>
       </div>
-      <div style="padding: 0px 25px 0px" v-if="checkfrom == true">
+      <div style="padding: 0px 25px 0px" v-else>
         <b-button
           style="background-color: white; color: #1e3a8a; border-color: white"
           size="is-large"
@@ -113,10 +103,32 @@ export default {
         .catch(e => {
           console.log(e.details);
         });
+    },
+    changeToPatient() {
+      if (this.haveUserData) {
+        this.$router.push({ name: "PatientList" });
+      } else {
+        alert("can't");
+      }
     }
   },
   computed: {
-    ...mapState(["who_login"])
+    ...mapState(["who_login", "u_Data", "result_id"]),
+    currentRouteName() {
+      return this.$route.name;
+    },
+    isPatientList() {
+      return (
+        this.$route.name === "PatientList" ||
+        this.$route.name === "CreateAccUser"
+      );
+    },
+    isAssessment() {
+      return this.$route.name === "startpage" || this.$route.name === "Result";
+    },
+    haveUserData() {
+      return this.u_Data !== [] || this.result_id !== null;
+    }
   }
 };
 </script>
