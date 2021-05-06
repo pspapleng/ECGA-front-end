@@ -130,7 +130,7 @@
                   </p>
                   <div v-for="ch in ques.choice" :key="ch.ans_id">
                     <b-field>
-                      <b-radio
+                      <!-- <b-radio
                         id="ques.ques_id"
                         v-model="ques.ans"
                         :native-value="ch.ans_value"
@@ -146,7 +146,21 @@
                         "
                       >
                       </b-radio>
-                      <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                      <label id="ques.ques_id" for="">{{ ch.ans_title }}</label> -->
+                      <input
+                        type="text"
+                        id="ques.ques_id"
+                        :value="ch.ans_title"
+                        @change="
+                          e =>
+                            setAns({
+                              id: ques.ques_id,
+                              value: parseInt(e.target.value),
+                              title: ch.ans_title,
+                              u_id: 1
+                            })
+                        "
+                      />
                     </b-field>
                   </div>
                 </div>
