@@ -65,27 +65,23 @@
                         type="is-info"
                         @change.native="
                           e =>
-                            setAns({ id: ques.ques_id, value: e.target.value })
+                            setAns({
+                              id: ques.ques_id,
+                              value: parseInt(e.target.value),
+                              title: ch.ans_title + concatTimeTUG,
+                              u_id: 1
+                            })
                         "
                       >
+                        <p>{{ ch.ans_title }}</p>
                       </b-radio>
-                      <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
                     </b-field>
                   </div>
-                  <input
-                    class="ml-5"
-                    id="ques.ques_id"
-                    v-model="ques.ans_input"
-                    type="text"
-                  />
-                  <label for=""> นาที</label>
-                  <input
-                    class="ml-3"
-                    id="ques.ques_id"
-                    v-model="ques.ans_input"
-                    type="text"
-                  />
-                  <label for=""> วินาที</label>
+                  <form>
+                    นาที : <input type="text" v-model="minsTUG" /> วินาที :
+                    <input type="text" v-model="secTUG" /> เวลารวม :
+                    <input type="text" :value="concatTimeTUG" />
+                  </form>
                 </div>
               </div>
             </div>
@@ -109,7 +105,12 @@
                         type="is-info"
                         @change.native="
                           e =>
-                            setAns({ id: ques.ques_id, value: e.target.value })
+                            setAns({
+                              id: ques.ques_id,
+                              value: parseInt(e.target.value),
+                              title: ch.ans_title,
+                              u_id: 1
+                            })
                         "
                       >
                       </b-radio>
@@ -139,14 +140,19 @@
                         type="is-info"
                         @change.native="
                           e =>
-                            setAns({ id: ques.ques_id, value: e.target.value })
+                            setAns({
+                              id: ques.ques_id,
+                              value: parseInt(e.target.value),
+                              title: ch.ans_title + etc,
+                              u_id: 1
+                            })
                         "
                       >
                       </b-radio>
                       <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
                     </b-field>
                   </div>
-                  <input class="ml-5" v-model="ques.ans_input" type="text" />
+                  <input class="ml-5" value="etc" type="text" />
                 </div>
               </div>
             </div>
@@ -170,7 +176,111 @@
                         type="is-info"
                         @change.native="
                           e =>
-                            setAns({ id: ques.ques_id, value: e.target.value })
+                            setAns({
+                              id: ques.ques_id,
+                              value: parseInt(e.target.value),
+                              title: ch.ans_title,
+                              u_id: 1
+                            })
+                        "
+                      >
+                      </b-radio>
+                      <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                    </b-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-content">
+              <div class="content has-text-left">
+                <u class="head">ส่วนที่ 2 การประเมิน Full tandem stand </u>
+                <br />
+                <u>วิธีการประเมิน</u><br />
+                1. ยืนให้ส้นเท้าข้างใดข้างหนึ่งแตะปลายเท้าของเท้าอีกข้างหนึ่ง
+                <br />
+                2. ผู้ถูกทดสอบสามารถลงน้ำหนักขาข้างใดก็ใดตามถนัด
+                <br />
+                <u>การบันทึกผลการทดสอบ</u><br />
+                1. บันทึกว่าผู้ถูกทดสอบสามารถยืนทรงตัวตามรูป“ได้” หรือ “ไม่ได้”
+                <br />
+                2. บันทึกเวลาที่ผู้ถูกทดสอบสามารถยืนทรงตัว ตามการยืนได้
+                <br />
+                <u style="color : #F90000;">หมายเหตุ</u> :
+                ผู้ถูกทดสอบต้องยืนทรงตัวอย่างน้อยที่สุด 1
+                วินาทีจึงจะบันทึกได้ว่า “สามารถยืนทรงตัวได้”
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="questions"
+            v-for="ques in form.slice(36, 37)"
+            :key="ques.ques_id"
+          >
+            <div class="card mr-6">
+              <div class="card-content">
+                <div class="content">
+                  <p>{{ ques.ques }}</p>
+                  <div v-for="ch in ques.choice" :key="ch.ans_id">
+                    <b-field>
+                      <b-radio
+                        id="ques.ques_id"
+                        v-model="ques.ans"
+                        :native-value="ch.ans_value"
+                        type="is-info"
+                        @change.native="
+                          e =>
+                            setAns({
+                              id: ques.ques_id,
+                              value: parseInt(e.target.value),
+                              title: ch.ans_title + concatTimeFull,
+                              u_id: 1
+                            })
+                        "
+                      >
+                      </b-radio>
+                      <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
+                    </b-field>
+                  </div>
+                  <form>
+                    นาที :
+                    <input type="text" v-model="minsFull" min="0" max="90" />
+                    วินาที :
+                    <input type="text" v-model="secFull" min="0" max="59" />
+                    เวลารวม : <input type="text" :value="concatTimeFull" />
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="questions"
+            v-for="ques in form.slice(37, 38)"
+            :key="ques.ques_id"
+          >
+            <div class="card mr-6">
+              <div class="card-content">
+                <div class="content">
+                  <p>{{ ques.ques }}</p>
+                  <div v-for="ch in ques.choice" :key="ch.ans_id">
+                    <b-field>
+                      <b-radio
+                        id="ques.ques_id"
+                        v-model="ques.ans"
+                        :native-value="ch.ans_value"
+                        type="is-info"
+                        @change.native="
+                          e =>
+                            setAns({
+                              id: ques.ques_id,
+                              value: parseInt(e.target.value),
+                              title: ch.ans_title,
+                              u_id: 1
+                            })
                         "
                       >
                       </b-radio>
@@ -222,24 +332,23 @@
                 class="card-header-title"
                 style="color: white; background-color: #1E3A8A"
               >
-                ผลการประเมินความเสี่ยงในการหกล้ม (TIME UP AND GO TEST)
+                ผลการประเมินการคัดกรองภาวะหกล้ม
               </p>
             </header>
             <div class="card-content" style="background-color: #f4f4f4">
               <div class="content has-text-lefts ml-6">
                 การพิจารณา (คะแนนเต็ม 30 คะแนน)
                 <br />
-                18 - 30 คะแนน = มีความเสี่ยงที่จะหกล้มสูง
-                <br />
-                8 - 17 คะแนน = มีความเสี่ยงที่จะหกล้มปานกลาง
-                <br />
-                0 - 7 คะแนน = มีความเสี่ยงที่จะหกล้ม ให้ทำการทดสอบ stan test
+                ถ้าหากผลการทดสอบ TUG มากกว่า 14 วินาที และ ผลการทดสอบ Full
+                Tandem Stand น้อยกว่า 10 วินาที ให้ส่งต่อคลินิก Fall
               </div>
               <div class="card">
                 <div class="card-content">
                   <div class="content">
                     <p class="has-text-centered">
-                      <!-- ได้คะแนน {{ ansvalue }} คะแนน {{ anstitle }} -->
+                      ใช้เวลาในการเดิน {{ concatTimeTUG }} และ ยืนได้
+                      {{ concatTimeFull }} <br />
+                      {{ anstitle }}
                     </p>
                   </div>
                 </div>
@@ -279,7 +388,13 @@ export default {
       size: "default",
       prevIcon: "chevron-left",
       nextIcon: "chevron-right",
-      isEditResult: false
+      isEditResult: false,
+      minsTUG: "",
+      secTUG: "",
+      minsFull: "",
+      secFull: "",
+      anstitle: "",
+      ansvalue: 0
     };
   },
   computed: {
@@ -288,7 +403,13 @@ export default {
       form: "json",
       ans: "keep_ans",
       user: "user"
-    })
+    }),
+    concatTimeTUG() {
+      return " " + this.minsTUG + "." + this.secTUG;
+    },
+    concatTimeFull() {
+      return " " + this.minsFull + "." + this.secFull;
+    }
   },
   methods: {
     ...mapMutations(["setAns"]),
@@ -301,7 +422,43 @@ export default {
     },
 
     sumResult() {
+      console.log(this.ans);
+      console.log(this.minsTUG, this.secTUG, typeof this.concatTimeTUG);
+      console.log(this.minsFull, this.secFull, typeof this.concatTimeFull);
+      this.anstitle = "";
+      this.ansvalue1 = 0;
+      this.ansvalue2 = 0;
+      // this.minsTUG = 0;
+      // this.secTUG = 0;
+      // this.minsFull = 0;
+      // this.secFull = 0
       this.isEditResult = true;
+
+      if (this.minsTUG == 0) {
+        if (this.secTUG > 14) {
+          this.ansvalue1 += 1;
+        } else {
+          this.ansvalue1 += 0;
+        }
+      } else if (this.minsTUG > 0) {
+        this.ansvalue1 += 1;
+      }
+
+      if (this.minsFull == 0) {
+        if (this.secFull < 10) {
+          this.ansvalue2 += 1;
+        } else {
+          this.ansvalue2 += 0;
+        }
+      } else if (this.minsFull > 0) {
+        this.ansvalue2 += 0;
+      }
+
+      if (this.ansvalue1 == 1 && this.ansvalue2 == 1) {
+        this.anstitle = "มีความเสี่ยงต่อภาวะหกล้ม";
+      } else {
+        this.anstitle = "ไม่มีความเสี่ยงต่อภาวะหกล้ม";
+      }
     }
   },
   beforeRouteEnter(to, from, next) {
