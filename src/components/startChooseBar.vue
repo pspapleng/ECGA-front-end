@@ -240,7 +240,7 @@ export default {
         }
         if (this.formFinish[i] == "OSTA") {
           this.OSTA = true;
-          this.linker = "forms/from13";
+          this.linker = "forms/form13";
         }
       }
       this.num =

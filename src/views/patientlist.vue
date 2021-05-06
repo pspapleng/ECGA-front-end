@@ -66,35 +66,35 @@
                 width="40"
                 sortable
                 centered
-                v-slot="props"
+                v-slot="user"
               >
-                {{ props.row.HN }}
+                {{ user.row.HN }}
               </b-table-column>
 
               <b-table-column
                 field="u_fname"
                 label="ชื่อ"
                 sortable
-                v-slot="props"
+                v-slot="user"
               >
-                <span>{{ props.row.u_fname }}</span>
+                <span>{{ user.row.u_fname }}</span>
               </b-table-column>
 
               <b-table-column
                 field="u_lname"
                 label="นามสกุล"
                 sortable
-                v-slot="props"
+                v-slot="user"
               >
-                {{ props.row.u_lname }}
+                {{ user.row.u_lname }}
               </b-table-column>
 
-              <b-table-column label="เพศ" centered width="110" v-slot="props">
+              <b-table-column label="เพศ" centered width="110" v-slot="user">
                 <span>
-                  {{ props.row.gender }}
+                  {{ user.row.gender }}
                   <b-icon
                     pack="fas"
-                    :icon="props.row.gender === 'Male' ? 'mars' : 'venus'"
+                    :icon="user.row.gender === 'Male' ? 'mars' : 'venus'"
                   >
                   </b-icon>
                 </span>
@@ -105,54 +105,54 @@
                 label="สถานะ"
                 centered
                 width="100"
-                v-slot="props"
+                v-slot="user"
               >
                 <router-link to="/results">
                   <span
                     class="tag is-success is-light"
-                    @click="seeResult(props.row)"
+                    @click="seeResult(user.row)"
                     v-if="
-                      props.row.result != null &&
-                      selected.getFullYear() -
-                        new Date(props.row.result_date).getFullYear() <
+                      user.row.result != null &&
+                      today.getFullYear() -
+                        new Date(user.row.result_date).getFullYear() <
                         1
                     "
                   >
                     ประเมินเมื่อ
-                    {{ new Date(props.row.result_date).toLocaleDateString() }}
+                    {{ new Date(user.row.result_date).toLocaleDateString() }}
                   </span>
                 </router-link>
 
                 <span
                   class="tag is-warning is-light"
-                  @click="seeResult(props.row)"
+                  @click="seeResult(user.row)"
                   v-if="
-                    props.row.result != null &&
-                    selected.getFullYear() -
-                      new Date(props.row.result_date).getFullYear() >
+                    user.row.result != null &&
+                    today.getFullYear() -
+                      new Date(user.row.result_date).getFullYear() >=
                       1
                   "
                 >
                   ประเมินเมื่อ
-                  {{ new Date(props.row.result_date).toLocaleDateString() }}
+                  {{ new Date(user.row.result_date).toLocaleDateString() }}
                   <router-link to="/results" />
                 </span>
 
-                <span class="tag" v-if="props.row.result == null" disabled>
+                <span class="tag" v-if="user.row.result == null" disabled>
                   ไม่มีข้อมูลผลประเมิน
                 </span>
               </b-table-column>
 
-              <b-table-column width="100" v-slot="props" centered>
+              <b-table-column width="100" v-slot="user" centered>
                 <router-link to="/startpage">
                   <b-button
                     style="background-color: #1e3a8a; color: white"
                     size="is-small"
-                    @click="DoForm(props.row)"
+                    @click="DoForm(user.row)"
                     v-if="
-                      props.row.result == null ||
-                      selected.getFullYear() -
-                        new Date(props.row.result_date).getFullYear() >
+                      user.row.result == null ||
+                      today.getFullYear() -
+                        new Date(user.row.result_date).getFullYear() >=
                         1
                     "
                   >
@@ -164,7 +164,7 @@
               <b-table-column
                 width="40"
                 style="padding: 8px 6px"
-                v-slot="props"
+                v-slot="user"
               >
                 <b-button
                   type="is-light"
@@ -172,34 +172,34 @@
                   icon-pack="fas"
                   size="is-small"
                   @click="
-                    open(props.row.HN),
+                    open(user.row.HN),
                       (isResult = true),
-                      getAge(props.row.date_of_birth)
+                      getAge(user.row.date_of_birth)
                   "
                 />
               </b-table-column>
 
-              <b-table-column width="40" v-slot="props">
+              <b-table-column width="40" v-slot="user">
                 <b-button
                   type="is-light"
                   icon-right="pen"
                   icon-pack="fas"
                   size="is-small"
                   @click="
-                    open(props.row.HN),
+                    open(user.row.HN),
                       (isEditResult = true),
-                      editHistory(props.row)
+                      editHistory(user.row)
                   "
                 />
               </b-table-column>
 
-              <b-table-column width="40" v-slot="props">
+              <b-table-column width="40" v-slot="user">
                 <b-button
                   type="is-light"
                   icon-right="trash"
                   icon-pack="fas"
                   size="is-small"
-                  @click="DeleteUser(props.row, props.row.HN)"
+                  @click="DeleteUser(user.row, user.row.HN)"
                 />
               </b-table-column>
 
@@ -762,11 +762,10 @@ export default {
   name: "Patientlist",
   data() {
     return {
-      data1: [],
       isResult: false,
       isEditResult: false,
       result: {},
-      selected: new Date(),
+      today: new Date(),
       editFname: "",
       editLname: "",
       editGender: "",
