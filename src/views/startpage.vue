@@ -38,7 +38,7 @@
                   size="is-large"
                   type="is-info"
                   :max="13"
-                  :value="formFinish.length"
+                  :value="checkForm"
                   show-value
                 >
                   {{checkForm}} out of 13</b-progress
