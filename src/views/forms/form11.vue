@@ -130,23 +130,6 @@
                   </p>
                   <div v-for="ch in ques.choice" :key="ch.ans_id">
                     <b-field>
-                      <!-- <b-radio
-                        id="ques.ques_id"
-                        v-model="ques.ans"
-                        :native-value="ch.ans_value"
-                        type="is-info"
-                        @change.native="
-                          e =>
-                            setAns({
-                              id: ques.ques_id,
-                              value: parseInt(e.target.value),
-                              title: ch.ans_title,
-                              u_id: 1
-                            })
-                        "
-                      >
-                      </b-radio>
-                      <label id="ques.ques_id" for="">{{ ch.ans_title }}</label> -->
                       <input
                         type="text"
                         id="ques.ques_id"
@@ -274,7 +257,7 @@
                 ย้อนกลับ
               </p>
               <router-link class="card-footer-item" to="/forms/form12">
-                <p style="color: #047857" @click="Finish()">
+                <p style="color: #047857">
                   ทำแบบประเมินถัดไป
                 </p>
               </router-link>
@@ -314,11 +297,10 @@ export default {
     }),
     concatYear() {
       return " " + this.year + " ปี " + this.month + " เดือน";
-    },
-    ...mapState(["formFinish"]),
+    }
   },
   methods: {
-    ...mapMutations(["setAns", "setFormFinish"]),
+    ...mapMutations(["setAns"]),
     ...mapActions(["getUserById"]),
 
     backHome() {
@@ -351,12 +333,7 @@ export default {
         this.anstitle +=
           " โปรดส่งต่อให้แพทย์เพื่อทำการตรวจวินิจฉัยเพื่อยืนยันผล";
       }
-    },
-    Finish() {
-      this.formFinish.push("SLEEP")
-      this.setFormFinish(this.formFinish);
-      console.log(this.formFinish);
-    },
+    }
   },
   beforeRouteEnter(to, from, next) {
     console.log("before");
