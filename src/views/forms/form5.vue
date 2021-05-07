@@ -281,10 +281,10 @@ export default {
       ans: "keep_ans",
       user: "user"
     }),
-    ...mapState(["formFinish"]),
+    ...mapState(["formFinish"])
   },
   methods: {
-    ...mapMutations(["setAns", "setFormFinish"]),
+    ...mapMutations(["setAns", "setFormFinish", "setEYES"]),
     ...mapActions(["getUserById"]),
     sumResult() {
       console.log(this.ans);
@@ -326,13 +326,13 @@ export default {
       ) {
         this.anstitle += "สุขภาวะทางตาปกติ";
       }
-      return this.anstitle;
+      this.setEYES(this.anstitle);
     },
     Finish() {
-      this.formFinish.push("EYES")
+      this.formFinish.push("EYES");
       this.setFormFinish(this.formFinish);
       console.log(this.formFinish);
-    },
+    }
   },
   beforeRouteEnter(to, from, next) {
     console.log("before");

@@ -150,7 +150,8 @@ export default {
       nextIcon: "chevron-right",
       isEditResult: false,
       anstitle: "",
-      ansvalue: 0
+      ansvalue: 0,
+      resultans: ""
     };
   },
   computed: {
@@ -160,36 +161,38 @@ export default {
       ans: "keep_ans",
       user: "user"
     }),
-    ...mapState(["formFinish"]),
+    ...mapState(["formFinish"])
   },
   methods: {
-    ...mapMutations(["setAns", "setFormFinish"]),
+    ...mapMutations(["setAns", "setFormFinish", "setFallRisk"]),
     ...mapActions(["getUserById"]),
     sumResult() {
       console.log(this.ans);
       this.isEditResult = true;
-      (this.anstitle = ""), (this.ansvalue = 0);
+      this.anstitle = "";
+      this.ansvalue = 0;
+      this.resultans = "";
 
       for (var i = 0; i < 28; i++) {
         this.ansvalue += this.ans[i].ans_value;
       }
 
       if (this.ansvalue >= 0 && this.ansvalue <= 7) {
-        return (this.anstitle =
-          "มีความเสี่ยงที่จะหกล้ม ให้ทำการทดสอบ stan test");
+        this.anstitle = "มีความเสี่ยงที่จะหกล้ม ให้ทำการทดสอบ stan test";
       } else if (this.ansvalue >= 8 && this.ansvalue <= 17) {
-        return (this.anstitle = "มีความเสี่ยงที่จะหกล้มปานกลาง");
+        this.anstitle = "มีความเสี่ยงที่จะหกล้มปานกลาง";
       } else if (this.ansvalue >= 18 && this.ansvalue <= 30) {
-        return (this.anstitle = "มีความเสี่ยงที่จะหกล้มสูง");
+        this.anstitle = "มีความเสี่ยงที่จะหกล้มสูง";
       }
 
-      return this.ansvalue;
+      this.resultans = "ได้คะแนน " + this.ansvalue + " คะแนน " + this.anstitle;
+      this.setFallRisk(this.resultans);
     },
     Finish() {
-      this.formFinish.push("FallRisk")
+      this.formFinish.push("FallRisk");
       this.setFormFinish(this.formFinish);
       console.log(this.formFinish);
-    },
+    }
   },
   beforeRouteEnter(to, from, next) {
     console.log("before");

@@ -62,12 +62,12 @@
                         :native-value="ch.ans_value"
                         type="is-info"
                         @change.native="
-                          (e) =>
+                          e =>
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
                               title: ch.ans_title,
-                              u_id: 1,
+                              u_id: 1
                             })
                         "
                       >
@@ -90,12 +90,12 @@
                         :native-value="ch.ans_value"
                         type="is-info"
                         @change.native="
-                          (e) =>
+                          e =>
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
                               title: ch.ans_title,
-                              u_id: 1,
+                              u_id: 1
                             })
                         "
                       >
@@ -128,12 +128,12 @@
                         :native-value="ch.ans_value"
                         type="is-info"
                         @change.native="
-                          (e) =>
+                          e =>
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
                               title: ch.ans_title,
-                              u_id: 1,
+                              u_id: 1
                             })
                         "
                       >
@@ -169,12 +169,12 @@
                         :native-value="ch.ans_value"
                         type="is-info"
                         @change.native="
-                          (e) =>
+                          e =>
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
                               title: ch.ans_title,
-                              u_id: 1,
+                              u_id: 1
                             })
                         "
                       >
@@ -278,7 +278,7 @@ import Sidebar from "@/components/sidebar.vue";
 import { mapState, mapMutations, mapActions } from "vuex";
 export default {
   components: {
-    Sidebar,
+    Sidebar
   },
   name: "Patientlist",
   data() {
@@ -288,20 +288,20 @@ export default {
       prevIcon: "chevron-left",
       nextIcon: "chevron-right",
       isEditResult: false,
-      anstitle1: "",
+      anstitle1: ""
     };
   },
   computed: {
     ...mapState({
-      count: (state) => state.count,
+      count: state => state.count,
       form: "json",
       ans: "keep_ans",
-      user: "user",
+      user: "user"
     }),
-    ...mapState(["formFinish"]),
+    ...mapState(["formFinish"])
   },
   methods: {
-    ...mapMutations(["setAns", "setFormFinish"]),
+    ...mapMutations(["setAns", "setFormFinish", "setOCA"]),
     ...mapActions(["getUserById"]),
     sumResult() {
       console.log(this.ans);
@@ -331,20 +331,20 @@ export default {
       ) {
         this.anstitle1 += "สุขภาวะทางตาปกติ";
       }
-      return this.anstitle1;
+      this.setOCA(this.anstitle1);
     },
     Finish() {
-      this.formFinish.push("OCA")
+      this.formFinish.push("OCA");
       this.setFormFinish(this.formFinish);
       console.log(this.formFinish);
-    },
+    }
   },
   beforeRouteEnter(to, from, next) {
     console.log("before");
-    next((vm) => {
+    next(vm => {
       vm.getUserById();
     });
-  },
+  }
 };
 </script>
 <style>

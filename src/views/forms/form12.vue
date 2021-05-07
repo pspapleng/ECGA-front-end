@@ -170,10 +170,10 @@ export default {
       ans: "keep_ans",
       user: "user"
     }),
-    ...mapState(["formFinish"]),
+    ...mapState(["formFinish"])
   },
   methods: {
-    ...mapMutations(["setAns", "setFormFinish"]),
+    ...mapMutations(["setAns", "setFormFinish", "setKNEE"]),
     ...mapActions(["getUserById"]),
     sumResult() {
       this.countans = 0;
@@ -192,12 +192,14 @@ export default {
       } else {
         this.anstitle = "ไม่มีความเสี่ยงที่จะเป็นโรคข้อเข่าเสื่อม";
       }
+
+      this.setKNEE(this.anstitle);
     },
     Finish() {
-      this.formFinish.push("KNEE")
+      this.formFinish.push("KNEE");
       this.setFormFinish(this.formFinish);
       console.log(this.formFinish);
-    },
+    }
   },
   beforeRouteEnter(to, from, next) {
     console.log("before");

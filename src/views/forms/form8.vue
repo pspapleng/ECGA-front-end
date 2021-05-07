@@ -822,10 +822,10 @@ export default {
       ans: "keep_ans",
       user: "user"
     }),
-    ...mapState(["formFinish"]),
+    ...mapState(["formFinish"])
   },
   methods: {
-    ...mapMutations(["setAns", "setFormFinish"]),
+    ...mapMutations(["setAns", "setFormFinish", "setFormFinish"]),
     ...mapActions(["getUserById"]),
     sumResult() {
       console.log(this.ans);
@@ -866,12 +866,13 @@ export default {
       } else {
         this.anstitle += "ไม่เป็นผู้สงสัยว่ามีภาวะสมองเสื่อม";
       }
+      this.setMMSE(this.anstitle);
     },
     Finish() {
-      this.formFinish.push("IQCODE")
+      this.formFinish.push("IQCODE");
       this.setFormFinish(this.formFinish);
       console.log(this.formFinish);
-    },
+    }
   },
   beforeRouteEnter(to, from, next) {
     console.log("before");

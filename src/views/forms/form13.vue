@@ -170,7 +170,8 @@ export default {
       isEditResult: false,
       anssuggest: "",
       anstitle: "",
-      osta: 0
+      osta: 0,
+      resultans: ""
     };
   },
   computed: {
@@ -190,15 +191,16 @@ export default {
       }
       return age;
     },
-    ...mapState(["formFinish"]),
+    ...mapState(["formFinish"])
   },
   methods: {
-    ...mapMutations(["setAns", "setFormFinish"]),
-    ...mapActions(["getUserById"]),
+    ...mapMutations(["setAns", "setFormFinish", "setOSTA"]),
+    ...mapActions(["getUserById", "submitAll"]),
     sumResult() {
       this.osta = 0;
       this.anstitle = "";
       this.anssuggest = "";
+      this.resultans = "";
       this.isEditResult = true;
 
       this.osta = 0.2 * (this.user.weight - this.age);
@@ -215,12 +217,40 @@ export default {
         this.anstitle = "ความเสี่ยงต่ำ";
         this.anssuggest = "ยังไม่จำเป็นต้องตรวจความหนาแน่นกระดูก";
       }
+
+      this.resultans =
+        "ค่าที่คำนวณได้เท่ากับ " +
+        this.osta +
+        " มี " +
+        this.anstitle +
+        "ต่อโรคกระดูกพรุน" +
+        " " +
+        this.anssuggest;
+      this.setOSTA(this.resultans);
     },
     Finish() {
-      this.formFinish.push("OSTA")
+      this.formFinish.push("OSTA");
       this.setFormFinish(this.formFinish);
       console.log(this.formFinish);
-    },
+      this.submitAll()
+        .then(() => {
+          this.$router.push({ name: "startpage" });
+        })
+        .catch(e => {
+          console.log(e);
+          if (Array.isArray(e.details)) {
+            console.log("yes");
+            let err = "";
+            e.details.forEach(e => {
+              err += " " + e.message;
+            });
+            alert(err);
+          } else {
+            console.log("no");
+            alert(e.details.message);
+          }
+        });
+    }
   },
   beforeRouteEnter(to, from, next) {
     console.log("before");

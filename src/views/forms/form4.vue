@@ -393,7 +393,8 @@ export default {
       minsFull: "",
       secFull: "",
       anstitle: "",
-      ansvalue: 0
+      ansvalue: 0,
+      resultans: ""
     };
   },
   computed: {
@@ -409,10 +410,10 @@ export default {
     concatTimeFull() {
       return " " + this.minsFull + "." + this.secFull;
     },
-    ...mapState(["formFinish"]),
+    ...mapState(["formFinish"])
   },
   methods: {
-    ...mapMutations(["setAns", "setFormFinish"]),
+    ...mapMutations(["setAns", "setFormFinish", "setTUGT"]),
     ...mapActions(["getUserById"]),
     sumResult() {
       console.log(this.ans);
@@ -421,6 +422,7 @@ export default {
       this.anstitle = "";
       this.ansvalue1 = 0;
       this.ansvalue2 = 0;
+      this.resultans = "";
       // this.minsTUG = 0;
       // this.secTUG = 0;
       // this.minsFull = 0;
@@ -452,12 +454,21 @@ export default {
       } else {
         this.anstitle = "ไม่มีความเสี่ยงต่อภาวะหกล้ม";
       }
+
+      this.resultans =
+        "ใช้เวลาในการเดิน" +
+        this.concatTimeTUG +
+        " และ ยืนได้" +
+        this.concatTimeFull +
+        " " +
+        this.anstitle;
+      this.setTUGT(this.resultans);
     },
     Finish() {
-      this.formFinish.push("TUGT")
+      this.formFinish.push("TUGT");
       this.setFormFinish(this.formFinish);
       console.log(this.formFinish);
-    },
+    }
   },
   beforeRouteEnter(to, from, next) {
     console.log("before");

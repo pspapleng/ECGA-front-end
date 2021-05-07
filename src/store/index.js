@@ -2,6 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import question from "../assets/test.json";
 import keep_ans from "../assets/ans.json";
+import keep_results from "../assets/result.json";
 
 Vue.use(Vuex);
 
@@ -9,6 +10,7 @@ export default new Vuex.Store({
   state: {
     json: question,
     keep_ans: keep_ans,
+    keep_result: keep_results,
     result: null,
     ans: null,
     owner: null,
@@ -58,7 +60,20 @@ export default new Vuex.Store({
     u_Data: [],
     UserId: 1,
     formFinish: [],
-    checkForm: []
+    checkForm: [],
+    MNA: "",
+    OCA: "",
+    FallRisk: "",
+    TUGT: "",
+    EYES: "",
+    TGDS15: "",
+    IQCODE: "",
+    MMSE: "",
+    LTTA: "",
+    UIA: "",
+    SLEEP: "",
+    KNEE: "",
+    OSTA: ""
   },
   mutations: {
     setCheckForm(state, payload) {
@@ -174,6 +189,59 @@ export default new Vuex.Store({
     },
     setFormFinish(state, payload) {
       state.formFinish = payload;
+    },
+    //
+    setMNA(state, payload) {
+      state.MNA = payload;
+      console.log(payload);
+    },
+    setOCA(state, payload) {
+      state.OCA = payload;
+      console.log(payload);
+    },
+    setFallRisk(state, payload) {
+      state.FallRisk = payload;
+      console.log(payload);
+    },
+    setTUGT(state, payload) {
+      state.TUGT = payload;
+      console.log(payload);
+    },
+    setEYES(state, payload) {
+      state.EYES = payload;
+      console.log(payload);
+    },
+    setTGDS15(state, payload) {
+      state.TGDS15 = payload;
+      console.log(payload);
+    },
+    setIQCODE(state, payload) {
+      state.IQCODE = payload;
+      console.log(payload);
+    },
+    setMMSE(state, payload) {
+      state.MMSE = payload;
+      console.log(payload);
+    },
+    setLTTA(state, payload) {
+      state.LTTA = payload;
+      console.log(payload);
+    },
+    setUIA(state, payload) {
+      state.UIA = payload;
+      console.log(payload);
+    },
+    setSLEEP(state, payload) {
+      state.SLEEP = payload;
+      console.log(payload);
+    },
+    setKNEE(state, payload) {
+      state.KNEE = payload;
+      console.log(payload);
+    },
+    setOSTA(state, payload) {
+      state.OSTA = payload;
+      console.log(payload);
     }
   },
   actions: {
@@ -335,6 +403,45 @@ export default new Vuex.Store({
         .then(user => {
           console.log(user);
           commit("setUserFromUId", user.data[0]);
+        });
+    },
+    //
+    submitAll({ state, dispatch }) {
+      return Vue.axios
+        .post(`http://localhost:3000/api/result/`, {
+          result: {
+            MNA: state.MNA,
+            OCA: state.OCA,
+            FallRisk: state.FallRisk,
+            TUGT: state.TUGT,
+            EYES: state.EYES,
+            TGDS15: state.TGDS15,
+            IQCODE: state.IQCODE,
+            MMSE: state.MMSE,
+            LTTA: state.LTTA,
+            UIA: state.UIA,
+            SLEEP: state.SLEEP,
+            KNEE: state.KNEE,
+            OSTA: state.OSTA
+          },
+          u_id: state.UserId
+        })
+        .then(res => {
+          dispatch("submitAns");
+          return Promise.resolve(res);
+        })
+        .catch(err => {
+          return Promise.reject(err);
+        });
+    },
+    submitAns({ state }) {
+      return Vue.axios
+        .post(`http://localhost:3000/api/ans/`, state.keep_ans)
+        .then(res => {
+          return Promise.resolve(res);
+        })
+        .catch(err => {
+          return Promise.reject(err);
         });
     }
   },

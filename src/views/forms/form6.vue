@@ -154,7 +154,8 @@ export default {
       nextIcon: "chevron-right",
       isEditResult: false,
       ansvalue: 0,
-      anstitle: ""
+      anstitle: "",
+      resultans: ""
     };
   },
   computed: {
@@ -164,10 +165,10 @@ export default {
       ans: "keep_ans",
       user: "user"
     }),
-    ...mapState(["formFinish"]),
+    ...mapState(["formFinish"])
   },
   methods: {
-    ...mapMutations(["setAns", "setFormFinish"]),
+    ...mapMutations(["setAns", "setFormFinish", "setTGDS15"]),
     ...mapActions(["getUserById"]),
     sumResult() {
       this.isEditResult = true;
@@ -184,13 +185,14 @@ export default {
         return (this.anstitle = "มีภาวะซึมเศร้าแน่นอน ควรพบจิตแพทย์");
       }
 
-      return this.ansvalue;
+      this.resultans = "ได้คะแนน " + this.ansvalue + " คะแนน " + this.anstitle;
+      this.setTGDS15(this.resultans);
     },
     Finish() {
-      this.formFinish.push("TGDS15")
+      this.formFinish.push("TGDS15");
       this.setFormFinish(this.formFinish);
       console.log(this.formFinish);
-    },
+    }
   },
   beforeRouteEnter(to, from, next) {
     console.log("before");

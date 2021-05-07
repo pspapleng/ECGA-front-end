@@ -297,10 +297,10 @@ export default {
     concatYear() {
       return " " + this.year + " ปี " + this.month + " เดือน";
     },
-    ...mapState(["formFinish"]),
+    ...mapState(["formFinish"])
   },
   methods: {
-    ...mapMutations(["setAns", "setFormFinish"]),
+    ...mapMutations(["setAns", "setFormFinish", "setSLEEP"]),
     ...mapActions(["getUserById"]),
     sumResult() {
       console.log(this.ans);
@@ -326,6 +326,8 @@ export default {
         this.anstitle +=
           " โปรดส่งต่อให้แพทย์เพื่อทำการตรวจวินิจฉัยเพื่อยืนยันผล";
       }
+
+      this.setSLEEP(this.anstitle);
     }
   },
   beforeRouteEnter(to, from, next) {

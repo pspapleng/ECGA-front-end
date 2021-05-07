@@ -404,7 +404,8 @@ export default {
       valuepart4: 0,
       valuepart5: 0,
       anssum: 0,
-      anstitle: ""
+      anstitle: "",
+      resultans: ""
     };
   },
   computed: {
@@ -414,10 +415,10 @@ export default {
       ans: "keep_ans",
       user: "user"
     }),
-    ...mapState(["formFinish"]),
+    ...mapState(["formFinish"])
   },
   methods: {
-    ...mapMutations(["setAns", "setFormFinish"]),
+    ...mapMutations(["setAns", "setFormFinish", "setLTTA"]),
     ...mapActions(["getUserById"]),
     sumResult() {
       var i = 0;
@@ -428,6 +429,7 @@ export default {
       this.valuepart5 = 0;
       this.anssum = 0;
       this.anstitle = "";
+      this.resultans = "";
       console.log(this.anssum);
       console.log(this.anstitle);
       console.log(this.ans);
@@ -516,12 +518,15 @@ export default {
         return (this.anstitle =
           "ต้องได้รับการดูแลระยะยาวและประเมินซ้ำทุกเดือนก่อนพบแพทย์");
       }
+
+      this.resultans = "ได้คะแนน " + this.anssum + " คะแนน " + this.anstitle;
+      this.setLTTA(this.resultans);
     },
     Finish() {
-      this.formFinish.push("LTTA")
+      this.formFinish.push("LTTA");
       this.setFormFinish(this.formFinish);
       console.log(this.formFinish);
-    },
+    }
   },
   beforeRouteEnter(to, from, next) {
     console.log("before");

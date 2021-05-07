@@ -342,10 +342,10 @@ export default {
       ans: "keep_ans",
       user: "user"
     }),
-    ...mapState(["formFinish"]),
+    ...mapState(["formFinish"])
   },
   methods: {
-    ...mapMutations(["setAns", "setFormFinish"]),
+    ...mapMutations(["setAns", "setFormFinish", "setUIA"]),
     ...mapActions(["getUserById"]),
     sumResult() {
       console.log(this.ans);
@@ -354,18 +354,19 @@ export default {
       this.ansvalue = 0;
 
       if (this.ans[145].ans_value == 3 || this.ans[146].ans_value == 3) {
-        return (this.anstitle = "มีการกลั้นปัสสาวะไม่อยู่ในระดับรุนแรงมาก");
+        this.anstitle = "มีการกลั้นปัสสาวะไม่อยู่ในระดับรุนแรงมาก";
       } else if (this.ans[145].ans_value == 2 || this.ans[146].ans_value == 2) {
-        return (this.anstitle = "มีการกลั้นปัสสาวะไม่อยู่ในระดับรุนแรงปานกลาง");
+        this.anstitle = "มีการกลั้นปัสสาวะไม่อยู่ในระดับรุนแรงปานกลาง";
       } else if (this.ans[145].ans_value == 1 && this.ans[146].ans_value == 1) {
-        return (this.anstitle = "มีการกลั้นปัสสาวะไม่อยู่ในระดับรุนแรงน้อย");
+        this.anstitle = "มีการกลั้นปัสสาวะไม่อยู่ในระดับรุนแรงน้อย";
       }
+      this.setUIA(this.anstitle);
     },
     Finish() {
-      this.formFinish.push("UIA")
+      this.formFinish.push("UIA");
       this.setFormFinish(this.formFinish);
       console.log(this.formFinish);
-    },
+    }
   },
   beforeRouteEnter(to, from, next) {
     console.log("before");

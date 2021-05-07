@@ -34,12 +34,12 @@
                         :native-value="ch.ans_value"
                         type="is-info"
                         @change.native="
-                          (e) =>
+                          e =>
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
                               title: ch.ans_title,
-                              u_id: 1,
+                              u_id: 1
                             })
                         "
                       >
@@ -80,12 +80,12 @@
                         :native-value="ch.ans_value"
                         type="is-info"
                         @change.native="
-                          (e) =>
+                          e =>
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
                               title: ch.ans_title,
-                              u_id: 1,
+                              u_id: 1
                             })
                         "
                       >
@@ -173,8 +173,7 @@
               >
                 ย้อนกลับ
               </p>
-              <router-link class="card-footer-item" to="/forms/form2"
-                >
+              <router-link class="card-footer-item" to="/forms/form2">
                 <p style="color: #047857" @click="Finish()">
                   ทำแบบประเมินถัดไป
                 </p>
@@ -192,7 +191,7 @@ import { mapState, mapMutations, mapActions } from "vuex";
 
 export default {
   components: {
-    Sidebar,
+    Sidebar
   },
   name: "Patientlist",
   data() {
@@ -204,52 +203,56 @@ export default {
       isEditResult: false,
       ansvalue: 0,
       anstitle: "",
-      // formFinish: 0
+      resultans: ""
     };
   },
   computed: {
     ...mapState({
-      count: (state) => state.count,
+      count: state => state.count,
       form: "json",
       ans: "keep_ans",
-      user: "user",
+      user: "user"
     }),
-    ...mapState(["formFinish"]),
+    ...mapState(["formFinish"])
   },
   methods: {
-    ...mapMutations(["setAns", "setFormFinish"]),
+    ...mapMutations(["setAns", "setFormFinish", "setMNA"]),
     ...mapActions(["getUserById"]),
     sumResult() {
       console.log(this.ans);
       this.isEditResult = true;
       this.ansvalue = 0;
       this.anstitle = "";
+      this.resultans = "";
+
       for (var i = 0; i < 7; i++) {
         this.ansvalue += this.ans[i].ans_value;
       }
 
       if (this.ansvalue >= 0 && this.ansvalue <= 7) {
-        return (this.anstitle = "มีภาวะขาดสารอาหาร");
+        this.anstitle = "มีภาวะขาดสารอาหาร";
       } else if (this.ansvalue >= 8 && this.ansvalue <= 11) {
-        return (this.anstitle = "มีความเสี่ยงต่อการเกิดภาวะขาดสารอาหาร");
+        this.anstitle = "มีความเสี่ยงต่อการเกิดภาวะขาดสารอาหาร";
       } else if (this.ansvalue >= 12 && this.ansvalue <= 14) {
-        return (this.anstitle = "ภาวะโภชนาการปกติ");
+        this.anstitle = "ภาวะโภชนาการปกติ";
       }
 
-      return this.ansvalue;
+      this.resultans = "ได้คะแนน " + this.ansvalue + " คะแนน " + this.anstitle;
+
+      this.setMNA(this.resultans);
     },
     Finish() {
-      this.formFinish.push("MNA")
+      this.formFinish.push("MNA");
       this.setFormFinish(this.formFinish);
       console.log(this.formFinish);
-    },
+    }
   },
   beforeRouteEnter(to, from, next) {
     console.log("before");
-    next((vm) => {
+    next(vm => {
       vm.getUserById();
     });
-  },
+  }
 };
 </script>
 <style>

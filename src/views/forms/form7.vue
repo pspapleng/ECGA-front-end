@@ -58,12 +58,12 @@
                         :native-value="ch.ans_value"
                         type="is-info"
                         @change.native="
-                          (e) =>
+                          e =>
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
                               title: ch.ans_title,
-                              u_id: 1,
+                              u_id: 1
                             })
                         "
                       >
@@ -167,7 +167,7 @@ import Sidebar from "@/components/sidebar.vue";
 import { mapState, mapMutations, mapActions } from "vuex";
 export default {
   components: {
-    Sidebar,
+    Sidebar
   },
   name: "Patientlist",
   data() {
@@ -179,24 +179,26 @@ export default {
       isEditResult: false,
       anstitle: "",
       ansvalue: 0,
+      resultans: ""
     };
   },
   computed: {
     ...mapState({
-      count: (state) => state.count,
+      count: state => state.count,
       form: "json",
       ans: "keep_ans",
-      user: "user",
+      user: "user"
     }),
-    ...mapState(["formFinish"]),
+    ...mapState(["formFinish"])
   },
   methods: {
-    ...mapMutations(["setAns", "setFormFinish"]),
+    ...mapMutations(["setAns", "setFormFinish", "setIQCODE"]),
     ...mapActions(["getUserById"]),
     sumResult() {
       this.isEditResult = true;
       this.ansvalue = 0;
       this.anstitle = "";
+      this.resultans = "";
 
       for (var i = 62; i < 70; i++) {
         this.ansvalue += this.ans[i].ans_value;
@@ -205,23 +207,26 @@ export default {
       this.ansvalue = this.ansvalue / 8;
 
       if (this.ansvalue >= 3.44) {
-        return (this.anstitle = "ผู้สูงอายุน่าจะมีภาวะสมองเสื่อม");
+        this.anstitle = "ผู้สูงอายุน่าจะมีภาวะสมองเสื่อม";
       } else {
-        return (this.anstitle = "ผู้สูงอายุอยู่ในเกณฑ์ปกติ");
+        this.anstitle = "ผู้สูงอายุอยู่ในเกณฑ์ปกติ";
       }
+
+      this.resultans = "ได้คะแนน " + this.ansvalue + " คะแนน " + this.anstitle;
+      this.setIQCODE(this.resultans);
     },
     Finish() {
       this.formFinish.push("MMSE");
       this.setFormFinish(this.formFinish);
       console.log(this.formFinish);
-    },
+    }
   },
   beforeRouteEnter(to, from, next) {
     console.log("before");
-    next((vm) => {
+    next(vm => {
       vm.getUserById();
     });
-  },
+  }
 };
 </script>
 <style>
