@@ -702,12 +702,12 @@
 
           <div class="columns mt-4">
             <div class="column is-1">
-              <router-link to="/forms/form10">
+              <router-link to="/forms/form7">
                 <b-button class="mr-2">
                   <b-icon icon="chevron-left"> </b-icon>
                 </b-button>
               </router-link>
-              <router-link to="/forms/form12">
+              <router-link to="/forms/form9">
                 <b-button>
                   <b-icon icon="chevron-right"> </b-icon>
                 </b-button>
@@ -776,8 +776,12 @@
               >
                 ย้อนกลับ
               </p>
-              <router-link class="card-footer-item" to="/forms/form9">
-                <p style="color: #047857" @click="Finish()">
+              <router-link
+                class="card-footer-item"
+                to="/forms/form9"
+                @click="Finish()"
+              >
+                <p style="color: #047857">
                   ทำแบบประเมินถัดไป
                 </p>
               </router-link>

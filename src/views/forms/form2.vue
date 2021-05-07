@@ -257,8 +257,12 @@
               >
                 ย้อนกลับ
               </p>
-              <router-link class="card-footer-item" to="/forms/form3">
-                <p style="color: #047857" @click="Finish()">
+              <router-link
+                class="card-footer-item"
+                to="/forms/form3"
+                @click="Finish()"
+              >
+                <p style="color: #047857">
                   ทำแบบประเมินถัดไป
                 </p>
               </router-link>
@@ -305,19 +309,19 @@ export default {
       this.anstitle1 = "";
 
       if (this.ans[11].ans_value == 1) {
-        this.anstitle1 += "เนื้อเยื่อในช่องปากผิดปกติ";
+        this.anstitle1 += " เนื้อเยื่อในช่องปากผิดปกติ";
       }
       if (this.ans[12].ans_value == 1) {
-        this.anstitle1 += "เหงือกและอวัยวะปริทันต์ผิดปกติ";
+        this.anstitle1 += " เหงือกและอวัยวะปริทันต์ผิดปกติ";
       }
       if (this.ans[13].ans_value == 1) {
-        this.anstitle1 += "ฟันผิดปกติ";
+        this.anstitle1 += " ฟันผิดปกติ";
       }
       if (this.ans[14].ans_value == 1) {
-        this.anstitle1 += "ปัญหาการเคี้ยวอาหารผิดปกติ";
+        this.anstitle1 += " ปัญหาการเคี้ยวอาหารผิดปกติ";
       }
       if (this.ans[15].ans_value == 1) {
-        this.anstitle1 += "ฟันเทียมผิดปกติ";
+        this.anstitle1 += " ฟันเทียมผิดปกติ";
       } else if (
         this.ans[11].ans_value == 0 &&
         this.ans[12].ans_value == 0 &&

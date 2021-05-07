@@ -166,8 +166,12 @@
               >
                 ย้อนกลับ
               </p>
-              <router-link class="card-footer-item" to="/startpage">
-                <p style="color: #047857" @click="Finish()">
+              <router-link
+                class="card-footer-item"
+                to="/startpage"
+                @click="Finish()"
+              >
+                <p style="color: #047857">
                   เสร็จสิ้นการทำแบบประเมิน
                 </p>
               </router-link>

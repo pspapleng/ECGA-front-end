@@ -131,8 +131,12 @@
               >
                 ย้อนกลับ
               </p>
-              <router-link class="card-footer-item" to="/forms/form13">
-                <p style="color: #047857" @click="Finish()">
+              <router-link
+                class="card-footer-item"
+                to="/forms/form13"
+                @click="Finish()"
+              >
+                <p style="color: #047857">
                   ทำแบบประเมินถัดไป
                 </p>
               </router-link>

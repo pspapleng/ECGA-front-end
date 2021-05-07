@@ -125,8 +125,12 @@
               >
                 ย้อนกลับ
               </p>
-              <router-link class="card-footer-item" to="/forms/form7">
-                <p style="color: #047857" @click="Finish()">
+              <router-link
+                class="card-footer-item"
+                to="/forms/form7"
+                @click="Finish()"
+              >
+                <p style="color: #047857">
                   ทำแบบประเมินถัดไป
                 </p>
               </router-link>
@@ -178,10 +182,10 @@ export default {
       }
 
       if (this.ansvalue >= 6 && this.ansvalue < 11) {
-        return (this.anstitle =
-          "บ่งบอกว่ามีภาวะซึมเศร้าควรติดตามหรือส่งพบแพทย์ประเมินอาการทางคลินิก");
+        this.anstitle =
+          "บ่งบอกว่ามีภาวะซึมเศร้าควรติดตามหรือส่งพบแพทย์ประเมินอาการทางคลินิก";
       } else if (this.ansvalue >= 11) {
-        return (this.anstitle = "มีภาวะซึมเศร้าแน่นอน ควรพบจิตแพทย์");
+        this.anstitle = "มีภาวะซึมเศร้าแน่นอน ควรพบจิตแพทย์";
       }
 
       this.resultans = "ได้คะแนน " + this.ansvalue + " คะแนน " + this.anstitle;
