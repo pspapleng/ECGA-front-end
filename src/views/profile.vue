@@ -189,11 +189,11 @@
                         * กรุณายืนยันรหัสผ่านให้ถูกต้อง
                       </p>
                     </template>
-                    <div class="buttons px-5">
+                    <div class="buttons ml-2 px-5">
                       <b-button class="save mt-4 px-6" @click="save">
                         บันทึก
                       </b-button>
-                      <b-button class="cancel mt-4 px-5" @click="cancel">
+                      <b-button class="cancel mt-4 px-6" @click="cancel">
                         ยกเลิก
                       </b-button>
                     </div>
