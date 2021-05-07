@@ -292,28 +292,29 @@ export default {
       this.anstitle = "";
 
       if (this.ans[38].ans_value == 1) {
-        this.anstitle += "นับนิ้วในระยะ 3 เมตรได้ถูกต้อง น้อยกว่า 3 ใน 4 ครั้ง";
+        this.anstitle +=
+          " นับนิ้วในระยะ 3 เมตรได้ถูกต้อง น้อยกว่า 3 ใน 4 ครั้ง";
       }
       if (this.ans[39].ans_value == 1) {
-        this.anstitle += "อ่านหนังสือพิมพ์หน้าหนึ่งในระยะ 1 ฟุต ไม่ได้";
+        this.anstitle += " อ่านหนังสือพิมพ์หน้าหนึ่งในระยะ 1 ฟุต ไม่ได้";
       }
       if (this.ans[40].ans_value == 1) {
-        this.anstitle += "ตาข้างซ้ายมัวคล้ายหมอกบัง";
+        this.anstitle += " ตาข้างซ้ายมัวคล้ายหมอกบัง";
       }
       if (this.ans[41].ans_value == 1) {
-        this.anstitle += "ตาข้างขวามัวคล้ายหมอกบัง";
+        this.anstitle += " ตาข้างขวามัวคล้ายหมอกบัง";
       }
       if (this.ans[42].ans_value == 1) {
-        this.anstitle += "ตาข้างซ้ายมองเห็นชัดแต่ตรงกลาง";
+        this.anstitle += " ตาข้างซ้ายมองเห็นชัดแต่ตรงกลาง";
       }
       if (this.ans[43].ans_value == 1) {
-        this.anstitle += "ตาข้างขวามองเห็นชัดแต่ตรงกลาง";
+        this.anstitle += " ตาข้างขวามองเห็นชัดแต่ตรงกลาง";
       }
       if (this.ans[44].ans_value == 1) {
-        this.anstitle += "ตาข้างซ้ายมองเห็นจุดดำกลางภาพ";
+        this.anstitle += " ตาข้างซ้ายมองเห็นจุดดำกลางภาพ";
       }
       if (this.ans[45].ans_value == 1) {
-        this.anstitle += "ตาข้างขวามองเห็นจุดดำกลางภาพ";
+        this.anstitle += " ตาข้างขวามองเห็นจุดดำกลางภาพ";
       } else if (
         this.ans[38].ans_value == 0 &&
         this.ans[39].ans_value == 0 &&
