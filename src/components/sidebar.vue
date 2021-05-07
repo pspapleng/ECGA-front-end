@@ -94,7 +94,7 @@ export default {
   },
   name: "Sidebar",
   methods: {
-    ...mapActions(["createLogout"]),
+    ...mapActions(["createLogout", "resetAns"]),
     logOut() {
       this.createLogout()
         .then(() => {
@@ -106,14 +106,31 @@ export default {
     },
     changeToPatient() {
       if (this.haveUserData) {
+        // this.keep_ans = JSON.parse(JSON.stringify(this.default_keep_ans));
+        // console.log(this.default_keep_ans);
+        // console.log(this.keep_ans);
+        this.resetAns();
+        this.keep_result = JSON.parse(
+          JSON.stringify(this.default_keep_results)
+        );
+
         this.$router.push({ name: "PatientList" });
       } else {
         alert("can't");
       }
     }
   },
+
   computed: {
-    ...mapState(["who_login", "u_Data", "result_id"]),
+    ...mapState([
+      "default_keep_ans",
+      "default_keep_results",
+      "who_login",
+      "u_Data",
+      "result_id",
+      "keep_ans",
+      "keep_result"
+    ]),
     currentRouteName() {
       return this.$route.name;
     },

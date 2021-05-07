@@ -8,6 +8,9 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    default_json: JSON.parse(JSON.stringify(question)),
+    default_keep_ans: JSON.parse(JSON.stringify(keep_ans)),
+    default_keep_results: JSON.parse(JSON.stringify(keep_results)),
     json: question,
     keep_ans: keep_ans,
     keep_result: keep_results,
@@ -76,6 +79,9 @@ export default new Vuex.Store({
     OSTA: ""
   },
   mutations: {
+    resetKeepAns(state) {
+      state.json = state.default_json;
+    },
     setCheckForm(state, payload) {
       state.checkForm = payload;
     },
@@ -251,6 +257,9 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    resetAns({ commit }) {
+      commit("resetKeepAns");
+    },
     createLogin({ state, commit, dispatch }) {
       // console.log(state.login);
       return Vue.axios
