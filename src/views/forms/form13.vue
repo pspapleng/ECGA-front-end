@@ -268,21 +268,10 @@ export default {
       console.log(this.formFinish);
       this.submitAll()
         .then(() => {
-          this.$router.push({ name: "startpage" });
+          this.$router.push({ name: "PatientList" });
         })
         .catch(e => {
           console.log(e);
-          if (Array.isArray(e.details)) {
-            console.log("yes");
-            let err = "";
-            e.details.forEach(e => {
-              err += " " + e.message;
-            });
-            alert(err);
-          } else {
-            console.log("no");
-            alert(e.details.message);
-          }
         });
     }
   },
