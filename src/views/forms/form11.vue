@@ -256,7 +256,7 @@
                 ย้อนกลับ
               </p>
               <router-link class="card-footer-item" to="/forms/form12">
-                <p style="color: #047857">
+                <p style="color: #047857" @click="Finish">
                   ทำแบบประเมินถัดไป
                 </p>
               </router-link>
@@ -284,7 +284,8 @@ export default {
       isEditResult: false,
       year: "",
       month: "",
-      anstitle: ""
+      anstitle: "",
+      sleeptime: ""
     };
   },
   computed: {
@@ -328,6 +329,11 @@ export default {
       }
 
       this.setSLEEP(this.anstitle);
+    },
+    Finish() {
+      this.formFinish.push("SLEEP");
+      this.setFormFinish(this.formFinish);
+      console.log(this.formFinish);
     }
   },
   beforeRouteEnter(to, from, next) {

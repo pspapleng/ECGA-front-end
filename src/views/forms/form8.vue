@@ -825,7 +825,7 @@ export default {
     ...mapState(["formFinish"])
   },
   methods: {
-    ...mapMutations(["setAns", "setFormFinish", "setFormFinish"]),
+    ...mapMutations(["setAns", "setFormFinish", "setMMSE"]),
     ...mapActions(["getUserById"]),
     sumResult() {
       console.log(this.ans);
@@ -869,7 +869,7 @@ export default {
       this.setMMSE(this.anstitle);
     },
     Finish() {
-      this.formFinish.push("IQCODE");
+      this.formFinish.push("MMSE");
       this.setFormFinish(this.formFinish);
       console.log(this.formFinish);
     }

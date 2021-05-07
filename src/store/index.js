@@ -79,6 +79,10 @@ export default new Vuex.Store({
     setCheckForm(state, payload) {
       state.checkForm = payload;
     },
+    resetCheckForm(state) {
+      state.formFinish = [];
+      state.checkForm = [];
+    },
     setState(state, { name, value }) {
       state[name] = value;
     },
@@ -406,7 +410,7 @@ export default new Vuex.Store({
         });
     },
     //
-    submitAll({ state, dispatch }) {
+    submitAll({ state, commit, dispatch }) {
       return Vue.axios
         .post(`http://localhost:3000/api/result/`, {
           result: {
@@ -428,6 +432,7 @@ export default new Vuex.Store({
         })
         .then(res => {
           dispatch("submitAns");
+          commit("resetCheckForm");
           return Promise.resolve(res);
         })
         .catch(err => {

@@ -216,7 +216,7 @@ export default {
       this.setIQCODE(this.resultans);
     },
     Finish() {
-      this.formFinish.push("MMSE");
+      this.formFinish.push("IQCODE");
       this.setFormFinish(this.formFinish);
       console.log(this.formFinish);
     }
