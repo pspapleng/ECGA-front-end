@@ -39,8 +39,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title,
-                              u_id: 1
+                              title: ch.ans_title
                             })
                         "
                       >
@@ -69,8 +68,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title,
-                              u_id: 1
+                              title: ch.ans_title
                             })
                         "
                       >
@@ -99,8 +97,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title + concatYear,
-                              u_id: 1
+                              title: ch.ans_title + concatYear
                             })
                         "
                       >
@@ -133,14 +130,13 @@
                       <input
                         type="text"
                         id="ques.ques_id"
-                        :value="ch.ans_title"
+                        v-model="ques.ans_input"
                         @change="
                           e =>
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title,
-                              u_id: 1
+                              title: ques.ans_input
                             })
                         "
                       />
@@ -174,8 +170,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title,
-                              u_id: 1
+                              title: ch.ans_title
                             })
                         "
                       >

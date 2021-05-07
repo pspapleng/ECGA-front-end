@@ -66,8 +66,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title,
-                              u_id: 1
+                              title: ch.ans_title
                             })
                         "
                       >
@@ -94,8 +93,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title,
-                              u_id: 1
+                              title: ch.ans_title
                             })
                         "
                       >
@@ -132,8 +130,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title,
-                              u_id: 1
+                              title: ch.ans_title
                             })
                         "
                       >
@@ -173,8 +170,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title,
-                              u_id: 1
+                              title: ch.ans_title
                             })
                         "
                       >
@@ -329,7 +325,7 @@ export default {
         this.ans[14].ans_value == 0 &&
         this.ans[15].ans_value == 0
       ) {
-        this.anstitle1 += "สุขภาวะทางตาปกติ";
+        this.anstitle1 += "ไม่มีความผิดปกติด้านสุขภาพช่องปาก";
       }
       this.setOCA(this.anstitle1);
     },

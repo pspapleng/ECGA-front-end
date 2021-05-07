@@ -186,10 +186,12 @@ export default new Vuex.Store({
       // console.log(payload);
       // console.log(idd);
       let target = state.keep_ans.find(e => e.ques_id === idd);
-      // console.log(target)
+      // console.log(target);
       target.ans_value = payload.value;
       target.ans_title = payload.title;
-      target.u_id = payload.UserId;
+      // target.u_id = payload.u_id;
+      target.u_id = state.UserId;
+      console.log(target);
     },
     setFormFinish(state, payload) {
       state.formFinish = payload;
@@ -367,7 +369,7 @@ export default new Vuex.Store({
         });
     },
     getUser({ state, commit }) {
-      console.log("get user");
+      // console.log("get user");
       console.log(state.in_search);
       Vue.axios
         .get(`http://localhost:3000/api/users`, {

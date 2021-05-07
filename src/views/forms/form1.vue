@@ -39,7 +39,7 @@
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
                               title: ch.ans_title,
-                              u_id: 1
+                              u_id: UserId
                             })
                         "
                       >
@@ -85,7 +85,7 @@
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
                               title: ch.ans_title,
-                              u_id: 1
+                              u_id: UserId
                             })
                         "
                       >
@@ -213,7 +213,7 @@ export default {
       ans: "keep_ans",
       user: "user"
     }),
-    ...mapState(["formFinish"])
+    ...mapState(["formFinish", "UserId"])
   },
   methods: {
     ...mapMutations(["setAns", "setFormFinish", "setMNA"]),

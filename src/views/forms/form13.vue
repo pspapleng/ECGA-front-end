@@ -71,6 +71,31 @@
               </div>
             </div>
           </div>
+          <!-- <div
+            class="card"
+            v-for="ques in form.slice(162, 163)"
+            :key="ques.ques_id"
+          >
+            <div class="card-content">
+              <div class="content">
+                <p>{{ ques.ques }}</p>
+                ค่าที่คำนวณได้เท่ากับ
+                <input
+                  disabled
+                  type="text"
+                  v-model="osta"
+                  @change.native="
+                    (e) =>
+                      setAns({
+                        id: ques.ques_id,
+                        value: parseInt(e.target.value),
+                        title: osta,
+                      })
+                  "
+                />
+              </div>
+            </div>
+          </div> -->
 
           <h1>ตารางประเมินความเสี่ยง</h1>
           <img style="width: 45%; height: 45%;" src="@/assets/ass_table1.png" />
@@ -217,6 +242,11 @@ export default {
         this.anstitle = "ความเสี่ยงต่ำ";
         this.anssuggest = "ยังไม่จำเป็นต้องตรวจความหนาแน่นกระดูก";
       }
+      this.setAns({
+        id: 163,
+        value: -1,
+        title: this.osta
+      });
 
       this.resultans =
         "ค่าที่คำนวณได้เท่ากับ " +

@@ -68,8 +68,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title + concatTimeTUG,
-                              u_id: 1
+                              title: ch.ans_title + concatTimeTUG
                             })
                         "
                       >
@@ -80,7 +79,7 @@
                   <form>
                     นาที : <input type="text" v-model="minsTUG" /> วินาที :
                     <input type="text" v-model="secTUG" /> เวลารวม :
-                    <input type="text" :value="concatTimeTUG" />
+                    <input disabled type="text" :value="concatTimeTUG" />
                   </form>
                 </div>
               </div>
@@ -108,8 +107,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title,
-                              u_id: 1
+                              title: ch.ans_title
                             })
                         "
                       >
@@ -143,8 +141,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title + etc,
-                              u_id: 1
+                              title: ch.ans_title + ques.ans_input
                             })
                         "
                       >
@@ -152,7 +149,7 @@
                       <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
                     </b-field>
                   </div>
-                  <input class="ml-5" value="etc" type="text" />
+                  <input class="ml-5" v-model="ques.ans_input" type="text" />
                 </div>
               </div>
             </div>
@@ -179,8 +176,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title,
-                              u_id: 1
+                              title: ch.ans_title
                             })
                         "
                       >
@@ -236,8 +232,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title + concatTimeFull,
-                              u_id: 1
+                              title: ch.ans_title + concatTimeFull
                             })
                         "
                       >
@@ -278,8 +273,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title,
-                              u_id: 1
+                              title: ch.ans_title
                             })
                         "
                       >
@@ -405,10 +399,10 @@ export default {
       user: "user"
     }),
     concatTimeTUG() {
-      return " " + this.minsTUG + "." + this.secTUG;
+      return " " + this.minsTUG + " นาที " + this.secTUG + " วินาที ";
     },
     concatTimeFull() {
-      return " " + this.minsFull + "." + this.secFull;
+      return " " + this.minsFull + " นาที " + this.secFull + " วินาที ";
     },
     ...mapState(["formFinish"])
   },

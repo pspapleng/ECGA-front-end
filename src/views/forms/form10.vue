@@ -40,8 +40,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title,
-                              u_id: 1
+                              title: ch.ans_title
                             })
                         "
                       >
@@ -79,8 +78,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title,
-                              u_id: 1
+                              title: ch.ans_title
                             })
                         "
                       >
@@ -112,8 +110,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title,
-                              u_id: 1
+                              title: ch.ans_title
                             })
                         "
                       >
@@ -145,8 +142,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title,
-                              u_id: 1
+                              title: ch.ans_title
                             })
                         "
                       >
@@ -178,8 +174,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title,
-                              u_id: 1
+                              title: ch.ans_title
                             })
                         "
                       >
@@ -215,8 +210,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title,
-                              u_id: 1
+                              title: ch.ans_title
                             })
                         "
                       >

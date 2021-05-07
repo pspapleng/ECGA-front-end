@@ -40,8 +40,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title,
-                              u_id: 1
+                              title: ch.ans_title
                             })
                         "
                       >
@@ -69,7 +68,7 @@
                   <input
                     style="float: left;"
                     type="text"
-                    :value="part1ans"
+                    v-model="ques.ans_input"
                   /><br />
                   <div v-for="ch in ques.choice" :key="ch.ans_id">
                     <b-field>
@@ -83,8 +82,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title,
-                              u_id: 1
+                              title: ch.ans_title + ques.ans_input
                             })
                         "
                       >
@@ -124,8 +122,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title,
-                              u_id: 1
+                              title: ch.ans_title
                             })
                         "
                       >
@@ -142,7 +139,11 @@
                   <p id="ques_title">
                     {{ ques.ques }}
                   </p>
-                  <input style="float: left;" type="text" /><br />
+                  <input
+                    style="float: left;"
+                    type="text"
+                    v-model="ques.ans_input"
+                  /><br />
                   <div v-for="ch in ques.choice" :key="ch.ans_id">
                     <b-field>
                       <b-radio
@@ -155,8 +156,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title,
-                              u_id: 1
+                              title: ch.ans_title + ques.ans_input
                             })
                         "
                       >
@@ -197,7 +197,7 @@
                   <input
                     style="float: left;"
                     type="text"
-                    :value="part1ans"
+                    v-model="ques.ans_input"
                   /><br />
                   <div v-for="ch in ques.choice" :key="ch.ans_id">
                     <b-field>
@@ -211,8 +211,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title,
-                              u_id: 1
+                              title: ch.ans_title + ques.ans_input
                             })
                         "
                       >
@@ -252,8 +251,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title,
-                              u_id: 1
+                              title: ch.ans_title
                             })
                         "
                       >
@@ -299,8 +297,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title + calNum,
-                              u_id: 1
+                              title: ch.ans_title + ques.ans_input
                             })
                         "
                       >
@@ -312,7 +309,7 @@
                     class="ml-5 mt-2"
                     style="float: left;"
                     type="text"
-                    :value="calNum"
+                    v-model="ques.ans_input"
                   />
                 </div>
               </div>
@@ -355,16 +352,15 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title + calNum,
-                              u_id: 1
+                              title: ch.ans_title + ques.ans_input
                             })
                         "
                       >
                       </b-radio>
                       <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
-                      <input class="ml-3" type="text" :value="calNum" />
                     </b-field>
                   </div>
+                  <input class="ml-3" type="text" v-model="ques.ans_input" />
                 </div>
               </div>
             </div>
@@ -399,20 +395,20 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title,
-                              u_id: 1
+                              title: ch.ans_title + ques.ans_input
                             })
                         "
                       >
                       </b-radio>
                       <label id="ques.ques_id" for="">{{ ch.ans_title }}</label>
-                      <input
-                        class="ml-5 mt-2"
-                        style="float: left;"
-                        type="text"
-                      />
                     </b-field>
                   </div>
+                  <input
+                    class="ml-5 mt-2"
+                    style="float: left;"
+                    type="text"
+                    v-model="ques.ans_input"
+                  />
                 </div>
               </div>
             </div>
@@ -433,7 +429,7 @@
                   <input
                     style="float: left;"
                     type="text"
-                    :value="part1ans"
+                    v-model="ques.ans_input"
                   /><br />
                   <div v-for="ch in ques.choice" :key="ch.ans_id">
                     <b-field>
@@ -447,8 +443,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title,
-                              u_id: 1
+                              title: ch.ans_title + ques.ans_input
                             })
                         "
                       >
@@ -486,7 +481,7 @@
                   <input
                     style="float: left;"
                     type="text"
-                    :value="part1ans"
+                    v-model="ques.ans_input"
                   /><br />
                   <div v-for="ch in ques.choice" :key="ch.ans_id">
                     <b-field>
@@ -500,8 +495,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title,
-                              u_id: 1
+                              title: ch.ans_title + ques.ans_input
                             })
                         "
                       >
@@ -548,8 +542,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title,
-                              u_id: 1
+                              title: ch.ans_title
                             })
                         "
                       >
@@ -596,8 +589,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title,
-                              u_id: 1
+                              title: ch.ans_title
                             })
                         "
                       >
@@ -644,8 +636,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title,
-                              u_id: 1
+                              title: ch.ans_title + ques.ans_input
                             })
                         "
                       >
@@ -654,7 +645,11 @@
                       ><br />
                     </b-field>
                   </div>
-                  <input style="float: left;" type="text" />
+                  <input
+                    style="float: left;"
+                    type="text"
+                    v-model="ques.ans_input"
+                  />
                   <p class="ml-6">ข้อความที่เขียน</p>
                 </div>
               </div>
@@ -691,8 +686,7 @@
                             setAns({
                               id: ques.ques_id,
                               value: parseInt(e.target.value),
-                              title: ch.ans_title,
-                              u_id: 1
+                              title: ch.ans_title
                             })
                         "
                       >
