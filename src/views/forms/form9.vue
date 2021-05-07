@@ -501,15 +501,13 @@ export default {
         this.valuepart3 +
         this.valuepart4 +
         this.valuepart5;
-      if (this.anssum >= 0 && this.sumans <= 16) {
-        return (this.anstitle =
-          "ไม่ต้องดูแลระยะยาว และสนับสนุนการส่งเสริมสุขภาพ");
+      if (this.anssum >= 0 && this.anssum <= 16) {
+        this.anstitle = "ไม่ต้องดูแลระยะยาว และสนับสนุนการส่งเสริมสุขภาพ";
       } else if (this.anssum >= 17 && this.anssum <= 19) {
-        return (this.anstitle =
-          "ต้องเฝ้าระวังและประเมินซ้ำทุก 6 เดือนหรือ 1 ปี");
+        this.anstitle = "ต้องเฝ้าระวังและประเมินซ้ำทุก 6 เดือนหรือ 1 ปี";
       } else if (this.anssum >= 20) {
-        return (this.anstitle =
-          "ต้องได้รับการดูแลระยะยาวและประเมินซ้ำทุกเดือนก่อนพบแพทย์");
+        this.anstitle =
+          "ต้องได้รับการดูแลระยะยาวและประเมินซ้ำทุกเดือนก่อนพบแพทย์";
       }
 
       this.resultans = "ได้คะแนน " + this.anssum + " คะแนน " + this.anstitle;
