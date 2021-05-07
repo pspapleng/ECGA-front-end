@@ -249,6 +249,7 @@ export default {
         new_password: "",
         confirm_password: ""
       },
+      defaultForm: {},
       isEdit: true
     };
   },
@@ -297,6 +298,11 @@ export default {
           .then(() => {
             alert("บันทึกข้อมูลเรียบร้อย");
             this.isEdit = true;
+            this.form.old_password = "";
+            this.form.new_password = "";
+            this.form.confirm_password = "";
+
+            this.defaultForm = JSON.parse(JSON.stringify(this.form));
           })
           .catch(e => {
             console.log(e.details);
@@ -322,6 +328,8 @@ export default {
       // this.form.confirm_password = "";
       // this.resetUpdateNurse();
       this.isEdit = true;
+      this.form = JSON.parse(JSON.stringify(this.defaultForm));
+      console.log(this.defaultForm);
     }
   },
   computed: {
@@ -329,7 +337,10 @@ export default {
   },
   watch: {},
   mounted() {
-    this.form = { ...this.form, ...this.who_login };
+    const temp = JSON.parse(JSON.stringify(this.who_login));
+
+    this.form = { ...this.form, ...temp };
+    this.defaultForm = JSON.parse(JSON.stringify(this.form));
   }
 };
 </script>
